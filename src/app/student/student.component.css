@@ -1,0 +1,64 @@
+.fancy{
+    margin-top: 60px;
+    padding : 1em;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    background-color: #E4E4D9;
+    color: black;
+    font-size: x-large;
+    font-family: 'Spartan', sans-serif;
+
+    background-image: linear-gradient(175deg, rgba(0,0,0,0) 95%, #8da389 95%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 95%, #8da389 95%),
+    linear-gradient(175deg, rgba(0,0,0,0) 90%, #b4b07f 90%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 92%, #b4b07f 92%),
+    linear-gradient(175deg, rgba(0,0,0,0) 85%, #c5a68e 85%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 89%, #c5a68e 89%),
+    linear-gradient(175deg, rgba(0,0,0,0) 80%, #ba9499 80%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 86%, #ba9499 86%),
+    linear-gradient(175deg, rgba(0,0,0,0) 75%, #9f8fa4 75%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 83%, #9f8fa4 83%),
+    linear-gradient(175deg, rgba(0,0,0,0) 70%, #74a6ae 70%),
+    linear-gradient( 85deg, rgba(0,0,0,0) 80%, #74a6ae 80%);
+}
+
+/*    <p title="student">
+        Student
+    </p>
+
+p[title]{
+    padding: 5px;
+    color: black;
+    font-size: xx-large;
+    font-family: 'Spartan', sans-serif;
+
+}
+
+p[title="student"]{
+    font-family: 'Spartan', sans-serif;
+    background-color: beige;
+}*/
+input[type="number"]{
+    background-color: beige;
+    font-family: 'Spartan', sans-serif;
+}
+
+
+button[type="submit"]{
+    background-color: darkgray;
+    border-radius: 4px;
+    font-family: 'Spartan', sans-serif;
+}
+
+div {
+    background-color: beige;
+    width: 300px;
+    border: 3px solid darkgray;
+    padding: 50px;
+    margin: auto;
+    margin-top: 100px;
+    font-family: 'Spartan', sans-serif;
+}
+
+

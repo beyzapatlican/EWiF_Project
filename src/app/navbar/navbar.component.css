@@ -1,0 +1,51 @@
+body {margin:0;}
+
+a.logo {
+    float: left;
+    font-weight: bold;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Spartan', sans-serif;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(133,0,61);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-family: 'Spartan', sans-serif;
+    font-size: 18px;
+}
+
+li a:hover:not(.active) {
+    background-color: black;
+}
+
+.active {
+    background-color: black;
+}
+
+
+
+
+
