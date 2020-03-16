@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 
 <style>
     .bg{
@@ -12,23 +11,30 @@
     }
 </style>
 
-
-
 <div class="bg" >
 
     <div id="signIn" class="container" style=" margin-top: 50px; margin-left: 150px ; border-radius: 15px 50px 30px;
-    background: rgb(95,95,95);
+    background: rgb(123,123,123);
     padding: 80px;
     width: 500px;
-    height: 500px;
-    margin-bottom: 100px;">
+    height: 500px;">
 
-        <h1 style="color: white ; font-family: Verdana, Geneva, sans-serif; size: 10px">Sign-In</h1>
+        <h1 style="color: white ;font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400;
+                                 size: 10px">Sign-In</h1>
 
 
         <div>
-            <label style="color: white; font-family: Verdana, Geneva, sans-serif " for="email" ><b>Email: </b></label>
-            <input type="text" placeholder="Geben Sie dein Email" name="email" required>
+            <label style="color: white; font-family: 'Spartan';
+                                        font-style: normal;
+                                        font-display: swap;
+                                        font-weight: 400; "
+                                        for="email" ><b>Email: </b></label>
+            <input style="font-family: 'Spartan';
+                          font-style: normal;
+                          font-display: swap;
+                          font-weight: 400; width: 200px"
+                          type="text"
+                          placeholder="Geben Sie dein Email" name="email" required>
         </div>
 
         <p></p>
@@ -36,19 +42,20 @@
 
 
         <div>
-            <label style="color: white; font-family: Verdana, Geneva, sans-serif " for="psw"><b>Passwort: </b></label>
-            <input type="password" placeholder="Geben Sie dein Password" name="psw" required>
+            <label style="color: white; font-family:'Spartan';font-style: normal; font-display: swap; font-weight: 400;" for="psw"><b>Passwort: </b></label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; width: 200px"
+                   type="password" placeholder="Geben Sie dein Password" name="psw" required>
         </div>
 
 
         <p></p>
 
-        <div style=" color: white; font-family: Verdana, Geneva, sans-serif "><b> Rolle: </b> <br>
+        <div style=" color: white; font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; "><b> Rolle: </b> <br>
 
             <input type="radio" id="student" name="role" value="student" required>
-            <label for="student" style=" color: white; font-family: Verdana, Geneva, sans-serif">Student</label><br>
+            <label for="student" style=" color: white; font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400;">Student</label><br>
             <input type="radio" id="teacher" name="role" value="Lehrer" required>
-            <label for="teacher"  style=" color: white; font-family: Verdana, Geneva, sans-serif"> Lehrer </label>
+            <label for="teacher"  style=" color: white; font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400;"> Lehrer </label>
 
             <br>
 
@@ -71,11 +78,11 @@
 
         <hr>
 
-        <p style=" color: white; font-family: Verdana, Geneva, sans-serif"> Passwort <a href="#" style="color: lightgray" (click)="$event"> vergessen? </a> </p>
-
-
+        <p style=" color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap;">Passwort <a href="./forgot-password" style="color: lightgray">vergessen?</a></p>
     </div>
 
 </div>
 
-<app-footer class="mt-auto"> </app-footer>

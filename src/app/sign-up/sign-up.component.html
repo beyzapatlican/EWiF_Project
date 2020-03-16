@@ -1,5 +1,3 @@
-<app-navbar></app-navbar>
-
 <style>
     .bg{
         width: 100%;
@@ -18,69 +16,110 @@
 <div class="bg" >
 
     <div id="signUp" class="container" style=" margin-top: 50px; margin-left: 150px ; border-radius: 15px 50px 30px;
-    background: rgb(95,95,95);
+    background: rgb(123,123,123);
     padding: 80px;
     width: 500px;
-    height: 500px;
-    margin-bottom: 100px;">
+    height: 500px;">
 
-        <h1 style="color: white ; font-family: Verdana, Geneva, sans-serif; size: 10px">Sign-Up</h1>
+        <h1 style="color: white ; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap; size: 10px">Sign-Up</h1>
 
 
-        <p style=" color: white; font-family: Verdana, Geneva, sans-serif">Bitte fuellen Sie dieses Formular aus, um ein Konto zu erstellen.</p>
+        <p style=" color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap;">
+          Bitte fuellen Sie dieses Formular aus, um ein Konto zu erstellen.</p>
 
         <div>
-            <label style="color: white; font-family: Verdana, Geneva, sans-serif " for="vorname" ><b>Vorname: </b></label>
-            <input type="text" placeholder="Vorname" name="vorname" required>
+            <label style="color: white; ffont-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap;" for="vorname" ><b>Vorname: </b></label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; width: 200px"
+                   type="text" placeholder="Vorname" name="vorname" required>
         </div>
 
         <p></p>
 
         <div>
-            <label style="color: white; font-family: Verdana, Geneva, sans-serif " for="name" ><b>Name: </b></label>
-            <input type="text" placeholder="Name" name="name" required>
+            <label style="color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap; " for="name" ><b>Name: </b></label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; width: 200px"
+                   type="text" placeholder="Name" name="name" required>
         </div>
 
         <p></p>
 
 
         <div>
-            <label style="color: white; font-family: Verdana, Geneva, sans-serif " for="username" ><b>Username: </b></label>
-            <input style="width: 180px" type="text" placeholder="Wählen Sie ein Benutzername" name="username" required>
+            <label style="color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap; " for="username" ><b>Username: </b></label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; width: 200px"
+                   type="text" placeholder="Wählen Sie ein Benutzername" name="username" required>
         </div>
 
         <p></p>
 
         <div>
-            <label style="color: white; font-family: Verdana, Geneva, sans-serif " for="email" ><b>Email: </b></label>
-            <input type="text" placeholder="Geben Sie dein Email" name="email" required>
+            <label style="color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap; " for="email" ><b>Email: </b></label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; width: 200px"
+                   type="text" placeholder="Geben Sie dein Email" name="email" required>
         </div>
 
         <p></p>
 
 
         <div>
-            <label  style="color: white; font-family: Verdana, Geneva, sans-serif " for="psw"><b>Passwort: </b></label>
-            <input type="password" placeholder="Wählen Sie dein Password" name="psw" required>
+            <label  style="color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap; " for="psw"><b>Passwort: </b></label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; width: 200px"
+                   type="password" placeholder="Wählen Sie dein Password" name="psw" required>
         </div>
 
 
         <p></p>
 
         <div>
-            <label style="color: white; font-family: Verdana, Geneva, sans-serif " for="psw-repeat"><b>Passwort wiederholen: </b></label>
-            <input style="width: 180px" type="password" placeholder="Widerholen Sie dein Password" name="psw-repeat" required>
+            <label style="color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap;" for="psw-repeat"><b>Passwort wiederholen: </b></label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400; width: 200px"
+                   type="password" placeholder="Widerholen Sie dein Password" name="psw-repeat" required>
 
         </div>
 
         <p></p>
 
-        <div style=" color: white; font-family: Verdana, Geneva, sans-serif "><b> Rolle: </b> <br>
+        <div style=" color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap; "><b> Rolle: </b> <br>
 
-            <input type="radio" id="student" name="role" value="student" required>
-            <label for="student" style=" color: white; font-family: Verdana, Geneva, sans-serif">Student</label><br>
-            <input type="radio" id="teacher" name="role" value="Lehrer" required>
-            <label for="teacher"  style=" color: white; font-family: Verdana, Geneva, sans-serif"> Lehrer </label>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400;"
+                   type="radio" id="student" name="role" value="student" required>
+            <label for="student" style=" color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap;">Student</label><br>
+            <input style="font-family: 'Spartan';font-style: normal; font-display: swap; font-weight: 400;"
+                   type="radio" id="teacher" name="role" value="Lehrer" required>
+            <label for="teacher"  style=" color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap;"> Lehrer </label>
 
             <br>
 
@@ -103,11 +142,12 @@
 
         <hr>
 
-        <p style=" color: white; font-family: Verdana, Geneva, sans-serif"> Hast du schon ein Konto? <a href="#" style="color: lightgray">Sign in</a>.</p>
+        <p style=" color: white; font-family: 'Spartan';
+                                 font-style: normal;
+                                 font-weight: 400;
+                                 font-display: swap;"> Hast du schon ein Konto? <a href="./signIn" style="color: lightgray">Sign in</a>.</p>
 
 
     </div>
 
 </div>
-
-<app-footer class="mt-auto"> </app-footer>
