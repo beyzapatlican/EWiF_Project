@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContactComponent } from './contact/contact.component';
     StudentComponent,
     HomepageComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ForgotUsernameComponent
   ],
   imports: [
     BrowserModule,
