@@ -1,0 +1,11 @@
+div {
+    background-color: beige;
+    width: 300px;
+    padding: 50px;
+    margin: auto;
+    margin-top: 100px;
+    font-family: 'Spartan', sans-serif;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+
+}

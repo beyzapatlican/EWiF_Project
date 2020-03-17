@@ -14,6 +14,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
+import { SessionManagementComponent } from './session-management/session-management.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ForgotUsernameComponent } from './forgot-username/forgot-username.compo
     HomepageComponent,
     AboutComponent,
     ContactComponent,
-    ForgotUsernameComponent
+    ForgotUsernameComponent,
+    SessionManagementComponent
   ],
   imports: [
     BrowserModule,

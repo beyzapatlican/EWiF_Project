@@ -11,6 +11,9 @@ import {ContactComponent} from './contact/contact.component';
 import {ForgotUsernameComponent} from './forgot-username/forgot-username.component';
 import {LehrerComponent} from './lehrer/lehrer.component';
 import {StudentComponent} from './student/student.component';
+import {SessionManagementComponent} from './session-management/session-management.component';
+import {FeedbackComponent} from './feedback/feedback.component';
+import {ReadfeedbackComponent} from './readfeedback/readfeedback.component';
 
 const routes: Routes = [
   { path: '',
@@ -46,6 +49,18 @@ const routes: Routes = [
   {
     path: 'student-pin',
     component: StudentComponent
+  },
+  {
+    path: 'session-management',
+    component: SessionManagementComponent
+  },
+  {
+    path: 'give-feedback',
+    component: FeedbackComponent
+  },
+  {
+    path: 'read-feedback',
+    component: ReadfeedbackComponent
   }
 ];
 
