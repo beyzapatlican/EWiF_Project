@@ -15,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
 import { SessionManagementComponent } from './session-management/session-management.component';
+import { AvailableSessionsComponent } from './available-sessions/available-sessions.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SessionManagementComponent } from './session-management/session-managem
     AboutComponent,
     ContactComponent,
     ForgotUsernameComponent,
-    SessionManagementComponent
+    SessionManagementComponent,
+    AvailableSessionsComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,8 @@ import {StudentComponent} from './student/student.component';
 import {SessionManagementComponent} from './session-management/session-management.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadfeedbackComponent} from './readfeedback/readfeedback.component';
+import {AvailableSessionsComponent} from './available-sessions/available-sessions.component';
+import {UserpageComponent} from './userpage/userpage.component';
 
 const routes: Routes = [
   { path: '',
@@ -55,12 +57,20 @@ const routes: Routes = [
     component: SessionManagementComponent
   },
   {
+    path: 'available-sessions',
+    component: AvailableSessionsComponent
+  },
+  {
     path: 'give-feedback',
     component: FeedbackComponent
   },
   {
     path: 'read-feedback',
     component: ReadfeedbackComponent
+  },
+  {
+    path: 'userpage',
+    component: UserpageComponent
   }
 ];
 
