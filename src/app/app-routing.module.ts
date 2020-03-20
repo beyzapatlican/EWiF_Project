@@ -14,7 +14,6 @@ import {StudentComponent} from './student/student.component';
 import {SessionManagementComponent} from './session-management/session-management.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadfeedbackComponent} from './readfeedback/readfeedback.component';
-import {UserpageComponent} from './userpage/userpage.component';
 import {AvailableSessionsComponent} from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
 

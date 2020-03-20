@@ -35,7 +35,7 @@ import { StarratingComponent } from './starrating/starrating.component';
     ContactComponent,
     ForgotUsernameComponent,
     SessionManagementComponent,
-    AvailableSessionsComponent
+    AvailableSessionsComponent,
     SessionManagementComponent,
     UserpageComponent,
     StarratingComponent
