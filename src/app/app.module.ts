@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {RatingModule} from 'ng-starrating';
 
 import { AppComponent } from './app.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
@@ -16,6 +17,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
 import { SessionManagementComponent } from './session-management/session-management.component';
 import { AvailableSessionsComponent } from './available-sessions/available-sessions.component';
+import {UserpageComponent} from './userpage/userpage.component';
+import { StarratingComponent } from './starrating/starrating.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +35,15 @@ import { AvailableSessionsComponent } from './available-sessions/available-sessi
     ContactComponent,
     ForgotUsernameComponent,
     SessionManagementComponent,
-    AvailableSessionsComponent
+    AvailableSessionsComponent,
+    SessionManagementComponent,
+    UserpageComponent,
+    StarratingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
