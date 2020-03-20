@@ -15,6 +15,8 @@ import {SessionManagementComponent} from './session-management/session-managemen
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadfeedbackComponent} from './readfeedback/readfeedback.component';
 import {UserpageComponent} from './userpage/userpage.component';
+import {AvailableSessionsComponent} from './available-sessions/available-sessions.component';
+import {UserpageComponent} from './userpage/userpage.component';
 
 const routes: Routes = [
   { path: '',
@@ -56,12 +58,20 @@ const routes: Routes = [
     component: SessionManagementComponent
   },
   {
+    path: 'available-sessions',
+    component: AvailableSessionsComponent
+  },
+  {
     path: 'give-feedback',
     component: FeedbackComponent
   },
   {
     path: 'read-feedback',
     component: ReadfeedbackComponent
+  },
+  {
+    path: 'userpage',
+    component: UserpageComponent
   },
   {
     path: 'app-userpage',

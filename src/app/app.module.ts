@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
 import { SessionManagementComponent } from './session-management/session-management.component';
+import { AvailableSessionsComponent } from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
 import { StarratingComponent } from './starrating/starrating.component';
 
@@ -33,6 +34,8 @@ import { StarratingComponent } from './starrating/starrating.component';
     AboutComponent,
     ContactComponent,
     ForgotUsernameComponent,
+    SessionManagementComponent,
+    AvailableSessionsComponent
     SessionManagementComponent,
     UserpageComponent,
     StarratingComponent
