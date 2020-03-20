@@ -42,7 +42,8 @@ import { StarratingComponent } from './starrating/starrating.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
