@@ -1,11 +1,23 @@
-div {
-    background-color: beige;
-    width: 300px;
-    padding: 50px;
-    margin: auto;
-    margin-top: 100px;
-    font-family: 'Spartan', sans-serif;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 
-
+}
+.container {
+  max-width: 400px;
+  width: 100%;
+  position: center;
+  background: beige;
+  padding: 25px;
+  margin: 150px auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-family: 'Spartan', sans-serif;
 }
