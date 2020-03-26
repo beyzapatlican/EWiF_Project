@@ -23,43 +23,79 @@
     linear-gradient( 85deg, rgba(0,0,0,0) 80%, #74a6ae 80%);
 }
 
-/*    <p title="student">
-        Student
-    </p>
-
-p[title]{
-    padding: 5px;
-    color: black;
-    font-size: xx-large;
-    font-family: 'Spartan', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 
 }
 
-p[title="student"]{
-    font-family: 'Spartan', sans-serif;
-    background-color: beige;
-}*/
+.container {
+  max-width: 400px;
+  width: 100%;
+  position: center;
+  background: beige;
+  padding: 25px;
+  margin: 150px auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-family: 'Spartan', sans-serif;
+}
+
+
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+  font-family: 'Spartan', sans-serif;
+}
+
 input[type="number"]{
-    background-color: beige;
-    font-family: 'Spartan', sans-serif;
+  background-color: beige;
+  font-family: 'Spartan', sans-serif;
 }
 
 
 button[type="submit"]{
-    background-color: darkgray;
-    border-radius: 4px;
-    font-family: 'Spartan', sans-serif;
+  background-color: darkgray;
+  border-radius: 4px;
+  font-family: 'Spartan', sans-serif;
 }
 
-div {
-    background-color: beige;
-    width: 300px;
-    padding: 50px;
-    margin: auto;
-    margin-top: 100px;
-    font-family: 'Spartan', sans-serif;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
+.copyright {
+  text-align: center;
+}
 
+#contact input:focus,
+
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
 }
 
