@@ -18,7 +18,6 @@ import { ForgotUsernameComponent } from './forgot-username/forgot-username.compo
 import { SessionManagementComponent } from './session-management/session-management.component';
 import { AvailableSessionsComponent } from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
-import { StarratingComponent } from './starrating/starrating.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { StarratingComponent } from './starrating/starrating.component';
     SessionManagementComponent,
     AvailableSessionsComponent,
     SessionManagementComponent,
-    UserpageComponent,
-    StarratingComponent
+    UserpageComponent
   ],
   imports: [
     BrowserModule,
