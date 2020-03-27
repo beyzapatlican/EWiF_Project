@@ -1,5 +1,9 @@
+nav{
+   padding: 0px;
+ }
 div.container-fluid{
   background-color: rgb(133,0,61);
+  display: inline;
 }
 li a {
   display: block;
@@ -17,4 +21,8 @@ li a:hover:not(.active) {
 
 .active {
   background-color: white;
+}
+
+ul{
+  display: inline;
 }
