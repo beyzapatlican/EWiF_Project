@@ -72,10 +72,6 @@ const routes: Routes = [
     path: 'userpage',
     component: UserpageComponent
   },
-  {
-    path: 'app-userpage',
-    component: UserpageComponent
-  }
 ];
 
 
