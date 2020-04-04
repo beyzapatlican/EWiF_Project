@@ -18,6 +18,8 @@ import { ForgotUsernameComponent } from './forgot-username/forgot-username.compo
 import { SessionManagementComponent } from './session-management/session-management.component';
 import { AvailableSessionsComponent } from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
+import { QuestionTypeComponent } from './question-type/question-type.component';
+import { FreetextComponent } from './freetext/freetext.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {UserpageComponent} from './userpage/userpage.component';
     SessionManagementComponent,
     AvailableSessionsComponent,
     SessionManagementComponent,
-    UserpageComponent
+    UserpageComponent,
+    QuestionTypeComponent,
+    FreetextComponent
   ],
   imports: [
     BrowserModule,
