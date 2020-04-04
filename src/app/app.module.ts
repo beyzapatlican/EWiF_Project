@@ -22,6 +22,7 @@ import { QuestionTypeComponent } from './question-type/question-type.component';
 import { FreetextComponent } from './freetext/freetext.component';
 import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {TruefalseComponent} from './truefalse/truefalse.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RatingModule
+    RatingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
