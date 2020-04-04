@@ -18,9 +18,8 @@ import { ForgotUsernameComponent } from './forgot-username/forgot-username.compo
 import { SessionManagementComponent } from './session-management/session-management.component';
 import { AvailableSessionsComponent } from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
-import {FormsModule} from '@angular/forms';
-import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.component';
-import { TruefalseComponent } from './truefalse/truefalse.component';
+import { QuestionTypeComponent } from './question-type/question-type.component';
+import { FreetextComponent } from './freetext/freetext.component';
 
 @NgModule({
   declarations: [
@@ -40,15 +39,14 @@ import { TruefalseComponent } from './truefalse/truefalse.component';
     AvailableSessionsComponent,
     SessionManagementComponent,
     UserpageComponent,
-    MultiplechoiceComponent,
-    TruefalseComponent
+    QuestionTypeComponent,
+    FreetextComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RatingModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RatingModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

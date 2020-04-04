@@ -16,7 +16,7 @@ import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadfeedbackComponent} from './readfeedback/readfeedback.component';
 import {AvailableSessionsComponent} from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
-import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component';
+import {QuestionTypeComponent} from './question-type/question-type.component';
 
 const routes: Routes = [
   { path: '',
@@ -78,8 +78,8 @@ const routes: Routes = [
     component: UserpageComponent
   },
   {
-    path: 'multiplechoice',
-    component: MultiplechoiceComponent
+    path: 'question-type',
+    component: QuestionTypeComponent
   }
 ];
 
