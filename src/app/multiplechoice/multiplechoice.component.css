@@ -44,7 +44,12 @@ button{
 }
 
 input{
-  text-align: center;
+  text-align: left;
+  background-color: whitesmoke;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+textarea{
+  text-align: left;
   background-color: whitesmoke;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

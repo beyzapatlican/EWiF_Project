@@ -2,26 +2,29 @@
 <body>
 <div>
   <div class="container">
-    <p> Question:<input type="text" ng-model="question" placeholder="Your question"></p>
-    <p> Question Id:<input type="text" ng-model="question" placeholder="Question Id" ></p>
+
+    <p> Question:<textarea rows="4" cols="50" name="comment" ng-model="question" placeholder="Your question" ></textarea></p>
+    <p> Question Id: &nbsp;<input type="text" ng-model="question" placeholder="Question Id" ></p>
+
+
 
     <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+      <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" /> &nbsp;
       <label for="question-1-answers-A"><input type="text" ng-model="answer" placeholder="Answer " ></label>
     </div>
 
     <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+      <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />&nbsp;
       <label for="question-1-answers-B"><input type="text" ng-model="answer" placeholder="Answer 2" ></label>
     </div>
 
     <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
+      <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />&nbsp;
       <label for="question-1-answers-C"><input type="text" ng-model="answer" placeholder="Answer 3" ></label>
     </div>
 
     <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
+      <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />&nbsp;
       <label for="question-1-answers-D"><input type="text" ng-model="answer" placeholder="Answer 4" ></label>
     </div>
 
