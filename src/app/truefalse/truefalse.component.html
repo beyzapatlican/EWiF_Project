@@ -1,0 +1,42 @@
+
+<body>
+<div>
+  <div class="container">
+
+    <p> Question:<input type="text" ng-model="question" placeholder="Your question" [(ngModel)]="question" required=""></p>
+    <p> Question Id:<input type="text" ng-model="question" placeholder="Question Id" [(ngModel)]="questionId" required=""></p>
+
+    <div>
+      <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+      <label for="question-1-answers-A"><input type="text" ng-model="answer" placeholder="Answer 1" [(ngModel)]="answer" value="A"></label>
+    </div>
+
+    <div>
+      <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+      <label for="question-1-answers-B"><input type="text" ng-model="answer" placeholder="Answer 2" [(ngModel)]="answer2" value="B"></label>
+    </div>
+
+    <div>
+      <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
+      <label for="question-1-answers-C"><input type="text" ng-model="answer" placeholder="Answer 3" [(ngModel)]="answer3" value="C"></label>
+    </div>
+
+    <div>
+      <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
+      <label for="question-1-answers-D"><input type="text" ng-model="answer" placeholder="Answer 4" [(ngModel)]="answer4" value="D"></label>
+    </div>
+
+    <button class="btn btn-info my-4 btn-block"  (click)= "ekle(question, questionId)"> Ekle </button>
+
+    <div class="fancy">
+
+      <p *ngFor="let abc of arr">{{abc.question + ","+  abc.questionId + "," + answer + ","+ answer2 +","+ answer3+ ","+ answer4}}  </p>
+
+    </div>
+
+    <p>Delete:<input type="text" > <button class="btn btn-info my-4 btn-block" (click)= "sil(questionId)"> Sil </button> </p>
+
+
+  </div>
+</div>
+</body>

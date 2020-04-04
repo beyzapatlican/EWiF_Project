@@ -18,6 +18,9 @@ import { ForgotUsernameComponent } from './forgot-username/forgot-username.compo
 import { SessionManagementComponent } from './session-management/session-management.component';
 import { AvailableSessionsComponent } from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
+import {FormsModule} from '@angular/forms';
+import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.component';
+import { TruefalseComponent } from './truefalse/truefalse.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +39,16 @@ import {UserpageComponent} from './userpage/userpage.component';
     SessionManagementComponent,
     AvailableSessionsComponent,
     SessionManagementComponent,
-    UserpageComponent
+    UserpageComponent,
+    MultiplechoiceComponent,
+    TruefalseComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RatingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RatingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
