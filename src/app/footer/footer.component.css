@@ -1,38 +1,13 @@
-
-.footer {
-    position: sticky;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(133,0,61);
-    color: white;
-    padding-bottom: 10px;
-    padding-top:10px;
-    padding-left: 25px;
-    font-family: Verdana, Geneva, sans-serif
-
+.map-container{
+  overflow:hidden;
+  padding-bottom:25.25%;
+  position:relative;
+  height:0;
 }
-
-.column1 {
-    float: left;
-    width: 15%;
-}
-
-.column2{
-    float: left;
-    width: 52%;
-}
-
-.column3{
-    float: left;
-    width: 33%;
-}
-
-
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+.map-container iframe{
+  left:0;
+  top:0;
+  height:80%;
+  width:120%;
+  position:absolute;
 }
