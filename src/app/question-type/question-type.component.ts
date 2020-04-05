@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MultiplechoiceComponent} from '../multiplechoice/multiplechoice.component';
+import {FreetextComponent} from '../freetext/freetext.component';
+import {TruefalseComponent} from '../truefalse/truefalse.component';
 
 @Component({
   selector: 'app-question-type',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionTypeComponent implements OnInit {
 
+  selected1: MultiplechoiceComponent;
+  selected2: FreetextComponent;
+  selected3: TruefalseComponent;
 
-
-  constructor() { }
+  constructor() {
+    this.selected1 = new MultiplechoiceComponent();
+    this.selected2 = new FreetextComponent();
+    this.selected3 = new TruefalseComponent();
+  }
 
   ngOnInit(): void {
   }
