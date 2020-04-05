@@ -33,7 +33,7 @@ button{
   border-color: rgb(133,0,61);
 }
 
-input{
+input[type=text]{
   text-align: center;
   background-color: whitesmoke;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
