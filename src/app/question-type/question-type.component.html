@@ -1,39 +1,36 @@
 <hr>
 
-<div class="container-fluid" style=" position: center; margin-top: 50px; border-radius: 15px 50px 30px;
-    background: rgb(123,123,123);
-    padding: 80px;
-    width: 1000px;">
-    <p class="h4 mb-4 " style="font-size: 40px ; color: white">Fragensatz vorbereiten</p>
+  <div class="container container-fluid">
 
+    <div class="row">
 
-  <table class="table">
-    <tr id="row">
-      <td>
-        <p style="color: white;">Wähle ein Type: </p>
-      </td>
+      <div class="col-sm-12" style="margin-top: 50px; margin-bottom: 50px; border-radius: 15px 50px 30px;
+                            background: rgb(123,123,123); padding: 80px; width: 1000px;"> <h1 style="color: white">
+        Fragensatz Vorbereiten</h1>
 
-      <td>
-        <div class="styled-select">
-          <select  style="color: white">
-            <option value="0"> </option>
-            <option value="1">Richtig / Falsch</option>
-            <option value="2">Mehrfachauswahl</option>
-            <option value="3">Freitext</option>
-          </select>
-          <span class="fa fa-sort-desc"></span>
-        </div>
-      </td>
+        <label style="color: white; margin-right: 10px"> Wähle ein Type :</label>
 
+        <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61)"
+                (click) = "onUpdate1()">Richtig Falsch</button>
 
+        <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61) ;border-color: rgb(133,0,61)"
+                (click) = "onUpdate2()">Multiple Choise</button>
 
-  </table>
+        <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61)"
+                (click) = "onUpdate3()">Freitext</button>
 
-  <hr>
+        <hr>
 
-</div>
+        <p *ngIf="selected1">
+          <app-truefalse></app-truefalse>
+        </p>
 
-
-<hr>
-
-
+        <p *ngIf="selected2">
+          <app-multiplechoice></app-multiplechoice>
+        </p>
+        <p *ngIf="selected3">
+          <app-freetext></app-freetext>
+        </p>
+      </div>
+    </div>
+  </div>

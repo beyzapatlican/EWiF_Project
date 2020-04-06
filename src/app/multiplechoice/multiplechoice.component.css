@@ -1,5 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
+.bg{
+
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color : rgb(123,123,123);
+}
+
+
 body {
   margin: 0;
   padding: 0;

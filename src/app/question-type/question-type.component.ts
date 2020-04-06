@@ -10,17 +10,27 @@ import {TruefalseComponent} from '../truefalse/truefalse.component';
 })
 export class QuestionTypeComponent implements OnInit {
 
-  selected1: MultiplechoiceComponent;
-  selected2: FreetextComponent;
-  selected3: TruefalseComponent;
-
-  constructor() {
-    this.selected1 = new MultiplechoiceComponent();
-    this.selected2 = new FreetextComponent();
-    this.selected3 = new TruefalseComponent();
-  }
+  selected1 = false;
+  selected2 = false;
+  selected3 = false;
 
   ngOnInit(): void {
   }
 
+  onUpdate1() {
+    this.selected1 = true;
+    this.selected2 = false;
+    this.selected3 = false;
+  }
+
+  onUpdate2() {
+    this.selected2 = true;
+    this.selected1 = false;
+    this.selected3 = false;
+  }
+  onUpdate3() {
+    this.selected3 = true;
+    this.selected1 = false;
+    this.selected2 = false;
+  }
 }
