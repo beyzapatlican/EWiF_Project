@@ -1,34 +1,37 @@
-
 <body>
-<div>
-  <div class="container">
-    <p> Question:<input type="text" ng-model="question" placeholder="Your question"></p>
-    <p> Question Id:<input type="text" ng-model="question" placeholder="Question Id" ></p>
+<div class ="bg">
+  <div class="container" style="margin-left: 0">
 
-    <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
-      <label for="question-1-answers-A"><input type="text" ng-model="answer" placeholder="Answer " ></label>
-    </div>
+    <form action="/action_page.php" method="get">
+      <label for="question">Question:</label>
+      <textarea rows="4" cols="45" name="comment" ng-model="question" placeholder="Your question" ></textarea><br><br>
+      <label for="questionId">Question Id:</label>
+      <input type="text" id="questionId" placeholder="Question Id" name="questionId"><br><br>
 
-    <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
-      <label for="question-1-answers-B"><input type="text" ng-model="answer" placeholder="Answer 2" ></label>
-    </div>
+      <div>
+        <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />&nbsp;
+        <label for="question-1-answers-A"><input type="text" ng-model="answer" placeholder="Answer " ></label>
+      </div>
 
-    <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
-      <label for="question-1-answers-C"><input type="text" ng-model="answer" placeholder="Answer 3" ></label>
-    </div>
+      <div>
+        <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />&nbsp;
+        <label for="question-1-answers-B"><input type="text" ng-model="answer" placeholder="Answer 2" ></label>
+      </div>
 
-    <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
-      <label for="question-1-answers-D"><input type="text" ng-model="answer" placeholder="Answer 4" ></label>
-    </div>
+      <div>
+        <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />&nbsp;
+        <label for="question-1-answers-C"><input type="text" ng-model="answer" placeholder="Answer 3" ></label>
+      </div>
 
+      <div>
+        <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />&nbsp;
+        <label for="question-1-answers-D"><input type="text" ng-model="answer" placeholder="Answer 4" ></label>
+      </div>
 
-    <button class="btn btn-info my-4 btn-block" > Ekle </button>
+      <button type="submit" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
+      <button type="reset" class="btn btn-info my-2" value="Reset">Reset</button>
 
-
+    </form>
   </div>
 </div>
 </body>

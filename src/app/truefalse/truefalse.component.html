@@ -1,23 +1,29 @@
 
 <body>
-<div>
+<div class="bg">
+
   <div class="container">
-    <p> Question:<input type="text" ng-model="question" placeholder="Your question"></p>
-    <p> Question Id:<input type="text" ng-model="question" placeholder="Question Id" ></p>
 
-    <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
-      <label for="question-1-answers-A">True</label>
-    </div>
+    <form action="/action_page.php" method="get">
+      <label for="question">Question:</label>
+      <textarea rows="4" cols="45" name="comment" ng-model="question" placeholder="Your question" ></textarea><br><br>
+      <label for="questionId">Question Id:</label>
+      <input type="text" id="questionId" placeholder="Question Id" name="questionId"><br><br>
 
-    <div>
-      <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
-      <label for="question-1-answers-B">False</label>
-    </div>
+      <div>
+        <input type="radio" name="question-1-answers" id="question-1-answers-A" value="T" />
+        <label for="question-1-answers-A">True</label>
+      </div>
 
+      <div>
+        <input type="radio" name="question-1-answers" id="question-1-answers-B" value="F" />
+        <label for="question-1-answers-B">False</label>
+      </div>
 
-    <button class="btn btn-info my-4 btn-block" > Ekle </button>
+      <button type="submit" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
+      <button type="reset" class="btn btn-info my-2" value="Reset">Reset</button>
 
+    </form>
 
   </div>
 </div>
