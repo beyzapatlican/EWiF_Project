@@ -16,25 +16,25 @@
         <hr>
 
           <!-- Username -->
-          <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername">
+          <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #name>
 
         <p></p>
 
         <!-- E-mail -->
-        <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required>
+        <input type="form" id="defaultRegisterFormEMail" class="form-control" placeholder="E-Mail">
 
         <p></p>
 
         <!-- Password -->
-        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
         <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
 
         <p></p>
 
 
         <!-- Sign in button -->
-        <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
-
+        <button class="btn btn-info my-4 btn-block" type="submit" (click)="Create(name, password)"  style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
+        <li *ngFor="let post of posts">{{post.createdAt}} {{post.body}} {{post.id}}</li>
         <hr>
 
         <!-- Terms of service -->

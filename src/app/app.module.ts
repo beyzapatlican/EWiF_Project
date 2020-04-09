@@ -23,6 +23,8 @@ import { FreetextComponent } from './freetext/freetext.component';
 import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {PostService} from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -51,9 +53,10 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     RatingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
