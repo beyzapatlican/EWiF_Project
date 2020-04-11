@@ -18,7 +18,7 @@ export class SignInComponent implements OnInit {
   }
 
   onCreatePost(postData: {title: string; content: string}) {
-    this.http.post('https://localhost:8443/login', postData)
+    this.http.post('localhost:8080/login', postData)
       .subscribe(responseData => {
         console.log(responseData);
       });
