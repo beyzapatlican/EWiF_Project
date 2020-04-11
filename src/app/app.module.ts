@@ -56,7 +56,7 @@ import {PostService} from './services/post.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [PostService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

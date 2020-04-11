@@ -9,7 +9,7 @@
     <div class="col-sm-6" style=" margin-top: 50px; margin-bottom: 50px; border-radius: 15px 50px 30px;
                             background: rgb(123,123,123); padding: 80px; width: 1000px;">
 
-      <form class="text-center border border-light p-5" action="#!">
+      <form class="text-center border border-light p-5" action="#!" #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
 
         <p class="h4 mb-4 " style="font-size: 50px ; color: white">Sign In</p>
 
@@ -33,8 +33,7 @@
 
 
         <!-- Sign in button -->
-        <button class="btn btn-info my-4 btn-block" type="submit" (click)="Create(name, password)"  style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
-        <li *ngFor="let post of posts">{{post.createdAt}} {{post.body}} {{post.id}}</li>
+        <button class="btn btn-info my-4 btn-block" type="submit" [disabled]="!postForm.valid" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
         <hr>
 
         <!-- Terms of service -->
