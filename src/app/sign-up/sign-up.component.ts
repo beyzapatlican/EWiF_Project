@@ -7,8 +7,19 @@ import {AuthService} from '../services/auth.service';
 })
 export class SignUpComponent implements OnInit {
 
+  selectedRole1 = false;
+  selectedRole2 = false;
   constructor(private authService: AuthService) { }
 
+  onUpdate1() {
+    this.selectedRole1 = true;
+    this.selectedRole2 = false;
+  }
+
+  onUpdate2() {
+    this.selectedRole1 = false;
+    this.selectedRole2 = true;
+  }
   ngOnInit() {
   }
 

@@ -22,17 +22,17 @@
 
           <p></p>
 
-          <input type="form" id="defaultRegisterFormLastName" class="form-control" placeholder="Nachname">
+          <input type="form" id="defaultRegisterFormLastName" class="form-control" placeholder="Nachname" #nachname>
 
           <p></p>
 
           <!-- Username -->
-          <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username>
+          <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername"  #username>
 
           <p></p>
 
           <!-- E-mail -->
-          <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required #email>
+          <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"  #email>
 
           <p></p>
 
@@ -44,18 +44,28 @@
 
 
           <!-- Role -->
-          <label style="color: white"><input type="radio" name="optradio" value="TEACHER"  #role>Lehrer</label>
+          <div class="div" align="left">
+            <label style="color: white"><input type="radio" name="optradio" value="TEACHER"  #role1 (click)="onUpdate1()" >  Lehrer</label>
+          </div>
+
+          <div class="div" align="left">
+            <label style="color: white"><input type="radio" name="optradio" value="STUDENT"  #role2 (click)="onUpdate2()" > Studierende</label>
+          </div>
+
           <p></p>
-
-          <label style="color: white"><input type="radio" name="optradio" value="STUDENT" #role1> Studierende</label>
-
-          <p></p>
-
-          <!-- Sign up button -->
-          <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
-              (click)="Register(name,username, email, password, role)">Register</button>
 
           <hr>
+          <a *ngIf="selectedRole1 === false && selectedRole2=== false" class="btn btn-info my-4 btn-block" type="submit" style="color: white; background: rgb(133,0,61); border-color: rgb(133,0,61)"
+                  >Register</a>
+
+          <a href="success" *ngIf="selectedRole1" class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
+                  (click)="Register(name,username, email, password, role1)">Register</a>
+
+
+          <a href="success" *ngIf="selectedRole2" class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61) "
+              (click)="Register(name,username, email, password, role2 )">Register </a>
+
+
 
           <p style="color: white">Hast du schon
             <em>ein Konto? </em>

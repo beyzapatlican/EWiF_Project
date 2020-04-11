@@ -26,6 +26,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {PostService} from './services/post.service';
 import {AuthService} from './services/auth.service';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {AuthService} from './services/auth.service';
     QuestionTypeComponent,
     FreetextComponent,
     MultiplechoiceComponent,
-    TruefalseComponent
+    TruefalseComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
