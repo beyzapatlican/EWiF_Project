@@ -1,7 +1,9 @@
 <hr>
 
 <div class="bg">
-
+  <div class="alert alert-danger" *ngIf="error">
+    {{error.message}}
+  </div>
 <div class="container container-fluid">
 
   <div class="row">
@@ -29,9 +31,9 @@
         <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
 
         <p></p>
-
-
         <!-- Sign in button -->
+        <button (click)="createLogin(username, password)"class="btn btn-info my-4 btn-block" type="submit"style="background:
+        rgb(133,0,61); border-color:rgb(133,0,61); border-color: rgb(133,0,61) ">Anmelden</button>
         <hr>
         <a href="success"  class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61) "
            (click)="createLogin(username, password )">Anmelden </a>

@@ -13,6 +13,7 @@ export class SignInComponent implements OnInit {
   username: string;
   password: string;
   posts: [any, any];
+  error;
 
   constructor(private loginService: LoginService) {}
 
@@ -33,7 +34,7 @@ export class SignInComponent implements OnInit {
     this.loginService.getPost()
       .subscribe(response => {
         this.posts = response as [any, any];
-
-      });
+      },
+          error => this.error = error);
   }
 }
