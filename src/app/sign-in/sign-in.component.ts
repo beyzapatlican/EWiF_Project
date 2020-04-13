@@ -14,27 +14,24 @@ export class SignInComponent implements OnInit {
   password: string;
   posts: [any, any];
   error;
+  loadedPosts = [];
 
   constructor(private loginService: LoginService) {}
 
 
-  createLogin(username: HTMLInputElement, password: HTMLInputElement) {
-    const post = {title: username.value, content: password.value};
-    username.value = '';
-    password.value = '';
-
-    this.loginService.createLogin(JSON.stringify(post))
-      .subscribe(response => {
-        // tslint:disable-next-line:no-unused-expression
-        post['name,pass'] = response['name,pass'];
-        this.posts.splice(0, 0, post);
-      });
-}
   ngOnInit(): void {
-    this.loginService.getPost()
-      .subscribe(response => {
-        this.posts = response as [any, any];
-      },
-          error => this.error = error);
+  }
+
+  Login(username: HTMLInputElement, password: HTMLInputElement) {
+
+    const regObj = {
+      username: username.value,
+      password: password.value,
+    };
+
+    this.loginService.Login(regObj)
+      .subscribe(resp => {
+        console.log(resp);
+      });
   }
 }

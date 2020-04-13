@@ -12,11 +12,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  getPost() {
-    return this.http.get(this.url);
+  Login(object) {
+    const headers = {'Content-Type': 'application/json'};
+    return this.http.post(this.url + '/' + 'login', object);
   }
-
-  createLogin(post) {
-   return this.http.post(this.url, JSON.stringify(post));
   }
-}
