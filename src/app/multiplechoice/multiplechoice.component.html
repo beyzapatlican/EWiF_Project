@@ -1,37 +1,66 @@
-<body>
-<div class ="bg">
-  <div class="container" style="margin-left: 0">
 
-    <form action="/action_page.php" method="get">
-      <label for="question">Question:</label>
-      <textarea rows="4" cols="45" name="comment" ng-model="question" placeholder="Your question" ></textarea><br><br>
-      <label for="questionId">Question Id:</label>
-      <input type="text" id="questionId" placeholder="Question Id" name="questionId"><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
 
-      <div>
-        <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />&nbsp;
-        <label for="question-1-answers-A"><input type="text" ng-model="answer" placeholder="Answer " ></label>
-      </div>
+      <form>
 
-      <div>
-        <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />&nbsp;
-        <label for="question-1-answers-B"><input type="text" ng-model="answer" placeholder="Answer 2" ></label>
-      </div>
+        <div class="form-group row">
+          <label for="inputQuestion" class="col-form-label" style="color: white; font-size: 15px">Frage :  </label>
+          <div class="col-sm-8">
+            <textarea style="margin-left: 18px" class="form-control" id="inputQuestion" rows="3"></textarea>
+          </div>
+        </div>
 
-      <div>
-        <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />&nbsp;
-        <label for="question-1-answers-C"><input type="text" ng-model="answer" placeholder="Answer 3" ></label>
-      </div>
+        <br>
 
-      <div>
-        <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />&nbsp;
-        <label for="question-1-answers-D"><input type="text" ng-model="answer" placeholder="Answer 4" ></label>
-      </div>
 
-      <button type="submit" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
-      <button type="reset" class="btn btn-info my-2" value="Reset">Reset</button>
+        <div class="form-group row">
+          <label for="questionId" class="col-form-label" style="color: white; font-size: 15px">Frage ID: </label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="questionId" placeholder="Frage ID">
+          </div>
+        </div>
 
-    </form>
+        <br>
+
+        <div>
+          <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />&nbsp;
+          <label for="question-1-answers-A">
+            <input type="text" class="form-control" placeholder="Antwort 1">
+          </label>
+        </div>
+
+        <div>
+          <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />&nbsp;
+          <label for="question-1-answers-B">
+            <input type="text" class="form-control" placeholder="Antwort 2">
+          </label>
+        </div>
+
+        <div>
+          <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />&nbsp;
+          <label for="question-1-answers-C">
+            <input type="text" class="form-control" placeholder="Antwort 3">
+          </label>
+        </div>
+
+        <div>
+          <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />&nbsp;
+          <label for="question-1-answers-D">
+            <input type="text" class="form-control" placeholder="Antwort 4">
+          </label>
+        </div>
+
+
+      </form>
+
+      <br>
+
+      <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" type="submit" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
+      <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)"type="reset" class="btn btn-info my-2" value="Reset">Reset</button>
+
+    </div>
   </div>
 </div>
-</body>
+

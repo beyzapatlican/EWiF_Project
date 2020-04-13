@@ -19,6 +19,7 @@ import {UserpageComponent} from './userpage/userpage.component';
 import {QuestionTypeComponent} from './question-type/question-type.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component';
+import {SuccessComponent} from './success/success.component';
 
 const routes: Routes = [
   { path: '',
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path: 'truefalse',
     component: TruefalseComponent
+  },
+  {
+    path: 'success',
+    component: SuccessComponent
   }
 ];
 
