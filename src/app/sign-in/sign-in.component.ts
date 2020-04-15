@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PostService} from '../services/post.service';
 import {Post} from '../models/post';
 import {HttpClient} from '@angular/common/http';
+import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,19 +10,28 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
+  username: string;
+  password: string;
+  posts: [any, any];
+  error;
   loadedPosts = [];
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private loginService: LoginService) {}
+
 
   ngOnInit(): void {
   }
 
-  onCreatePost(postData: {title: string; content: string}) {
-    this.http.post('https://localhost:8443/login', postData)
-      .subscribe(responseData => {
-        console.log(responseData);
+  Login(username: HTMLInputElement, password: HTMLInputElement) {
+
+    const regObj = {
+      username: username.value,
+      password: password.value,
+    };
+
+    this.loginService.Login(regObj)
+      .subscribe(resp => {
+        console.log(resp);
       });
   }
-
 }
