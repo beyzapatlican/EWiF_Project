@@ -1,1 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
+.form-group row{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+}
