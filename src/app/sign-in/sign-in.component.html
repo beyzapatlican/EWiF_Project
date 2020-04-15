@@ -4,7 +4,7 @@
 
 
 
-    <form id="login" class="text-center" action="#!" #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+    <form id="login" class="text-center" action="#!">
 
       <h3 style="font-size: 50px">Sign In</h3>
 
@@ -28,7 +28,7 @@
 
 
       <!-- Sign in button -->
-      <button class="btn btn-info my-4 btn-block" type="submit" [disabled]="!postForm.valid" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
+      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
       <hr style="border-color: dimgray">
 
       <!-- Forgot? -->
