@@ -1,30 +1,21 @@
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
-.fancy{
-  margin-top: 60px;
-  padding : 1em;
-  width: 100%;
-  height: 100px;
-  box-sizing: border-box;
-  background-color: #E4E4D9;
-  color: black;
-  font-size: x-large;
-  font-family: 'Spartan', sans-serif;
-
-  background-image: linear-gradient(175deg, rgba(0,0,0,0) 95%, #8da389 95%),
-  linear-gradient( 85deg, rgba(0,0,0,0) 95%, #8da389 95%),
-  linear-gradient(175deg, rgba(0,0,0,0) 90%, #b4b07f 90%),
-  linear-gradient( 85deg, rgba(0,0,0,0) 92%, #b4b07f 92%),
-  linear-gradient(175deg, rgba(0,0,0,0) 85%, #c5a68e 85%),
-  linear-gradient( 85deg, rgba(0,0,0,0) 89%, #c5a68e 89%),
-  linear-gradient(175deg, rgba(0,0,0,0) 80%, #ba9499 80%),
-  linear-gradient( 85deg, rgba(0,0,0,0) 86%, #ba9499 86%),
-  linear-gradient(175deg, rgba(0,0,0,0) 75%, #9f8fa4 75%),
-  linear-gradient( 85deg, rgba(0,0,0,0) 83%, #9f8fa4 83%),
-  linear-gradient(175deg, rgba(0,0,0,0) 70%, #74a6ae 70%),
-  linear-gradient( 85deg, rgba(0,0,0,0) 80%, #74a6ae 80%);
+body, html {
+  height: 100%;
 }
+.bg {
+  /* The image used */
+  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");
 
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 body {
   margin: 0;
@@ -37,20 +28,29 @@ body {
   -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
 }
 
 .container {
   max-width: 400px;
   width: 100%;
+  margin: 0 auto;
   position: center;
-  background: beige;
+}
+#teacher {
+  background:  #C7DBDA;
   padding: 25px;
-  margin: 150px auto;
+  margin: 150px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 15px 50px 30px;
 }
 
 
+#teacher h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
 
 fieldset {
   border: medium none !important;
@@ -60,14 +60,9 @@ fieldset {
   width: 100%;
 }
 
+#teacher input:focus,
 
-.copyright {
-  text-align: center;
-}
-
-#contact input:focus,
-
-#contact textarea:focus {
+#teacher textarea:focus {
   outline: 0;
   border: 1px solid #aaa;
 }
@@ -87,3 +82,6 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
+
+
+

@@ -1,4 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 
 body {
     margin: 0;
@@ -26,10 +43,11 @@ body {
 }
 
 #contact {
-    background: beige;
+    background:  #C7DBDA;
     padding: 25px;
     margin: 150px 0;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 15px 50px 30px;
 }
 
 
@@ -51,12 +69,19 @@ fieldset {
     cursor: pointer;
     width: 100%;
     border: none;
-    background: darkgray;
-    color: rgb(133,0,61);
+    background:  rgb(133,0,61);
+    color:white;
     margin: 0 0 5px;
     padding: 10px;
     font-size: 15px;
 }
+
+#feedback{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+}
+
 
 #contact button[type="submit"]:hover {
     background: black;

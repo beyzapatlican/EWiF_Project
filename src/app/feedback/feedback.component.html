@@ -1,69 +1,73 @@
 <body>
-<div>
+<div class="bg">
     <div class="container">
 
       <form id="contact" action="" method="post">
-            <h3>Give Your Feedback</h3>
 
-        <div class="custom-control custom-radio ">
-          <label>Overall Satisfaction</label>
+        <h3 style="font-size:35px">Gebe dein Feedback</h3>
+        <hr style="border-color: dimgray">
+
+
+
+
+        <div id="feedback" class="custom-control custom-radio ">
+          <label>Allgemeine Zufriedenheit</label>
           <p>
             <label class="radio-inline">
               <input type="radio" name="satisfaction" id="radio_experience" value="bad" >
-              Bad
+              Schlecht
             </label>
             <label class="radio-inline">
               <input type="radio" name="satisfaction" id="radio_experience2" value="average" >
-              Average
+              Durchschnittlich
             </label>
 
             <label class="radio-inline">
               <input type="radio" name="satisfaction" id="radio_experience3" value="good" >
-              Good
+              Gut
             </label>
           </p>
         </div>
 
-
         <div class="custom-control custom-radio ">
-          <label>Overall Experience</label>
+          <label>Gesamterlebnis</label>
           <p>
             <label class="radio-inline">
               <input type="radio" name="experience" id="radio_experience4" value="bad" >
-              Bad
+              Schlecht
             </label>
             <label class="radio-inline">
               <input type="radio" name="experience" id="radio_experience5" value="average" >
-              Average
+              Durchschnittlich
             </label>
 
             <label class="radio-inline">
               <input type="radio" name="experience" id="radio_experience6" value="good" >
-              Good
+              Gut
             </label>
           </p>
         </div>
 
-
-
         <div class="custom-control custom-radio ">
-          <label>Difficulty of the lesson</label>
+          <label>Schwierigkeit der Lektion</label>
           <p>
             <label class="radio-inline">
               <input type="radio" name="difficulty" id="radio_experience7" value="bad" >
-              Easy
+              Einfach
             </label>
             <label class="radio-inline">
               <input type="radio" name="difficulty" id="radio_experience8" value="average" >
-              Average
+              Durchschnittlich
             </label>
 
             <label class="radio-inline">
               <input type="radio" name="difficulty" id="radio_experience9" value="good" >
-              Hard
+              Schwer
             </label>
           </p>
         </div>
+
+        <hr style="border-color:#C7DBDA; ">
 
             <fieldset>
                 <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
@@ -73,10 +77,11 @@
 
             </fieldset>
 
-            <fieldset>
-                <button type="submit">Submit</button>
-            </fieldset>
-        </form>
+        <hr style="border-color:#C7DBDA; ">
+
+        <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Senden</button>
+
+      </form>
     </div>
 </div>
 </body>
