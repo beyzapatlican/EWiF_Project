@@ -24,9 +24,9 @@ import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.compone
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {PostService} from './services/post.service';
 import {AuthService} from './services/auth.service';
 import { SuccessComponent } from './success/success.component';
+import {LoginService} from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { SuccessComponent } from './success/success.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

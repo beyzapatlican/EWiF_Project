@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {PostService} from '../services/post.service';
-import {Post} from '../models/post';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from '../services/login.service';
 
@@ -12,7 +10,6 @@ import {LoginService} from '../services/login.service';
 export class SignInComponent implements OnInit {
   username: string;
   password: string;
-  posts: [any, any];
   error;
   loadedPosts = [];
 
