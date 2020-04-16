@@ -1,58 +1,51 @@
-<hr>
-
+<body>
 <div class="bg">
-  <div class="alert alert-danger" *ngIf="error">
-    {{error.message}}
-  </div>
-<div class="container container-fluid">
+  <div class="container">
 
-  <div class="row">
 
-    <div class="col-sm-6" style=" margin-top: 50px; margin-bottom: 50px; border-radius: 15px 50px 30px;
-                            background: rgb(123,123,123); padding: 80px; width: 1000px;">
 
-      <form class="text-center border border-light p-5" action="#!">
+    <form id="login" class="text-center" action="#!">
 
-        <p class="h4 mb-4 " style="font-size: 50px ; color: white">Sign In</p>
+      <h3 style="font-size: 50px">Sign In</h3>
 
-        <hr>
+      <hr style="border-color:dimgray; ">
 
-          <!-- Username -->
-          <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username>
+      <!-- Username -->
+      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #name>
 
-        <p></p>
+      <p></p>
 
-        <!-- E-mail -->
+      <!-- E-mail -->
+      <input type="form" id="defaultRegisterFormEMail" class="form-control" placeholder="E-Mail">
 
-        <p></p>
+      <p></p>
 
-        <!-- Password -->
-        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
-        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
+      <!-- Password -->
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
+      <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
 
-        <p></p>
-        <!-- Sign in button -->
-        <button (click)="createLogin(username, password)"class="btn btn-info my-4 btn-block" type="submit"style="background:
-        rgb(133,0,61); border-color:rgb(133,0,61); border-color: rgb(133,0,61) ">Anmelden</button>
-        <hr>
-        <a href="success"  class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61) "
-           (click)="createLogin(username, password )">Anmelden </a>
+      <p></p>
 
-        <!-- Terms of service -->
-        <p style="color: white"> <em>Passwort </em>
+
+      <!-- Sign in button -->
+      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
+      <hr style="border-color: dimgray">
+
+      <!-- Forgot? -->
+
+        <p> <em>Passwort </em>
 
           <a href="forgot-password" style="color:rgb(133,0,61)">vergessen?</a>
 
-        <p style="color: white"> <em>Benutzername </em>
+        <p> <em>Benutzername </em>
 
           <a href="forgot-username" style="color:rgb(133,0,61)">vergessen?</a>
 
-      </form>
-      <!-- Default form register -->
 
-    </div>
+
+    </form>
+    <!-- Default form register -->
+
   </div>
-
 </div>
-
-</div>
+</body>

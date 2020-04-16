@@ -1,36 +1,48 @@
 <hr>
-
+<div class="bg">
   <div class="container container-fluid">
 
     <div class="row">
 
-      <div class="col-sm-12" style="margin-top: 50px; margin-bottom: 50px; border-radius: 15px 50px 30px;
-                            background: rgb(123,123,123); padding: 80px; width: 1000px;"> <h1 style="color: white">
-        Fragensatz Vorbereiten</h1>
+      <div id = "question" class="col-sm-12">
 
-        <label style="color: white; margin-right: 10px"> Wähle ein Type :</label>
+        <h3 style="font-size: 50px">Fragensatz Vorbereiten</h3>
 
-        <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61)"
-                (click) = "onUpdate1()">Richtig Falsch</button>
+        <hr style="border-color: dimgray">
+        <br>
+        <div class="text">
+          <label style=" margin-right: 10px; font-family: 'Roboto';
+                                              font-style: normal;
+                                              font-weight: 400;"> Wähle ein Type :</label>
 
-        <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61) ;border-color: rgb(133,0,61)"
-                (click) = "onUpdate2()">Multiple Choise</button>
+          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"
+                  (click) = "onUpdate1()">Richtig Falsch</button>
 
-        <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61)"
-                (click) = "onUpdate3()">Freitext</button>
+          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61) ;border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"
+                  (click) = "onUpdate2()">Multiple Choise</button>
 
-        <hr>
+          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"
+                  (click) = "onUpdate3()">Freitext</button>
 
-        <p *ngIf="selected1">
-          <app-truefalse></app-truefalse>
-        </p>
+          <br>
 
-        <p *ngIf="selected2">
-          <app-multiplechoice></app-multiplechoice>
-        </p>
-        <p *ngIf="selected3">
-          <app-freetext></app-freetext>
-        </p>
+          <hr style="border-color: dimgray">
+
+          <p *ngIf="selected1">
+            <app-truefalse></app-truefalse>
+          </p>
+
+          <p *ngIf="selected2">
+            <app-multiplechoice></app-multiplechoice>
+          </p>
+          <p *ngIf="selected3">
+            <app-freetext></app-freetext>
+          </p>
+        </div>
+
+
       </div>
     </div>
   </div>
+</div>
+
