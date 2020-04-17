@@ -8,7 +8,7 @@
           <label for="inputQuestion" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
           font-weight: 400; ">Frage :  </label>
           <div class="col-sm-8">
-            <textarea style="margin-left: 18px" class="form-control" id="inputQuestion" rows="3" placeholder="Geben Sie Ihre Frage ein"></textarea>
+            <input name="question" style="margin-left: 18px" class="form-control" id="inputQuestion" rows="3" [(ngModel)]="question" placeholder="Geben Sie Ihre Frage ein">
           </div>
         </div>
 
@@ -16,7 +16,7 @@
           <label for="inputAntwort" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
                                       font-weight: 400; ">Antwort :  </label>
           <div class="col-sm-8">
-            <textarea class="form-control" id="inputAntwort" rows="3" placeholder="Geben Sie Ihre Antwort ein"></textarea>
+            <input name="solutionStr" class="form-control" id="inputAntwort" rows="3" [(ngModel)]="solution" placeholder="Geben Sie Ihre Antwort ein">
           </div>
         </div>
 
@@ -26,7 +26,7 @@
           <label for="questionId" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
                                       font-weight: 400; ">Frage ID: </label>
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="questionId" placeholder="Frage ID">
+            <input type="number" name="questionNum" class="form-control" id="questionId" [(ngModel)]="questionNum" placeholder="Frage ID">
           </div>
         </div>
 
@@ -36,7 +36,7 @@
 
 
 
-      <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" type="submit" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
+      <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" type="submit" (click)="saveQuestion(question, solution, questionNum)" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
       <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)"type="reset" class="btn btn-info my-2" value="Reset">Reset</button>
 
     </div>
