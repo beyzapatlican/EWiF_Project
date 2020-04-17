@@ -11,26 +11,26 @@
       <br>
 
 
-      <input type="form" id="defaultRegisterFormName" class="form-control" placeholder="Vorname" #name>
+      <input type="form" id="defaultRegisterFormName" class="form-control" placeholder="Vorname*"  #name>
 
       <p></p>
 
-      <input type="form" id="defaultRegisterFormLastName" class="form-control" placeholder="Nachname" #nachname>
+      <input type="form" id="defaultRegisterFormLastName" class="form-control" placeholder="Nachname*" #nachname>
 
       <p></p>
 
       <!-- Username -->
-      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername"  #username>
+      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername*"  #username>
 
       <p></p>
 
       <!-- E-mail -->
-      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"  #email>
+      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*"  #email>
 
       <p></p>
 
       <!-- Password -->
-      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password*" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
 
       <p></p>
@@ -41,14 +41,14 @@
         <label style="font-family: 'Roboto';
                       font-style: normal;
                       font-weight: 400;">
-          <input type="radio" name="optradio" value="TEACHER"  #role1 (click)="onUpdate1()" >  Lehrer</label>
+          <input type="radio" name="optradio" value="TEACHER"  #role1 (click)="onUpdate1()" >  Lehrer*</label>
       </div>
 
       <div class="div" align="left">
         <label style="font-family: 'Roboto';
                       font-style: normal;
                       font-weight: 400;">
-          <input type="radio" name="optradio" value="STUDENT"  #role2 (click)="onUpdate2()" > Studierende</label>
+          <input type="radio" name="optradio" value="STUDENT"  #role2 (click)="onUpdate2()" > Studierende*</label>
       </div>
 
       <p></p>
@@ -62,7 +62,7 @@
          (click)="Register(name,username, email, password, role1)">Register</a>
 
 
-      <a href="success" *ngIf="selectedRole2" class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61) "
+      <a href="success" *ngIf="selectedRole2" class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
          (click)="Register(name,username, email, password, role2 )">Register </a>
 
 
