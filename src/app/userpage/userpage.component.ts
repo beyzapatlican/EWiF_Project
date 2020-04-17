@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {changePassService} from '../services/changePass.service';
 
 @Component({
   selector: 'app-userpage',
@@ -6,13 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-
-  constructor() { }
+  // tslint:disable-next-line:no-shadowed-variable
+  constructor(private changePassService: changePassService) { }
 
   ngOnInit() {
   }
 
-  save() {
+  changePassword(oldPassword: HTMLInputElement, newPassword: HTMLInputElement) {
 
+    const passObj = {
+      oldPassword: oldPassword.value,
+      newPassword: newPassword.value
+    };
+
+    this.changePassService.changePass(passObj)
+      .subscribe(resp => {
+        console.log(resp);
+      });
   }
 }

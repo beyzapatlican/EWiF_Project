@@ -10,18 +10,20 @@
       <div id="text">
 
         <h5> Hier können Sie Ihr Passwort ändern</h5>
+        <br>
+      <input id="oldPass" type="form" class="form-control"
+             placeholder="Derzeitiges Passwort" #oldPassword>
+
+
 
         <br>
-
-      <input type="form" class="form-control" placeholder="Username" >
-        <br>
-      <input type="form" class="form-control" placeholder="Derzeitiges Passwort">
-        <br>
-      <input type="form" class="form-control" placeholder="Neu Passwort" >
+      <input id="newPass" type="form" class="form-control"
+             placeholder="Neu Passwort" #newPassword>
 
       </div>
 
-      <button class="btn btn-info my-4 btn-block" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Save </button>
+      <button class="btn btn-info my-4 btn-block" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
+              (click)="changePassword(oldPassword,newPassword)">Speichern </button>
 
     </fieldset>
   </div>
