@@ -11,14 +11,10 @@
       <hr style="border-color:dimgray; ">
 
       <!-- Username -->
-      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #name>
+      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username>
 
       <p></p>
 
-      <!-- E-mail -->
-      <input type="form" id="defaultRegisterFormEMail" class="form-control" placeholder="E-Mail">
-
-      <p></p>
 
       <!-- Password -->
       <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
@@ -28,7 +24,7 @@
 
 
       <!-- Sign in button -->
-      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
+      <button class="btn btn-info my-4 btn-block" (click)="Login(username, password)" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
       <hr style="border-color: dimgray">
 
       <!-- Forgot? -->
