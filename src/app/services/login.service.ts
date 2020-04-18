@@ -23,7 +23,7 @@ export class LoginService {
     const headers = {'Content-Type': 'application/json'};
     if (object.username !== '' && object.password !== '') {
       this.loggedIn.next(true);
-      this.router.navigate(['/navbar2']);
+      this.router.navigate(['/']);
     }
     return this.http.post(this.url + '/' + 'login', object);
   }
