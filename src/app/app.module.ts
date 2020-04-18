@@ -23,10 +23,11 @@ import { FreetextComponent } from './freetext/freetext.component';
 import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {PostService} from './services/post.service';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthService} from './services/auth.service';
 import { SuccessComponent } from './success/success.component';
+import {LoginService} from './services/login.service';
+import {TokenService} from './services/token.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,12 @@ import { SuccessComponent } from './success/success.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, LoginService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

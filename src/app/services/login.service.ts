@@ -16,4 +16,12 @@ export class LoginService {
     const headers = {'Content-Type': 'application/json'};
     return this.http.post(this.url + '/' + 'login', object);
   }
+
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
   }
