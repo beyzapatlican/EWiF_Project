@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from '../services/login.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,12 +14,31 @@ export class SignInComponent implements OnInit {
   error;
   loadedPosts = [];
 
-  constructor(private loginService: LoginService) {}
+  form: FormGroup;
+  private formSubmitAttempt: boolean;
+  constructor(private loginService: LoginService,
+              private fb: FormBuilder) {}
 
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+  isFieldInvalid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSubmitAttempt)
+    );
   }
 
+  onSubmit() {
+    if (this.form.valid) {
+      this.loginService.Login(this.form.value);
+    }
+    this.formSubmitAttempt = true;
+  }
   Login(username: HTMLInputElement, password: HTMLInputElement) {
 
     const regObj = {

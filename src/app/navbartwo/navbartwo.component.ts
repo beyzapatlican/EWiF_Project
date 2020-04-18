@@ -3,21 +3,19 @@ import {Observable} from 'rxjs';
 import {LoginService} from '../services/login.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-navbartwo',
+  templateUrl: './navbartwo.component.html',
+  styleUrls: ['./navbartwo.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbartwoComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
+
   constructor(private loginService: LoginService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.isLoggedIn$ = this.loginService.isLoggedIn;
   }
-
   onLogout() {
     this.loginService.logout();
   }
-
-
 }

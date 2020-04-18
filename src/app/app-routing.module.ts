@@ -20,6 +20,7 @@ import {QuestionTypeComponent} from './question-type/question-type.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component';
 import {SuccessComponent} from './success/success.component';
+import {LoginGuard} from './login.guard';
 
 const routes: Routes = [
   { path: '',
