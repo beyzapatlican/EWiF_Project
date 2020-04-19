@@ -4,22 +4,26 @@
 
 
 
-    <form id="login" class="text-center" action="#!">
+    <form id="login" class="text-center" action="#!" [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <h3 style="font-size: 50px">Sign In</h3>
 
       <hr style="border-color:dimgray; ">
 
       <!-- Username -->
-      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username>
-
+      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username formControlName="username" required>
+      <div *ngIf="isFieldInvalid('userName')">
+        Please inform your user name
+      </div>
       <p></p>
 
 
       <!-- Password -->
-      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password formControlName="password" required>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
-
+      <div *ngIf="isFieldInvalid('userName')">
+        Please inform your password
+      </div>
       <p></p>
 
 

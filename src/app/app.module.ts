@@ -22,12 +22,14 @@ import { QuestionTypeComponent } from './question-type/question-type.component';
 import { FreetextComponent } from './freetext/freetext.component';
 import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthService} from './services/auth.service';
 import { SuccessComponent } from './success/success.component';
 import {LoginService} from './services/login.service';
 import {TokenService} from './services/token.service';
+import { NavbartwoComponent } from './navbartwo/navbartwo.component';
+import {LoginGuard} from './login.guard';
 
 @NgModule({
   declarations: [
@@ -51,16 +53,18 @@ import {TokenService} from './services/token.service';
     FreetextComponent,
     MultiplechoiceComponent,
     TruefalseComponent,
-    SuccessComponent
+    SuccessComponent,
+    NavbartwoComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RatingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [AuthService, LoginService,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RatingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
+  providers: [AuthService, LoginService, LoginGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,

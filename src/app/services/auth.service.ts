@@ -11,6 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   Register(obj) {
+    const headers = {'Content-Type': 'application/json'};
     return this.http.post(this.apiUrl + '/' + 'register', obj);
   }
 }
