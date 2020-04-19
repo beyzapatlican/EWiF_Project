@@ -12,7 +12,7 @@
 
       <!-- Username -->
       <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username formControlName="username" required>
-      <div *ngIf="isFieldInvalid('userName')">
+      <div *ngIf="isFieldInvalid('username')">
         Please inform your user name
       </div>
       <p></p>
@@ -21,7 +21,7 @@
       <!-- Password -->
       <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password formControlName="password" required>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
-      <div *ngIf="isFieldInvalid('userName')">
+      <div *ngIf="isFieldInvalid('password')">
         Please inform your password
       </div>
       <p></p>
