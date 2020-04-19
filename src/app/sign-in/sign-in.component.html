@@ -11,7 +11,7 @@
       <hr style="border-color:dimgray; ">
 
       <!-- Username -->
-      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username formControlName="username" required>
+      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username [(ngModel)]="usernameData" formControlName="username" required>
       <div *ngIf="isFieldInvalid('username')">
         Please inform your user name
       </div>
@@ -19,7 +19,7 @@
 
 
       <!-- Password -->
-      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password formControlName="password" required>
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password [(ngModel)]="passwordData" formControlName="password" required>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
       <div *ngIf="isFieldInvalid('password')">
         Please inform your password
@@ -28,7 +28,7 @@
 
 
       <!-- Sign in button -->
-      <button class="btn btn-info my-4 btn-block" (click)="Login(username, password)" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
+      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Anmelden</button>
       <hr style="border-color: dimgray">
 
       <!-- Forgot? -->
