@@ -16,7 +16,8 @@ export class TokenService implements HttpInterceptor{
     const loginService = this.injector.get(LoginService);
     const tokenizedReq = req.clone({
       setHeaders: {
-        Authorization: 'Bearer ${loginService.getToken()}'
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3JvbGUiOiJURUFDSEVSIiwic3ViIjoid2l0Y2hlciIsImlzcyI6Ik1hbHBpc20iLCJpYXQiOjE1ODcxNTA2NTV9.zukEhSgNraET4no-z4Pne8pgN3cN9czQq6OOkNGEf_Y',
+        'Content-Type': 'application/json'
       }
     });
     return next.handle(tokenizedReq);

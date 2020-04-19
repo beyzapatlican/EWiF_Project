@@ -30,8 +30,6 @@ import {LoginService} from './services/login.service';
 import {TokenService} from './services/token.service';
 import { NavbartwoComponent } from './navbartwo/navbartwo.component';
 import {LoginGuard} from './login.guard';
-import {ForgotUsernameService} from './services/forgot-username.service';
-import {ChangePasswordService} from './services/change-password.service';
 
 @NgModule({
   declarations: [
@@ -58,20 +56,21 @@ import {ChangePasswordService} from './services/change-password.service';
     SuccessComponent,
     NavbartwoComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RatingModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
-  providers: [AuthService, LoginService, LoginGuard, ForgotUsernameService, ChangePasswordService,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RatingModule,
+    FormsModule,
+    HttpClientModule,
+      ReactiveFormsModule
+  ],
+/*
+  providers: [AuthService, LoginService, LoginGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,
       multi: true
-    }],
+    }],*/
   bootstrap: [AppComponent]
 })
 export class AppModule { }

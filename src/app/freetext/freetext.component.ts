@@ -1,28 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import {saveQuestion} from '../question-type/question-type.component';
+import {Component, OnInit} from '@angular/core';
+import {QuestionTypeComponent} from '../question-type/question-type.component';
 import {Free} from '../models/question-types/free.model';
+import {PrepareSessionService} from '../services/prepare-session.service';
 
 
 @Component({
-  selector: 'app-freetext',
-  templateUrl: './freetext.component.html',
-  styleUrls: ['./freetext.component.css']
+    selector: 'app-freetext',
+    templateUrl: './freetext.component.html',
+    styleUrls: ['./freetext.component.css']
 })
 
 
+export class FreetextComponent extends QuestionTypeComponent implements OnInit {
+    question: string;
+    solution: string;
+    questionNum: number;
 
-export class FreetextComponent implements OnInit {
-  question: string;
-  solution: string;
-  questionNum: number;
+    constructor(prepareSessionService: PrepareSessionService) {
+        super(prepareSessionService);
+    }
 
-  constructor() { }
-
-  ngOnInit(): void {}
+    ngOnInit(): void {
+    }
 
 
-  saveQuestion(question: string, solution: string, questionNum: number) {
-    const newQuestion = new Free(question, solution, questionNum);
-    saveQuestion(undefined, newQuestion, undefined);
-  }
+    saveQuestionInner(question: string, solution: string, questionNum: number) {
+
+        const newQuestion = new Free(question, solution, questionNum);
+        super.saveQuestion(undefined, newQuestion, undefined);
+    }
 }
