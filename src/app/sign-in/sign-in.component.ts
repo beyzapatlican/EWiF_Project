@@ -8,8 +8,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  username: string;
-  password: string;
+  usernameData: string;
+  passwordData: string;
   error;
   loadedPosts = [];
 
@@ -34,20 +34,26 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.loginService.Login(this.form.value);
+      const regObj = {
+        username: this.usernameData,
+        password: this.passwordData,
+      };
+      this.loginService.Login(regObj)
+      .subscribe(resp => {
+        console.log('resp: ' + resp.headers.get('status') + '\n');
+        if (resp.status === 200) {
+          this.loginService.done(regObj);
+        }
+      }, error => {
+        console.log('bob');
+      });
     }
     this.formSubmitAttempt = true;
   }
   Login(username: HTMLInputElement, password: HTMLInputElement) {
 
-    const regObj = {
-      username: username.value,
-      password: password.value,
-    };
 
-    this.loginService.Login(regObj)
-      .subscribe(resp => {
-        console.log(resp);
-      });
+
+
   }
 }
