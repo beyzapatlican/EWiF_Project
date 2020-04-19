@@ -21,6 +21,7 @@ import {TruefalseComponent} from './truefalse/truefalse.component';
 import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component';
 import {SuccessComponent} from './success/success.component';
 import {LoginGuard} from './login.guard';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '',
@@ -97,6 +98,10 @@ const routes: Routes = [
   {
     path: 'success',
     component: SuccessComponent
+  },
+  {
+    path: 'resetPassword',
+    component: ResetPasswordComponent
   }
 ];
 
