@@ -23,12 +23,7 @@ export class PrepareSessionService {
         };
         const body = requestBody;
         const url = this.getUrl() + '/teacher/prepareSession';
-        this.http.post(url, body, {
-            headers: new HttpHeaders({
-                'Authorization': this.getToken(),
-                'Content-Type': 'application/json'
-            })
-        }).subscribe(resp => {
+        this.http.post(url, body, {headers}).subscribe(resp => {
             console.log(resp);
         });
     }

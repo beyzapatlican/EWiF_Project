@@ -29,6 +29,7 @@ export class QuestionTypeComponent implements OnInit {
     selected3 = false;
 
     prepareSessionService: PrepareSessionService;
+    title: string;
 
 
     ngOnInit(): void {
@@ -75,7 +76,7 @@ export class QuestionTypeComponent implements OnInit {
                 QuestionTypeComponent.questionsTF,
                 QuestionTypeComponent.questionsFree,
                 QuestionTypeComponent.questionsMC,
-                'GenericSession');
+                this.title);
         this.prepareSessionService.sendRequest(request);
     }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {QuestionTypeComponent} from '../question-type/question-type.component';
 import {Free} from '../models/question-types/free.model';
 import {PrepareSessionService} from '../services/prepare-session.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -12,21 +13,27 @@ import {PrepareSessionService} from '../services/prepare-session.service';
 
 
 export class FreetextComponent extends QuestionTypeComponent implements OnInit {
-    question: string;
-    solution: string;
-    questionNum: number;
+    formGroup: FormGroup;
 
     constructor(prepareSessionService: PrepareSessionService) {
         super(prepareSessionService);
+        this.ngOnInit();
     }
 
     ngOnInit(): void {
+        this.formGroup = new FormGroup({
+            question: new FormControl(''),
+            solution: new FormControl(''),
+            questionNum: new FormControl(0)
+        });
     }
 
 
-    saveQuestionInner(question: string, solution: string, questionNum: number) {
-
-        const newQuestion = new Free(question, solution, questionNum);
+    onSubmit() {
+        const newQuestion = new Free(
+                this.formGroup.get('question').value,
+                this.formGroup.get('solution').value,
+                this.formGroup.get('questionNum').value);
         super.saveQuestion(undefined, newQuestion, undefined);
     }
 }

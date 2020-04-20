@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <form [formGroup]="trueFalseForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
                 <div class="form-group row">
                     <label for="inputQuestion" class="col-form-label" style="font-size: 15px;
@@ -26,10 +26,10 @@
                 <br>
 
                 <div class="radio">
-                    <label><input type="radio" value="true" formControlName="solution">Richtig</label>
+                    <label><input type="radio" value=true formControlName="solution">Richtig</label>
                 </div>
                 <div class="radio">
-                    <label><input type="radio" value="false" formControlName="solution">Falsch</label>
+                    <label><input type="radio" value=false formControlName="solution">Falsch</label>
                 </div>
 
                 <br>
