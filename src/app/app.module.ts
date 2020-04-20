@@ -30,6 +30,10 @@ import {LoginService} from './services/login.service';
 import {TokenService} from './services/token.service';
 import { NavbartwoComponent } from './navbartwo/navbartwo.component';
 import {LoginGuard} from './login.guard';
+import {ChangePasswordService} from './services/change-password.service';
+import {ForgotUsernameService} from './services/forgot-username.service';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {ResetPasswordService} from './services/reset-password.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,8 @@ import {LoginGuard} from './login.guard';
     MultiplechoiceComponent,
     TruefalseComponent,
     SuccessComponent,
-    NavbartwoComponent
+    NavbartwoComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -64,13 +69,14 @@ import {LoginGuard} from './login.guard';
     HttpClientModule,
       ReactiveFormsModule
   ],
-/*
-  providers: [AuthService, LoginService, LoginGuard,
+
+  providers: [AuthService, LoginService, LoginGuard, ChangePasswordService, ForgotUsernameService, ForgotPasswordComponent,
+    ResetPasswordService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,
       multi: true
-    }],*/
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
