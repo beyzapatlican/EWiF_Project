@@ -1,46 +1,43 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-12">
 
-      <form>
+            <form [formGroup]="trueFalseForm" (ngSubmit)="onSubmit()">
 
-        <div class="form-group row">
-          <label for="inputQuestion" class="col-form-label" style="font-size: 15px;
+                <div class="form-group row">
+                    <label for="inputQuestion" class="col-form-label" style="font-size: 15px;
                                       font-family: 'Roboto';font-style: normal;
-                                      font-weight: 400; ">Frage :  </label>
-          <div class="col-sm-8">
-            <textarea style="margin-left: 18px" class="form-control" id="inputQuestion" rows="3" placeholder="Geben Sie Ihre Frage ein"></textarea>
-          </div>
-        </div>
+                                      font-weight: 400; ">Frage : </label>
+                    <div class="col-sm-8">
+                        <input style="margin-left: 18px" class="form-control" id="inputQuestion" formControlName="question" rows="3" placeholder="Geben Sie Ihre Frage ein">
+                    </div>
+                </div>
 
-        <br>
+                <br>
 
-        <div class="form-group row">
-          <label for="questionId" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
+                <div class="form-group row">
+                    <label for="questionId" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
                                       font-weight: 400; ">Frage ID: </label>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" id="questionId" placeholder="Frage ID">
-          </div>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" id="questionId" formControlName="questionNum" placeholder="Frage ID">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="radio">
+                    <label><input type="radio" value="true" formControlName="solution">Richtig</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" value="false" formControlName="solution">Falsch</label>
+                </div>
+
+                <br>
+
+                <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" type="submit" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
+                <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" type="reset" class="btn btn-info my-2" value="Reset">Reset</button>
+
+            </form>
         </div>
-
-        <br>
-
-        <div class="radio">
-          <label ><input type="radio" name="optradio" checked>Richtig</label>
-        </div>
-        <div class="radio">
-          <label ><input type="radio" name="optradio"> Falsch</label>
-        </div>
-
-        <br>
-
-      </form>
-
-
-
-        <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" type="submit" class="btn btn-info my-2" value="Submit">Submit</button>&nbsp;
-        <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)"type="reset" class="btn btn-info my-2" value="Reset">Reset</button>
-
     </div>
-  </div>
 </div>

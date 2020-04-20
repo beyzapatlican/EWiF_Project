@@ -7,9 +7,7 @@ import {Free} from '../models/question-types/free.model';
 import {MultipleChoice} from '../models/question-types/multiple-choice.model';
 import {PrepareSessionService} from '../services/prepare-session.service';
 
-const questionsTF = new Array<TrueFalse>();
-const questionsFree = new Array<Free>();
-const questionsMC = new Array<MultipleChoice>();
+
 
 @Component({
     selector: 'app-question-type',
@@ -18,7 +16,9 @@ const questionsMC = new Array<MultipleChoice>();
 })
 
 export class QuestionTypeComponent implements OnInit {
-
+    static questionsTF = new Array<TrueFalse>();
+    static questionsFree = new Array<Free>();
+    static questionsMC = new Array<MultipleChoice>();
 
     constructor(prepareSessionService: PrepareSessionService) {
         this.prepareSessionService = prepareSessionService;
@@ -31,7 +31,11 @@ export class QuestionTypeComponent implements OnInit {
     prepareSessionService: PrepareSessionService;
 
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        QuestionTypeComponent.questionsTF = new Array<TrueFalse>();
+        QuestionTypeComponent.questionsFree = new Array<Free>();
+        QuestionTypeComponent.questionsMC = new Array<MultipleChoice>();
+    }
 
     onUpdate1() {
         this.selected1 = true;
@@ -54,17 +58,24 @@ export class QuestionTypeComponent implements OnInit {
 
     saveQuestion(questionTF?: TrueFalse, questionFree?: Free, questionMC?: MultipleChoice) {
         if (questionTF !== undefined) {
-            questionsTF.push(questionTF);
+            QuestionTypeComponent.questionsTF.push(questionTF);
         } else if (questionFree !== undefined) {
-            questionsFree.push(questionFree);
+            QuestionTypeComponent.questionsFree.push(questionFree);
         } else if (questionMC !== undefined) {
-            questionsMC.push(questionMC);
+            QuestionTypeComponent.questionsMC.push(questionMC);
         }
+        console.log(QuestionTypeComponent.questionsTF);
+        console.log(QuestionTypeComponent.questionsFree);
+        console.log(QuestionTypeComponent.questionsMC);
     }
 
     saveSession() {
 
-        const request = this.prepareSessionService.prepareRequest(questionsTF, questionsFree, questionsMC, 'GenericSession');
+        const request = this.prepareSessionService.prepareRequest(
+                QuestionTypeComponent.questionsTF,
+                QuestionTypeComponent.questionsFree,
+                QuestionTypeComponent.questionsMC,
+                'GenericSession');
         this.prepareSessionService.sendRequest(request);
     }
 }

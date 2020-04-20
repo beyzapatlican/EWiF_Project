@@ -48,7 +48,7 @@ export class PrepareSessionService {
 
     private getToken(): string {
         // tslint:disable-next-line:max-line-length
-        return 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3JvbGUiOiJURUFDSEVSIiwic3ViIjoid2l0Y2hlciIsImlzcyI6Ik1hbHBpc20iLCJpYXQiOjE1ODcxNTA2NTV9.zukEhSgNraET4no-z4Pne8pgN3cN9czQq6OOkNGEf_Y';
+        return 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3JvbGUiOiJURUFDSEVSIiwic3ViIjoiYWxwcyIsImlzcyI6Ik1hbHBpc20iLCJpYXQiOjE1ODczOTAxNjZ9.bsoEOVBH2EBRL9o_BvpERdMvBRv7HYgbKWefGfu9MWA';
     }
 
     private getUrl(): string {
