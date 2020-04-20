@@ -4,9 +4,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-// tslint:disable-next-line:class-name
-export class changePassService {
-
+export class ChangePasswordService {
   private readonly apiUrl = 'http://24.133.107.44:8080';
 
   constructor(private http: HttpClient) { }

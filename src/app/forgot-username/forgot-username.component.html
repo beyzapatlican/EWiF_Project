@@ -11,13 +11,14 @@
       <hr style="border-color: dimgray">
 
       <!-- E-mail -->
-      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required>
+      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required #email>
 
       <p></p>
 
 
       <!-- Send button -->
-      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Senden</button>
+      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
+              (click)="forgotUsername(email)">Senden</button>
 
       <hr style="border-color: dimgray">
 
