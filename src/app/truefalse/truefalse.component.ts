@@ -17,12 +17,12 @@ export class TruefalseComponent extends QuestionTypeComponent implements OnInit 
 
 
     constructor(prepareSessionService: PrepareSessionService) {
-      super(prepareSessionService);
-      this.trueFalseForm = new FormGroup({
-        questionNum: new FormControl(0),
-        question: new FormControl(''),
-        solution: new FormControl('')
-      });
+        super(prepareSessionService);
+        this.trueFalseForm = new FormGroup({
+            questionNum: new FormControl(0),
+            question: new FormControl(''),
+            solution: new FormControl('')
+        });
     }
 
     ngOnInit(): void {
@@ -34,16 +34,14 @@ export class TruefalseComponent extends QuestionTypeComponent implements OnInit 
     }
 
     onSubmit() {
-      const question = new TrueFalse(
-              this.trueFalseForm.get('question').value,
-              this.trueFalseForm.get('solution').value,
-              this.trueFalseForm.get('questionNum').value);
-      super.saveQuestion(question, undefined, undefined);
-      console.log(this.trueFalseForm.value);
-      console.log('submit?');
-      if(this.trueFalseForm.valid) {
-        console.log('valid');
-      }
+        if (!this.trueFalseForm.valid) {
+            console.log('Invalid Form');
+        }
+        const question = new TrueFalse(
+                this.trueFalseForm.get('question').value,
+                this.trueFalseForm.get('solution').value,
+                this.trueFalseForm.get('questionNum').value);
+        super.saveQuestion(question, undefined, undefined);
     }
 
 }
