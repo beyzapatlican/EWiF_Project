@@ -27,7 +27,7 @@
           <br>
 
           <hr style="border-color: dimgray">
-          <input id="title" type="text" placeholder="Geben Sie einen Title ein" [(ngModel)]="title">
+          <input style="margin-right: 30px" id="title" type="text" placeholder="Geben Sie einen Title ein" class="form-control" rows="3" [(ngModel)]="title"> &nbsp;
 
           <p *ngIf="selected1">
             <app-truefalse></app-truefalse>
@@ -39,7 +39,7 @@
           <p *ngIf="selected3">
             <app-freetext></app-freetext>
           </p>
-          <button (click)="saveSession()">Save Me!</button>
+          <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" class="btn btn-info my-2" (click)="saveSession()">Save Me!</button>
         </div>
 
 

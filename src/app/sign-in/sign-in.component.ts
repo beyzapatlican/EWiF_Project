@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../services/login.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-in',
@@ -50,10 +51,6 @@ export class SignInComponent implements OnInit {
     }
     this.formSubmitAttempt = true;
   }
-  Login(username: HTMLInputElement, password: HTMLInputElement) {
+  Login(username: HTMLInputElement, password: HTMLInputElement) {}
 
-
-
-
-  }
 }

@@ -45,13 +45,13 @@ export class LoginService {
     return !!localStorage.getItem('token');
   }*/
 
-  getToken() {
-    return localStorage.getItem('token');
-  }
   done(object) {
     if (object.username !== '' && object.password !== '') {
       this.loggedIn.next(true);
       this.router.navigate(['/']);
     }
+  }
+  getToken() {
+    return localStorage.getItem('token');
   }
   }

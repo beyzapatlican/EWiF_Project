@@ -9,6 +9,7 @@ import {LoginService} from '../services/login.service';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {

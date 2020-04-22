@@ -3,7 +3,7 @@
 
   <div class="container">
 
-    <form id="signUp" class="text-center" action="#!">
+    <form id="signUp" class="text-center" action="#!" [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <h3 style="font-size: 50px">Sign Up</h3>
       <hr style="border-color: dimgray">
@@ -11,59 +11,70 @@
       <br>
 
 
-      <input type="form" id="defaultRegisterFormName" class="form-control" placeholder="Vorname*"  #name>
-
+      <input type="form" id="defaultRegisterFormName" class="form-control" placeholder="Vorname*"  #name [(ngModel)]="nameData" formControlName="name" required>
+      <div *ngIf="isFieldInvalid('name')">
+        Please inform your name
+      </div>
       <p></p>
 
-      <input type="form" id="defaultRegisterFormLastName" class="form-control" placeholder="Nachname*" #nachname>
-
+      <input type="form" id="defaultRegisterFormLastName" class="form-control" placeholder="Nachname*" #nachname [(ngModel)]="nachnameData" formControlName="nachname" required>
+      <div *ngIf="isFieldInvalid('nachname')">
+        Please inform your nachname
+      </div>
       <p></p>
 
       <!-- Username -->
-      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername*"  #username>
-
+      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername*"  #username [(ngModel)]="usernameData" formControlName="username" required>
+      <div *ngIf="isFieldInvalid('username')">
+        Please inform your user name
+      </div>
       <p></p>
 
       <!-- E-mail -->
-      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*"  #email>
-
+      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*"  #email [(ngModel)]="emailData" formControlName="email" required>
+      <div *ngIf="isFieldInvalid('email')">
+        Please inform your email
+      </div>
       <p></p>
 
       <!-- Password -->
-      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password*" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password>
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password*" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password [(ngModel)]="passwordData" formControlName="password" required>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
-
+      <div *ngIf="isFieldInvalid('password')">
+        Please inform your password
+      </div>
       <p></p>
 
-
       <!-- Role -->
-      <div class="div" align="left">
-        <label style="font-family: 'Roboto';
+      <div>
+        <div class="div" align="left">
+          <label style="font-family: 'Roboto';
                       font-style: normal;
                       font-weight: 400;">
-          <input type="radio" name="optradio" value="TEACHER"  #role1 (click)="onUpdate1()" >  Lehrer*</label>
+            <input type="radio"  value="TEACHER"   [(ngModel)]="roleData" formControlName="role" required>  Lehrer*</label>
+        </div>
+
+        <div class="div" align="left">
+          <label style="font-family: 'Roboto';
+                      font-style: normal;
+                      font-weight: 400;">
+            <input type="radio" value="STUDENT"   [(ngModel)]="roleData" formControlName="role" required > Studierende*</label>
+        </div>
+
+        <div *ngIf="isFieldInvalid('role')">
+          Please inform your role
+        </div>
       </div>
 
-      <div class="div" align="left">
-        <label style="font-family: 'Roboto';
-                      font-style: normal;
-                      font-weight: 400;">
-          <input type="radio" name="optradio" value="STUDENT"  #role2 (click)="onUpdate2()" > Studierende*</label>
-      </div>
 
       <p></p>
 
       <hr style="border-color: dimgray">
 
-      <a *ngIf="selectedRole1 === false && selectedRole2=== false" class="btn btn-info my-4 btn-block" type="submit" style="color: white; background: rgb(133,0,61); border-color: rgb(133,0,61)"
-      >Register</a>
-
-      <a href="success" *ngIf="selectedRole1" class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
-         (click)="Register(name,username, email, password, role1)">Register</a>
+      <button  class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Register</button>
+      <hr style="border-color: dimgray">
 
 
-      <a href="success" *ngIf="selectedRole2" class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
-         (click)="Register(name,username, email, password, role2 )">Register </a>
 
       <p >Hast du schon
         <em>ein Konto? </em>
