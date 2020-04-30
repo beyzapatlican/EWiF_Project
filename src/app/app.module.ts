@@ -67,7 +67,7 @@ import {ResetPasswordService} from './services/reset-password.service';
     RatingModule,
     FormsModule,
     HttpClientModule,
-      ReactiveFormsModule
+    ReactiveFormsModule
   ],
 
   providers: [AuthService, LoginService, LoginGuard, ChangePasswordService, ForgotUsernameService, ForgotPasswordComponent,

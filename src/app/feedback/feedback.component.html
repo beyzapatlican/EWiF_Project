@@ -2,7 +2,7 @@
 <div class="bg">
     <div class="container">
 
-      <form id="contact" action="" method="post">
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
         <h3 style="font-size:35px">Gebe dein Feedback</h3>
         <hr style="border-color: dimgray">
@@ -10,129 +10,163 @@
 
 
 
-        <div id="feedback" class="custom-control custom-radio ">
+        <div class="form-group row">
           <label>Allgemeine Zufriedenheit</label>
-          <p>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="satisfaction" id="radio_experience" value="bad" >
+              <input type="radio"  value="bad" formControlName="first">&nbsp;
               Schlecht
             </label>
+          </div>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="satisfaction" id="radio_experience2" value="average" >
+              <input type="radio"  value="average" formControlName="first">&nbsp;
               Durchschnittlich
             </label>
-
+          </div>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="satisfaction" id="radio_experience3" value="good" >
+              <input type="radio"  value="good" formControlName="first">&nbsp;
               Gut
             </label>
-          </p>
+          </div>
         </div>
 
-        <div class="custom-control custom-radio ">
+
+        <div class="form-group row">
           <label>Gesamterlebnis</label>
-          <p>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="experience" id="radio_experience4" value="bad" >
+              <input type="radio"  value="bad"  formControlName="second" required>
               Schlecht
             </label>
+          </div>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="experience" id="radio_experience5" value="average" >
+              <input type="radio"  value="average"  formControlName="second" required>
               Durchschnittlich
             </label>
-
+          </div>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="experience" id="radio_experience6" value="good" >
+              <input type="radio"  value="good"  formControlName="second" required>
               Gut
             </label>
-          </p>
+          </div>
         </div>
 
-        <div class="custom-control custom-radio ">
+        <div class="form-group row">
           <label>Schwierigkeit der Lektion</label>
-          <p>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience7" value="bad" >
+              <input type="radio"  value="bad"  formControlName="third" required>
               Schwer
             </label>
+          </div>
+
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience8" value="average" >
+              <input type="radio"  value="average"  formControlName="third" required>
               Durchschnittlich
             </label>
+          </div>
 
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience9" value="good" >
+              <input type="radio"  value="good"  formControlName="third" required>
               Einfach
             </label>
-          </p>
+          </div>
         </div>
 
-        <div class="custom-control custom-radio ">
+        <div class="form-group row">
           <label>die Geschwindigkeit der Lektion</label>
-          <p>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience10" value="bad" >
+              <input type="radio"  value="bad"  formControlName="fourth" required >
               Schnell
             </label>
+          </div>
+
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience11" value="average" >
+              <input type="radio"  value="average" formControlName="fourth" required>
               Langsam
             </label>
+          </div>
 
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience12" value="good" >
+              <input type="radio"  value="good" formControlName="fourth" required>
               Durchschnittlich
             </label>
-          </p>
+          </div>
         </div>
 
-        <div class="custom-control custom-radio ">
+        <div class="form-group row">
         <label>Verständlichkeit der Lektion</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio" name="difficulty" id="radio_experience13" value="bad" >
-            Schwer
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="difficulty" id="radio_experience14" value="average" >
-            Durchschnittlich
-          </label>
+          <div>
+            <label class="radio-inline">
+              <input type="radio"  value="good" formControlName="fourth" required>
+              Durchschnittlich
+            </label>
+          </div>
 
-          <label class="radio-inline">
-            <input type="radio" name="difficulty" id="radio_experience15" value="good" >
-            Sehr gut
-          </label>
-        </p>
+          <div>
+            <label class="radio-inline">
+              <input type="radio"  value="good" formControlName="fourth" required>
+              Durchschnittlich
+            </label>
+          </div>
+
+          <div>
+            <label class="radio-inline">
+              <input type="radio"  value="bad"  formControlName="fifth" required>
+              Schwer
+            </label>
+          </div>
+
+          <div>
+            <label class="radio-inline">
+              <input type="radio"  value="good"  formControlName="fifth" required>
+              Sehr gut
+            </label>
+          </div>
       </div>
 
-        <div class="custom-control custom-radio ">
+        <div class="form-group row">
           <label>Konnte der Dozent Ihre Frage beantworten?</label>
-          <p>
+
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience16" value="bad" >
+              <input type="radio"  value="bad" formControlName="sixth" required>
               Nein
             </label>
+          </div>
 
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience17" value="good" >
+              <input type="radio"  value="good"  formControlName="sixth" required>
               Ja
             </label>
-          </p>
+          </div>
         </div>
 
-        <div class="custom-control custom-radio ">
+        <div class="form-group row">
           <label>War der Inhalt interessant?</label>
-          <p>
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience18" value="bad" >
+              <input type="radio"  value="bad" formControlName="seventh" required>
               Nein
             </label>
+          </div>
 
+          <div>
             <label class="radio-inline">
-              <input type="radio" name="difficulty" id="radio_experience19" value="good" >
+              <input type="radio"  value="good"  formControlName="seventh" required>
               Ja
             </label>
-          </p>
+          </div>
         </div>
 
         <hr style="border-color:#C7DBDA; ">

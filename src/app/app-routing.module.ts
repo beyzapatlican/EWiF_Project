@@ -22,6 +22,7 @@ import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component
 import {SuccessComponent} from './success/success.component';
 import {LoginGuard} from './login.guard';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
   { path: '',
@@ -107,7 +108,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes)],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
