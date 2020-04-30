@@ -16,7 +16,6 @@ export class FeedbackComponent implements OnInit {
 
 constructor(feedbackService: FeedbackService) {
   // @ts-ignore
-  super(FeedbackService);
   this.ngOnInit();
 }
 

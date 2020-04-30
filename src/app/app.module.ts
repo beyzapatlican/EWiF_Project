@@ -34,6 +34,7 @@ import {ChangePasswordService} from './services/change-password.service';
 import {ForgotUsernameService} from './services/forgot-username.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {ResetPasswordService} from './services/reset-password.service';
+import {FeedbackComponent} from "./feedback/feedback.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {ResetPasswordService} from './services/reset-password.service';
     TruefalseComponent,
     SuccessComponent,
     NavbartwoComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
