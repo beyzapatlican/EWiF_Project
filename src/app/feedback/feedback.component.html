@@ -1,180 +1,143 @@
 <body>
 <div class="bg">
-    <div class="container">
+  <div class="container">
 
-      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-        <h3 style="font-size:35px">Gebe dein Feedback</h3>
-        <hr style="border-color: dimgray">
+      <h3 style="font-size:35px">Gebe dein Feedback</h3>
+      <hr style="border-color: dimgray">
 
+      <div id="feedback" class="custom-control custom-radio ">
+        <label>Allgemeine Zufriedenheit</label>
+        <p>
+          <label class="radio-inline">
+            <input type="radio"  value="0" formControlName="first" required >
+            Schlecht
+          </label>
+          <label class="radio-inline">
+            <input type="radio"  value="1" formControlName="first" required>
+            Durchschnittlich
+          </label>
 
-
-
-        <div class="form-group row">
-          <label>Allgemeine Zufriedenheit</label>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="bad" formControlName="first">&nbsp;
-              Schlecht
-            </label>
-          </div>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="average" formControlName="first">&nbsp;
-              Durchschnittlich
-            </label>
-          </div>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good" formControlName="first">&nbsp;
-              Gut
-            </label>
-          </div>
-        </div>
-
-
-        <div class="form-group row">
-          <label>Gesamterlebnis</label>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="bad"  formControlName="second" required>
-              Schlecht
-            </label>
-          </div>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="average"  formControlName="second" required>
-              Durchschnittlich
-            </label>
-          </div>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good"  formControlName="second" required>
-              Gut
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label>Schwierigkeit der Lektion</label>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="bad"  formControlName="third" required>
-              Schwer
-            </label>
-          </div>
-
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="average"  formControlName="third" required>
-              Durchschnittlich
-            </label>
-          </div>
-
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good"  formControlName="third" required>
-              Einfach
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label>die Geschwindigkeit der Lektion</label>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="bad"  formControlName="fourth" required >
-              Schnell
-            </label>
-          </div>
-
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="average" formControlName="fourth" required>
-              Langsam
-            </label>
-          </div>
-
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good" formControlName="fourth" required>
-              Durchschnittlich
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group row">
-        <label>Verständlichkeit der Lektion</label>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good" formControlName="fourth" required>
-              Durchschnittlich
-            </label>
-          </div>
-
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good" formControlName="fourth" required>
-              Durchschnittlich
-            </label>
-          </div>
-
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="bad"  formControlName="fifth" required>
-              Schwer
-            </label>
-          </div>
-
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good"  formControlName="fifth" required>
-              Sehr gut
-            </label>
-          </div>
+          <label class="radio-inline">
+            <input type="radio"  value="2" formControlName="first" required >
+            Gut
+          </label>
+        </p>
       </div>
 
-        <div class="form-group row">
-          <label>Konnte der Dozent Ihre Frage beantworten?</label>
+      <div class="custom-control custom-radio ">
+        <label>Gesamterlebnis</label>
+        <p>
+          <label class="radio-inline">
+            <input type="radio"  value="0"  formControlName="second" required>
+            Schlecht
+          </label>
+          <label class="radio-inline">
+            <input type="radio"  value="1"  formControlName="second" required>
+            Durchschnittlich
+          </label>
 
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="bad" formControlName="sixth" required>
-              Nein
-            </label>
-          </div>
+          <label class="radio-inline">
+            <input type="radio"  value="2"  formControlName="second" required>
+            Gut
+          </label>
+        </p>
+      </div>
 
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good"  formControlName="sixth" required>
-              Ja
-            </label>
-          </div>
-        </div>
+      <div class="custom-control custom-radio ">
+        <label>Schwierigkeit der Lektion</label>
+        <p>
+          <label class="radio-inline">
+            <input type="radio"  value="0" formControlName="third" required>
+            Schwer
+          </label>
+          <label class="radio-inline">
+            <input type="radio"  value="1"  formControlName="third" required>
+            Durchschnittlich
+          </label>
 
-        <div class="form-group row">
-          <label>War der Inhalt interessant?</label>
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="bad" formControlName="seventh" required>
-              Nein
-            </label>
-          </div>
+          <label class="radio-inline">
+            <input type="radio"  value="2"  formControlName="third" required>
+            Einfach
+          </label>
+        </p>
+      </div>
 
-          <div>
-            <label class="radio-inline">
-              <input type="radio"  value="good"  formControlName="seventh" required>
-              Ja
-            </label>
-          </div>
-        </div>
+      <div class="custom-control custom-radio ">
+        <label>die Geschwindigkeit der Lektion</label>
+        <p>
+          <label class="radio-inline">
+            <input type="radio"  value="0"  formControlName="fourth" required >
+            Schnell
+          </label>
+          <label class="radio-inline">
+            <input type="radio"  value="1"  formControlName="fourth" required>
+            Langsam
+          </label>
 
-        <hr style="border-color:#C7DBDA; ">
-        <hr style="border-color:#C7DBDA; ">
+          <label class="radio-inline">
+            <input type="radio"  value="2"  formControlName="fourth" required>
+            Durchschnittlich
+          </label>
+        </p>
+      </div>
 
-        <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Senden</button>
+      <div class="custom-control custom-radio ">
+        <label>Verständlichkeit der Lektion</label>
+        <p>
+          <label class="radio-inline">
+            <input type="radio"  value="0"  formControlName="fifth" required>
+            Schwer
+          </label>
+          <label class="radio-inline">
+            <input type="radio"  value="1"  formControlName="fifth" required>
+            Durchschnittlich
+          </label>
 
-      </form>
-    </div>
+          <label class="radio-inline">
+            <input type="radio"  value="2"  formControlName="fifth" required>
+            Sehr gut
+          </label>
+        </p>
+      </div>
+
+      <div class="custom-control custom-radio ">
+        <label>Konnte der Dozent Ihre Frage beantworten?</label>
+        <p>
+          <label class="radio-inline">
+            <input type="radio"  value="0"  formControlName="sixth" required>
+            Nein
+          </label>
+
+          <label class="radio-inline">
+            <input type="radio"  value="1"  formControlName="sixth" required>
+            Ja
+          </label>
+        </p>
+      </div>
+
+      <div class="custom-control custom-radio ">
+        <label>War der Inhalt interessant?</label>
+        <p>
+          <label class="radio-inline">
+            <input type="radio"  value="0"  formControlName="seventh" required>
+            Nein
+          </label>
+
+          <label class="radio-inline">
+            <input type="radio"  value="1"  formControlName="seventh" required>
+            Ja
+          </label>
+        </p>
+      </div>
+
+      <hr style="border-color:#C7DBDA; ">
+      <hr style="border-color:#C7DBDA; ">
+
+      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Senden</button>
+
+    </form>
+  </div>
 </div>
 </body>

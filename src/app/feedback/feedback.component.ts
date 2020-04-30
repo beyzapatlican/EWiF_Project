@@ -13,6 +13,7 @@ import {Free} from '../models/question-types/free.model';
 })
 export class FeedbackComponent implements OnInit {
   formGroup: FormGroup;
+  feedback = new Array<FeedbackChoice>();
 
 constructor(feedbackService: FeedbackService) {
   // @ts-ignore
@@ -21,9 +22,13 @@ constructor(feedbackService: FeedbackService) {
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      ans1: new FormControl(''),
-      ans2: new FormControl(''),
-      ans3: new FormControl('')
+      first: new FormControl(''),
+      second: new FormControl(''),
+      third: new FormControl(''),
+      fourth: new FormControl(''),
+      fifth: new FormControl(''),
+      sixth: new FormControl(''),
+      seventh: new FormControl('')
     });
   }
   onSubmit() {
@@ -32,12 +37,8 @@ constructor(feedbackService: FeedbackService) {
     }
     const question = new FeedbackChoice(
       this.formGroup.get('ans1').value,
-      this.formGroup.get('ans2').value,
-      this.formGroup.get('ans3').value
+      this.formGroup.get('ans2').value
     );
-    // @ts-ignore
-    super.saveFeedback(feedback);
-
   }
 
 choose(message: string) {
