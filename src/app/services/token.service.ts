@@ -29,7 +29,7 @@ export class TokenService implements HttpInterceptor{
     const tokenizedReq = req.clone({
       setHeaders: {
         // tslint:disable-next-line:max-line-length
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3JvbGUiOiJURUFDSEVSIiwic3ViIjoid2l0Y2hlciIsImlzcyI6Ik1hbHBpc20iLCJpYXQiOjE1ODcxNTA2NTV9.zukEhSgNraET4no-z4Pne8pgN3cN9czQq6OOkNGEf_Y',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3JvbGUiOiJBRE1JTiIsInN1YiI6ImFscCIsImlzcyI6Ik1hbHBpc20iLCJpYXQiOjE1ODQzOTE5NjJ9.cjzdW7kOZZzG_K8cgYj33BIh8KukQyoCaZiMhO517_U',
         'Content-Type': 'application/json'
       }
     });

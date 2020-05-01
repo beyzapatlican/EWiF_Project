@@ -1,10 +1,10 @@
 export class FeedbackChoice {
-  ans1: string;
-  ans2: string;
+  answers: Array<any>;
+  pin: any;
 
 
-  constructor(ans1: any, ans2: any) {
-    this.ans1 = ans1;
-    this.ans2 = ans2;
+  constructor(answers: any, pin: any) {
+    this.answers = answers;
+    this.pin = pin;
   }
 }
