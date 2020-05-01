@@ -50,22 +50,6 @@ export class FeedbackService {
       this.router.navigate(['/']);
     }
   }
-
-  sendRequest(requestBody: FeedbackRequest) {
-    const headers = {
-      Authorization: this.getToken(),
-      'Content-Type': 'application/json'
-    };
-    const body = requestBody;
-    const url = this.getUrl() + '/';
-    this.http.post(url, body, {headers}).subscribe(resp => {
-      console.log(resp);
-    });
-  }
-
-  prepareRequest(feedbackChoices: Array<FeedbackChoice>) {
-    return new FeedbackRequest(feedbackChoices);
-  }
   private getToken(): string {
     // tslint:disable-next-line:max-line-length
     return 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3JvbGUiOiJBRE1JTiIsInN1YiI6ImFscCIsImlzcyI6Ik1hbHBpc20iLCJpYXQiOjE1ODQzOTE5NjJ9.cjzdW7kOZZzG_K8cgYj33BIh8KukQyoCaZiMhO517_U';
