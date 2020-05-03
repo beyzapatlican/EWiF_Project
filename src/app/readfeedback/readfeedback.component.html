@@ -4,11 +4,11 @@
   <div class="container">
     <div id="readFeedback">
 
-      <div class="box ordered" >
+      <div class="box ordered" *ngFor= "let feedback of feedbacks">
         <div class="card">
 
-          <h2>{{feedbacks}}</h2>
-          <p></p>
+          <h2>{{feedback.lectureName}}</h2>
+          <p>{{feedback.answer}}</p>
 
         </div>
       </div>
