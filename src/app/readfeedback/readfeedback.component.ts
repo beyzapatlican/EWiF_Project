@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ReadFeedbackService} from '../services/read-feedback.service';
 import {Feedback} from '../models/feedback';
+import {FeedbackResponse} from '../models/feedback-response.model';
 
 @Component({
   selector: 'app-readfeedback',
@@ -8,13 +9,21 @@ import {Feedback} from '../models/feedback';
   styleUrls: ['./readfeedback.component.css']
 })
 export class ReadfeedbackComponent implements OnInit {
-  feedbacks: Feedback[];
+  feedbacks: Array<Feedback>;
+  feedbackValues: Array<string> = ['schlecht', 'Durchschnittlich', 'Gut'];
+
   status: string;
-  constructor(private readFeedbackService: ReadFeedbackService) { }
+
+  constructor(private readFeedbackService: ReadFeedbackService) {
+
+  }
 
   ngOnInit() {
     this.readFeedbackService.GetAll()
-      .subscribe((resp: Feedback[]) => this.feedbacks = resp);
+      .subscribe((resp: FeedbackResponse) => {
+        this.feedbacks = resp.feedbacks;
+      });
+
   }
 
 }

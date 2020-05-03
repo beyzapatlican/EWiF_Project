@@ -8,7 +8,14 @@
         <div class="card">
 
           <h2>{{feedback.lectureName}}</h2>
-          <p>{{feedback.answer}}</p>
+          <p>
+
+            {{this.feedbackValues[feedback.answers.split(' ')[0]]}}
+          </p>
+          <div *ngFor = "let answer of feedback.answers.split(' ')">
+            <p>{{feedbackValues[answer]}}</p>
+          </div>
+
 
         </div>
       </div>
