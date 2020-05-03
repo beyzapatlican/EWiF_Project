@@ -35,6 +35,8 @@ import {ForgotUsernameService} from './services/forgot-username.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {ResetPasswordService} from './services/reset-password.service';
 import {FeedbackComponent} from './feedback/feedback.component';
+import {ReadFeedbackService} from './services/read-feedback.service';
+import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import {FeedbackComponent} from './feedback/feedback.component';
     SuccessComponent,
     NavbartwoComponent,
     ResetPasswordComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ReadfeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,7 @@ import {FeedbackComponent} from './feedback/feedback.component';
   ],
 
   providers: [AuthService, LoginService, LoginGuard, ChangePasswordService, ForgotUsernameService, ForgotPasswordComponent,
-    ResetPasswordService,
+    ResetPasswordService, ReadFeedbackService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,
