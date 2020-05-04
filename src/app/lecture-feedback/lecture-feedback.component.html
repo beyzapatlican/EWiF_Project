@@ -1,0 +1,28 @@
+<body>
+<div class="bg">
+  <div class="container">
+    <div id="readFeedback">
+
+
+      <div class="box ordered" *ngFor= "let feedback of feedbacks">
+        <div class="card">
+
+          <h2>{{feedback.lectureName}}</h2>
+
+          <div *ngFor="let counter of feedback.counters">
+          <p>{{feedbackValues[counter]}}</p>
+        </div>
+
+          <div *ngFor = "let answer of feedback.answers.split(' ')">
+            <p>{{feedbackValues[answer]}}</p>
+          </div>
+
+          <br>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

@@ -9,21 +9,22 @@ import {FeedbackResponse} from '../models/feedback-response.model';
   styleUrls: ['./readfeedback.component.css']
 })
 export class ReadfeedbackComponent implements OnInit {
-  feedbacks: Array<Feedback>;
-  feedbackValues: Array<string> = ['schlecht', 'Durchschnittlich', 'Gut'];
+  selected1 = false;
+  selected2 = false;
+  constructor() {
 
-  status: string;
+  }
+  onUpdate1() {
+    this.selected1 = true;
+    this.selected2 = false;
+  }
 
-  constructor(private readFeedbackService: ReadFeedbackService) {
-
+  onUpdate2() {
+    this.selected2 = true;
+    this.selected1 = false;
   }
 
   ngOnInit() {
-    this.readFeedbackService.GetAll()
-      .subscribe((resp: FeedbackResponse) => {
-        this.feedbacks = resp.feedbacks;
-      });
-
   }
 
 }

@@ -1,0 +1,24 @@
+<body>
+<div class="bg">
+  <div class="container">
+    <div id="readFeedback">
+
+      <div class="box ordered" *ngFor= "let feedback of feedbacks">
+        <div class="card">
+
+          <h2>{{feedback.openSessionName}}</h2>
+          <p>
+
+            {{this.feedbackValues[feedback.answers.split(' ')[0]]}}
+          </p>
+          <div *ngFor = "let answer of feedback.answers.split(' ')">
+            <p>{{feedbackValues[answer]}}</p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
