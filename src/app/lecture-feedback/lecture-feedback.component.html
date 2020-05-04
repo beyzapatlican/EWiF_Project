@@ -9,9 +9,9 @@
 
           <h2>{{feedback.lectureName}}</h2>
 
-          <div *ngFor="let counter of this.counters">
-            <p>{{feedbackQuestions[counter]}}</p>
-            <p>{{feedbackValues[feedback.answers.split(' ')[counter]]}}</p>
+          <div *ngFor="let counter of feedback.counters">
+            <p>{{feedback.feedbackQuestions[counter]}}</p>
+            <p>{{feedback.feedbackValues[feedback.answers.split(' ')[counter]]}}</p>
           </div>
 
           <br>
