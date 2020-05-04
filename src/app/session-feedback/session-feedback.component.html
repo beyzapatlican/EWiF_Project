@@ -1,24 +1,17 @@
-<body>
-<div class="bg">
-  <div class="container">
-    <div id="readFeedback">
-
-      <div class="box ordered" *ngFor= "let feedback of feedbacks">
-        <div class="card">
-
-          <h2>{{feedback.openSessionName}}</h2>
-          <p>
-
-            {{this.feedbackValues[feedback.answers.split(' ')[0]]}}
-          </p>
-          <div *ngFor = "let answer of feedback.answers.split(' ')">
-            <p>{{feedbackValues[answer]}}</p>
-          </div>
 
 
-        </div>
-      </div>
+<div id="sF"class="container" *ngFor="let feedback of feedbacks" style="background-color: #f5f5f5; max-width: 1000px; margin-bottom: 30px">
+  <div id="sessionFeedback" style="background-color: transparent">
+
+    <h2>{{feedback.lectureName}}</h2>
+
+    <p></p>
+
+    <div *ngFor="let counter of feedback.counters">
+      <p><b>{{feedback.feedbackQuestions[counter]}}</b></p>
+      <p>{{feedback.feedbackValues[feedback.answers.split(' ')[counter]]}}</p>
     </div>
+
+    <p></p>
   </div>
 </div>
-</body>

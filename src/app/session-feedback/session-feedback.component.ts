@@ -10,15 +10,17 @@ import {SessionFeedbackService} from '../services/session-feedback.service';
 })
 export class SessionFeedbackComponent implements OnInit {
   feedbacks: Array<Feedback>;
-  feedbackValues: Array<string> = ['Schlecht', 'Durchschnittlich', 'Gut'];
-  status: string;
+
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private SessionFeedbackService: SessionFeedbackService) { }
 
   ngOnInit(): void {
     this.SessionFeedbackService.GetAll()
       .subscribe((resp: FeedbackResponse) => {
-        this.feedbacks = resp.feedbacks;
+        this.feedbacks = new Array<Feedback>();
+        resp.feedbacks.forEach(value => {
+          this.feedbacks.push(new Feedback(value.answers, value.openSessionName));
+        });
       });
   }
 

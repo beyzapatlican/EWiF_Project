@@ -9,11 +9,11 @@
 
       <div class="form-group row">
         <label for="questionId" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
-                                      font-weight: 400; ">PIN: </label>
+                                      font-weight: 400; margin-left: 10px ">PIN: </label>
         <div class="col-sm-2">
-          <input type="string" class="form-control" id="questionId" placeholder="PIN" [(ngModel)]="pin" formControlName="pin" required>
-          <div *ngIf="isFieldInvalid('pin')">
-            Bitte geben Sie die Pin
+          <input style="width: 100px" type="string" class="form-control" id="questionId" placeholder="PIN" [(ngModel)]="pin" formControlName="pin" required>
+          <div style="width: 200px" *ngIf="isFieldInvalid('pin')">
+            <p>Bitte geben Sie dein Pin</p>
           </div>
         </div>
       </div>
