@@ -80,8 +80,7 @@ import {SessionFeedbackService} from './services/session-feedback.service';
     ReactiveFormsModule
   ],
 
-  providers: [AuthService, LoginService, LoginGuard, ChangePasswordService, ForgotUsernameService, ForgotPasswordComponent,
-    ResetPasswordService, ReadFeedbackService, SessionFeedbackService,
+  providers: [ReadFeedbackService, SessionFeedbackService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,
