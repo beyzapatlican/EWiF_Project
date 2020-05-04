@@ -37,6 +37,9 @@ import {ResetPasswordService} from './services/reset-password.service';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadFeedbackService} from './services/read-feedback.service';
 import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
+import { LectureFeedbackComponent } from './lecture-feedback/lecture-feedback.component';
+import { SessionFeedbackComponent } from './session-feedback/session-feedback.component';
+import {SessionFeedbackService} from './services/session-feedback.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,9 @@ import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
     NavbartwoComponent,
     ResetPasswordComponent,
     FeedbackComponent,
-    ReadfeedbackComponent
+    ReadfeedbackComponent,
+    LectureFeedbackComponent,
+    SessionFeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,7 @@ import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
   ],
 
   providers: [AuthService, LoginService, LoginGuard, ChangePasswordService, ForgotUsernameService, ForgotPasswordComponent,
-    ResetPasswordService, ReadFeedbackService,
+    ResetPasswordService, ReadFeedbackService, SessionFeedbackService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,
