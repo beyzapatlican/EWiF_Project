@@ -10,11 +10,16 @@ import {FeedbackResponse} from '../models/feedback-response.model';
 })
 export class LectureFeedbackComponent implements OnInit {
   feedbacks: Array<Feedback>;
+  counters: Array<number> = Array(0, 1, 2, 3, 4, 5, 6);
   feedbackValues: Array<string> = ['Schlecht', 'Durchschnittlich', 'Gut'];
-  // tslint:disable-next-line:max-line-length
-  feedbackQuestions: Array<string> = ['Allgemeine Zufriedenheit: ', 'Gesamterlebnis:', 'Schwierigkeit der Lektion:' , 'Geschwindigkeit der Lektion:' ,
-    // tslint:disable-next-line:max-line-length
-                                      'Verständlichkeit der Lektion:', 'Konnte der Dozent Ihre Frage beantworten?: ', 'War der Inhalt interessant?: ' ];
+  feedbackQuestions: Array<string> = [
+    'Allgemeine Zufriedenheit: ',
+    'Gesamterlebnis:',
+    'Schwierigkeit der Lektion:' ,
+    'Geschwindigkeit der Lektion:' ,
+    'Verständlichkeit der Lektion:',
+    'Konnte der Dozent Ihre Frage beantworten?: ',
+    'War der Inhalt interessant?: ' ];
 
   status: string;
   constructor(private readFeedbackService: ReadFeedbackService) { }

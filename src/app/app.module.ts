@@ -37,6 +37,8 @@ import {ResetPasswordService} from './services/reset-password.service';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadFeedbackService} from './services/read-feedback.service';
 import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
+import {SessionFeedbackComponent} from './session-feedback/session-feedback.component';
+import {LectureFeedbackComponent} from './lecture-feedback/lecture-feedback.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
     NavbartwoComponent,
     ResetPasswordComponent,
     FeedbackComponent,
-    ReadfeedbackComponent
+    ReadfeedbackComponent,
+    SessionFeedbackComponent,
+    LectureFeedbackComponent
   ],
   imports: [
     BrowserModule,
