@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ForgotUsernameService} from '../services/forgot-username.service';
+import {ForgotUsernameService} from '../../services/forgot-username.service';
 
 @Component({
   selector: 'app-forgot-username',

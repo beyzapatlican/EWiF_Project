@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { ChangePasswordService} from '../services/change-password.service';
+import { ChangePasswordService} from '../../services/change-password.service';
 
 @Component({
   selector: 'app-userpage',

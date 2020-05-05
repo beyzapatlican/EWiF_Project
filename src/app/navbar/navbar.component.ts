@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LogoutService} from '../services/logout.service';
-import {TokenService} from '../services/token.service';
+import {LogoutService} from '../../services/logout.service';
+import {TokenService} from '../../services/token.service';
 
 @Component({
   selector: 'app-navbar',

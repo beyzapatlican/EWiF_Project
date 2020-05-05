@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {QuestionTypeComponent} from '../question-type/question-type.component';
-import {PrepareSessionService} from '../services/prepare-session.service';
-import {TrueFalse} from '../models/question-types/true-false.model';
+import {PrepareSessionService} from '../../services/prepare-session.service';
+import {TrueFalse} from '../../models/question-types/true-false.model';
 
 @Component({
     selector: 'app-truefalse',

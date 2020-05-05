@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {QuestionTypeComponent} from '../question-type/question-type.component';
-import {Free} from '../models/question-types/free.model';
-import {PrepareSessionService} from '../services/prepare-session.service';
+import {Free} from '../../models/question-types/free.model';
+import {PrepareSessionService} from '../../services/prepare-session.service';
 import {FormControl, FormGroup} from '@angular/forms';
 
 

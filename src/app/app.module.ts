@@ -27,11 +27,11 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { SuccessComponent } from './success/success.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {FeedbackComponent} from './feedback/feedback.component';
-import {ReadFeedbackService} from './services/read-feedback.service';
+import {ReadFeedbackService} from '../services/read-feedback.service';
 import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
 import { LectureFeedbackComponent } from './lecture-feedback/lecture-feedback.component';
 import { SessionFeedbackComponent } from './session-feedback/session-feedback.component';
-import {SessionFeedbackService} from './services/session-feedback.service';
+import {SessionFeedbackService} from '../services/session-feedback.service';
 import {TokenInterceptor} from '../interceptors/token.interceptor';
 
 @NgModule({

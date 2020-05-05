@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Feedback} from '../models/feedback';
-import {ReadFeedbackService} from '../services/read-feedback.service';
-import {FeedbackResponse} from '../models/feedback-response.model';
+import {Feedback} from '../../models/feedback';
+import {ReadFeedbackService} from '../../services/read-feedback.service';
+import {FeedbackResponse} from '../../models/feedback-response.model';
 
 @Component({
   selector: 'app-lecture-feedback',

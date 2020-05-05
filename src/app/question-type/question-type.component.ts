@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {MultiplechoiceComponent} from '../multiplechoice/multiplechoice.component';
 import {FreetextComponent} from '../freetext/freetext.component';
 import {TruefalseComponent} from '../truefalse/truefalse.component';
-import {TrueFalse} from '../models/question-types/true-false.model';
-import {Free} from '../models/question-types/free.model';
-import {MultipleChoice} from '../models/question-types/multiple-choice.model';
-import {PrepareSessionService} from '../services/prepare-session.service';
+import {TrueFalse} from '../../models/question-types/true-false.model';
+import {Free} from '../../models/question-types/free.model';
+import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
+import {PrepareSessionService} from '../../services/prepare-session.service';
 
 
 

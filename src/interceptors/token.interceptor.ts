@@ -1,6 +1,6 @@
 import {HttpClient, HttpInterceptor} from '@angular/common/http';
 import {Injectable, Injector} from '@angular/core';
-import {TokenService} from '../app/services/token.service';
+import {TokenService} from '../services/token.service';
 
 @Injectable({
   providedIn: 'root'

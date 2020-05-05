@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 import {QuestionTypeComponent} from '../question-type/question-type.component';
-import {PrepareSessionService} from '../services/prepare-session.service';
-import {MultipleChoice} from '../models/question-types/multiple-choice.model';
+import {PrepareSessionService} from '../../services/prepare-session.service';
+import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
 
 @Component({
     selector: 'app-multiplechoice',

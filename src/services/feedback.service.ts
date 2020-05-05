@@ -4,7 +4,7 @@ import {Free} from '../models/question-types/free.model';
 import {MultipleChoice} from '../models/question-types/multiple-choice.model';
 import {PrepareSessionRequest} from '../models/prepare-session-request.model';
 import {PrepareSessionResponse} from '../models/prepare-session-response.model';
-import {environment} from '../../environments/environment.prod';
+import {environment} from '../environments/environment.prod';
 import {FeedbackRequest} from '../models/feedback-request.model';
 
 import {Injectable} from '@angular/core';

@@ -22,7 +22,7 @@ import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component
 import {SuccessComponent} from './success/success.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Token} from './guards/token.guard';
+import {Token} from '../guards/token.guard';
 
 const routes: Routes = [
   {

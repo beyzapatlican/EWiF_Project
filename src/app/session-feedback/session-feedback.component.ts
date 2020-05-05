@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Feedback} from '../models/feedback';
-import {FeedbackResponse} from '../models/feedback-response.model';
-import {SessionFeedbackService} from '../services/session-feedback.service';
+import {Feedback} from '../../models/feedback';
+import {FeedbackResponse} from '../../models/feedback-response.model';
+import {SessionFeedbackService} from '../../services/session-feedback.service';
 
 @Component({
   selector: 'app-session-feedback',
