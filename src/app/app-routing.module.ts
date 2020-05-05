@@ -20,25 +20,27 @@ import {QuestionTypeComponent} from './question-type/question-type.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component';
 import {SuccessComponent} from './success/success.component';
-import {LoginGuard} from './login.guard';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Token} from './guards/token.guard';
 
 const routes: Routes = [
-  { path: '',
-    component: HomepageComponent
+  {
+    path: '',
+    component: HomepageComponent,
   },
-  { path: 'signIn',
+  {
+    path: 'signIn',
     component: SignInComponent
   },
-  { path: 'forgot-password',
+  {
+    path: 'forgot-password',
     component: ForgotPasswordComponent
   },
   {
     path: 'signUp',
     component: SignUpComponent
-  }
-  ,
+  },
   {
     path: 'about',
     component: AboutComponent
@@ -53,7 +55,8 @@ const routes: Routes = [
   },
   {
     path: 'teacher',
-    component: LehrerComponent
+    component: LehrerComponent,
+    canActivate: [Token]
   },
   {
     path: 'student-pin',
@@ -69,19 +72,23 @@ const routes: Routes = [
   },
   {
     path: 'give-feedback',
-    component: FeedbackComponent
+    component: FeedbackComponent,
+    canActivate: [Token]
   },
   {
     path: 'read-feedback',
-    component: ReadfeedbackComponent
+    component: ReadfeedbackComponent,
+    canActivate: [Token]
   },
   {
     path: 'userpage',
-    component: UserpageComponent
+    component: UserpageComponent,
+    canActivate: [Token]
   },
   {
     path: 'app-userpage',
-    component: UserpageComponent
+    component: UserpageComponent,
+    canActivate: [Token]
   },
   {
     path: 'question-type',
@@ -98,11 +105,13 @@ const routes: Routes = [
   },
   {
     path: 'success',
-    component: SuccessComponent
+    component: SuccessComponent,
+    canActivate: [Token]
   },
   {
     path: 'resetPassword',
-    component: ResetPasswordComponent
+    component: ResetPasswordComponent,
+    canActivate: [Token]
   }
 ];
 

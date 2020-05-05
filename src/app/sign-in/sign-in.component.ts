@@ -11,8 +11,6 @@ import {HttpClient} from '@angular/common/http';
 export class SignInComponent implements OnInit {
   usernameData: string;
   passwordData: string;
-  error;
-  loadedPosts = [];
 
   form: FormGroup;
   private formSubmitAttempt: boolean;
@@ -35,22 +33,13 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const regObj = {
-        username: this.usernameData,
-        password: this.passwordData,
-      };
-      this.loginService.Login(regObj)
-      .subscribe(resp => {
-        console.log('resp: ' + resp.headers.get('status') + '\n');
-        if (resp.status === 200) {
-          this.loginService.done(regObj);
-        }
+
+      this.loginService.login(this.usernameData, this.passwordData).subscribe(resp => {
+        this.loginService.done(resp.headers.get('Authorization'));
       }, error => {
-        console.log('bob');
+        console.log(error);
       });
     }
     this.formSubmitAttempt = true;
   }
-  Login(username: HTMLInputElement, password: HTMLInputElement) {}
-
 }

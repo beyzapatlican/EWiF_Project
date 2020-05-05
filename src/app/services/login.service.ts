@@ -1,57 +1,30 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, pipe} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from '@angular/router';
-
-class Resp {
-  body: string;
-  headers: HttpHeaders;
-
-
-  constructor(body: string,  headers: HttpHeaders) {
-    this.body = body;
-    this.headers = headers;
-  }
-}
-
+import {LoginRequest} from '../models/login-request.model';
+import {LoginResponse} from '../models/login-response.model';
+import {TokenService} from './token.service';
+import {UrlService} from './url.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private url = 'http://24.133.107.44:8080';
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
-  get isLoggedIn() {
-    return this.loggedIn.asObservable();
-  }
 
   constructor(private http: HttpClient,
-              private router: Router) { }
-
-  Login(object) {
-    const headers = {'Content-Type': 'application/json'};
-
-    return this.http.post(this.url + '/' + 'login', object, {observe: 'response'});
+              private router: Router,
+              private tokenService: TokenService,
+              private urlService: UrlService) {
   }
 
-  logout() {
-    this.loggedIn.next(false);
-    this.router.navigate(['/login']);
+  login(username: string, password: string) {
+    const request = new LoginRequest(username, password);
+    return this.http.post<HttpResponse<LoginResponse>>(`${this.urlService.getURL()}/login`, request, {observe: 'response'});
   }
 
- /* loggedIn() {
-    return !!localStorage.getItem('token');
-  }*/
-
-  done(object) {
-    if (object.username !== '' && object.password !== '') {
-      this.loggedIn.next(true);
-      this.router.navigate(['/']);
-    }
+  done(token: string) {
+    this.tokenService.saveToken(token);
+    this.router.navigate(['/']);
   }
-  getToken() {
-    return localStorage.getItem('token');
-  }
-  }
+}

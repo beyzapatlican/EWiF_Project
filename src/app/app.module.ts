@@ -24,22 +24,15 @@ import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.compone
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {AuthService} from './services/auth.service';
 import { SuccessComponent } from './success/success.component';
-import {LoginService} from './services/login.service';
-import {TokenService} from './services/token.service';
-import { NavbartwoComponent } from './navbartwo/navbartwo.component';
-import {LoginGuard} from './login.guard';
-import {ChangePasswordService} from './services/change-password.service';
-import {ForgotUsernameService} from './services/forgot-username.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import {ResetPasswordService} from './services/reset-password.service';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadFeedbackService} from './services/read-feedback.service';
 import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
 import { LectureFeedbackComponent } from './lecture-feedback/lecture-feedback.component';
 import { SessionFeedbackComponent } from './session-feedback/session-feedback.component';
 import {SessionFeedbackService} from './services/session-feedback.service';
+import {TokenInterceptor} from '../interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -64,7 +57,6 @@ import {SessionFeedbackService} from './services/session-feedback.service';
     MultiplechoiceComponent,
     TruefalseComponent,
     SuccessComponent,
-    NavbartwoComponent,
     ResetPasswordComponent,
     FeedbackComponent,
     ReadfeedbackComponent,
@@ -83,7 +75,7 @@ import {SessionFeedbackService} from './services/session-feedback.service';
   providers: [ReadFeedbackService, SessionFeedbackService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenService,
+      useClass: TokenInterceptor,
       multi: true
     }],
   bootstrap: [AppComponent]
