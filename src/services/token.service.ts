@@ -7,6 +7,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class TokenService {
 
   private TOKEN_STORAGE_NAME = 'token';
+  private TOKEN_TYPE_STORAGE_NAME = 'token-type';
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
 
@@ -20,17 +21,29 @@ export class TokenService {
   }
 
   getToken() {
-    return sessionStorage.getItem(this.TOKEN_STORAGE_NAME);
+    return localStorage.getItem(this.TOKEN_STORAGE_NAME);
   }
 
   saveToken(token: string) {
-    sessionStorage.setItem(this.TOKEN_STORAGE_NAME, token);
+    localStorage.setItem(this.TOKEN_STORAGE_NAME, token);
     this.isLoggedInSubject.next(this.isLoggedIn());
   }
 
   deleteToken() {
-    sessionStorage.removeItem(this.TOKEN_STORAGE_NAME);
+    localStorage.removeItem(this.TOKEN_STORAGE_NAME);
     this.isLoggedInSubject.next(this.isLoggedIn());
+  }
+
+  getAuth() {
+    return localStorage.getItem(this.TOKEN_TYPE_STORAGE_NAME);
+  }
+
+  deleteAuth() {
+    localStorage.removeItem(this.TOKEN_TYPE_STORAGE_NAME);
+  }
+
+  saveAuth(tokenType: string) {
+    localStorage.save(this.TOKEN_TYPE_STORAGE_NAME, tokenType);
   }
 
 }
