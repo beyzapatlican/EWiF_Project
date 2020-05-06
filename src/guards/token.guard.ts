@@ -8,7 +8,7 @@ import {TokenService} from '../services/token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class Token implements CanActivate {
+export class TokenGuard implements CanActivate {
 
 
   constructor(public tokenService: TokenService, public router: Router) {

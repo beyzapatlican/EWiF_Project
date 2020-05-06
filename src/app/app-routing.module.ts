@@ -22,7 +22,7 @@ import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component
 import {SuccessComponent} from './success/success.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Token} from '../guards/token.guard';
+import {TokenGuard} from '../guards/token.guard';
 
 const routes: Routes = [
   {
@@ -56,7 +56,7 @@ const routes: Routes = [
   {
     path: 'teacher',
     component: LehrerComponent,
-    canActivate: [Token]
+    canActivate: [TokenGuard]
   },
   {
     path: 'student-pin',
@@ -73,22 +73,22 @@ const routes: Routes = [
   {
     path: 'give-feedback',
     component: FeedbackComponent,
-    canActivate: [Token]
+    canActivate: [TokenGuard]
   },
   {
     path: 'read-feedback',
     component: ReadfeedbackComponent,
-    canActivate: [Token]
+    canActivate: [TokenGuard]
   },
   {
     path: 'userpage',
     component: UserpageComponent,
-    canActivate: [Token]
+    canActivate: [TokenGuard]
   },
   {
     path: 'app-userpage',
     component: UserpageComponent,
-    canActivate: [Token]
+    canActivate: [TokenGuard]
   },
   {
     path: 'question-type',
@@ -106,12 +106,12 @@ const routes: Routes = [
   {
     path: 'success',
     component: SuccessComponent,
-    canActivate: [Token]
+    canActivate: [TokenGuard]
   },
   {
     path: 'resetPassword',
     component: ResetPasswordComponent,
-    canActivate: [Token]
+    canActivate: [TokenGuard]
   }
 ];
 
