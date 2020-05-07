@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import {error} from '@angular/compiler/src/util';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-sign-up',
@@ -9,32 +8,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  nameData: string;
-  nachnameData: string;
-  usernameData: string;
-  emailData: string;
-  passwordData: string;
-  roleData1: boolean;
-  roleData2: boolean;
-  roleData: any;
-  role: any;
-
-  selectedRole1 = false;
-  selectedRole2 = false;
   form: FormGroup;
   private formSubmitAttempt: boolean;
   constructor(private authService: AuthService,
               private fb: FormBuilder) { }
 
-  onUpdate1() {
-    this.selectedRole1 = true;
-    this.selectedRole2 = false;
-  }
-
-  onUpdate2() {
-    this.selectedRole1 = false;
-    this.selectedRole2 = true;
-  }
   ngOnInit() {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -55,23 +33,14 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const regObj = {
-        name: this.nameData,
-        nachname: this.nachnameData,
-        username: this.usernameData,
-        email: this.emailData,
-        password: this.passwordData,
-        role: this.roleData
-      };
-      this.authService.Register(regObj)
-        .subscribe(resp => {
-          console.log(resp);
-          if (resp.status === 200) {
-            this.authService.done(regObj);
-          }
-          // tslint:disable-next-line:no-shadowed-variable
+      this.authService.Register(this.form.get('name').value + ' ' + this.form.get('nachname').value,
+        this.form.get('password').value,
+        this.form.get('email').value,
+        this.form.get('username').value,
+        this.form.get('role').value).subscribe(() => {
+          this.authService.done();
         }, error => {
-          console.log('bob');
+          console.log(error);
         });
     }
     this.formSubmitAttempt = true;
