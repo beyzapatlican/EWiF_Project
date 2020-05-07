@@ -14,7 +14,8 @@ export class UserpageComponent implements OnInit {
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private changepasswordService: ChangePasswordService,
               private tokenService: TokenService,
-              private userService: UserService) { }
+              private userService: UserService,
+              public logoutService: LogoutService) { }
 
   ngOnInit() {
     this.tokenService.isLoggedInObservable().subscribe(value => {

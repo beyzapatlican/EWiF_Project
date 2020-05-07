@@ -10,6 +10,20 @@ export class TokenService {
   private TOKEN_TYPE_STORAGE_NAME = 'token-type';
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
+  private isTeacherSubject = new BehaviorSubject<boolean>(this.isTeacher());
+  private isStudentSubject = new BehaviorSubject<boolean>(this.isStudent());
+
+  isTeacher(): boolean{
+    const token = this.getToken();
+    const tokenType = this.saveAuth(this.TOKEN_TYPE_STORAGE_NAME);
+    return !!token;
+  }
+
+  isStudent(): boolean{
+    const token = this.getToken();
+    const tokenType = this.saveAuth(this.TOKEN_TYPE_STORAGE_NAME);
+    return !!token;
+  }
 
   isLoggedIn(): boolean {
     const token = this.getToken();
