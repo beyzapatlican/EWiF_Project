@@ -8,13 +8,11 @@ import {TokenService} from '../../services/token.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  // isLoggedIn$: Observable<boolean>;
   public loggedIn = false;
 
   constructor(public logoutService: LogoutService, private tokenService: TokenService) { }
 
   ngOnInit() {
-    // this.isLoggedIn$ = this.loginService.isLoggedIn;
     this.tokenService.isLoggedInObservable().subscribe(value => {
       this.loggedIn = value;
     });

@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit {
     if (this.form.valid) {
 
       this.loginService.login(this.usernameData, this.passwordData).subscribe(resp => {
-        this.loginService.done(resp.headers.get('Authorization'));
+        this.loginService.done(resp.headers.get('Authorization'), resp.body.body.role);
       }, error => {
         console.log(error);
       });

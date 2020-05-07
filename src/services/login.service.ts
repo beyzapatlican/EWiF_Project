@@ -23,8 +23,9 @@ export class LoginService {
     return this.http.post<HttpResponse<LoginResponse>>(`${this.urlService.getURL()}/login`, request, {observe: 'response'});
   }
 
-  done(token: string) {
+  done(token: string, tokenType: string) {
     this.tokenService.saveToken(token);
+    this.tokenService.saveAuth(tokenType);
     this.router.navigate(['/']);
   }
 }
