@@ -20,7 +20,7 @@ export class LoginService {
 
   login(username: string, password: string) {
     const request = new LoginRequest(username, password);
-    return this.http.post<HttpResponse<LoginResponse>>(`${this.urlService.getURL()}/login`, request, {observe: 'response'});
+    return this.http.post<LoginResponse>(`${this.urlService.getURL()}/login`, request, {observe: 'response'});
   }
 
   done(token: string, tokenType: string) {
