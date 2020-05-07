@@ -1,18 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
+import {SignupRequest} from '../models/signup-request.model';
+import {SignupResponse} from '../models/signup-response.model';
+import {UrlService} from './url.service';
 
-class Resp {
-  body: string;
-  headers: HttpHeaders;
-
-
-  constructor(body: string,  headers: HttpHeaders) {
-    this.body = body;
-    this.headers = headers;
-  }
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -26,18 +19,16 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient,
-              private router: Router) { }
+              private router: Router,
+              private urlService: UrlService) { }
 
-  Register(obj) {
-    const headers = {'Content-Type': 'application/json'};
-    return this.http.post(this.apiUrl + '/' + 'register', obj, {observe: 'response'});
+  Register(name, password, email, username, role) {
+    const newUser = new SignupRequest(name, username, email, password, role);
+    return this.http.post<SignupResponse>(this.urlService.getURL() + '/' + 'register', newUser);
   }
 
-  done(object) {
-    if (object.username !== '' && object.password !== '' && object.name !== '' && object.nachname !== '' && object.email !== ''
-      && object.role !== '') {
-      this.signedUp.next(true);
-      this.router.navigate(['/']);
-    }
+  done() {
+    this.signedUp.next(true);
+    this.router.navigate(['/']);
   }
 }
