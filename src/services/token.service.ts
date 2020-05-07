@@ -43,7 +43,7 @@ export class TokenService {
   }
 
   saveAuth(tokenType: string) {
-    localStorage.save(this.TOKEN_TYPE_STORAGE_NAME, tokenType);
+    localStorage.setItem(this.TOKEN_TYPE_STORAGE_NAME, tokenType);
   }
 
 }
