@@ -1,21 +1,40 @@
 <hr>
-
 <div class="bg" >
-
   <div class="container container-fluid">
-
     <div class="row">
-
       <div id = "availableSessions" class="col-sm-12">
         <h3 style="font-size: 50px">Verfügbare Sitzungen</h3>
         <hr style="border-color: dimgray">
-
         <a href="./session-management"> Sitzung Management</a>
-
+        <div class="container" id="container">
+          <div class="row" id="row" >
+            <div class="col-12">
+              <table class="table table-bordered" style="border-color: dimgray">
+                <thead >
+                <tr>
+                  <th scope="col" style="border-color: dimgray"></th>
+                  <th scope="col" style="border-color: dimgray"> <p style="font-size: 25px">Name der Sitzung</p> </th>
+                  <th scope="col" style="border-color: dimgray"> <p>Anfangen </p></th>
+                  <th scope="col" style="border-color: dimgray"><p>Löschen</p></th>
+                </tr>
+                </thead>
+                <tbody id="text">
+                <tr *ngFor="let session of sessions">
+                  <th scope="row" style="border-color: dimgray"> </th>
+                  <td style="border-color: dimgray" > <p style="font-size: 20px"> {{session.name}}</p></td>
+                  <td style="border-color: dimgray">
+                    <button type="button" class="btn btn-primary" id="anfangen">Anfangen</button>
+                  </td>
+                  <td style="border-color: dimgray">
+                    <button type="button" class="btn btn-primary " id="löschen">Löschen</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-
   </div>
-
 </div>
