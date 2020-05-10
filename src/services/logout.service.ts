@@ -13,7 +13,7 @@ export class LogoutService {
 
   logout() {
     this.tokenService.deleteToken();
-    this.tokenService.deleteAuth();
+    this.tokenService.deleteRole();
     this.router.navigate(['/signIn']);
   }
 }

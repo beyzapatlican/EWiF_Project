@@ -10,26 +10,8 @@ export class TokenService {
   private TOKEN_TYPE_STORAGE_NAME = 'token-type';
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
-  private isTeacherSubject = new BehaviorSubject<boolean>(this.isTeacher());
-  private isStudentSubject = new BehaviorSubject<boolean>(this.isStudent());
-  private isRoleSubject = new BehaviorSubject<boolean>(this.isRole());
+  private roleSubject = new BehaviorSubject<string>(this.getRole());
 
-  isTeacher(): boolean {
-    const token = this.getToken();
-    const tokenType = this.getAuth();
-    return !!token && !!tokenType;
-  }
-
-  isStudent(): boolean {
-    const token = this.getToken();
-    const tokenType = this.getAuth();
-    return  !!token && !!tokenType;
-  }
-  isRole(): boolean {
-    const token = this.getToken();
-    const tokenType = this.getAuth();
-    return  !!token && !!tokenType;
-  }
 
   isLoggedIn(): boolean {
     const token = this.getToken();
@@ -40,16 +22,8 @@ export class TokenService {
     return this.isLoggedInSubject.asObservable();
   }
 
-  isTeacherObservable() {
-    return this.isTeacherSubject.asObservable();
-  }
-
-  isStudentObservable() {
-    return this.isStudentSubject.asObservable();
-  }
-
   isRoleObservable() {
-    return this.isRoleSubject.asObservable();
+    return this.roleSubject.asObservable();
   }
 
   getToken() {
@@ -66,17 +40,17 @@ export class TokenService {
     this.isLoggedInSubject.next(this.isLoggedIn());
   }
 
-  getAuth() {
+  getRole() {
     return localStorage.getItem(this.TOKEN_TYPE_STORAGE_NAME);
   }
 
-  deleteAuth() {
+  deleteRole() {
     localStorage.removeItem(this.TOKEN_TYPE_STORAGE_NAME);
   }
 
-  saveAuth(tokenType: string) {
+  saveRole(tokenType: string) {
     localStorage.setItem(this.TOKEN_TYPE_STORAGE_NAME, tokenType);
-    this.isRoleSubject.next(this.isRole());
+    this.roleSubject.next(this.getRole());
   }
 
 }

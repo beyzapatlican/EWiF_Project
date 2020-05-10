@@ -25,7 +25,7 @@ export class LoginService {
 
   done(token: string, tokenType: string) {
     this.tokenService.saveToken(token);
-    this.tokenService.saveAuth(tokenType);
+    this.tokenService.saveRole(tokenType);
     this.router.navigate(['/']);
   }
 }

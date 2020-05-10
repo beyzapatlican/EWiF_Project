@@ -33,7 +33,7 @@ export class AuthService {
 
   done(token: string, tokenType: string) {
     this.tokenService.saveToken(token);
-    this.tokenService.saveAuth(tokenType);
+    this.tokenService.saveRole(tokenType);
     this.signedUp.next(true);
     this.router.navigate(['/']);
   }

@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { ChangePasswordService} from '../../services/change-password.service';
-import {LogoutService} from '../../services/logout.service';
 import {TokenService} from '../../services/token.service';
-import {UserService} from '../../services/user.service';
-import {User} from '../user';
-import {LoginResponse} from '../../models/login-response.model';
 
 @Component({
   selector: 'app-userpage',
@@ -12,33 +8,18 @@ import {LoginResponse} from '../../models/login-response.model';
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-  public loggedIn = false;
-  public isTeacher = false;
-  public isStudent = false;
-  public isRole = false;
+  public isRole = '';
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(private changepasswordService: ChangePasswordService,
-              private tokenService: TokenService,
-              private userService: UserService,
-              private loginResponse: LoginResponse,
-              private user: User) { }
+  constructor(private changePasswordService: ChangePasswordService,
+              private tokenService: TokenService) { }
 
   ngOnInit() {
-    this.tokenService.isTeacherObservable().subscribe(value => {
-      this.isTeacher = value;
-    });
-
-    this.tokenService.isStudentObservable().subscribe(value => {
-      this.isStudent = value;
-    });
-
+    this.isRole = this.tokenService.getRole();
     this.tokenService.isRoleObservable().subscribe(value => {
+      console.log(value);
       this.isRole = value;
     });
-
-    if (this.tokenService.getAuth() === this.loginResponse.role) {
-      return this.isRole;
-    }
+    // TODO: Add error page if role is not equal to STUDENT OR TEACHER
   }
 
   changePassword(oldPassword: HTMLInputElement, newPassword: HTMLInputElement) {
@@ -48,7 +29,7 @@ export class UserpageComponent implements OnInit {
       newPassword: newPassword.value
     };
 
-    this.changepasswordService.changePass(passObj)
+    this.changePasswordService.changePass(passObj)
       .subscribe(resp => {
         console.log(resp);
       });

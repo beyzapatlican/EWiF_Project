@@ -1,6 +1,7 @@
 <body>
-<app-student *ngIf="isRole"></app-student>
-<app-lehrer *ngIf="isRole"></app-lehrer>
+<app-student *ngIf="isRole === 'STUDENT' "></app-student>
+<app-lehrer  *ngIf="isRole === 'TEACHER'"></app-lehrer>
+
 <div class="bg">
 
   <div class="container">
