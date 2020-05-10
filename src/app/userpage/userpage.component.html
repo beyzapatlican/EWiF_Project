@@ -1,7 +1,8 @@
-<app-student *ngIf="loggedIn" ></app-student>
-<app-lehrer *ngIf="loggedIn" ></app-lehrer>
 <body>
+<app-student *ngIf="isRole"></app-student>
+<app-lehrer *ngIf="isRole"></app-lehrer>
 <div class="bg">
+
   <div class="container">
 
     <fieldset id="userpage">

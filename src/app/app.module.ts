@@ -34,6 +34,7 @@ import { SessionFeedbackComponent } from './session-feedback/session-feedback.co
 import {SessionFeedbackService} from '../services/session-feedback.service';
 import {TokenInterceptor} from '../interceptors/token.interceptor';
 import { SessionListService} from '../services/session-list.service';
+import {UserService} from '../services/user.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { SessionListService} from '../services/session-list.service';
     ReactiveFormsModule
   ],
 
-  providers: [ReadFeedbackService, SessionFeedbackService, SessionListService,
+  providers: [ReadFeedbackService, SessionFeedbackService, SessionListService, UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

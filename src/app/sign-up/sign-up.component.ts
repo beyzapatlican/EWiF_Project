@@ -37,14 +37,15 @@ export class SignUpComponent implements OnInit {
         this.form.get('password').value,
         this.form.get('email').value,
         this.form.get('username').value,
-        this.form.get('role').value).subscribe(() => {
-          this.authService.done();
+        this.form.get('role').value).subscribe(resp => {
+          this.authService.done(resp.headers.get('Authorization'), resp.body.role);
         }, error => {
           console.log(error);
         });
     }
     this.formSubmitAttempt = true;
   }
+
   // tslint:disable-next-line:max-line-length
  /* Register(name: HTMLInputElement, username: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, role: HTMLInputElement) {
 

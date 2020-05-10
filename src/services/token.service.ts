@@ -12,17 +12,23 @@ export class TokenService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
   private isTeacherSubject = new BehaviorSubject<boolean>(this.isTeacher());
   private isStudentSubject = new BehaviorSubject<boolean>(this.isStudent());
+  private isRoleSubject = new BehaviorSubject<boolean>(this.isRole());
 
-  isTeacher(): boolean{
+  isTeacher(): boolean {
     const token = this.getToken();
-    const tokenType = this.saveAuth(this.TOKEN_TYPE_STORAGE_NAME);
-    return !!token;
+    const tokenType = this.getAuth();
+    return !!token && !!tokenType;
   }
 
-  isStudent(): boolean{
+  isStudent(): boolean {
     const token = this.getToken();
-    const tokenType = this.saveAuth(this.TOKEN_TYPE_STORAGE_NAME);
-    return !!token;
+    const tokenType = this.getAuth();
+    return  !!token && !!tokenType;
+  }
+  isRole(): boolean {
+    const token = this.getToken();
+    const tokenType = this.getAuth();
+    return  !!token && !!tokenType;
   }
 
   isLoggedIn(): boolean {
@@ -32,6 +38,18 @@ export class TokenService {
 
   isLoggedInObservable() {
     return this.isLoggedInSubject.asObservable();
+  }
+
+  isTeacherObservable() {
+    return this.isTeacherSubject.asObservable();
+  }
+
+  isStudentObservable() {
+    return this.isStudentSubject.asObservable();
+  }
+
+  isRoleObservable() {
+    return this.isRoleSubject.asObservable();
   }
 
   getToken() {
@@ -58,6 +76,7 @@ export class TokenService {
 
   saveAuth(tokenType: string) {
     localStorage.setItem(this.TOKEN_TYPE_STORAGE_NAME, tokenType);
+    this.isRoleSubject.next(this.isRole());
   }
 
 }

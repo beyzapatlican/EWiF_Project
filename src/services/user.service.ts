@@ -6,11 +6,18 @@ import {LoginRequest} from '../models/login-request.model';
 import {LoginResponse} from '../models/login-response.model';
 import {TokenService} from './token.service';
 import {UrlService} from './url.service';
+import {SignupRequest} from '../models/signup-request.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private role: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+
+  get isLoggedIn() {
+    return this.role.asObservable();
+  }
 
   constructor(private http: HttpClient,
               private router: Router,
@@ -18,14 +25,14 @@ export class UserService {
               private urlService: UrlService) {
   }
 
-  login(username: string, password: string) {
-    const request = new LoginRequest(username, password);
-    return this.http.post<HttpResponse<LoginResponse>>(`${this.urlService.getURL()}/login`, request, {observe: 'response'});
+  Show() {
+    return this.http.post(`${this.urlService.getURL()}/login`, {observe: 'response'});
   }
 
   done(token: string, tokenType: string) {
     this.tokenService.saveToken(token);
     this.tokenService.saveAuth(tokenType);
-    this.router.navigate(['/']);
+    this.role.next(true);
+    this.router.navigate(['/userpage']);
   }
 }
