@@ -20,6 +20,9 @@ export class UserpageComponent implements OnInit {
       this.isRole = value;
     });
     // TODO: Add error page if role is not equal to STUDENT OR TEACHER
+    if (this.isRole !== this.tokenService.getRole()) {
+        console.log('Something went wrong');
+    }
   }
 
   changePassword(oldPassword: HTMLInputElement, newPassword: HTMLInputElement) {
