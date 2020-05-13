@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionService} from '../../services/session.service';
 
 @Component({
   selector: 'app-session-management',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor( private sessionService: SessionService) { }
 
   ngOnInit(): void {
+    this.sessionService.userCount()
+      .subscribe( resp => console.log(resp));
   }
-
 }

@@ -24,7 +24,6 @@ import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.compone
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { SuccessComponent } from './success/success.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadFeedbackService} from '../services/read-feedback.service';
@@ -34,6 +33,7 @@ import { SessionFeedbackComponent } from './session-feedback/session-feedback.co
 import {SessionFeedbackService} from '../services/session-feedback.service';
 import {TokenInterceptor} from '../interceptors/token.interceptor';
 import { SessionListService} from '../services/session-list.service';
+import { SessionService } from '../services/session.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,6 @@ import { SessionListService} from '../services/session-list.service';
     FreetextComponent,
     MultiplechoiceComponent,
     TruefalseComponent,
-    SuccessComponent,
     ResetPasswordComponent,
     FeedbackComponent,
     ReadfeedbackComponent,
@@ -73,7 +72,7 @@ import { SessionListService} from '../services/session-list.service';
     ReactiveFormsModule
   ],
 
-  providers: [ReadFeedbackService, SessionFeedbackService, SessionListService,
+  providers: [ReadFeedbackService, SessionFeedbackService, SessionListService, SessionService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

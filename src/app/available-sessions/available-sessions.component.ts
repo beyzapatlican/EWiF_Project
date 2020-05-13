@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Session} from '../../models/session';
 import {SessionListService} from '../../services/session-list.service';
-import {FeedbackResponse} from '../../models/feedback-response.model';
-import {Feedback} from '../../models/feedback';
 import {SessionResponse} from '../../models/session-response.model';
-
+import { SessionService } from 'src/services/session.service';
 @Component({
   selector: 'app-available-sessions',
   templateUrl: './available-sessions.component.html',
@@ -12,8 +10,8 @@ import {SessionResponse} from '../../models/session-response.model';
 })
 export class AvailableSessionsComponent implements OnInit {
   sessions: Array<Session>;
-
-  constructor(private sessionListService: SessionListService) { }
+  sessionNames: Array<string>;
+  constructor(private sessionListService: SessionListService, private sessionService: SessionService) { }
 
   ngOnInit(): void {
     this.sessionListService.GetAll()
@@ -23,5 +21,9 @@ export class AvailableSessionsComponent implements OnInit {
           this.sessions.push(new Session(value.name, value.sessionID));
         });
       });
+  }
+  delete(pin: string) {
+    this.sessionService.delete(pin)
+      .subscribe (resp => console.log(resp));
   }
 }

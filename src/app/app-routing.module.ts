@@ -19,7 +19,6 @@ import {UserpageComponent} from './userpage/userpage.component';
 import {QuestionTypeComponent} from './question-type/question-type.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component';
-import {SuccessComponent} from './success/success.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TokenGuard} from '../guards/token.guard';
@@ -102,11 +101,6 @@ const routes: Routes = [
   {
     path: 'truefalse',
     component: TruefalseComponent
-  },
-  {
-    path: 'success',
-    component: SuccessComponent,
-    canActivate: [TokenGuard]
   },
   {
     path: 'resetPassword',

@@ -17,10 +17,34 @@ body, html {
   background-size: cover;
 
 }
+
 .row {
-  display: flex;
+  display: block;
+  mid-height: 1px;
+}
+row:after {
+  content:"";
+  display: table;
+  clear:  both;
 }
 
 .column {
-  flex: 50%;
+  display: block;
+  float: left;
+  width: 40%;
+  padding: 0 5%;
+  background-color: #C7DBDA;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 15px 50px 30px;
+}
+
+#sessionManagement h1,p {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
 }
