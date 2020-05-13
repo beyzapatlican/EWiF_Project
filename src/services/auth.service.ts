@@ -5,6 +5,9 @@ import {Router} from '@angular/router';
 import {SignupRequest} from '../models/signup-request.model';
 import {SignupResponse} from '../models/signup-response.model';
 import {UrlService} from './url.service';
+import {LoginRequest} from '../models/login-request.model';
+import {LoginResponse} from '../models/login-response.model';
+import {TokenService} from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +23,20 @@ export class AuthService {
 
   constructor(private http: HttpClient,
               private router: Router,
-              private urlService: UrlService) { }
+              private urlService: UrlService,
+              private tokenService: TokenService) { }
 
   Register(name, password, email, username, role) {
-    const newUser = new SignupRequest(name, username, email, password, role);
-    return this.http.post<SignupResponse>(this.urlService.getURL() + '/' + 'register', newUser);
+    const request = new SignupRequest(name, username, email, password, role);
+    return this.http.post<SignupResponse>(`${this.urlService.getURL()}/register`, request, {observe: 'response'});
   }
 
-  done() {
+  done(token: string, tokenType: string) {
+    this.tokenService.saveToken(token);
+    this.tokenService.saveRole(tokenType);
     this.signedUp.next(true);
     this.router.navigate(['/']);
   }
+
+
 }

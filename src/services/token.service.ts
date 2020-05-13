@@ -10,6 +10,8 @@ export class TokenService {
   private TOKEN_TYPE_STORAGE_NAME = 'token-type';
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
+  private roleSubject = new BehaviorSubject<string>(this.getRole());
+
 
   isLoggedIn(): boolean {
     const token = this.getToken();
@@ -18,6 +20,10 @@ export class TokenService {
 
   isLoggedInObservable() {
     return this.isLoggedInSubject.asObservable();
+  }
+
+  isRoleObservable() {
+    return this.roleSubject.asObservable();
   }
 
   getToken() {
@@ -34,16 +40,17 @@ export class TokenService {
     this.isLoggedInSubject.next(this.isLoggedIn());
   }
 
-  getAuth() {
+  getRole() {
     return localStorage.getItem(this.TOKEN_TYPE_STORAGE_NAME);
   }
 
-  deleteAuth() {
+  deleteRole() {
     localStorage.removeItem(this.TOKEN_TYPE_STORAGE_NAME);
   }
 
-  saveAuth(tokenType: string) {
+  saveRole(tokenType: string) {
     localStorage.setItem(this.TOKEN_TYPE_STORAGE_NAME, tokenType);
+    this.roleSubject.next(this.getRole());
   }
 
 }
