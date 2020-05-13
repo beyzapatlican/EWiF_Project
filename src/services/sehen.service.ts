@@ -4,6 +4,6 @@ import {Injectable} from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class StudentSehenService {
+export class SehenService {
 
 }
