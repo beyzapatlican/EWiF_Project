@@ -35,6 +35,7 @@ import {SessionFeedbackService} from '../services/session-feedback.service';
 import {TokenInterceptor} from '../interceptors/token.interceptor';
 import { SessionListService} from '../services/session-list.service';
 import {UserService} from '../services/user.service';
+import { StudentSehenComponent } from './student-sehen/student-sehen.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {UserService} from '../services/user.service';
     FeedbackComponent,
     ReadfeedbackComponent,
     LectureFeedbackComponent,
-    SessionFeedbackComponent
+    SessionFeedbackComponent,
+    StudentSehenComponent
   ],
   imports: [
     BrowserModule,
