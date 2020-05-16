@@ -20,8 +20,7 @@ export class SessionService {
 
   delete(pin: string) {
     const request = new DeleteSessionRequest(pin);
-    // @ts-ignore
-    return this.http.delete<DeleteSessionResponse>(`${this.urlService.getURL()}/teacher/session`, request, {observe: 'response'});
+    return this.http.request<DeleteSessionResponse>('delete', `${this.urlService.getURL()}/teacher/session`, {body: request});
   }
   userCount() {
     return this.http.get(this.apiURL + '/teacher/OpenSessionUserCount');
