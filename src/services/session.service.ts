@@ -12,7 +12,6 @@ import {DeleteSessionResponse} from '../models/deleteSessionResponse.model';
 })
 export class SessionService {
 
-  private readonly apiURL = 'http://24.133.107.44:8080';
   constructor(private http: HttpClient,
               private urlService: UrlService) {
   }
@@ -23,7 +22,7 @@ export class SessionService {
     return this.http.request<DeleteSessionResponse>('delete', `${this.urlService.getURL()}/teacher/session`, {body: request});
   }
   userCount() {
-    return this.http.get(this.apiURL + '/teacher/OpenSessionUserCount');
+    return this.http.get(this.urlService.getURL() + '/teacher/OpenSessionUserCount');
   }
 
 }
