@@ -24,7 +24,6 @@ import { MultiplechoiceComponent } from './multiplechoice/multiplechoice.compone
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { SuccessComponent } from './success/success.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadFeedbackService} from '../services/read-feedback.service';
@@ -59,7 +58,6 @@ import { StudentSehenComponent } from './student-sehen/student-sehen.component';
     FreetextComponent,
     MultiplechoiceComponent,
     TruefalseComponent,
-    SuccessComponent,
     ResetPasswordComponent,
     FeedbackComponent,
     ReadfeedbackComponent,
