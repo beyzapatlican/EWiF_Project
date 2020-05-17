@@ -35,6 +35,7 @@ import {TokenInterceptor} from '../interceptors/token.interceptor';
 import { SessionListService} from '../services/session-list.service';
 import {UserService} from '../services/user.service';
 import { StudentSehenComponent } from './student-sehen/student-sehen.component';
+import { OpenSessionUserCountComponent } from './open-session-user-count/open-session-user-count.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { StudentSehenComponent } from './student-sehen/student-sehen.component';
     ReadfeedbackComponent,
     LectureFeedbackComponent,
     SessionFeedbackComponent,
-    StudentSehenComponent
+    StudentSehenComponent,
+    OpenSessionUserCountComponent
   ],
   imports: [
     BrowserModule,

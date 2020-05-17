@@ -22,6 +22,7 @@ import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TokenGuard} from '../guards/token.guard';
+import {OpenSessionUserCountComponent} from './open-session-user-count/open-session-user-count.component';
 
 const routes: Routes = [
   {
@@ -105,6 +106,11 @@ const routes: Routes = [
   {
     path: 'resetPassword',
     component: ResetPasswordComponent,
+    canActivate: [TokenGuard]
+  },
+  {
+    path: 'OpenSessionUserCount',
+    component: OpenSessionUserCountComponent,
     canActivate: [TokenGuard]
   }
 ];

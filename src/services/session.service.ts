@@ -8,6 +8,7 @@ import {DeleteSessionRequest} from '../models/requests/deleteSessionRequest.mode
 import {DeleteSessionResponse} from '../models/responses/deleteSessionResponse.model';
 import {AnfangenRequest} from '../models/requests/anfangen-request.model';
 import {AnfangenResponse} from '../models/responses/anfangen-response.model';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ import {AnfangenResponse} from '../models/responses/anfangen-response.model';
 export class SessionService {
 
   constructor(private http: HttpClient,
-              private urlService: UrlService) {
+              private urlService: UrlService,
+              private router: Router) {
   }
 
 
@@ -31,7 +33,7 @@ export class SessionService {
   anfangen(name: string, pin: string) {
     const request = new AnfangenRequest(name, pin);
     // @ts-ignore
-    return this.http.get<AnfangenResponse>(`${this.urlService.getURL()}/teacher/OpenSessionUserCount`, request, {observe: 'response'});
+    // tslint:disable-next-line:max-line-length
+    return this.http.get<AnfangenResponse>(`${this.urlService.getURL()}/teacher/OpenSessionUserCount`, request, {queryParams: { pinOpen: 'pin' }});
   }
-
 }
