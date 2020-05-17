@@ -23,7 +23,7 @@
 
                     <td style="border-color: dimgray" > <p style="font-size: 20px"> {{session.name}}</p></td>
                     <td style="border-color: dimgray">
-                      <button type="button" class="btn btn-primary" id="anfangen">Anfangen</button>
+                      <button type="button" class="btn btn-primary" id="anfangen" (click)="anfangen(session.name, session.sessionID)">Anfangen</button>
                     </td>
                     <td style="border-color: dimgray">
                       <button type="button" class="btn btn-primary " id="löschen" (click)="delete(session.sessionID)">Löschen</button>

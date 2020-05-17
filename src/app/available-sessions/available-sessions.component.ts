@@ -3,6 +3,7 @@ import {Session} from '../../models/session';
 import {SessionListService} from '../../services/session-list.service';
 import {SessionResponse} from '../../models/session-response.model';
 import { SessionService } from 'src/services/session.service';
+import {subscribeTo} from 'rxjs/internal-compatibility';
 @Component({
   selector: 'app-available-sessions',
   templateUrl: './available-sessions.component.html',
@@ -25,5 +26,10 @@ export class AvailableSessionsComponent implements OnInit {
   delete(pin: string) {
     this.sessionService.delete(pin)
       .subscribe (resp => console.log(resp));
+  }
+
+  anfangen(name: string, pin: string) {
+    this.sessionService.anfangen(name, pin)
+      .subscribe(resp => console.log(resp));
   }
 }
