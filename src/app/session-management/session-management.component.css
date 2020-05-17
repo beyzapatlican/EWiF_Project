@@ -42,7 +42,13 @@ row:after {
   border-radius: 15px 50px 30px;
 }
 
-#sessionManagement h1,p {
+#sessionManagement h1,p{
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+#column{
   display: block;
   font-size: 30px;
   font-weight: 300;
