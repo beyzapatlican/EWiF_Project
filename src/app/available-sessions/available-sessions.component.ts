@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Session} from '../../models/session';
 import {SessionListService} from '../../services/session-list.service';
-import {SessionResponse} from '../../models/session-response.model';
+import {SessionResponse} from '../../models/responses/session-response.model';
 import { SessionService } from 'src/services/session.service';
 import {subscribeTo} from 'rxjs/internal-compatibility';
 @Component({

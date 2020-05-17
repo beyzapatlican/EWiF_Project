@@ -1,6 +1,6 @@
-import {TrueFalse} from './question-types/true-false.model';
-import {Free} from './question-types/free.model';
-import {MultipleChoice} from './question-types/multiple-choice.model';
+import {TrueFalse} from '../question-types/true-false.model';
+import {Free} from '../question-types/free.model';
+import {MultipleChoice} from '../question-types/multiple-choice.model';
 
 export class PrepareSessionRequest {
     testName: string;

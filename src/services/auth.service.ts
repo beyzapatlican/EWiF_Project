@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
-import {SignupRequest} from '../models/signup-request.model';
-import {SignupResponse} from '../models/signup-response.model';
+import {SignupRequest} from '../models/requests/signup-request.model';
+import {SignupResponse} from '../models/responses/signup-response.model';
 import {UrlService} from './url.service';
-import {LoginRequest} from '../models/login-request.model';
-import {LoginResponse} from '../models/login-response.model';
+import {LoginRequest} from '../models/requests/login-request.model';
+import {LoginResponse} from '../models/responses/login-response.model';
 import {TokenService} from './token.service';
 
 @Injectable({

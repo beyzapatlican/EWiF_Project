@@ -2,10 +2,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {TrueFalse} from '../models/question-types/true-false.model';
 import {Free} from '../models/question-types/free.model';
 import {MultipleChoice} from '../models/question-types/multiple-choice.model';
-import {PrepareSessionRequest} from '../models/prepare-session-request.model';
-import {PrepareSessionResponse} from '../models/prepare-session-response.model';
+import {PrepareSessionRequest} from '../models/requests/prepare-session-request.model';
+import {PrepareSessionResponse} from '../models/responses/prepare-session-response.model';
 import {environment} from '../environments/environment.prod';
-import {FeedbackRequest} from '../models/feedback-request.model';
+import {FeedbackRequest} from '../models/requests/feedback-request.model';
 
 import {Injectable} from '@angular/core';
 import {FeedbackChoice} from '../models/feedback-choice.model';

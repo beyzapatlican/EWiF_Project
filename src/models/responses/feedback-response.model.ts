@@ -1,4 +1,4 @@
-import {Feedback} from './feedback';
+import {Feedback} from '../feedback';
 
 export class FeedbackResponse {
   feedbacks: Array<Feedback>;

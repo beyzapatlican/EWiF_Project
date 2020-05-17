@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { UrlService} from './url.service';
 import {BehaviorSubject} from 'rxjs';
-import {SignupRequest} from '../models/signup-request.model';
-import {SignupResponse} from '../models/signup-response.model';
-import {DeleteSessionRequest} from '../models/deleteSessionRequest.model';
-import {DeleteSessionResponse} from '../models/deleteSessionResponse.model';
-import {AnfangenRequest} from '../models/anfangen-request.model';
-import {AnfangenResponse} from '../models/anfangen-response.model';
+import {SignupRequest} from '../models/requests/signup-request.model';
+import {SignupResponse} from '../models/responses/signup-response.model';
+import {DeleteSessionRequest} from '../models/requests/deleteSessionRequest.model';
+import {DeleteSessionResponse} from '../models/responses/deleteSessionResponse.model';
+import {AnfangenRequest} from '../models/requests/anfangen-request.model';
+import {AnfangenResponse} from '../models/responses/anfangen-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,7 @@ export class SessionService {
     const request = new DeleteSessionRequest(pin);
     return this.http.request<DeleteSessionResponse>('delete', `${this.urlService.getURL()}/teacher/session`, {body: request});
   }
+
   userCount() {
     return this.http.get(this.urlService.getURL() + '/teacher/OpenSessionUserCount');
   }
