@@ -51,4 +51,15 @@ export class SessionService {
 
     return this.http.post<GetQuestionResponse>(`${this.urlService.getURL()}/question`, request);
   }
+
+  getAnswers(pinOpen: string, questionNum: number) {
+    const request = new QuestionResultsRequest(pinOpen, questionNum);
+
+    return this.http.post<QuestionResultsResponse>(`${this.urlService.getURL()}/teacher/questionResults`, request);
+  }
+
+  getAnswer(pinOpen: string) {
+    return this.http.get<GetAnswerResponse>(`${this.urlService.getURL()}/teacher/questionAnswer`, { params: { pinOpen }});
+  }
+
 }
