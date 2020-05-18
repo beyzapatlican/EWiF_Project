@@ -61,8 +61,10 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     });
   }
 
-  getAnswerRequest() {
-
+  getAnswersRequest() {
+    this.sessionService.getAnswers(this.pinOpen, this.questionNum).subscribe(value => {
+      this.showAnswers(value);
+    });
   }
 
   getAnswerRequest() {
