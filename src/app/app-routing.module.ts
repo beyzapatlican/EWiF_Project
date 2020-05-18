@@ -23,6 +23,7 @@ import {ResetPasswordComponent} from './reset-password/reset-password.component'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TokenGuard} from '../guards/token.guard';
 import {OpenSessionUserCountComponent} from './open-session-user-count/open-session-user-count.component';
+import {CreateSessionComponent} from './create-session/create-session.component';
 
 const routes: Routes = [
   {
@@ -109,8 +110,13 @@ const routes: Routes = [
     canActivate: [TokenGuard]
   },
   {
-    path: 'OpenSessionUserCount',
+    path: 'openSessionUserCount',
     component: OpenSessionUserCountComponent,
+    canActivate: [TokenGuard]
+  },
+  {
+    path: 'createSession',
+    component: CreateSessionComponent,
     canActivate: [TokenGuard]
   }
 ];

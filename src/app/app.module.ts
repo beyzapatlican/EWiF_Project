@@ -36,6 +36,7 @@ import { SessionListService} from '../services/session-list.service';
 import {UserService} from '../services/user.service';
 import { StudentSehenComponent } from './student-sehen/student-sehen.component';
 import { OpenSessionUserCountComponent } from './open-session-user-count/open-session-user-count.component';
+import { CreateSessionComponent } from './create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { OpenSessionUserCountComponent } from './open-session-user-count/open-se
     LectureFeedbackComponent,
     SessionFeedbackComponent,
     StudentSehenComponent,
-    OpenSessionUserCountComponent
+    OpenSessionUserCountComponent,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,

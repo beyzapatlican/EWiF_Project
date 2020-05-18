@@ -35,6 +35,10 @@ export class SessionService {
     return this.http.get<OpenSessionUserCountResponse>(this.urlService.getURL() + '/teacher/openSessionUserCount', {params: { pinOpen }});
   }
 
+  anfangen(pin: string) {
+    const request = new AnfangenRequest(pin);
+    this.router.navigate(['/createSession']);
+    return this.http.post<AnfangenResponse>(`${this.urlService.getURL()}/teacher/createSession`, request, {observe: 'response'});
   anfangen(name: string, pin: string) {
     const request = new AnfangenRequest(name, pin);
     return this.http.get<AnfangenResponse>(`${this.urlService.getURL()}/teacher/openSessionUserCount`);

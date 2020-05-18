@@ -37,6 +37,4 @@ export class AuthService {
     this.signedUp.next(true);
     this.router.navigate(['/']);
   }
-
-
 }

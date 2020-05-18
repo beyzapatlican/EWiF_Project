@@ -28,8 +28,8 @@ export class AvailableSessionsComponent implements OnInit {
       .subscribe (resp => console.log(resp));
   }
 
-  anfangen(name: string, pin: string) {
-    this.sessionService.anfangen(name, pin)
+  anfangen(pin: string) {
+    this.sessionService.anfangen(pin)
       .subscribe(resp => console.log(resp));
   }
 }
