@@ -39,10 +39,8 @@ export class SessionService {
     const request = new AnfangenRequest(pin);
     this.router.navigate(['/createSession']);
     return this.http.post<AnfangenResponse>(`${this.urlService.getURL()}/teacher/createSession`, request, {observe: 'response'});
-  anfangen(name: string, pin: string) {
-    const request = new AnfangenRequest(name, pin);
-    return this.http.get<AnfangenResponse>(`${this.urlService.getURL()}/teacher/openSessionUserCount`);
   }
+
 
   skip(pinOpen: string) {
     const request = new SkipRequest(pinOpen);
