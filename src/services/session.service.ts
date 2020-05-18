@@ -11,6 +11,8 @@ import {SkipRequest} from '../models/requests/skip-request.model';
 import {StatusResponse} from '../models/responses/status-response.model';
 import {GetQuestionRequest} from '../models/requests/get-question-request.model';
 import {GetQuestionResponse} from '../models/responses/get-question-response.model';
+import {QuestionResultsRequest} from '../models/requests/question-results-request.model';
+import {QuestionResultsResponse} from '../models/responses/question-results-response.model';
 
 @Injectable({
   providedIn: 'root'

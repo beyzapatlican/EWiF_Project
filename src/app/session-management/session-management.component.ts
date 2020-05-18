@@ -5,6 +5,7 @@ import {MultipleChoice} from '../../models/question-types/multiple-choice.model'
 import {TrueFalse} from '../../models/question-types/true-false.model';
 import {Free} from '../../models/question-types/free.model';
 import {GetQuestionResponse} from '../../models/responses/get-question-response.model';
+import {QuestionResultsResponse} from '../../models/responses/get-answer-response.model';
 
 @Component({
   selector: 'app-session-management',
@@ -18,6 +19,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   userCountSubscription: Subscription;
   questionNum: number;
   question = 'Hier wird fragen angezeigt';
+  correctAnswer: string;
 
 
   constructor( private sessionService: SessionService) { }
@@ -67,15 +69,22 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   }
 
   endSessionRequest() {
-
+    this.endSession();
   }
 
   private showQuestion(question: GetQuestionResponse) {
     if (question.MultipleChoice != null) {
-      this.question = question.MultipleChoice.question;
+      this.question = question.MultipleChoice.question + '\n';
+      this.question += question.MultipleChoice.ans1 + '\n';
+      this.question += question.MultipleChoice.ans2 + '\n';
+      this.question += question.MultipleChoice.ans3 + '\n';
+      this.question += question.MultipleChoice.ans4 + '\n';
+      this.question += question.MultipleChoice.ans5 + '\n';
 
     } else if (question.TrueFalse != null) {
       this.question = question.TrueFalse.question;
+      this.question += 'True\n';
+      this.question += 'False\n';
 
     } else if (question.Free != null) {
       this.question = question.Free.question;
@@ -83,6 +92,26 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     } else {
       console.log('No Question to Show');
     }
+  }
+
+  private showAnswer(question: QuestionResultsResponse) {
+    // TODO: Show answer in meaningful way
+    this.correctAnswer = '';
+    if (question.Free != null) {
+      question.Free.answers.forEach(value => this.correctAnswer += value);
+
+    } else if (question.MultipleChoice != null) {
+      question.MultipleChoice.answers.forEach(value => this.correctAnswer += `${value} `);
+
+    } else if (question.TrueFalse != null) {
+
+      this.correctAnswer += question.TrueFalse.t + ' ';
+      this.correctAnswer += question.TrueFalse.f;
+    } else {
+      this.correctAnswer = 'No Answers';
+      console.log('No Answers');
+    }
+
   }
 
   private endSession() {
