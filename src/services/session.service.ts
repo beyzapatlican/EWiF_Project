@@ -13,6 +13,7 @@ import {GetQuestionRequest} from '../models/requests/get-question-request.model'
 import {GetQuestionResponse} from '../models/responses/get-question-response.model';
 import {QuestionResultsRequest} from '../models/requests/question-results-request.model';
 import {QuestionResultsResponse} from '../models/responses/question-results-response.model';
+import {GetAnswerResponse} from '../models/responses/get-answer-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,6 @@ export class SessionService {
 
   anfangen(name: string, pin: string) {
     const request = new AnfangenRequest(name, pin);
-
     return this.http.get<AnfangenResponse>(`${this.urlService.getURL()}/teacher/openSessionUserCount`);
   }
 

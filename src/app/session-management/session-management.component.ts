@@ -5,7 +5,7 @@ import {MultipleChoice} from '../../models/question-types/multiple-choice.model'
 import {TrueFalse} from '../../models/question-types/true-false.model';
 import {Free} from '../../models/question-types/free.model';
 import {GetQuestionResponse} from '../../models/responses/get-question-response.model';
-import {QuestionResultsResponse} from '../../models/responses/get-answer-response.model';
+import {QuestionResultsResponse} from '../../models/responses/question-results-response.model';
 
 @Component({
   selector: 'app-session-management',
@@ -18,7 +18,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   userCountSubscriptionFrequency = interval(3000);
   userCountSubscription: Subscription;
   questionNum: number;
-  question = 'Hier wird fragen angezeigt';
+  question = 'Hier werden Fragen angezeigt';
   correctAnswer: string;
 
 
@@ -68,6 +68,12 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   }
 
+  getAnswerRequest() {
+    this.sessionService.getAnswer(this.pinOpen).subscribe(value => {
+      this.showAnswer(value.answer);
+    });
+  }
+
   endSessionRequest() {
     this.endSession();
   }
@@ -94,7 +100,11 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     }
   }
 
-  private showAnswer(question: QuestionResultsResponse) {
+  private showAnswer(answer: string) {
+    console.log(answer);
+  }
+
+  private showAnswers(question: QuestionResultsResponse) {
     // TODO: Show answer in meaningful way
     this.correctAnswer = '';
     if (question.Free != null) {
