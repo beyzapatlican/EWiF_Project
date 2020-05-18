@@ -1,9 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SessionService} from '../../services/session.service';
 import {interval, Subscription} from 'rxjs';
-import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
-import {TrueFalse} from '../../models/question-types/true-false.model';
-import {Free} from '../../models/question-types/free.model';
 import {GetQuestionResponse} from '../../models/responses/get-question-response.model';
 import {QuestionResultsResponse} from '../../models/responses/question-results-response.model';
 
