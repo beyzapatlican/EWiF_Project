@@ -1,9 +1,7 @@
 export class AnfangenRequest {
   pin: string;
-  name: string;
 
-  constructor(name: string, pin: string) {
-    this.name = name;
+  constructor(pin: string) {
     this.pin = pin;
   }
 }
