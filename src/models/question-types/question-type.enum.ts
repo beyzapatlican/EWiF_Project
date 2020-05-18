@@ -1,5 +1,5 @@
 export enum QuestionType {
     FREE_TEXT = 'Free',
-    MULTIPLE_CHOICE = 'Multiple Choice',
-    TRUE_FALSE = 'True False'
+    MULTIPLE_CHOICE = 'MultipleChoice',
+    TRUE_FALSE = 'TrueFalse'
 }

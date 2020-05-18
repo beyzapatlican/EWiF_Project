@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { UrlService} from './url.service';
-import {BehaviorSubject} from 'rxjs';
-import {SignupRequest} from '../models/requests/signup-request.model';
-import {SignupResponse} from '../models/responses/signup-response.model';
 import {DeleteSessionRequest} from '../models/requests/deleteSessionRequest.model';
 import {DeleteSessionResponse} from '../models/responses/deleteSessionResponse.model';
 import {AnfangenRequest} from '../models/requests/anfangen-request.model';
 import {AnfangenResponse} from '../models/responses/anfangen-response.model';
 import {Router} from '@angular/router';
+import {OpenSessionUserCountResponse} from '../models/responses/open-session-user-count-response.model';
+import {SkipRequest} from '../models/requests/skip-request.model';
+import {StatusResponse} from '../models/responses/status-response.model';
+import {GetQuestionRequest} from '../models/requests/get-question-request.model';
+import {GetQuestionResponse} from '../models/responses/get-question-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,14 +28,25 @@ export class SessionService {
     return this.http.request<DeleteSessionResponse>('delete', `${this.urlService.getURL()}/teacher/session`, {body: request});
   }
 
-  userCount() {
-    return this.http.get(this.urlService.getURL() + '/teacher/OpenSessionUserCount');
+  userCount(pinOpen: string) {
+    return this.http.get<OpenSessionUserCountResponse>(this.urlService.getURL() + '/teacher/openSessionUserCount', {params: { pinOpen }});
   }
 
   anfangen(name: string, pin: string) {
     const request = new AnfangenRequest(name, pin);
-    // @ts-ignore
-    // tslint:disable-next-line:max-line-length
-    return this.http.get<AnfangenResponse>(`${this.urlService.getURL()}/teacher/OpenSessionUserCount`, request, {queryParams: { pinOpen: 'pin' }});
+
+    return this.http.get<AnfangenResponse>(`${this.urlService.getURL()}/teacher/openSessionUserCount`);
+  }
+
+  skip(pinOpen: string) {
+    const request = new SkipRequest(pinOpen);
+
+    return this.http.post<StatusResponse>(`${this.urlService.getURL()}/teacher/skip`, request);
+  }
+
+  getQuestion(pinOpen: string) {
+    const request = new GetQuestionRequest(pinOpen);
+
+    return this.http.post<GetQuestionResponse>(`${this.urlService.getURL()}/question`, request);
   }
 }

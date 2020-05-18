@@ -8,7 +8,7 @@ export class MultipleChoice {
     ans5: string;
     questionNum: number;
 
-    constructor(question: string, solution: number, questionNum: number, ans1: string, ans2: string, ans3?: string, ans4?: string, ans5?) {
+    constructor(question: string, solution?: number, questionNum?: number, ans1?: string, ans2?: string, ans3?: string, ans4?: string, ans5?) {
         this.question = question;
         this.solution = solution;
         this.questionNum = questionNum;
