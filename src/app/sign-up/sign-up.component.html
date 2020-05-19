@@ -13,27 +13,21 @@
 
       <input type="form" id="defaultRegisterFormName" class="form-control" placeholder="Vorname*" formControlName="name" required>
       <div *ngIf="isFieldInvalid('name')">
-        Please inform your name
-      </div>
-      <p></p>
-
-      <input type="form" id="defaultRegisterFormLastName" class="form-control" placeholder="Nachname*" formControlName="nachname" required>
-      <div *ngIf="isFieldInvalid('nachname')">
-        Please inform your nachname
+        Bitte geben sie dein Name ein
       </div>
       <p></p>
 
       <!-- Username -->
       <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername*" formControlName="username" required>
       <div *ngIf="isFieldInvalid('username')">
-        Please inform your user name
+        Bitte geben sie dein Benutzername ein
       </div>
       <p></p>
 
       <!-- E-mail -->
       <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*" formControlName="email" required>
       <div *ngIf="isFieldInvalid('email')">
-        Please inform your email
+        Bitte geben sie dein Email ein
       </div>
       <p></p>
 
@@ -41,7 +35,7 @@
       <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password*" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password" required>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
       <div *ngIf="isFieldInvalid('password')">
-        Please inform your password
+        Bitte geben sie dein Passwort ein
       </div>
       <p></p>
 
@@ -62,7 +56,7 @@
         </div>
 
         <div *ngIf="isFieldInvalid('role')">
-          Please inform your role
+          Bitte wählen sie dein Role
         </div>
       </div>
 

@@ -9,8 +9,6 @@ import {TokenService} from '../services/token.service';
   providedIn: 'root'
 })
 export class TokenGuard implements CanActivate {
-
-
   constructor(public tokenService: TokenService, public router: Router) {
   }
 
@@ -21,5 +19,4 @@ export class TokenGuard implements CanActivate {
     }
     return true;
   }
-
 }

@@ -37,6 +37,7 @@ import {UserService} from '../services/user.service';
 import { StudentSehenComponent } from './student-sehen/student-sehen.component';
 import { OpenSessionUserCountComponent } from './open-session-user-count/open-session-user-count.component';
 import { CreateSessionComponent } from './create-session/create-session.component';
+import { RouterGuard } from '../guards/router.guard';
 
 @NgModule({
   declarations: [
