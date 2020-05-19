@@ -4,14 +4,17 @@ import {SessionListService} from '../../services/session-list.service';
 import {SessionResponse} from '../../models/responses/session-response.model';
 import { SessionService } from 'src/services/session.service';
 import {subscribeTo} from 'rxjs/internal-compatibility';
+import {TrueFalse} from '../../models/question-types/true-false.model';
 @Component({
   selector: 'app-available-sessions',
   templateUrl: './available-sessions.component.html',
   styleUrls: ['./available-sessions.component.css']
 })
 export class AvailableSessionsComponent implements OnInit {
+  static pin: string;
   sessions: Array<Session>;
   sessionNames: Array<string>;
+
   constructor(private sessionListService: SessionListService, private sessionService: SessionService) { }
 
   ngOnInit(): void {
@@ -28,8 +31,12 @@ export class AvailableSessionsComponent implements OnInit {
       .subscribe (resp => console.log(resp));
   }
 
-  anfangen(pin: string) {
+ /* anfangen(pin: string) {
     this.sessionService.anfangen(pin)
       .subscribe(resp => console.log(resp));
+  }*/
+  anfangen(pinn: string) {
+    AvailableSessionsComponent.pin = pinn;
+    this.sessionService.anfangen();
   }
 }

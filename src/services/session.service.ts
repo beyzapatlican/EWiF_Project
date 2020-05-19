@@ -19,7 +19,6 @@ import {GetAnswerResponse} from '../models/responses/get-answer-response.model';
   providedIn: 'root'
 })
 export class SessionService {
-
   constructor(private http: HttpClient,
               private urlService: UrlService,
               private router: Router) {
@@ -35,12 +34,14 @@ export class SessionService {
     return this.http.get<OpenSessionUserCountResponse>(this.urlService.getURL() + '/teacher/openSessionUserCount', {params: { pinOpen }});
   }
 
-  anfangen(pin: string) {
-    const request = new AnfangenRequest(pin);
+  anfangen() {
     this.router.navigate(['/createSession']);
-    return this.http.post<AnfangenResponse>(`${this.urlService.getURL()}/teacher/createSession`, request, {observe: 'response'});
-  }
+    }
 
+  basla(pin: string) {
+    const request = new AnfangenRequest(pin);
+    return this.http.post<AnfangenResponse>(`${this.urlService.getURL()}/teacher/createSession`, request);
+  }
 
   skip(pinOpen: string) {
     const request = new SkipRequest(pinOpen);
