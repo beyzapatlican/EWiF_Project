@@ -20,8 +20,6 @@ export class RouterGuard implements CanActivate {
       if (this.role === 'STUDENT') {
         this.router.navigate(['/student']);
       }
-    } else {
-      this.router.navigate(['']);
     }
     return true;
   }
