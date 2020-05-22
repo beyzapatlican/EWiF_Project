@@ -13,7 +13,7 @@
       <!-- Username -->
       <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username [(ngModel)]="usernameData" formControlName="username" required>
       <div *ngIf="isFieldInvalid('username')">
-        Please inform your user name
+        Bitte geben Sie dein Bentutzername ein
       </div>
       <p></p>
 
@@ -22,7 +22,7 @@
       <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password [(ngModel)]="passwordData" formControlName="password" required>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
       <div *ngIf="isFieldInvalid('password')">
-        Please inform your password
+        Bitte geben Sie dein Passwort ein
       </div>
       <p></p>
 

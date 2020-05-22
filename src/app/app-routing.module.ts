@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes, NavigationExtras, UrlTree} from '@angular/router';
 
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {SignInComponent} from './sign-in/sign-in.component';
@@ -20,15 +20,16 @@ import {QuestionTypeComponent} from './question-type/question-type.component';
 import {TruefalseComponent} from './truefalse/truefalse.component';
 import {MultiplechoiceComponent} from './multiplechoice/multiplechoice.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TokenGuard} from '../guards/token.guard';
 import {OpenSessionUserCountComponent} from './open-session-user-count/open-session-user-count.component';
 import {CreateSessionComponent} from './create-session/create-session.component';
+import {RouterGuard} from '../guards/router.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomepageComponent,
+    canActivate: [RouterGuard]
   },
   {
     path: 'signIn',
@@ -60,7 +61,7 @@ const routes: Routes = [
     canActivate: [TokenGuard]
   },
   {
-    path: 'student-pin',
+    path: 'student',
     component: StudentComponent
   },
   {
@@ -126,5 +127,6 @@ const routes: Routes = [
   imports: [ RouterModule.forRoot(routes)],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
 
