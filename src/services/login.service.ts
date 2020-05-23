@@ -11,13 +11,14 @@ import {UrlService} from './url.service';
   providedIn: 'root'
 })
 export class LoginService {
+  role: string;
 
   constructor(private http: HttpClient,
               private router: Router,
               private tokenService: TokenService,
               private urlService: UrlService) {
+    this.role = this.tokenService.getRole();
   }
-
   login(username: string, password: string) {
     const request = new LoginRequest(username, password);
     return this.http.post<LoginResponse>(`${this.urlService.getURL()}/login`, request, {observe: 'response'});
@@ -26,6 +27,6 @@ export class LoginService {
   done(token: string, tokenType: string) {
     this.tokenService.saveToken(token);
     this.tokenService.saveRole(tokenType);
-    this.router.navigate(['/']);
+    this.router.navigate(['']);
   }
 }

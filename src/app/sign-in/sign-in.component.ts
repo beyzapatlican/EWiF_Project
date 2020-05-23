@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../../services/login.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import { TokenService } from '../../services/token.service';
+import { UrlService} from '../../services/url.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,11 +13,13 @@ import {HttpClient} from '@angular/common/http';
 export class SignInComponent implements OnInit {
   usernameData: string;
   passwordData: string;
+  role: string;
+  url: string
 
   form: FormGroup;
   private formSubmitAttempt: boolean;
   constructor(private loginService: LoginService,
-              private fb: FormBuilder) {}
+              private fb: FormBuilder, private tokenService: TokenService, private urlService: UrlService) {}
 
 
   ngOnInit(): void {
@@ -36,6 +40,7 @@ export class SignInComponent implements OnInit {
 
       this.loginService.login(this.usernameData, this.passwordData).subscribe(resp => {
         this.loginService.done(resp.headers.get('Authorization'), resp.body.role);
+        this.role = this.tokenService.getRole();
       }, error => {
         console.log(error);
       });
