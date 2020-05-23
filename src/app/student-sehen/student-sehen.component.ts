@@ -120,7 +120,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
   onSessionDone() {
     // TODO: Implement onSessionDone
-
+    this.done();
   }
   done() {
     this.timeOutCheckSubscription.unsubscribe();
