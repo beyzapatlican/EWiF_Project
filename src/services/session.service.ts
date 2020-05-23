@@ -38,6 +38,10 @@ export class SessionService {
     this.router.navigate(['/createSession']);
     }
 
+    start() {
+      this.router.navigate(['/session-management']);
+    }
+
   basla(pin: string) {
     const request = new AnfangenRequest(pin);
     return this.http.post<AnfangenResponse>(`${this.urlService.getURL()}/teacher/createSession`, request);

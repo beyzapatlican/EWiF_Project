@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.col-sm-12{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 15px 50px 30px;
+  background: #C7DBDA;
+  padding: 80px; width: 1000px;
+  height: 500px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
