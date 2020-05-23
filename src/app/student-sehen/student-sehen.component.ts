@@ -17,6 +17,10 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   questionFr: Free;
   questionType: string;
   questionNum = 0;
+  nick: string;
+  answerBool: boolean;
+  answerStr: string;
+  answerInt: number;
   timeOutCheckSubscriptionFrequency = interval(6000);
   timeOutCheckSubscription: Subscription;
 
