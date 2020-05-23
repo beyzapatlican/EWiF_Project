@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {interval, Subscription} from 'rxjs';
 import {StudentOpenSessionService} from '../../services/student-open-session.service';
 
@@ -7,7 +7,7 @@ import {StudentOpenSessionService} from '../../services/student-open-session.ser
   templateUrl: './student-sehen.component.html',
   styleUrls: ['./student-sehen.component.css']
 })
-export class StudentSehenComponent implements OnInit {
+export class StudentSehenComponent implements OnInit, OnDestroy {
   questionType: string;
   questionNum = 0;
   timeOutCheckSubscriptionFrequency = interval(6000);
@@ -25,6 +25,11 @@ export class StudentSehenComponent implements OnInit {
         }
       });
     });
+
+  }
+
+  ngOnDestroy() {
+    this.done();
   }
 
   submit() {
@@ -45,5 +50,8 @@ export class StudentSehenComponent implements OnInit {
   }
   onSessionDone() {
     // TODO: Implement onSessionDone
+  }
+  done() {
+    this.timeOutCheckSubscription.unsubscribe();
   }
 }
