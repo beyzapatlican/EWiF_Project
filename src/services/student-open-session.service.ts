@@ -4,7 +4,11 @@ import {TimeoutRequest} from '../models/requests/timeout-request.model';
 import {TimeoutResponse} from '../models/responses/timeout-response.model';
 import {GetQuestionRequest} from '../models/requests/get-question-request.model';
 import {GetQuestionResponse} from '../models/responses/get-question-response.model';
+import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class StudentOpenSessionService {
 
 
