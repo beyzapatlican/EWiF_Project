@@ -1,26 +1,31 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Injectable, OnDestroy, OnInit} from '@angular/core';
 import {interval, Subscription} from 'rxjs';
 import {StudentOpenSessionService} from '../../services/student-open-session.service';
 import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
 import {TrueFalse} from '../../models/question-types/true-false.model';
 import {Free} from '../../models/question-types/free.model';
 import {QuestionType} from '../../models/question-types/question-type.enum';
+import {BehaviorSubject, Observable} from 'rxjs';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-student-sehen',
   templateUrl: './student-sehen.component.html',
   styleUrls: ['./student-sehen.component.css']
 })
 export class StudentSehenComponent implements OnInit, OnDestroy {
+  static answerBool: boolean;
+  static answerStr: string;
+  static answerInt: number;
   questionMC: MultipleChoice;
   questionTF: TrueFalse;
   questionFr: Free;
   questionType: string;
   questionNum = 0;
+
   nick: string;
-  answerBool: boolean;
-  answerStr: string;
-  answerInt: number;
   timeOutCheckSubscriptionFrequency = interval(6000);
   timeOutCheckSubscription: Subscription;
 
@@ -30,14 +35,13 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.getQuestion();
     this.timeOutCheckSubscription = this.timeOutCheckSubscriptionFrequency.subscribe(_ => {
       this.studentOpenSessionService.checkTimeout(this.getPinOpen(), this.questionNum).subscribe(value => {}, error => {
-        if (error.statusMessage === 'Wrong Question') {
+        if (error.error.message === 'Wrong question') {
           this.getQuestion();
-        } else if (error.statusMessage === 'Session has closed') {
+        } else if (error.error.message === 'Session has closed') {
           this.onSessionDone();
         }
       });
     });
-
   }
 
   ngOnDestroy() {
@@ -48,12 +52,13 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.studentOpenSessionService.submitAnswer(
       this.questionNum,
       this.getPinOpen(),
-      this.nick,
-      this.answerBool, this.answerInt, this.answerStr).subscribe(value => {}, error => {
+      this.getNick(),
+      StudentSehenComponent.answerBool, StudentSehenComponent.answerInt, StudentSehenComponent.answerStr)
+      .subscribe(value => {}, error => {
       // TODO: Handle Errors
       // Student has already answered
       // Invalid answer
-        switch (error.message) {
+        switch (error.error.message) {
           case 'Session has closed': {
             // TODO: Inform User that session is over
             this.close();
@@ -68,7 +73,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
             // TODO: Inform User to answer question
           }
         }
-      }
+      },
     );
   }
 
@@ -92,7 +97,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionNum = value.Free.questionNum;
       }
     }, error => {
-      switch (error.message) {
+      switch (error.error.message) {
         // TODO: Handle Errors
         case 'Session has closed': {
           this.done();
@@ -100,14 +105,22 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         }
       }
     });
+    StudentSehenComponent.answerInt = null;
+    StudentSehenComponent.answerBool = null;
+    StudentSehenComponent.answerStr = null;
   }
 
   getPinOpen() {
     // TODO: Get Actual pinOpen
     return 'MAAAAAA';
   }
+  getNick() {
+    // TODO: Get Actual nick
+    return 'alp2';
+  }
   onSessionDone() {
     // TODO: Implement onSessionDone
+
   }
   done() {
     this.timeOutCheckSubscription.unsubscribe();
