@@ -41,7 +41,31 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
 
   submit() {
-    // TODO: Implement submit
+    this.studentOpenSessionService.submitAnswer(
+      this.questionNum,
+      this.getPinOpen(),
+      this.nick,
+      this.answerBool, this.answerInt, this.answerStr).subscribe(value => {}, error => {
+      // TODO: Handle Errors
+      // Student has already answered
+      // Invalid answer
+        switch (error.message) {
+          case 'Session has closed': {
+            // TODO: Inform User that session is over
+            this.close();
+            break;
+          }
+          case 'Wrong Question': {
+            // TODO: Inform User that wrong question
+            this.getQuestion();
+            break;
+          }
+          case 'Missing answer field': {
+            // TODO: Inform User to answer question
+          }
+        }
+      }
+    );
   }
 
   close() {
