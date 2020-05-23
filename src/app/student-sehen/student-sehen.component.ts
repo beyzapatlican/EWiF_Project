@@ -91,6 +91,14 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionType = QuestionType.FREE_TEXT.valueOf();
         this.questionNum = value.Free.questionNum;
       }
+    }, error => {
+      switch (error.message) {
+        // TODO: Handle Errors
+        case 'Session has closed': {
+          this.done();
+          break;
+        }
+      }
     });
   }
 
