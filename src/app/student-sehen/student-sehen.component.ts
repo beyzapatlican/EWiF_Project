@@ -23,6 +23,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   constructor(public studentOpenSessionService: StudentOpenSessionService) { }
 
   ngOnInit(): void {
+    this.getQuestion();
     this.timeOutCheckSubscription = this.timeOutCheckSubscriptionFrequency.subscribe(_ => {
       this.studentOpenSessionService.checkTimeout(this.getPinOpen(), this.questionNum).subscribe(value => {}, error => {
         if (error.statusMessage === 'Wrong Question') {
@@ -48,17 +49,19 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
 
   getQuestion() {
-    // TODO: Implement getQuestion
     this.studentOpenSessionService.getQuestion(this.getPinOpen()).subscribe(value => {
       if (value.MultipleChoice != null) {
         this.questionMC = value.MultipleChoice;
         this.questionType = QuestionType.MULTIPLE_CHOICE.valueOf();
+        this.questionNum = value.MultipleChoice.questionNum;
       } else if (value.TrueFalse != null) {
         this.questionTF = value.TrueFalse;
         this.questionType = QuestionType.TRUE_FALSE.valueOf();
+        this.questionNum = value.TrueFalse.questionNum;
       } else if (value.Free != null) {
         this.questionFr = value.Free;
         this.questionType = QuestionType.FREE_TEXT.valueOf();
+        this.questionNum = value.Free.questionNum;
       }
     });
   }

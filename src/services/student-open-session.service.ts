@@ -22,6 +22,6 @@ export class StudentOpenSessionService {
 
   getQuestion(pinOpen: string) {
     const reqeust = new GetQuestionRequest(pinOpen);
-    return this.http.post<GetQuestionResponse>(`${this.urlService.getURL()}/timeout`, reqeust);
+    return this.http.post<GetQuestionResponse>(`${this.urlService.getURL()}/question`, reqeust);
   }
 }
