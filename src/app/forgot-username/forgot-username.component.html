@@ -2,7 +2,7 @@
 
 <body>
 <div class="bg">
-  <div class="container">
+  <div class="container" style="margin-left: 600px">
 
     <form id="forgotUsername" class="text-center" action="#!">
 
@@ -17,8 +17,8 @@
 
 
       <!-- Send button -->
-      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
-              (click)="forgotUsername(email)">Senden</button>
+      <button class="btn btn-info my-4 btn-block" type="submit"
+              (click)="forgotUsername(email)" onclick="alert('Bitte überprüfen Sie Ihre E-Mails')">Senden</button>
 
       <hr style="border-color: dimgray">
 
