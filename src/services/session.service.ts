@@ -48,6 +48,7 @@ export class SessionService {
       const request = new StartExamRequest(OpenPin);
       return this.http.post(`${this.urlService.getURL()}/teacher/startExam`, request);
     }
+
     start() {
       this.router.navigate(['/session-management']);
     }
