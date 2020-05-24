@@ -14,6 +14,7 @@ import {GetQuestionResponse} from '../models/responses/get-question-response.mod
 import {QuestionResultsRequest} from '../models/requests/question-results-request.model';
 import {QuestionResultsResponse} from '../models/responses/question-results-response.model';
 import {GetAnswerResponse} from '../models/responses/get-answer-response.model';
+import {StartExamRequest} from '../models/requests/startExamRequest.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,10 +39,18 @@ export class SessionService {
     this.router.navigate(['/createSession']);
     }
 
-  basla(pin: string) {
+    basla(pin: string) {
     const request = new AnfangenRequest(pin);
     return this.http.post<AnfangenResponse>(`${this.urlService.getURL()}/teacher/createSession`, request);
   }
+
+  startExam(OpenPin: string) {
+      const request = new StartExamRequest(OpenPin);
+      return this.http.post(`${this.urlService.getURL()}/teacher/startExam`, request);
+    }
+    start() {
+      this.router.navigate(['/session-management']);
+    }
 
   skip(pinOpen: string) {
     const request = new SkipRequest(pinOpen);

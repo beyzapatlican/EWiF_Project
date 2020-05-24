@@ -1,1 +1,27 @@
-<p>student-sehen works!</p>
+<hr>
+<div class="bg">
+
+  <div class="row">
+    <div class="column" id="sessionManagement">
+      <h1>Fragen</h1>
+
+      <app-student-multiple-choice *ngIf="questionType === 'MultipleChoice'"></app-student-multiple-choice>
+      <app-student-free-text *ngIf="questionType === 'Free'"></app-student-free-text>
+      <app-student-true-false *ngIf="questionType === 'TrueFalse'"></app-student-true-false>
+
+
+    </div>
+    <!-- END .colum 1 -->
+
+    <div id="column" class="column">
+
+
+      <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Sende Antwort</button>
+      <button class="btn btn-info my-4 btn-block" type="submit" (click)="close()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Beenden</button>
+
+    </div>
+    <!-- END .colum 2-->
+  </div>
+  <!-- END .row -->
+</div>
+

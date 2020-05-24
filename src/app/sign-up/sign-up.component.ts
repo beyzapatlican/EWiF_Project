@@ -44,22 +44,4 @@ export class SignUpComponent implements OnInit {
     }
     this.formSubmitAttempt = true;
   }
-
-  // tslint:disable-next-line:max-line-length
- /* Register(name: HTMLInputElement, username: HTMLInputElement, email: HTMLInputElement, password: HTMLInputElement, role: HTMLInputElement) {
-
-    const regObj = {
-      name: name.value,
-      username: username.value,
-      email: email.value,
-      password: password.value,
-      role: role.value,
-    };
-
-    this.authService.Register(regObj)
-      .subscribe(resp => {
-        console.log(resp);
-      });
-  }*/
-
 }

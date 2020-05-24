@@ -24,6 +24,7 @@ import {TokenGuard} from '../guards/token.guard';
 import {OpenSessionUserCountComponent} from './open-session-user-count/open-session-user-count.component';
 import {CreateSessionComponent} from './create-session/create-session.component';
 import {RouterGuard} from '../guards/router.guard';
+import {StudentSehenComponent } from './student-sehen/student-sehen.component';
 
 const routes: Routes = [
   {
@@ -118,6 +119,11 @@ const routes: Routes = [
   {
     path: 'createSession',
     component: CreateSessionComponent,
+    canActivate: [TokenGuard]
+  },
+  {
+    path: 'studentSession',
+    component: StudentSehenComponent,
     canActivate: [TokenGuard]
   }
 ];

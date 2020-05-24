@@ -66,14 +66,25 @@ constructor( private feedbackService: FeedbackService,
        this.feedbackService.Give(answer)
         .subscribe(resp => {
           console.log(resp);
+          alert('SUCCESS !!');
+          this.resetForm(this.form);
           // tslint:disable-next-line:no-shadowed-variable
         }, error => {
           console.log('bob');
+          alert('NOT SUCCESS !!');
+          this.resetForm(this.form);
         });
     }
     this.givenFeedback = true;
   }
+  resetForm(form: FormGroup) {
 
+    form.reset();
+
+    Object.keys(form.controls).forEach(key => {
+      form.get(key).setErrors(null) ;
+    });
+  }
 
 
 choose(message: string) {
