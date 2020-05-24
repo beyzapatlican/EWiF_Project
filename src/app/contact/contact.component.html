@@ -1,18 +1,32 @@
+
 <hr>
-
-<div class="bg" >
-
+<div class="bg">
   <div class="container container-fluid">
-
     <div class="row">
-
-      <div id= "contact" class="col-sm-12" style="">
-
+      <form id = "contact" class="col-sm-6">
         <h3 style="font-size: 50px">Kontakt Uns</h3>
+        <hr style="border-color: dimgray;">
+        <div>
+          <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername*" formControlName="username" required>
+          <br>
+          <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*" formControlName="email" required>
 
-        <hr style="border-color: dimgray">
+          <input type="text" class="form-control" placeholder="Subjekt Titel*" required>
+          <br>
+          <input type="text" class="form-control" placeholder="Subjekt*" required style="height: 100px">
 
+          <input class="btn btn-info my-4 btn-block" type="button" id="submit" onclick="alert('Ihre Nachricht wurde gesendet')" value="Submit">
+        </div>
 
+      </form>
+      <div class="col-sm-6" style="visibility: hidden"> </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-6" style="visibility: hidden"> </div>
+      <div class="col-sm-6" style="visibility: hidden"> </div>
+      <div class="row">
+        <div class="col-sm-6" style="visibility: hidden"> </div>
       </div>
     </div>
   </div>

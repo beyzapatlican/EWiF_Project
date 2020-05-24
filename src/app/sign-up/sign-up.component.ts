@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.authService.Register(this.form.get('name').value + ' ' + this.form.get('nachname').value,
+      this.authService.Register(this.form.get('name').value,
         this.form.get('password').value,
         this.form.get('email').value,
         this.form.get('username').value,

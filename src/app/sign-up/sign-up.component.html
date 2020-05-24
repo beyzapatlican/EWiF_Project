@@ -1,7 +1,7 @@
 <body>
 <div class="bg">
 
-  <div class="container">
+  <div class="container" style="margin-left: 600px">
 
     <form id="signUp" class="text-center" action="#!" [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -10,8 +10,7 @@
       <p>Bitte füllen Sie dieses Formular aus, um ein Konto zu erstellen.</p>
       <br>
 
-
-      <input type="form" id="defaultRegisterFormName" class="form-control" placeholder="Vorname*" formControlName="name" required>
+      <input type="form" id="defaultRegisterFormName" class="form-control" placeholder="Name*" formControlName="name" required>
       <div *ngIf="isFieldInvalid('name')">
         Bitte geben sie dein Name ein
       </div>
@@ -65,10 +64,9 @@
 
       <hr style="border-color: dimgray">
 
-      <button  class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Register</button>
+      <button class="btn btn-info my-4 btn-block" type="submit" id="register"> Register</button>
+
       <hr style="border-color: dimgray">
-
-
 
       <p >Hast du schon
         <em>ein Konto? </em>

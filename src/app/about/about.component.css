@@ -2,35 +2,36 @@
 
 body, html {
   height: 100%;
+  margin: 0;
 }
 .bg {
   /* The image used */
-  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");
-
+  background-image: url(../../images/about.jpg);
 
   /* Full height */
   height: 100%;
-
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
-.col-sm-12{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 15px 50px 30px;
-  background: #C7DBDA;
-  padding: 80px;
-  width: 1000px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
+.col-sm-6{
+  background: transparent;
+  padding: 100px;
 
+}
 #about h3 {
   display: block;
   font-size: 30px;
   font-weight: 300;
-  margin-bottom: 10px;
+  place-content: end;
+}
+#about p, li{
+  font-family: Roboto, sans-serif;
+  display: block;
+  font-weight: 300;
+}
+#about {
+  margin-top: 90px;
 }
