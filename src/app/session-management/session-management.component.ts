@@ -3,6 +3,7 @@ import {SessionService} from '../../services/session.service';
 import {interval, Subscription} from 'rxjs';
 import {GetQuestionResponse} from '../../models/responses/get-question-response.model';
 import {QuestionResultsResponse} from '../../models/responses/question-results-response.model';
+import {CreateSessionComponent} from '../create-session/create-session.component';
 
 @Component({
   selector: 'app-session-management',
@@ -10,7 +11,7 @@ import {QuestionResultsResponse} from '../../models/responses/question-results-r
   styleUrls: ['./session-management.component.css']
 })
 export class SessionManagementComponent implements OnInit, OnDestroy {
-  pinOpen = 'MAAAAAA';
+  pinOpen;
   userCount = 0;
   userCountSubscriptionFrequency = interval(3000);
   userCountSubscription: Subscription;
@@ -22,6 +23,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   constructor( private sessionService: SessionService) { }
 
   ngOnInit(): void {
+    this.pinOpen = CreateSessionComponent.pinOpen;
     this.questionNum = 0;
     this.sessionService.getQuestion(this.pinOpen).subscribe(value => {
       this.showQuestion(value);
