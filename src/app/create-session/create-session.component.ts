@@ -36,7 +36,7 @@ export class CreateSessionComponent implements OnInit {
 
   start(pinOpenn: string) {
     CreateSessionComponent.pinOpen = pinOpenn;
-    this.sessionService.startExam(pinOpenn).subscribe(resp =>{
+    this.sessionService.startExam(pinOpenn).subscribe(resp => {
       console.log(pinOpenn);
       this.sessionService.start();
     }, error => {
