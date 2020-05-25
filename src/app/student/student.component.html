@@ -1,25 +1,56 @@
 
-<body>
+<!--<body>-->
+<!--<div class="bg">-->
+<!--  <div id ="text" class="container">-->
+<!--    <fieldset id="student">-->
+
+<!--      <h3 style="font-size: 50px">Studierende</h3>-->
+<!--      <hr style="border-color: dimgray">-->
+
+<!--      <h5>Geben Sie Ihren PIN-Code ein, um auf eine Sitzung zuzugreifen</h5>-->
+
+<!--      <br>-->
+
+<!--      <input type="form" class="form-control" placeholder="PIN-Code" >-->
+
+<!--      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Submit</button>-->
+
+<!--      <hr style="border-color: dimgray">-->
+
+<!--      <li> <a href="/give-feedback" style="color: black">Gebe dein Feedback</a> </li>-->
+
+<!--    </fieldset>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</body>-->
+
+
 <div class="bg">
-  <div id ="text" class="container">
-    <fieldset id="student">
+  <div class="container">
+    <div class="row" id="student" style="position: center; margin-top: 200px">
+      <div class="col-md-4" id="firstCol" >
+        <h3 style="font-size: 50px">Student</h3>
+      </div>
 
-      <h3 style="font-size: 50px">Studierende</h3>
-      <hr style="border-color: dimgray">
+      <div class="col-md-8" id="secondCol">
+        <hr style="visibility: hidden">
 
-      <h5>Geben Sie Ihren PIN-Code ein, um auf eine Sitzung zuzugreifen</h5>
+        <div id="session" style="border-color: black">
+          <h5>Geben Sie Ihren PIN-Code ein, um auf eine Sitzung zuzugreifen</h5>
+          <input type="form" class="form-control" placeholder="PIN-Code" >
+          <button class="btn btn-info my-4 btn-block" type="submit" id="submit">Submit</button>
+        </div>
 
-      <br>
+        <hr style="border-color: black; size: 3px">
 
-      <input type="form" class="form-control" placeholder="PIN-Code" >
 
-      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Submit</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1"  routerLink="give-feedback">
+          <h5>Feedback Geben</h5>
+          <p>Gebe dein Feedback für Sitzungen oder Vorlesungen</p>
+        </button>
 
-      <hr style="border-color: dimgray">
-
-      <li> <a href="/give-feedback" style="color: black">Gebe dein Feedback</a> </li>
-
-    </fieldset>
+        <hr style="visibility: hidden">
+      </div>
+    </div>
   </div>
 </div>
-</body>

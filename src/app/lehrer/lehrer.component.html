@@ -1,18 +1,33 @@
 
-<body>
 <div class="bg">
   <div class="container">
+    <div class="row" id="teacher" style="position: center; margin-top: 200px">
+      <div class="col-md-4" id="firstCol" >
+        <h3 style="font-size: 50px">Lehrer</h3>
+      </div>
 
-    <fieldset id="teacher">
+      <div class="col-md-8" id="secondCol">
 
-      <h3 style="font-size: 50px">Lehrer</h3>
+        <hr style="visibility: hidden">
 
-      <hr style="border-color:dimgray; ">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1"  routerLink="read-feedback">
+          <h5>Feedbacks lesen</h5>
+          <p>Feedbacks für Sitzungen und Vorlesungen</p>
+        </button>
 
-      <li> <a href="/read-feedback" style="color: black">Feedbacks lesen</a> </li>
-      <li> <a href="question-type" style="color: black">Fragensatz vorbereiten</a> </li>
-      <li> <a href="/available-sessions" style="color: black">Sitzung Management</a> </li>
-    </fieldset>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btn2"routerLink="question-type">
+          <h5>Fragensatz vorbereiten</h5>
+          <p>Vorbereiten Sie neue Fragensätzen</p>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btn3" routerLink="available-sessions">
+          <h5>Sitzungen</h5>
+          <p>Sehen Sie sich Ihre vorbereiteten Sitzungen an</p>
+        </button>
+
+        <hr style="visibility: hidden">
+
+      </div>
+    </div>
   </div>
 </div>
-</body>

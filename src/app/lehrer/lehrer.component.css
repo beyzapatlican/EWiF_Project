@@ -6,7 +6,7 @@ body, html {
 }
 .bg {
   /* The image used */
-  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");
+  background-image: url(../../images/back.jpg);
 
   /* Full height */
   height: 100%;
@@ -16,72 +16,59 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
 .container {
-  max-width: 400px;
   width: 100%;
   margin: 0 auto;
   position: center;
+  max-width: 1000px;
 }
 #teacher {
-  background:  #C7DBDA;
-  padding: 25px;
-  margin: 150px 0;
+  padding: 0;
+  margin: 450px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  border-radius: 15px 50px 30px;
-}
+  position: center;
+  height: 400px;
 
+}
 
 #teacher h3 {
   display: block;
   font-size: 30px;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin-top:50px;
+  color: white;
+}
+#teacher h5{
+  display: block;
+  font-weight: 300;
+  font-size: 25px;
+
+}
+#teacher p{
+  font-weight:300;
 }
 
-fieldset {
-  border: medium none !important;
-  margin: 0 0 10px;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
+#btn1, #btn2, #btn3{
+  background: transparent;
+  border-color: rgb(133,0,61);
+  color: black;
 }
 
-#teacher input:focus,
-
-#teacher textarea:focus {
-  outline: 0;
-  border: 1px solid #aaa;
+#btn1:hover , #btn2:hover, #btn3:hover {
+  background: rgb(133,0,61);
+  border-color: rgb(133,0,61);
+  color:white;
 }
 
-::-webkit-input-placeholder {
-  color: #888;
+#firstCol{
+  background-image: url(../../images/teacher.jpg);
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-:-moz-placeholder {
-  color: #888;
+#secondCol{
+  background: #FDFEFE;
+  align-items: center;
 }
-
-::-moz-placeholder {
-  color: #888;
-}
-
-:-ms-input-placeholder {
-  color: #888;
-}
-
-
-

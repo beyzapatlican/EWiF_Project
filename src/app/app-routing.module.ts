@@ -70,16 +70,16 @@ const routes: Routes = [
     component: SessionManagementComponent
   },
   {
-    path: 'available-sessions',
+    path: 'teacher/available-sessions',
     component: AvailableSessionsComponent
   },
   {
-    path: 'give-feedback',
+    path: 'student/give-feedback',
     component: FeedbackComponent,
     canActivate: [TokenGuard]
   },
   {
-    path: 'read-feedback',
+    path: 'teacher/read-feedback',
     component: ReadfeedbackComponent,
     canActivate: [TokenGuard]
   },
@@ -94,7 +94,7 @@ const routes: Routes = [
     canActivate: [TokenGuard]
   },
   {
-    path: 'question-type',
+    path: 'teacher/question-type',
     component: QuestionTypeComponent
   },
   {
