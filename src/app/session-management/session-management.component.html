@@ -1,17 +1,22 @@
 <hr>
+<body>
 <div class="bg">
+  <div class="container container-fluid">
 
-  <div class="row">
     <div class="column" id="sessionManagement">
-      <h1>Fragen</h1>
+      <h3 style="font-size: 50px">Fragen</h3>
       <p>
         {{question}}
+      </p>
+      <hr style="border-color:dimgray; ">
+      <p>
         {{correctAnswer}}
       </p>
+
     </div>
     <!-- END .colum 1 -->
 
-    <div id="column" class="column">
+    <div id="antworten" class="column">
 
       <h1>Anzahl der Teilnehmer: {{userCount}}</h1>
 
@@ -19,18 +24,10 @@
       <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswersRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Studenten Antwort</button>
       <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswerRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Antwort</button>
       <button class="btn btn-info my-4 btn-block" type="submit" (click)="endSessionRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Beenden</button>
-
-
-
-
-
-
     </div>
     <!-- END .colum 2-->
-
-
+  </div>
   </div>
   <!-- END .row -->
-
-</div>
+</body>
 

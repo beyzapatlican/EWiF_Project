@@ -35,5 +35,16 @@ export class FreetextComponent extends QuestionTypeComponent implements OnInit {
                 this.formGroup.get('solution').value,
                 this.formGroup.get('questionNum').value);
         super.saveQuestion(undefined, newQuestion, undefined);
+        alert('SUCCESS !!');
+        this.resetForm(this.formGroup);
     }
+
+  resetForm(formGroup: FormGroup) {
+
+    formGroup.reset();
+
+    Object.keys(formGroup.controls).forEach(key => {
+      formGroup.get(key).setErrors(null) ;
+    });
+  }
 }

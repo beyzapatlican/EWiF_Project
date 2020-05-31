@@ -2,10 +2,11 @@
 
 body, html {
   height: 100%;
+  margin: 0;
 }
 .bg {
   /* The image used */
-  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");
+  background-image: url(../../images/back.jpg);
 
 
   /* Full height */
@@ -16,6 +17,19 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .row {
@@ -33,12 +47,12 @@ row:after {
   float: left;
   width: 40%;
   padding: 0 5%;
-  background-color: #C7DBDA;
+  background:  whitesmoke;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 350px;
   border-radius: 15px 50px 30px;
 }
 
@@ -48,9 +62,59 @@ row:after {
   font-weight: 300;
   margin-bottom: 10px;
 }
-#column{
+#antworten{
   display: block;
   font-size: 30px;
   font-weight: 300;
   margin-bottom: 10px;
+
+}
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+
+.button {
+  background:  rgb(133,0,61);
+  border-color: rgb(133,0,61);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+
+}
+
+.button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background:  rgb(133,0,61);
+  color:white;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.button[type="submit"]:hover {
+  background: black;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover{
+  background-color: black;
+  border-color: black;
 }
