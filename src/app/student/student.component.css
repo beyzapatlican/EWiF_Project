@@ -109,7 +109,7 @@ body, html {
   display: block;
   font-size: 30px;
   font-weight: 300;
-  margin-top:300px;
+  margin-top:380px;
   color: black;
 }
 #student h5{
@@ -123,13 +123,13 @@ body, html {
   font-weight:300;
 }
 
- #btn1{
+ #btn1, #pass{
   background: transparent;
   border-color: rgb(133,0,61);
   color: black;
 }
 
- #btn1:hover {
+ #btn1:hover, #pass:hover {
   background: rgb(133,0,61);
   border-color: rgb(133,0,61);
   color:white;
@@ -175,10 +175,10 @@ body, html {
   margin-right: 30px;
 }
 #submit:hover {
-  background: transparent;
+  background: black;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
-  border-color: rgb(133,0,61);
-  color:black;
+  border-color: black;
+  color:white;
 }
