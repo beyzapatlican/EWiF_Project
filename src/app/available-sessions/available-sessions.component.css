@@ -31,10 +31,10 @@ body {
 
 .col-sm-10{
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 200px;
   border-radius: 15px 50px 30px;
   background:  whitesmoke;
-  padding: 80px;
+  padding: 70px;
   width: 1000px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin-left: 50px;
