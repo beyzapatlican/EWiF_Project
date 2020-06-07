@@ -8,9 +8,9 @@
       <p>
         {{question}}
       </p>
-      <hr style="border-color:dimgray; ">
+      <hr style="border-color:dimgray; " >
       <p>
-        {{correctAnswer}}
+        {{correctAnswer }}
       </p>
 
     </div>
@@ -18,7 +18,7 @@
 
     <div id="antworten" class="column">
 
-      <h1>Anzahl der Teilnehmer: {{userCount}}</h1>
+      <h1 style="font-size: 50px">Anzahl der Teilnehmer: {{userCount}}</h1>
 
       <button class="btn btn-info my-4 btn-block" type="submit" (click)="skipRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Nächste Frage</button>
       <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswersRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Studenten Antwort</button>

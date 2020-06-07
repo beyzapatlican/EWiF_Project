@@ -17,6 +17,14 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+
 }
 
 body {
@@ -49,9 +57,8 @@ row:after {
   padding: 0 5%;
   background:  whitesmoke;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 50px;
+
+  margin-top: 100px;
   margin-bottom: 350px;
   border-radius: 15px 50px 30px;
 }
@@ -61,12 +68,15 @@ row:after {
   font-size: 30px;
   font-weight: 300;
   margin-bottom: 10px;
+  position: center;
 }
-#antworten{
+#antworten {
   display: block;
   font-size: 30px;
   font-weight: 300;
   margin-bottom: 10px;
+  margin-top: 100px;
+  margin-left: 150px;
 
 }
 ::-webkit-input-placeholder {
