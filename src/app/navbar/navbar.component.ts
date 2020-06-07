@@ -9,6 +9,7 @@ import {TokenService} from '../../services/token.service';
 })
 export class NavbarComponent implements OnInit {
   public loggedIn = false;
+  public isRole = '';
 
   constructor(public logoutService: LogoutService, private tokenService: TokenService) { }
 
@@ -16,6 +17,16 @@ export class NavbarComponent implements OnInit {
     this.tokenService.isLoggedInObservable().subscribe(value => {
       this.loggedIn = value;
     });
+
+    this.isRole = this.tokenService.getRole();
+    this.tokenService.isRoleObservable().subscribe(value => {
+      console.log(value);
+      this.isRole = value;
+    });
+    // TODO: Add error page if role is not equal to STUDENT OR TEACHER
+    if (this.isRole !== this.tokenService.getRole()) {
+      console.log('Something went wrong');
+    }
   }
 
   onLogout() {

@@ -1,35 +1,55 @@
-<body>
-<app-student *ngIf="isRole === 'STUDENT' "></app-student>
-<app-lehrer  *ngIf="isRole === 'TEACHER' "></app-lehrer>
+<!--<app-student *ngIf="isRole === 'STUDENT' "></app-student>-->
+<!--<app-lehrer  *ngIf="isRole === 'TEACHER' "></app-lehrer>-->
+
+<!--<div class="bg">-->
+
+<!--  <div class="container">-->
+
+<!--    <fieldset id="userpage">-->
+
+<!--      <h3 style="font-size: 35px">Benutzer Seite</h3>-->
+
+<!--      <hr style="border-color: dimgray">-->
+<!--      <div id="text">-->
+
+<!--        <h5> Hier können Sie Ihr Passwort ändern</h5>-->
+<!--        <br>-->
+<!--      <input id="oldPass" type="form" class="form-control"-->
+<!--             placeholder="Derzeitiges Passwort" #oldPassword>-->
+
+
+
+<!--        <br>-->
+<!--      <input id="newPass" type="form" class="form-control"-->
+<!--             placeholder="Neu Passwort" #newPassword>-->
+
+<!--      </div>-->
+
+<!--      <button class="btn btn-info my-4 btn-block" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"-->
+<!--              (click)="changePassword(oldPassword,newPassword)">Speichern </button>-->
+
+<!--    </fieldset>-->
+<!--  </div>-->
+<!--</div>-->
 
 <div class="bg">
-
   <div class="container">
-
-    <fieldset id="userpage">
-
-      <h3 style="font-size: 35px">Benutzer Seite</h3>
+    <div class="col-md-12" id="changePass" style="position: center; margin-top: 200px">
+      <h3 style="font-size: 50px">Passwort ändern</h3>
 
       <hr style="border-color: dimgray">
       <div id="text">
 
         <h5> Hier können Sie Ihr Passwort ändern</h5>
         <br>
-      <input id="oldPass" type="form" class="form-control"
-             placeholder="Derzeitiges Passwort" #oldPassword>
-
-
-
+        <input id="oldPass" type="form" class="form-control"
+               placeholder="Derzeitiges Passwort" #oldPassword>
         <br>
-      <input id="newPass" type="form" class="form-control"
-             placeholder="Neu Passwort" #newPassword>
-
+        <input id="newPass" type="form" class="form-control"
+               placeholder="Neu Passwort" #newPassword>
       </div>
-
-      <button class="btn btn-info my-4 btn-block" style="background: rgb(133,0,61); border-color: rgb(133,0,61)"
+      <button class="btn btn-info my-4 btn-block" id="btn1"
               (click)="changePassword(oldPassword,newPassword)">Speichern </button>
-
-    </fieldset>
-  </div>
+      </div>
+    </div>
 </div>
-</body>

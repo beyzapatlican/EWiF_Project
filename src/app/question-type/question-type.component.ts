@@ -20,13 +20,14 @@ export class QuestionTypeComponent implements OnInit {
     static questionsFree = new Array<Free>();
     static questionsMC = new Array<MultipleChoice>();
 
-    constructor(prepareSessionService: PrepareSessionService) {
+  constructor(prepareSessionService: PrepareSessionService) {
         this.prepareSessionService = prepareSessionService;
     }
 
     selected1 = false;
     selected2 = false;
     selected3 = false;
+    type = true;
 
     prepareSessionService: PrepareSessionService;
     title: string;
@@ -42,20 +43,30 @@ export class QuestionTypeComponent implements OnInit {
         this.selected1 = true;
         this.selected2 = false;
         this.selected3 = false;
+        this.type = false;
     }
 
     onUpdate2() {
         this.selected2 = true;
         this.selected1 = false;
         this.selected3 = false;
+        this.type = false;
+
     }
 
     onUpdate3() {
         this.selected3 = true;
         this.selected1 = false;
         this.selected2 = false;
-    }
+        this.type = false;
 
+    }
+    onUpdate4() {
+    this.selected3 = false;
+    this.selected1 = false;
+    this.selected2 = false;
+    this.type = true;
+    }
 
     saveQuestion(questionTF?: TrueFalse, questionFree?: Free, questionMC?: MultipleChoice) {
         if (questionTF !== undefined) {

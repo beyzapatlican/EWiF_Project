@@ -84,12 +84,12 @@ const routes: Routes = [
     canActivate: [TokenGuard]
   },
   {
-    path: 'userpage',
+    path: 'teacher/change-password',
     component: UserpageComponent,
     canActivate: [TokenGuard]
   },
   {
-    path: 'app-userpage',
+    path: 'student/change-password',
     component: UserpageComponent,
     canActivate: [TokenGuard]
   },

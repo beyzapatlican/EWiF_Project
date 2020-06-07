@@ -24,7 +24,7 @@ body, html {
 }
 #teacher {
   padding: 0;
-  margin: 450px 0;
+  margin: 580px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
   height: 400px;
@@ -48,13 +48,13 @@ body, html {
   font-weight:300;
 }
 
-#btn1, #btn2, #btn3{
+#btn1, #btn2, #btn3, #btn4{
   background: transparent;
   border-color: rgb(133,0,61);
   color: black;
 }
 
-#btn1:hover , #btn2:hover, #btn3:hover {
+#btn1:hover , #btn2:hover, #btn3:hover, #btn4:hover {
   background: rgb(133,0,61);
   border-color: rgb(133,0,61);
   color:white;

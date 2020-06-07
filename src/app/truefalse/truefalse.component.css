@@ -5,3 +5,14 @@
   font-style: normal;
   font-weight: 400;
 }
+
+#save, #reset{
+  color: white;
+  background-color: rgb(133,0,61);
+  border-color: rgb(133,0,61)
+}
+#save:hover, #reset:hover{
+  background-color: black;
+  border-color: black;
+  color: white;
+}
