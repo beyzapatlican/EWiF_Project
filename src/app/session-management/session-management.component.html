@@ -1,33 +1,76 @@
-<hr>
-<body>
+<!--<hr>-->
+<!--<body>-->
+<!--<div class="bg">-->
+<!--  <div class="container container-fluid">-->
+
+<!--    <div class="column" id="sessionManagement">-->
+<!--      <h3 style="font-size: 50px">Fragen</h3>-->
+<!--      <div *ngFor="let q of question.split('\n')">-->
+<!--        <h1 style="font-size: 50px"> {{q}}</h1>-->
+<!--        <hr style="border-color:dimgray; " >-->
+<!--      </div>-->
+<!--      <p>-->
+<!--        {{correctAnswer}}-->
+<!--      </p>-->
+
+<!--    </div>-->
+<!--    &lt;!&ndash; END .colum 1 &ndash;&gt;-->
+
+<!--    <div id="antworten" class="column">-->
+
+<!--      <h1 style="font-size: 50px">Anzahl der Teilnehmer: {{userCount}}</h1>-->
+
+<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="skipRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Nächste Frage</button>-->
+<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswersRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Studenten Antwort</button>-->
+<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswerRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Antwort</button>-->
+<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="endSessionRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Beenden</button>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; END .colum 2&ndash;&gt;-->
+<!--  </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; END .row &ndash;&gt;-->
+<!--</body>-->
+
+
 <div class="bg">
-  <div class="container container-fluid">
+  <div class="container">
+    <div class="row" id="sessionM" style="position: center; margin-top: 200px">
 
-    <div class="column" id="sessionManagement">
-      <h3 style="font-size: 50px">Fragen</h3>
-      <div *ngFor="let q of question.split('\n')">
-        <h1 style="font-size: 50px"> {{q}}</h1>
+      <div class="col-md-8" id="firstCol" style="height: 450px">
+        <h3 style="font-size: 50px">Fragen</h3>
         <hr style="border-color:dimgray; " >
+
+        <div *ngFor="let q of question.split('\n')">
+          <h1 style="font-size: 25px"> {{q}}</h1>
+        </div>
+
+        <p>
+         {{correctAnswer}}
+        </p>
+
+
       </div>
-      <p>
-        {{correctAnswer}}
-      </p>
+
+      <div class="col-md-4" id="secondCol" style="height: 450px">
+
+        <h1>Anzahl der Teilnehmer: {{userCount}}</h1>
+        <hr style="border-color:white" >
+
+
+        <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="skipRequest()">Nächste Frage</button>
+        <br>
+        <button class="btn btn-primary btn-lg btn-block" id="btn2" type="submit" (click)="getAnswersRequest()" >Zeige Studenten Antwort</button>
+        <br>
+        <button class="btn btn-primary btn-lg btn-block" id="btn3" type="submit" (click)="getAnswerRequest()" >Zeige Antwort</button>
+        <br>
+        <button class="btn btn-primary btn-lg btn-block" id="btn4" type="submit" (click)="endSessionRequest()" >Beenden</button>
+
+
+
+      </div>
 
     </div>
-    <!-- END .colum 1 -->
-
-    <div id="antworten" class="column">
-
-      <h1 style="font-size: 50px">Anzahl der Teilnehmer: {{userCount}}</h1>
-
-      <button class="btn btn-info my-4 btn-block" type="submit" (click)="skipRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Nächste Frage</button>
-      <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswersRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Studenten Antwort</button>
-      <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswerRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Antwort</button>
-      <button class="btn btn-info my-4 btn-block" type="submit" (click)="endSessionRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Beenden</button>
-    </div>
-    <!-- END .colum 2-->
   </div>
-  </div>
-  <!-- END .row -->
-</body>
+</div>
+
 

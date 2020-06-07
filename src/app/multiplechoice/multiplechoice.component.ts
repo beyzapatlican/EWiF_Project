@@ -46,7 +46,6 @@ export class MultiplechoiceComponent extends QuestionTypeComponent implements On
                 this.formGroup.get('ans5').value
         );
         super.saveQuestion(undefined, undefined, question);
-        alert('SUCCESS !!');
         this.resetForm(this.formGroup);
     }
 

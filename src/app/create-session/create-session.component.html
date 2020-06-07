@@ -1,17 +1,36 @@
-<hr>
 
-<div class="bg" >
+<!--<div class="bg" >-->
 
-  <div class="container container-fluid">
+<!--  <div class="container container-fluid">-->
 
-    <div class="row">
+<!--    <div class="row">-->
 
-      <div id= "contact" class="col-sm-6" style="">
+<!--      <div id= "contact" class="col-sm-6" style="">-->
 
-        <h3 style="font-size: 50px">PIN :  {{a}}</h3>
+<!--        <h3 style="font-size: 50px">PIN :  {{a}}</h3>-->
 
-        <button class="btn btn-info my-3 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)" (click)="start(a)">Start</button>
+<!--        <button class="btn btn-info my-3 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)" (click)="start(a)">Start</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="bg">
+  <div class="container">
+    <div class="col-md-12" id="pin" style="position: center; margin-top: 200px">
+      <h3 style="font-size: 50px">Session Pin</h3>
+
+      <hr style="border-color: dimgray">
+      <div id="text">
+
+        <h3 style="font-size: 50px">Pin:  {{a}}</h3>
+
+        <br>
+
+        <button class="btn btn-info btn-lg btn-block" type="submit" id="start" (click)="start(a)">Start</button>
+
       </div>
+
     </div>
   </div>
 </div>

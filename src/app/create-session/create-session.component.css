@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 body, html {
@@ -15,25 +16,54 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.col-sm-6{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 15px 50px 30px;
-  background: whitesmoke;
-  padding: 80px; width: 1000px;
-  height: 500px;
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: center;
+  max-width: 1000px;
+}
+#pin {
+  padding: 40px;
+  margin: 250px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
+  height: 400px;
+  background-color: white;
 }
-#contact h3 {
+
+#pin h3 {
   display: block;
   font-size: 30px;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin-top:50px;
+}
+#pin h5{
+  display: block;
+  font-weight: 300;
+  font-size: 25px;
+
+}
+#text p{
+  font-weight:300;
+  font-size: 25px;
 }
 
-#container-fluid{
-  position: center;
-  padding: 2rem 0rem;
+#start{
+  color: white;
+  background: rgb(133,0,61);
+  border-color: rgb(133,0,61);
+}
+
+#start:hover{
+  background: black;
+  border-color: black;
+  color:white;
+}
+
+#pin{
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

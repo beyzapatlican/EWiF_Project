@@ -90,4 +90,8 @@ export class QuestionTypeComponent implements OnInit {
                 this.title);
         this.prepareSessionService.sendRequest(request);
     }
+  refresh(): void {
+    window.location.reload();
+  }
+
 }

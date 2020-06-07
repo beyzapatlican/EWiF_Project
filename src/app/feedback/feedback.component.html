@@ -2,174 +2,357 @@
 <div class="bg">
   <div class="container">
 
-    <form id = "contact"  [formGroup]="formGroup" [formGroup]="form" (ngSubmit)="onSubmit()">
+<!--    <form id = "contact"  [formGroup]="formGroup" [formGroup]="form" (ngSubmit)="onSubmit()">-->
 
-      <h3 style="font-size:35px">Gebe dein Feedback</h3>
-      <hr style="border-color: dimgray">
+<!--      <h3 style="font-size:35px">Gebe dein Feedback</h3>-->
+<!--      <hr style="border-color: dimgray">-->
 
-      <div class="form-group row">
-        <label for="questionId" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
-                                      font-weight: 400; margin-left: 10px ">PIN: </label>
-        <div class="col-sm-2">
-          <input style="width: 100px" type="string" class="form-control" id="questionId" placeholder="PIN" [(ngModel)]="pin" formControlName="pin" required>
-          <div style="width: 200px" *ngIf="isFieldInvalid('pin')">
-            <p>Bitte geben Sie dein Pin</p>
-          </div>
-        </div>
-      </div>
+<!--      <div class="form-group row">-->
+<!--        <label for="questionId" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;-->
+<!--                                      font-weight: 400; margin-left: 10px ">PIN: </label>-->
+<!--        <div class="col-sm-2">-->
+<!--          <input style="width: 100px" type="string" class="form-control" id="questionId" placeholder="PIN" [(ngModel)]="pin" formControlName="pin" required>-->
+<!--          <div style="width: 200px" *ngIf="isFieldInvalid('pin')">-->
+<!--            <p>Bitte geben Sie dein Pin</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div id="feedback" class="custom-control custom-radio ">
-        <label>Allgemeine Zufriedenheit</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio"  value="0" [(ngModel)]="a" formControlName="a" required>
-            Schlecht
-          </label>
-          <label class="radio-inline">
-            <input type="radio"  value="1" [(ngModel)]="a" formControlName="a" required>
-            Durchschnittlich
-          </label>
+<!--      <div id="feedback" class="custom-control custom-radio ">-->
+<!--        <label>Allgemeine Zufriedenheit</label>-->
+<!--        <p>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="0" [(ngModel)]="a" formControlName="a" required>-->
+<!--            Schlecht-->
+<!--          </label>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="1" [(ngModel)]="a" formControlName="a" required>-->
+<!--            Durchschnittlich-->
+<!--          </label>-->
 
-          <label class="radio-inline">
-            <input type="radio"  value="2" [(ngModel)]="a" formControlName="a" required>
-            Gut
-          </label>
-        </p>
-        <div *ngIf="isFieldInvalid('a')">
-          Please select one
-        </div>
-      </div>
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="2" [(ngModel)]="a" formControlName="a" required>-->
+<!--            Gut-->
+<!--          </label>-->
+<!--        </p>-->
+<!--        <div *ngIf="isFieldInvalid('a')">-->
+<!--          Please select one-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="custom-control custom-radio ">
-        <label>Gesamterlebnis</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio"  value="0"  [(ngModel)]="b" formControlName="b" required>
-            Schlecht
-          </label>
-          <label class="radio-inline">
-            <input type="radio"  value="1"  [(ngModel)]="b" formControlName="b" required>
-            Durchschnittlich
-          </label>
+<!--      <div class="custom-control custom-radio ">-->
+<!--        <label>Gesamterlebnis</label>-->
+<!--        <p>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="0"  [(ngModel)]="b" formControlName="b" required>-->
+<!--            Schlecht-->
+<!--          </label>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="1"  [(ngModel)]="b" formControlName="b" required>-->
+<!--            Durchschnittlich-->
+<!--          </label>-->
 
-          <label class="radio-inline">
-            <input type="radio"  value="2"  [(ngModel)]="b" formControlName="b" required>
-            Gut
-          </label>
-        </p>
-        <div *ngIf="isFieldInvalid('b')">
-          Please select one
-        </div>
-      </div>
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="2"  [(ngModel)]="b" formControlName="b" required>-->
+<!--            Gut-->
+<!--          </label>-->
+<!--        </p>-->
+<!--        <div *ngIf="isFieldInvalid('b')">-->
+<!--          Please select one-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="custom-control custom-radio ">
-        <label>Schwierigkeit der Lektion</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio"  value="0" [(ngModel)]="c" formControlName="c" required>
-            Schwer
-          </label>
-          <label class="radio-inline">
-            <input type="radio"  value="1"  [(ngModel)]="c" formControlName="c" required>
-            Durchschnittlich
-          </label>
+<!--      <div class="custom-control custom-radio ">-->
+<!--        <label>Schwierigkeit der Lektion</label>-->
+<!--        <p>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="0" [(ngModel)]="c" formControlName="c" required>-->
+<!--            Schwer-->
+<!--          </label>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="1"  [(ngModel)]="c" formControlName="c" required>-->
+<!--            Durchschnittlich-->
+<!--          </label>-->
 
-          <label class="radio-inline">
-            <input type="radio"  value="2"  [(ngModel)]="c" formControlName="c" required>
-            Einfach
-          </label>
-        </p>
-        <div *ngIf="isFieldInvalid('c')">
-          Please select one
-        </div>
-      </div>
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="2"  [(ngModel)]="c" formControlName="c" required>-->
+<!--            Einfach-->
+<!--          </label>-->
+<!--        </p>-->
+<!--        <div *ngIf="isFieldInvalid('c')">-->
+<!--          Please select one-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="custom-control custom-radio ">
-        <label>die Geschwindigkeit der Lektion</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio"  value="0"  [(ngModel)]="d" formControlName="d" required >
-            Schnell
-          </label>
-          <label class="radio-inline">
-            <input type="radio"  value="1"  [(ngModel)]="d" formControlName="d" required >
-            Langsam
-          </label>
+<!--      <div class="custom-control custom-radio ">-->
+<!--        <label>die Geschwindigkeit der Lektion</label>-->
+<!--        <p>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="0"  [(ngModel)]="d" formControlName="d" required >-->
+<!--            Schnell-->
+<!--          </label>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="1"  [(ngModel)]="d" formControlName="d" required >-->
+<!--            Langsam-->
+<!--          </label>-->
 
-          <label class="radio-inline">
-            <input type="radio"  value="2"  [(ngModel)]="d" formControlName="d" required >
-            Durchschnittlich
-          </label>
-        </p>
-        <div *ngIf="isFieldInvalid('d')">
-          Please select one
-        </div>
-      </div>
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="2"  [(ngModel)]="d" formControlName="d" required >-->
+<!--            Durchschnittlich-->
+<!--          </label>-->
+<!--        </p>-->
+<!--        <div *ngIf="isFieldInvalid('d')">-->
+<!--          Please select one-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="custom-control custom-radio ">
-        <label>Verständlichkeit der Lektion</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio"  value="0"  [(ngModel)]="e" formControlName="e" required >
-            Schwer
-          </label>
-          <label class="radio-inline">
-            <input type="radio"  value="1"  [(ngModel)]="e" formControlName="e" required>
-            Durchschnittlich
-          </label>
+<!--      <div class="custom-control custom-radio ">-->
+<!--        <label>Verständlichkeit der Lektion</label>-->
+<!--        <p>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="0"  [(ngModel)]="e" formControlName="e" required >-->
+<!--            Schwer-->
+<!--          </label>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="1"  [(ngModel)]="e" formControlName="e" required>-->
+<!--            Durchschnittlich-->
+<!--          </label>-->
 
-          <label class="radio-inline">
-            <input type="radio"  value="2"  [(ngModel)]="e" formControlName="e" required>
-            Sehr gut
-          </label>
-        </p>
-        <div *ngIf="isFieldInvalid('e')">
-          Please select one
-        </div>
-      </div>
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="2"  [(ngModel)]="e" formControlName="e" required>-->
+<!--            Sehr gut-->
+<!--          </label>-->
+<!--        </p>-->
+<!--        <div *ngIf="isFieldInvalid('e')">-->
+<!--          Please select one-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="custom-control custom-radio ">
-        <label>Konnte der Dozent Ihre Frage beantworten?</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio"  value="0"  [(ngModel)]="f" formControlName="f" required>
-            Nein
-          </label>
+<!--      <div class="custom-control custom-radio ">-->
+<!--        <label>Konnte der Dozent Ihre Frage beantworten?</label>-->
+<!--        <p>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="0"  [(ngModel)]="f" formControlName="f" required>-->
+<!--            Nein-->
+<!--          </label>-->
 
-          <label class="radio-inline">
-            <input type="radio"  value="1"  [(ngModel)]="f" formControlName="f" required>
-            Ja
-          </label>
-        </p>
-        <div *ngIf="isFieldInvalid('f')">
-          Please select one
-        </div>
-      </div>
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="1"  [(ngModel)]="f" formControlName="f" required>-->
+<!--            Ja-->
+<!--          </label>-->
+<!--        </p>-->
+<!--        <div *ngIf="isFieldInvalid('f')">-->
+<!--          Please select one-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="custom-control custom-radio ">
-        <label>War der Inhalt interessant?</label>
-        <p>
-          <label class="radio-inline">
-            <input type="radio"  value="0"  [(ngModel)]="g" formControlName="g" required>
-            Nein
-          </label>
+<!--      <div class="custom-control custom-radio ">-->
+<!--        <label>War der Inhalt interessant?</label>-->
+<!--        <p>-->
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="0"  [(ngModel)]="g" formControlName="g" required>-->
+<!--            Nein-->
+<!--          </label>-->
 
-          <label class="radio-inline">
-            <input type="radio"  value="1"  [(ngModel)]="g" formControlName="g" required>
-            Ja
-          </label>
-        </p>
-        <div *ngIf="isFieldInvalid('g')">
-          Please select one
-        </div>
-      </div>
+<!--          <label class="radio-inline">-->
+<!--            <input type="radio"  value="1"  [(ngModel)]="g" formControlName="g" required>-->
+<!--            Ja-->
+<!--          </label>-->
+<!--        </p>-->
+<!--        <div *ngIf="isFieldInvalid('g')">-->
+<!--          Please select one-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <hr style="border-color:#C7DBDA; ">
-      <hr style="border-color:#C7DBDA; ">
+<!--      <hr style="border-color:#C7DBDA; ">-->
+<!--      <hr style="border-color:#C7DBDA; ">-->
 
-      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Senden</button>
+<!--      <button class="btn btn-info my-4 btn-block" type="submit" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Senden</button>-->
 
-    </form>
+<!--    </form>-->
   </div>
 </div>
 </body>
+
+
+<div class="bg">
+  <div class="container">
+    <div class="col-md-12" id="giveFeedback" style="position: center; ">
+      <div id="text">
+
+      <form id = "contact"  [formGroup]="formGroup" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <h3 style="font-size:50px">Gebe dein Feedback</h3>
+        <hr style="border-color: dimgray">
+        <div>
+        <div class="form-group row">
+          <label for="questionId" class="col-form-label"style="margin-left: 30px">PIN: </label>
+          <div class="col-sm-2">
+            <input style="width: 100px" type="string" class="form-control" id="questionId" placeholder="PIN" [(ngModel)]="pin" formControlName="pin" required>
+            <div style="width: 200px" *ngIf="isFieldInvalid('pin')">
+              <p>Bitte geben Sie dein Pin</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <br>
+
+        <div id="feedback" class="custom-control custom-radio ">
+          <label>Allgemeine Zufriedenheit</label>
+          <p>
+            <label class="radio-inline">
+              <input type="radio"  value="0" [(ngModel)]="a" formControlName="a" required>
+              Schlecht
+            </label>
+            <label class="radio-inline">
+              <input type="radio"  value="1" [(ngModel)]="a" formControlName="a" required>
+              Durchschnittlich
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio"  value="2" [(ngModel)]="a" formControlName="a" required>
+              Gut
+            </label>
+          </p>
+          <div *ngIf="isFieldInvalid('a')">
+            Bitte wählen Sie eins
+          </div>
+        </div>
+
+        <div class="custom-control custom-radio ">
+          <label>Gesamterlebnis</label>
+          <p>
+            <label class="radio-inline">
+              <input type="radio"  value="0"  [(ngModel)]="b" formControlName="b" required>
+              Schlecht
+            </label>
+            <label class="radio-inline">
+              <input type="radio"  value="1"  [(ngModel)]="b" formControlName="b" required>
+              Durchschnittlich
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio"  value="2"  [(ngModel)]="b" formControlName="b" required>
+              Gut
+            </label>
+          </p>
+          <div *ngIf="isFieldInvalid('b')">
+            Bitte wählen Sie eins
+          </div>
+        </div>
+
+        <div class="custom-control custom-radio ">
+          <label>Schwierigkeit der Lektion</label>
+          <p>
+            <label class="radio-inline">
+              <input type="radio"  value="0" [(ngModel)]="c" formControlName="c" required>
+              Schwer
+            </label>
+            <label class="radio-inline">
+              <input type="radio"  value="1"  [(ngModel)]="c" formControlName="c" required>
+              Durchschnittlich
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio"  value="2"  [(ngModel)]="c" formControlName="c" required>
+              Einfach
+            </label>
+          </p>
+          <div *ngIf="isFieldInvalid('c')">
+            Bitte wählen Sie eins
+          </div>
+        </div>
+
+        <div class="custom-control custom-radio ">
+          <label>die Geschwindigkeit der Lektion</label>
+          <p>
+            <label class="radio-inline">
+              <input type="radio"  value="0"  [(ngModel)]="d" formControlName="d" required >
+              Schnell
+            </label>
+            <label class="radio-inline">
+              <input type="radio"  value="1"  [(ngModel)]="d" formControlName="d" required >
+              Langsam
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio"  value="2"  [(ngModel)]="d" formControlName="d" required >
+              Durchschnittlich
+            </label>
+          </p>
+          <div *ngIf="isFieldInvalid('d')">
+            Bitte wählen Sie eins
+          </div>
+        </div>
+
+        <div class="custom-control custom-radio ">
+          <label>Verständlichkeit der Lektion</label>
+          <p>
+            <label class="radio-inline">
+              <input type="radio"  value="0"  [(ngModel)]="e" formControlName="e" required >
+              Schwer
+            </label>
+            <label class="radio-inline">
+              <input type="radio"  value="1"  [(ngModel)]="e" formControlName="e" required>
+              Durchschnittlich
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio"  value="2"  [(ngModel)]="e" formControlName="e" required>
+              Sehr gut
+            </label>
+          </p>
+          <div *ngIf="isFieldInvalid('e')">
+            Bitte wählen Sie eins
+          </div>
+        </div>
+
+        <div class="custom-control custom-radio ">
+          <label>Konnte der Dozent Ihre Frage beantworten?</label>
+          <p>
+            <label class="radio-inline">
+              <input type="radio"  value="0"  [(ngModel)]="f" formControlName="f" required>
+              Nein
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio"  value="1"  [(ngModel)]="f" formControlName="f" required>
+              Ja
+            </label>
+          </p>
+          <div *ngIf="isFieldInvalid('f')">
+            Bitte wählen Sie eins
+          </div>
+        </div>
+
+        <div class="custom-control custom-radio ">
+          <label>War der Inhalt interessant?</label>
+          <p>
+            <label class="radio-inline">
+              <input type="radio"  value="0"  [(ngModel)]="g" formControlName="g" required>
+              Nein
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio"  value="1"  [(ngModel)]="g" formControlName="g" required>
+              Ja
+            </label>
+          </p>
+          <div *ngIf="isFieldInvalid('g')">
+            Bitte wählen Sie eins
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <button class="btn btn-info my-4 btn-block" type="submit" id="btn1">Senden</button>
+
+      </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

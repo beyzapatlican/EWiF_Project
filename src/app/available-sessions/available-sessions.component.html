@@ -1,43 +1,86 @@
-<hr>
-<body>
+<!--<hr>-->
+<!--<body>-->
+<!--<div class="bg">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="row">-->
+<!--      <div id = "" class="col-sm-10">-->
+<!--        <h3 style="font-size: 50px">Verfügbare Sitzungen</h3>-->
+<!--        <hr style="border-color: dimgray">-->
+<!--        <div class="container" id="container">-->
+<!--          <div class="row" id="row" >-->
+<!--            <div class="col-10">-->
+<!--              <table class="table table-bordered" style="border-color: dimgray">-->
+<!--                <thead >-->
+<!--                <tr>-->
+<!--                  <th scope="col" style="border-color: dimgray"> <p style="font-size: 25px">Name der Sitzung</p> </th>-->
+<!--                  <th scope="col" style="border-color: dimgray"> <p>Anfangen </p> </th>-->
+<!--                  <th scope="col" style="border-color: dimgray"> <p>Löschen</p> </th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody id="text">-->
+
+<!--                <tr *ngFor="let session of sessions">-->
+
+<!--                  <td style="border-color: dimgray" > <p style="font-size: 20px"> {{session.name}}</p></td>-->
+<!--                    <td style="border-color: dimgray">-->
+<!--                      <button type="button" class="btn btn-primary" id="anfangen" (click)="anfangen(session.sessionID)">Anfangen</button>-->
+<!--                    </td>-->
+<!--                    <td style="border-color: dimgray">-->
+<!--                      <button type="button" class="btn btn-primary " id="löschen" (click)="delete(session.sessionID)">Löschen</button>-->
+<!--                    </td>-->
+
+<!--                </tr>-->
+
+<!--                </tbody>-->
+<!--              </table>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--   </div>-->
+<!--</div>-->
+<!--</body>-->
+
 <div class="bg">
-  <div class="container-fluid">
-    <div class="row">
-      <div id = "availableSessions" class="col-sm-10">
-        <h3 style="font-size: 50px">Verfügbare Sitzungen</h3>
-        <hr style="border-color: dimgray">
-        <div class="container" id="container">
-          <div class="row" id="row" >
-            <div class="col-10">
-              <table class="table table-bordered" style="border-color: dimgray">
-                <thead >
-                <tr>
-                  <th scope="col" style="border-color: dimgray"> <p style="font-size: 25px">Name der Sitzung</p> </th>
-                  <th scope="col" style="border-color: dimgray"> <p>Anfangen </p> </th>
-                  <th scope="col" style="border-color: dimgray"> <p>Löschen</p> </th>
-                </tr>
-                </thead>
-                <tbody id="text">
+  <div class="container">
+    <div class="col-md-12" id="availableSessions" style="position: center; margin-top: 200px">
+      <h3 style="font-size: 50px">Verfügbare Sitzungen</h3>
 
-                <tr *ngFor="let session of sessions">
+      <hr style="border-color: dimgray">
+      <div id="text">
 
-                  <td style="border-color: dimgray" > <p style="font-size: 20px"> {{session.name}}</p></td>
-                    <td style="border-color: dimgray">
-                      <button type="button" class="btn btn-primary" id="anfangen" (click)="anfangen(session.sessionID)">Anfangen</button>
-                    </td>
-                    <td style="border-color: dimgray">
-                      <button type="button" class="btn btn-primary " id="löschen" (click)="delete(session.sessionID)">Löschen</button>
-                    </td>
+        <table class="table table-bordered" style="border-color: dimgray">
+          <thead >
+          <tr>
+            <th scope="col" style="border-color: dimgray"> <p >Name der Sitzung</p> </th>
+            <th scope="col" style="border-color: dimgray"> <p>Anfangen </p> </th>
+            <th scope="col" style="border-color: dimgray"> <p>Löschen</p> </th>
+          </tr>
+          </thead>
 
-                </tr>
+          <tbody id="text2">
 
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+          <tr *ngFor="let session of sessions">
+
+            <td style="border-color: dimgray" > <p style="font-size: 25px"> {{session.name}}</p></td>
+            <td style="border-color: dimgray">
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="anfangen" (click)="anfangen(session.sessionID)">Anfangen</button>
+            </td>
+            <td style="border-color: dimgray">
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="löschen" (click)="delete(session.sessionID)" (click)="refresh()">Löschen</button>
+            </td>
+
+          </tr>
+
+          </tbody>
+        </table>
+
+        <a href="session-management"> Sitzung Management</a>
+
+
       </div>
+
     </div>
-   </div>
+  </div>
 </div>
-</body>

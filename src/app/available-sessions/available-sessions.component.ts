@@ -39,4 +39,7 @@ export class AvailableSessionsComponent implements OnInit {
     AvailableSessionsComponent.pin = pinn;
     this.sessionService.anfangen();
   }
+  refresh(): void {
+    window.location.reload();
+  }
 }
