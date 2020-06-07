@@ -40,13 +40,21 @@
       <hr style="border-color: dimgray">
       <div id="text">
 
+        <form id = "contact"  [formGroup]="formGroup" [formGroup]="form">
         <h5> Hier können Sie Ihr Passwort ändern</h5>
         <br>
         <input id="oldPass" type="form" class="form-control"
-               placeholder="Derzeitiges Passwort" #oldPassword>
+               placeholder="Derzeitiges Passwort" #oldPassword  [(ngModel)]="a" formControlName="a" required>
+          <div style="width: 200px" *ngIf="isFieldInvalid('a')">
+            <p>Bitte geben Sie dein Derzeitiges Passwort</p>
+          </div>
         <br>
-        <input id="newPass" type="form" class="form-control"
+        <input id="newPass" type="form" class="form-control" [(ngModel)]="b" formControlName="b" required
                placeholder="Neu Passwort" #newPassword>
+          <div style="width: 200px" *ngIf="isFieldInvalid('b')">
+            <p>Bitte geben Sie dein neues Passwort</p>
+          </div>
+        </form>
       </div>
       <button class="btn btn-info my-4 btn-block" id="btn1"
               (click)="changePassword(oldPassword,newPassword)">Speichern </button>

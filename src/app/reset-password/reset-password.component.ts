@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResetPasswordService } from '../../services/reset-password.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FeedbackChoice} from '../../models/feedback-choice.model';
 
 @Component({
   selector: 'app-reset-password',
@@ -8,10 +10,14 @@ import { ResetPasswordService } from '../../services/reset-password.service';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  constructor(private resetPasswordService: ResetPasswordService) { }
+  constructor(private resetPasswordService: ResetPasswordService,
+              private fb: FormBuilder) { }
 
   ngOnInit() {
+
   }
+
+
 
   // tslint:disable-next-line:max-line-length
   resetPass(newpass: HTMLInputElement) {
@@ -23,7 +29,9 @@ export class ResetPasswordComponent implements OnInit {
     this.resetPasswordService.resetPass(passObj)
       .subscribe(resp => {
         console.log(resp);
-      });
+      }, error => {
+      console.log('bob');
+    });
   }
 
 }
