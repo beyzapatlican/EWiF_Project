@@ -6,6 +6,7 @@ import {TrueFalse} from '../../models/question-types/true-false.model';
 import {Free} from '../../models/question-types/free.model';
 import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
 import {PrepareSessionService} from '../../services/prepare-session.service';
+import {Router} from '@angular/router';
 
 
 
@@ -24,7 +25,7 @@ export class QuestionTypeComponent implements OnInit {
         this.prepareSessionService = prepareSessionService;
     }
 
-    selected1 = false;
+  selected1 = false;
     selected2 = false;
     selected3 = false;
     type = true;
@@ -99,5 +100,6 @@ export class QuestionTypeComponent implements OnInit {
   refresh(): void {
     window.location.reload();
   }
+
 
 }
