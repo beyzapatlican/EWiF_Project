@@ -10,7 +10,6 @@ import {SessionFeedbackService} from '../../services/session-feedback.service';
 })
 export class SessionFeedbackComponent implements OnInit {
   feedbacks: Array<Feedback>;
-
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private SessionFeedbackService: SessionFeedbackService) { }
 

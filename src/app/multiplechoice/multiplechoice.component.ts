@@ -21,7 +21,6 @@ export class MultiplechoiceComponent extends QuestionTypeComponent implements On
     ngOnInit(): void {
         this.formGroup = new FormGroup({
             question: new FormControl(''),
-            questionNum: new FormControl(0),
             solution: new FormControl(''),
             ans1: new FormControl(''),
             ans2: new FormControl(''),
@@ -38,7 +37,6 @@ export class MultiplechoiceComponent extends QuestionTypeComponent implements On
         const question = new MultipleChoice(
                 this.formGroup.get('question').value,
                 this.formGroup.get('solution').value,
-                this.formGroup.get('questionNum').value,
                 this.formGroup.get('ans1').value,
                 this.formGroup.get('ans2').value,
                 this.formGroup.get('ans3').value,

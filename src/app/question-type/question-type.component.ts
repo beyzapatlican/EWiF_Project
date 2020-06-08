@@ -70,11 +70,17 @@ export class QuestionTypeComponent implements OnInit {
 
     saveQuestion(questionTF?: TrueFalse, questionFree?: Free, questionMC?: MultipleChoice) {
         if (questionTF !== undefined) {
-            QuestionTypeComponent.questionsTF.push(questionTF);
+          // tslint:disable-next-line:max-line-length
+          questionTF.questionNum = QuestionTypeComponent.questionsTF.length + QuestionTypeComponent.questionsFree.length + QuestionTypeComponent.questionsMC.length;
+          QuestionTypeComponent.questionsTF.push(questionTF);
         } else if (questionFree !== undefined) {
-            QuestionTypeComponent.questionsFree.push(questionFree);
+          // tslint:disable-next-line:max-line-length
+          questionFree.questionNum = QuestionTypeComponent.questionsTF.length + QuestionTypeComponent.questionsFree.length + QuestionTypeComponent.questionsMC.length;
+          QuestionTypeComponent.questionsFree.push(questionFree);
         } else if (questionMC !== undefined) {
-            QuestionTypeComponent.questionsMC.push(questionMC);
+          // tslint:disable-next-line:max-line-length
+          questionMC.questionNum = QuestionTypeComponent.questionsTF.length + QuestionTypeComponent.questionsFree.length + QuestionTypeComponent.questionsMC.length;
+          QuestionTypeComponent.questionsMC.push(questionMC);
         }
         console.log(QuestionTypeComponent.questionsTF);
         console.log(QuestionTypeComponent.questionsFree);

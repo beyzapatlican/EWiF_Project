@@ -20,7 +20,6 @@ export class TruefalseComponent extends QuestionTypeComponent implements OnInit 
 
     ngOnInit(): void {
         this.formGroup = new FormGroup({
-            questionNum: new FormControl(0),
             question: new FormControl(''),
             solution: new FormControl('')
         });
@@ -37,8 +36,8 @@ export class TruefalseComponent extends QuestionTypeComponent implements OnInit 
         }
         const question = new TrueFalse(
                 this.formGroup.get('question').value,
-                this.formGroup.get('solution').value,
-                this.formGroup.get('questionNum').value);
+                this.formGroup.get('solution').value
+        )
         super.saveQuestion(question, undefined, undefined);
         this.resetForm(this.formGroup);
     }
