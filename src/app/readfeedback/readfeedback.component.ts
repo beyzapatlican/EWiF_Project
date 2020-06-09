@@ -27,4 +27,7 @@ export class ReadfeedbackComponent implements OnInit {
   ngOnInit() {
   }
 
+  goBack(): void {
+    window.history.back();
+  }
 }

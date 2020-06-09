@@ -25,7 +25,7 @@ export class QuestionTypeComponent implements OnInit {
         this.prepareSessionService = prepareSessionService;
     }
 
-  selected1 = false;
+    selected1 = false;
     selected2 = false;
     selected3 = false;
     type = true;
@@ -101,5 +101,8 @@ export class QuestionTypeComponent implements OnInit {
     window.location.reload();
   }
 
+   goBack(): void {
+    window.history.back();
+  }
 
 }

@@ -18,7 +18,8 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   questionNum: number;
   question = 'Hier werden Fragen angezeigt';
   correctAnswer: string;
-
+  allQuestions: GetQuestionResponse[] = [];
+  answerQuestions: QuestionResultsResponse[] = [];
 
   constructor( private sessionService: SessionService) { }
 
@@ -87,14 +88,17 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += question.MultipleChoice.ans3 + '\n';
       this.question += question.MultipleChoice.ans4 + '\n';
       this.question += question.MultipleChoice.ans5 + '\n';
+      this.allQuestions.push(question);
 
     } else if (question.TrueFalse != null) {
-      this.question = question.TrueFalse.question;
+      this.question = question.TrueFalse.question + '\n';
       this.question += 'True\n';
       this.question += 'False\n';
+      this.allQuestions.push(question);
 
     } else if (question.Free != null) {
       this.question = question.Free.question;
+      this.allQuestions.push(question);
 
     } else {
       console.log('No Question to Show');
@@ -103,6 +107,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   private showAnswer(answer: string) {
     console.log(answer);
+    this.correctAnswer = answer;
   }
 
   private showAnswers(question: QuestionResultsResponse) {
@@ -110,14 +115,17 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.correctAnswer = '';
     if (question.Free != null) {
       question.Free.answers.forEach(value => this.correctAnswer += value);
+      this.answerQuestions.push(question);
 
     } else if (question.MultipleChoice != null) {
       question.MultipleChoice.answers.forEach(value => this.correctAnswer += `${value} `);
+      this.answerQuestions.push(question);
 
     } else if (question.TrueFalse != null) {
 
       this.correctAnswer += question.TrueFalse.t + ' ';
       this.correctAnswer += question.TrueFalse.f;
+      this.answerQuestions.push(question);
     } else {
       this.correctAnswer = 'No Answers';
       console.log('No Answers');
@@ -129,5 +137,11 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     // TODO: End Session
     // TODO: Fix unsubscribe not working
     this.userCountSubscription.unsubscribe();
+    console.log(this.allQuestions);
+    console.log(this.answerQuestions);
+  }
+
+  goBack(): void {
+    window.history.back();
   }
 }

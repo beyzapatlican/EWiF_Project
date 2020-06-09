@@ -193,3 +193,11 @@ body, html {
   background: #FDFEFE;
   align-items: center;
 }
+
+#backk {
+  border-radius: 50%;
+  background-color: transparent;
+  border-color: rgb(133,0,61);
+  color: rgb(133,0,61);
+  margin-bottom: 30px;
+}

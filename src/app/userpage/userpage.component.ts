@@ -75,4 +75,7 @@ export class UserpageComponent implements OnInit {
     });
   }
 
+  goBack(): void {
+    window.history.back();
+  }
 }

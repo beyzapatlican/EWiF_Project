@@ -42,4 +42,7 @@ export class AvailableSessionsComponent implements OnInit {
   refresh(): void {
     window.location.reload();
   }
+  goBack(): void {
+    window.history.back();
+  }
 }

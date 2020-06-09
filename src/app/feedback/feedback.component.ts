@@ -87,7 +87,7 @@ constructor( private feedbackService: FeedbackService,
   }
 
 
-choose(message: string) {
-alert(message);
-}
+  goBack(): void {
+    window.history.back();
+  }
 }

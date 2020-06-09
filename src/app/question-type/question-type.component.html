@@ -1,6 +1,9 @@
 <div class="bg">
   <div class="container">
     <div class="col-md-12" id="questionType" style="position: center; margin-top: 130px">
+      <div *ngIf="type">
+        <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
+      </div>
       <h3 style="font-size: 50px">Fragensatz Vorbereiten</h3>
 
       <hr style="border-color: dimgray">
@@ -13,7 +16,7 @@
         <div *ngIf="type">
           <h5> Bitte wählen Sie Type und geben die Title</h5>
           <br>
-            <input style="margin-right: 30px" id="title" type="text" placeholder="Geben Sie einen Title ein" class="form-control" rows="3" [(ngModel)]="title">
+            <input style="margin-right: 30px" id="title" type="text" placeholder="Geben Sie einen Title ein" class="form-control" rows="3" [(ngModel)]="title" ng-minlength="5" required="">
           <br>
 
           <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1" (click)="onUpdate1()">
@@ -29,7 +32,7 @@
           </button>
 
           <button id="save" class="btn btn-primary btn-lg btn-block" (click)="saveSession()" (click)="refresh()"
-                 >Save Sitzung</button>
+          [disabled]="!title">Save Sitzung</button>
 
         </div>
 

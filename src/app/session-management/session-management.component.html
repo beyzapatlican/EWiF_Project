@@ -37,13 +37,15 @@
     <div class="row" id="sessionM" style="position: center; margin-top: 200px">
 
       <div class="col-md-8" id="firstCol" style="height: 450px">
+        <div >
+          <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
+        </div>
         <h3 style="font-size: 50px">Fragen</h3>
         <hr style="border-color:dimgray; " >
 
         <div *ngFor="let q of question.split('\n')">
-          <h1 style="font-size: 25px"> {{q}}</h1>
+          <h1 style="font-size: 25px"> *{{q}}</h1>
         </div>
-
         <p>
          {{correctAnswer}}
         </p>

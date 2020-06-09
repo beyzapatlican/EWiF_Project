@@ -66,3 +66,11 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#backk {
+  border-radius: 50%;
+  background-color: transparent;
+  border-color: rgb(133,0,61);
+  color: rgb(133,0,61);
+  margin-bottom: 30px;
+}

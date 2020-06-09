@@ -44,4 +44,8 @@ export class CreateSessionComponent implements OnInit {
     });
   }
 
+  goBack(): void {
+    window.history.back();
+  }
+
 }
