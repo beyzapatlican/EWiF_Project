@@ -51,12 +51,12 @@
       <h3 style="font-size: 50px">Verfügbare Sitzungen</h3>
 
       <hr style="border-color: dimgray">
-      <div *ngIf="sessions.length==0">
+      <div>
         <h3>Sie haben keine Verfügbare Sitzungen</h3>
         <h3>Sie können <a href="teacher/question-type" style="color: rgb(133,0,61); ">hier</a> Sitzungen vorbereiten</h3>
       </div>
 
-      <div id="text" *ngIfElse >
+      <div id="text" >
 
         <table class="table table-bordered" style="border-color: dimgray">
           <thead >
