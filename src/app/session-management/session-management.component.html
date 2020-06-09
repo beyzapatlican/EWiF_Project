@@ -36,8 +36,12 @@
   <div class="container">
     <div class="row" id="sessionM" style="position: center; margin-top: 200px">
 
-      <div class="col-md-8" id="firstCol" style="height: 450px">
-        <h3 style="font-size: 50px">Fragen</h3>
+      <div class="col-md-8" id="firstCol" style="height: 600px">
+        <div class="row" style="padding: 10px">
+          <h3 >Sitzung</h3>
+          <h3 style="margin-left: 300px"> Pin: {{pinOpen}}</h3>
+        </div>
+
         <hr style="border-color:dimgray; " >
 
         <div *ngFor="let q of question.split('\n')">
@@ -51,10 +55,12 @@
 
       </div>
 
-      <div class="col-md-4" id="secondCol" style="height: 450px">
+      <div class="col-md-4" id="secondCol" style="height: 600px">
 
         <h1>Anzahl der Teilnehmer: {{userCount}}</h1>
         <hr style="border-color:white" >
+        <br>
+        <br>
 
 
         <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="skipRequest()">Nächste Frage</button>
