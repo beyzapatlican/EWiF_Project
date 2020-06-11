@@ -19,13 +19,17 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   question = 'Hier werden Fragen angezeigt';
   correctAnswer: string;
   allQuestions: GetQuestionResponse[] = [];
-  answerQuestions: QuestionResultsResponse[] = [];
+  answerQuestions: string[];
+  answer: string[];
+  everyQuestion: string[];
+  change: boolean;
 
   constructor( private sessionService: SessionService) { }
 
   ngOnInit(): void {
     this.pinOpen = CreateSessionComponent.pinOpen;
     this.questionNum = 0;
+
     this.sessionService.getQuestion(this.pinOpen).subscribe(value => {
       this.showQuestion(value);
     });
@@ -49,6 +53,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.sessionService.skip(this.pinOpen).subscribe(value => {
       this.sessionService.getQuestion(this.pinOpen).subscribe(value1 => {
         this.showQuestion(value1);
+        this.change = false;
       }, error => {
         // TODO: Fix end of questions
         if (error.error.message === 'Session has closed') {
@@ -73,6 +78,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   getAnswerRequest() {
     this.sessionService.getAnswer(this.pinOpen).subscribe(value => {
       this.showAnswer(value.answer);
+      this.change = true;
     });
   }
 
@@ -89,16 +95,19 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += question.MultipleChoice.ans4 + '\n';
       this.question += question.MultipleChoice.ans5 + '\n';
       this.allQuestions.push(question);
+      this.everyQuestion.push(question.MultipleChoice.question);
 
     } else if (question.TrueFalse != null) {
       this.question = question.TrueFalse.question + '\n';
       this.question += 'True\n';
       this.question += 'False\n';
       this.allQuestions.push(question);
+      this.everyQuestion.push(question.TrueFalse.question);
 
     } else if (question.Free != null) {
       this.question = question.Free.question;
       this.allQuestions.push(question);
+      this.everyQuestion.push(question.Free.question);
 
     } else {
       console.log('No Question to Show');
@@ -115,17 +124,17 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.correctAnswer = '';
     if (question.Free != null) {
       question.Free.answers.forEach(value => this.correctAnswer += value);
-      this.answerQuestions.push(question);
+      this.answerQuestions.push(this.correctAnswer);
 
     } else if (question.MultipleChoice != null) {
-      question.MultipleChoice.answers.forEach(value => this.correctAnswer += `${value} `);
-      this.answerQuestions.push(question);
+      question.MultipleChoice.answers.forEach(value => this.correctAnswer += `${value}`);
+      this.answerQuestions.push(this.correctAnswer);
 
     } else if (question.TrueFalse != null) {
 
       this.correctAnswer += question.TrueFalse.t + ' ';
       this.correctAnswer += question.TrueFalse.f;
-      this.answerQuestions.push(question);
+      this.answerQuestions.push(this.correctAnswer);
     } else {
       this.correctAnswer = 'No Answers';
       console.log('No Answers');
@@ -133,12 +142,19 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   }
 
-  private endSession() {
+  private endSession(): void {
     // TODO: End Session
     // TODO: Fix unsubscribe not working
     this.userCountSubscription.unsubscribe();
     console.log(this.allQuestions);
     console.log(this.answerQuestions);
+    console.log(this.everyQuestion);
+    this.test(this.answerQuestions, this.everyQuestion);
+  }
+
+   test(a: string[], b: string[]): void {
+    this.answerQuestions = a;
+    this.everyQuestion = b;
   }
 
   goBack(): void {

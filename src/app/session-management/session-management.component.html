@@ -52,9 +52,12 @@
         </div>
 
         <p>
-         {{correctAnswer}}
+          {{answerQuestions}}
+          {{everyQuestion}}
         </p>
-
+        <div *ngIf="change==true">
+          {{correctAnswer}}
+        </div>
 
       </div>
 
@@ -66,13 +69,13 @@
         <br>
 
 
-        <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="skipRequest()">Nächste Frage</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="change=false" (click)="skipRequest()">Nächste Frage</button>
         <br>
-        <button class="btn btn-primary btn-lg btn-block" id="btn2" type="submit" (click)="getAnswersRequest()" >Zeige Studenten Antwort</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn2" type="submit" (click)="change=true" (click)="getAnswersRequest()" >Zeige Studenten Antwort</button>
         <br>
         <button class="btn btn-primary btn-lg btn-block" id="btn3" type="submit" (click)="getAnswerRequest()" >Zeige Antwort</button>
         <br>
-        <button class="btn btn-primary btn-lg btn-block" id="btn4" type="submit" (click)="endSessionRequest()" >Beenden</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn4" type="submit" (click)="test(answerQuestions, everyQuestion)" (click)="endSessionRequest()" >Beenden</button>
 
 
 
