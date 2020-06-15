@@ -41,6 +41,7 @@ import { RouterGuard } from '../guards/router.guard';
 import { StudentTrueFalseComponent } from './student-sehen/student-true-false/student-true-false.component';
 import { StudentFreeTextComponent } from './student-sehen/student-free-text/student-free-text.component';
 import {StudentMultipleChoiceComponent} from './student-sehen/student-multiple-choice/student-multiple-choice.component';
+import {LecturefeedbackaverageModel} from '../models/responses/lecturefeedbackaverage.model';
 
 @NgModule({
     declarations: [
