@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SessionFeedbackComponent } from './session-feedback.component';
+import { AverageFeedbackComponent } from './average-feedback.component';
 
-describe('SessionFeedbackComponent', () => {
-  let component: SessionFeedbackComponent;
-  let fixture: ComponentFixture<SessionFeedbackComponent>;
+describe('LectureFeedbackComponent', () => {
+  let component: AverageFeedbackComponent;
+  let fixture: ComponentFixture<AverageFeedbackComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SessionFeedbackComponent ]
+      declarations: [ AverageFeedbackComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SessionFeedbackComponent);
+    fixture = TestBed.createComponent(AverageFeedbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

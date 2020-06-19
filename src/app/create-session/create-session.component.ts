@@ -4,7 +4,7 @@ import {AnfangenResponse} from '../../models/responses/anfangen-response.model';
 import {SessionResponse} from '../../models/responses/session-response.model';
 import {Session} from '../../models/session';
 import {HttpClient} from '@angular/common/http';
-import {SessionService} from '../../services/session.service';
+import {OpenSessionService} from '../../services/open-session.service';
 import {TrueFalse} from '../../models/question-types/true-false.model';
 import {AvailableSessionsComponent} from '../available-sessions/available-sessions.component';
 import {SessionListService} from '../../services/session-list.service';
@@ -20,7 +20,7 @@ export class CreateSessionComponent implements OnInit {
   sessions: Array<Session>;
 
   constructor(private http: HttpClient,
-              private sessionService: SessionService,
+              private sessionService: OpenSessionService,
               private sessionListService: SessionListService) {
   }
 

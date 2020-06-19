@@ -13,7 +13,7 @@ import {LehrerComponent} from './lehrer/lehrer.component';
 import {StudentComponent} from './student/student.component';
 import {SessionManagementComponent} from './session-management/session-management.component';
 import {FeedbackComponent} from './feedback/feedback.component';
-import {ReadfeedbackComponent} from './readfeedback/readfeedback.component';
+import {ReadFeedbackComponent} from './readfeedback/read-feedback.component';
 import {AvailableSessionsComponent} from './available-sessions/available-sessions.component';
 import {UserpageComponent} from './userpage/userpage.component';
 import {QuestionTypeComponent} from './question-type/question-type.component';
@@ -80,7 +80,7 @@ const routes: Routes = [
   },
   {
     path: 'teacher/read-feedback',
-    component: ReadfeedbackComponent,
+    component: ReadFeedbackComponent,
     canActivate: [TokenGuard]
   },
   {

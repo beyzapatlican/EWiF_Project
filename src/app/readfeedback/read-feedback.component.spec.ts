@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReadfeedbackComponent } from './readfeedback.component';
+import { ReadFeedbackComponent } from './read-feedback.component';
 
 describe('ReadfeedbackComponent', () => {
-  let component: ReadfeedbackComponent;
-  let fixture: ComponentFixture<ReadfeedbackComponent>;
+  let component: ReadFeedbackComponent;
+  let fixture: ComponentFixture<ReadFeedbackComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReadfeedbackComponent ]
+      declarations: [ ReadFeedbackComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReadfeedbackComponent);
+    fixture = TestBed.createComponent(ReadFeedbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -17,6 +17,7 @@
           <label style=" margin-right: 10px; font-family: 'Roboto',monospace;
                                               font-style: normal;
                                               font-weight: 400;"> Feedbacks von :</label>
+
           <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"
                   (click) = "onUpdate1()">Vorlesung</button>
 
@@ -25,13 +26,18 @@
 
           <hr style="border-color: dimgray">
 
-          <p *ngIf="selected1">
-            <app-lecture-feedback></app-lecture-feedback>
+          <p *ngIf="selected">
+            <app-average-feedback></app-average-feedback>
           </p>
 
-          <p *ngIf="selected2">
-            <app-session-feedback></app-session-feedback>
-          </p>
+<!--          <p *ngIf="selected2">-->
+<!--            <label>-->
+<!--              <select>-->
+<!--                <option *ngFor="let openSession of select1Params">{{openSession.name}}: {{openSession.pin}}</option>-->
+<!--              </select>-->
+<!--            </label>-->
+<!--            <app-session-feedback></app-session-feedback>-->
+<!--          </p>-->
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {SessionService} from '../../services/session.service';
+import {OpenSessionService} from '../../services/open-session.service';
 import {interval, Subscription} from 'rxjs';
 import {GetQuestionResponse} from '../../models/responses/get-question-response.model';
 import {QuestionResultsResponse} from '../../models/responses/question-results-response.model';
@@ -24,7 +24,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   everyQuestion: string[];
   change: boolean;
 
-  constructor( private sessionService: SessionService) { }
+  constructor( private sessionService: OpenSessionService) { }
 
   ngOnInit(): void {
     this.pinOpen = CreateSessionComponent.pinOpen;

@@ -15,11 +15,12 @@ import {QuestionResultsRequest} from '../models/requests/question-results-reques
 import {QuestionResultsResponse} from '../models/responses/question-results-response.model';
 import {GetAnswerResponse} from '../models/responses/get-answer-response.model';
 import {StartExamRequest} from '../models/requests/startExamRequest.model';
+import {AllOpenSessionsResponse} from '../models/responses/all-open-sessions-response.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SessionService {
+export class OpenSessionService {
   constructor(private http: HttpClient,
               private urlService: UrlService,
               private router: Router) {
@@ -73,6 +74,10 @@ export class SessionService {
 
   getAnswer(pinOpen: string) {
     return this.http.get<GetAnswerResponse>(`${this.urlService.getURL()}/teacher/questionAnswer`, {params: {pinOpen}});
+  }
+
+  getAllOpenSessions() {
+    return this.http.get<AllOpenSessionsResponse>(`${this.urlService.getURL()}/teacher/allOpenSessions`);
   }
 
 }

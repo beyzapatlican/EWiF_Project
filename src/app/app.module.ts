@@ -27,9 +27,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {ReadFeedbackService} from '../services/read-feedback.service';
-import {ReadfeedbackComponent } from './readfeedback/readfeedback.component';
-import { LectureFeedbackComponent } from './lecture-feedback/lecture-feedback.component';
-import { SessionFeedbackComponent } from './session-feedback/session-feedback.component';
+import {ReadFeedbackComponent } from './readfeedback/read-feedback.component';
+import { AverageFeedbackComponent } from './average-feedback/average-feedback.component';
 import {SessionFeedbackService} from '../services/session-feedback.service';
 import {TokenInterceptor} from '../interceptors/token.interceptor';
 import { SessionListService} from '../services/session-list.service';
@@ -37,11 +36,9 @@ import {UserService} from '../services/user.service';
 import { StudentSehenComponent } from './student-sehen/student-sehen.component';
 import { OpenSessionUserCountComponent } from './open-session-user-count/open-session-user-count.component';
 import { CreateSessionComponent } from './create-session/create-session.component';
-import { RouterGuard } from '../guards/router.guard';
 import { StudentTrueFalseComponent } from './student-sehen/student-true-false/student-true-false.component';
 import { StudentFreeTextComponent } from './student-sehen/student-free-text/student-free-text.component';
 import {StudentMultipleChoiceComponent} from './student-sehen/student-multiple-choice/student-multiple-choice.component';
-import {LecturefeedbackaverageModel} from '../models/responses/lecturefeedbackaverage.model';
 
 @NgModule({
     declarations: [
@@ -66,17 +63,17 @@ import {LecturefeedbackaverageModel} from '../models/responses/lecturefeedbackav
         MultiplechoiceComponent,
         TruefalseComponent,
         ResetPasswordComponent,
-        FeedbackComponent,
-        ReadfeedbackComponent,
-        LectureFeedbackComponent,
-        SessionFeedbackComponent,
+        AverageFeedbackComponent,
+        ReadFeedbackComponent,
+        AverageFeedbackComponent,
         StudentSehenComponent,
         OpenSessionUserCountComponent,
         CreateSessionComponent,
         StudentMultipleChoiceComponent,
         StudentTrueFalseComponent,
         StudentFreeTextComponent,
-        StudentMultipleChoiceComponent
+        StudentMultipleChoiceComponent,
+        FeedbackComponent
     ],
   imports: [
     BrowserModule,

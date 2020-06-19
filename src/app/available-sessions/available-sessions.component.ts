@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Session} from '../../models/session';
 import {SessionListService} from '../../services/session-list.service';
 import {SessionResponse} from '../../models/responses/session-response.model';
-import { SessionService } from 'src/services/session.service';
+import { OpenSessionService } from 'src/services/open-session.service';
 import {subscribeTo} from 'rxjs/internal-compatibility';
 import {TrueFalse} from '../../models/question-types/true-false.model';
 @Component({
@@ -15,7 +15,7 @@ export class AvailableSessionsComponent implements OnInit {
   sessions: Array<Session>;
   sessionNames: Array<string>;
 
-  constructor(private sessionListService: SessionListService, private sessionService: SessionService) { }
+  constructor(private sessionListService: SessionListService, private sessionService: OpenSessionService) { }
 
   ngOnInit(): void {
     this.sessionListService.GetAll()
