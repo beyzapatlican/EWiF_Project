@@ -27,6 +27,9 @@ export class ReadFeedbackComponent implements OnInit {
     this.selected = true;
     ReadFeedbackComponent.selectedType.next(2);
   }
+  onUpdate3() {
+    this.selected = false;
+  }
 
   ngOnInit() {
 

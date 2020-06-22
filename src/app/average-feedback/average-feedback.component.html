@@ -7,8 +7,7 @@
       <option *ngFor="let openSession of select2Params" [value]="openSession.name + ' ' + openSession.pin">{{openSession.name}}: {{openSession.pin}}</option>
     </select>
   </label>
-  <div *ngIf="selectedOption != null" id="lF1" class="container"
-       style="background-color: #f5f5f5; max-width: 1000px; margin-bottom: 30px">
+  <div *ngIf="selectedOption != null" id="lF1" class="container">
     <div id="lectureFeedback" style="background-color: transparent">
 
       <h2>{{selectedOption.name}}</h2>

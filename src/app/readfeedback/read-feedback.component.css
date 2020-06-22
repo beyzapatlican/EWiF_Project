@@ -1,13 +1,128 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);*/
+
+/*body, html {*/
+/*  height: 100%;*/
+
+/*}*/
+/*.bg {*/
+/*  !* The image used *!*/
+/*  background-image: url(../../images/back.jpg);*/
+
+
+/*  !* Full height *!*/
+/*  height: 100%;*/
+
+/*  !* Center and scale the image nicely *!*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+
+/*  position: relative;*/
+/*  top: 0;*/
+/*  left: 0;*/
+
+/*  !* Preserve aspet ratio *!*/
+/*  min-width: 100%;*/
+/*  min-height: 100%;*/
+
+/*}*/
+
+
+/*#question{*/
+/*  display: block;*/
+/*  float: left;*/
+/*  width: 40%;*/
+/*  padding: 0 5%;*/
+/*  background:  whitesmoke;*/
+/*  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+/*  margin-left: 50px;*/
+/*  margin-right: 50px;*/
+/*  margin-top: 100px;*/
+/*  margin-bottom: 300px;*/
+/*  border-radius: 15px 50px 30px;*/
+/*}*/
+
+/*#question h3 {*/
+/*  display: block;*/
+/*  font-size: 30px;*/
+/*  font-weight: 300;*/
+/*  margin-bottom: 10px;*/
+/*}*/
+/*#text{*/
+/*  font-family: 'Roboto';*/
+/*  font-style: normal;*/
+/*  font-weight: 400;*/
+/*}*/
+
+/*::-webkit-input-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*:-moz-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*::-moz-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*:-ms-input-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*.button {*/
+/*  background:  rgb(133,0,61);*/
+/*  border-color: rgb(133,0,61);*/
+/*  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);*/
+
+/*}*/
+
+/*.button[type="submit"] {*/
+/*  cursor: pointer;*/
+/*  width: 100%;*/
+/*  border: none;*/
+/*  background:  rgb(133,0,61);*/
+/*  color:white;*/
+/*  margin: 0 0 5px;*/
+/*  padding: 10px;*/
+/*  font-size: 15px;*/
+/*}*/
+
+/*.button[type="submit"]:hover {*/
+/*  background: black;*/
+/*  -webkit-transition: background 0.3s ease-in-out;*/
+/*  -moz-transition: background 0.3s ease-in-out;*/
+/*  transition: background-color 0.3s ease-in-out;*/
+/*}*/
+
+/*.button[type="submit"]:active {*/
+/*  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+/*.button:hover{*/
+/*  background-color: black;*/
+/*  border-color: black;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 body, html {
   height: 100%;
-
 }
 .bg {
   /* The image used */
   background-image: url(../../images/back.jpg);
-
 
   /* Full height */
   height: 100%;
@@ -16,103 +131,66 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  position: relative;
-  top: 0;
-  left: 0;
-
-  /* Preserve aspet ratio */
-  min-width: 100%;
-  min-height: 100%;
-
 }
-
-
-#question{
-  display: block;
-  float: left;
-  width: 40%;
-  padding: 0 5%;
-  background:  whitesmoke;
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: center;
+  max-width: 1000px;
+}
+#readFeedback {
+  padding: 40px;
+  margin: 250px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 100px;
-  margin-bottom: 300px;
-  border-radius: 15px 50px 30px;
+  position: center;
+  height: 400px;
+  background-color: white;
 }
 
-#question h3 {
+#readFeedback h3 {
   display: block;
   font-size: 30px;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin-top:50px;
 }
-#text{
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-}
-
-::-webkit-input-placeholder {
-  color: #888;
-}
-
-:-moz-placeholder {
-  color: #888;
-}
-
-::-moz-placeholder {
-  color: #888;
-}
-
-:-ms-input-placeholder {
-  color: #888;
-}
-
-.button {
-  background:  rgb(133,0,61);
-  border-color: rgb(133,0,61);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+#readFeedback h5{
+  display: block;
+  font-weight: 300;
+  font-size: 25px;
 
 }
-
-.button[type="submit"] {
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  background:  rgb(133,0,61);
-  color:white;
-  margin: 0 0 5px;
-  padding: 10px;
-  font-size: 15px;
+#readFeedback p{
+  font-weight:300;
 }
 
-.button[type="submit"]:hover {
-  background: black;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
+#readFeedback{
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.button[type="submit"]:active {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.button:hover{
-  background-color: black;
-  border-color: black;
-}
-
-#backk {
+#back1, #back2 {
   border-radius: 50%;
   background-color: transparent;
   border-color: rgb(133,0,61);
   color: rgb(133,0,61);
   margin-bottom: 30px;
 }
-#backk:hover{
+#back1:hover, #back2:hover{
   background-color: rgb(133,0,61);
   border-color: rgb(133,0,61);
   color: white;
+}
+
+#btn1, #btn2{
+  background: transparent;
+  border-color: rgb(133,0,61);
+  color: black;
+}
+
+#btn1:hover , #btn2:hover{
+  background: rgb(133,0,61);
+  border-color: rgb(133,0,61);
+  color:white;
 }

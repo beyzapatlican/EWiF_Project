@@ -1,47 +1,77 @@
-<hr>
-<body>
-<div class="bg">
-  <div class="container container-fluid">
+<!--<hr>-->
+<!--<body>-->
+<!--<div class="bg">-->
+<!--  <div class="container container-fluid">-->
 
-    <div class="row">
+<!--    <div class="row">-->
 
-      <div id = "question" class="col-sm-12">
-        <div>
-          <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
-          <h3 style="font-size: 50px">Feedback Lesen</h3>
-        </div>
+<!--      <div id = "question" class="col-sm-12">-->
+<!--        <div>-->
+<!--          <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>-->
+<!--          <h3 style="font-size: 50px">Feedback Lesen</h3>-->
+<!--        </div>-->
 
-        <hr style="border-color: dimgray">
+<!--        <hr style="border-color: dimgray">-->
 
-        <div class="text">
-          <label style=" margin-right: 10px; font-family: 'Roboto',monospace;
-                                              font-style: normal;
-                                              font-weight: 400;"> Feedbacks von :</label>
+<!--        <div class="text">-->
+<!--          <label style=" margin-right: 10px; font-family: 'Roboto',monospace;-->
+<!--                                              font-style: normal;-->
+<!--                                              font-weight: 400;"> Feedbacks von :</label>-->
 
-          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"
-                  (click) = "onUpdate1()">Vorlesung</button>
+<!--          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"-->
+<!--                  (click) = "onUpdate1()">Vorlesung</button>-->
 
-          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61) ;border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"
-                  (click) = "onUpdate2()">Session</button>
+<!--          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61) ;border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"-->
+<!--                  (click) = "onUpdate2()">Session</button>-->
 
-          <hr style="border-color: dimgray">
+<!--          <hr style="border-color: dimgray">-->
 
-          <p *ngIf="selected">
-            <app-average-feedback></app-average-feedback>
-          </p>
-
-<!--          <p *ngIf="selected2">-->
-<!--            <label>-->
-<!--              <select>-->
-<!--                <option *ngFor="let openSession of select1Params">{{openSession.name}}: {{openSession.pin}}</option>-->
-<!--              </select>-->
-<!--            </label>-->
-<!--            <app-session-feedback></app-session-feedback>-->
+<!--          <p *ngIf="selected">-->
+<!--            <app-average-feedback></app-average-feedback>-->
 <!--          </p>-->
-        </div>
+
+<!--&lt;!&ndash;          <p *ngIf="selected2">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label>&ndash;&gt;-->
+<!--&lt;!&ndash;              <select>&ndash;&gt;-->
+<!--&lt;!&ndash;                <option *ngFor="let openSession of select1Params">{{openSession.name}}: {{openSession.pin}}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;              </select>&ndash;&gt;-->
+<!--&lt;!&ndash;            </label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <app-session-feedback></app-session-feedback>&ndash;&gt;-->
+<!--&lt;!&ndash;          </p>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</body>-->
+
+<div class="bg">
+  <div class="container">
+    <div class="col-md-12" id="readFeedback" style="position: center; margin-top: 200px">
+      <div *ngIf="!selected">
+        <button class="btn btn-info my-3" id="back1" (click)="goBack()"> < </button>
       </div>
+
+      <div *ngIf="selected">
+        <button class="btn btn-info my-3" id="back2" (click)="onUpdate3()"> < </button>
+      </div>
+
+      <h3 style="font-size: 50px">Read Feedback</h3>
+
+      <hr style="border-color: dimgray">
+      <div id="text">
+        <div class="div" *ngIf="!selected">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1"
+                (click) = "onUpdate1()">Vorlesung</button>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="btn2"
+                (click) = "onUpdate2()">Session</button>
+        </div>
+        <p *ngIf="selected">
+          <app-average-feedback></app-average-feedback>
+        </p>
+
     </div>
   </div>
 </div>
-</body>
 
