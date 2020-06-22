@@ -15,6 +15,7 @@ export class AvailableSessionsComponent implements OnInit {
   sessions: Array<Session>;
   sessionNames: Array<string>;
 
+
   constructor(private sessionListService: SessionListService, private sessionService: OpenSessionService) { }
 
   ngOnInit(): void {
