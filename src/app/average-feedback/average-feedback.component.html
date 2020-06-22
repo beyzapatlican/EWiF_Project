@@ -1,14 +1,16 @@
 <div>
   <label>
-    <select (change)="onSelect($event)" *ngIf="selectedType == 1">
+    <select id="dropdown" class="browser-default custom-select custom-select-lg mb-3" (change)="onSelect($event)" *ngIf="selectedType == 1">
+      <option selected>Wählen Sie bitte eine Vorlesung</option>
       <option *ngFor="let lecture of select1Params" [value]="lecture.name + ' ' + lecture.pin">{{lecture.name}}</option>
     </select>
-    <select (change)="onSelect($event)" *ngIf="selectedType == 2">
+    <select id="dropdown2" class="browser-default custom-select custom-select-lg mb-3" (change)="onSelect($event)" *ngIf="selectedType == 2">
+      <option selected>Wählen Sie bitte eine Sitzung</option>
       <option *ngFor="let openSession of select2Params" [value]="openSession.name + ' ' + openSession.pin">{{openSession.name}}: {{openSession.pin}}</option>
     </select>
   </label>
   <div *ngIf="selectedOption != null" id="lF1" class="container">
-    <div id="lectureFeedback" style="background-color: transparent">
+    <div id="lectureFeedback">
 
       <h2>{{selectedOption.name}}</h2>
 
