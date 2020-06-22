@@ -5,8 +5,7 @@ body, html {
 }
 .bg {
   /* The image used */
-  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");
-
+  background-image: url(../../images/back.jpg);
 
   /* Full height */
   height: 100%;
@@ -15,42 +14,265 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
-
-.row {
-  display: block;
-  mid-height: 1px;
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: center;
 }
-row:after {
-  content:"";
-  display: table;
-  clear:  both;
-}
-
-.column {
-  display: block;
-  float: left;
-  width: 40%;
-  padding: 0 5%;
-  background-color: #C7DBDA;
+#sessionS {
+  padding: 0;
+  margin: 580px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 15px 50px 30px;
+  position: center;
+  height: 400px;
+
 }
 
-#sessionManagement h1,p{
-  display: block;
-  font-size: 30px;
+#sessionS h3,h1 {
+  font-size: 50px;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin-top:50px;
 }
-#column{
+#sessionS h5{
   display: block;
-  font-size: 30px;
   font-weight: 300;
-  margin-bottom: 10px;
+  font-size: 25px;
+
 }
+#sessionS p{
+  font-weight:300;
+}
+
+#btn1, #btn2{
+  background: rgb(133,0,61);
+  border-color: rgb(133,0,61);
+  color: white;
+  display: block;
+}
+
+#btn1:hover , #btn2:hover {
+  background: black;
+  border-color: black;
+  color:white;
+
+}
+
+#firstCol{
+  background-color: white;
+}
+#secondCol{
+  background: #FDFEFE;
+}
+
+#backk {
+  border-radius: 50%;
+  background-color: transparent;
+  border-color: rgb(133,0,61);
+  color: rgb(133,0,61);
+  margin-bottom: 30px;
+
+}
+#backk:hover{
+  background-color: rgb(133,0,61);
+  border-color: rgb(133,0,61);
+  color: white;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);*/
+
+/*body, html {*/
+/*  height: 100%;*/
+/*}*/
+/*.bg {*/
+/*  !* The image used *!*/
+/*  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");*/
+
+
+/*  !* Full height *!*/
+/*  height: 100%;*/
+
+/*  !* Center and scale the image nicely *!*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+
+/*}*/
+
+/*.row {*/
+/*  display: block;*/
+/*  mid-height: 1px;*/
+/*}*/
+/*row:after {*/
+/*  content:"";*/
+/*  display: table;*/
+/*  clear:  both;*/
+/*}*/
+
+/*.column {*/
+/*  display: block;*/
+/*  float: left;*/
+/*  width: 40%;*/
+/*  padding: 0 5%;*/
+/*  background-color: #C7DBDA;*/
+/*  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+/*  margin-left: 50px;*/
+/*  margin-right: 50px;*/
+/*  margin-top: 50px;*/
+/*  margin-bottom: 50px;*/
+/*  border-radius: 15px 50px 30px;*/
+/*}*/
+
+/*#sessionManagement h1,p{*/
+/*  display: block;*/
+/*  font-size: 30px;*/
+/*  font-weight: 300;*/
+/*  margin-bottom: 10px;*/
+/*}*/
+/*#column{*/
+/*  display: block;*/
+/*  font-size: 30px;*/
+/*  font-weight: 300;*/
+/*  margin-bottom: 10px;*/
+/*}*/
+
+
+
+
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);*/
+
+/*body, html {*/
+/*  height: 100%;*/
+/*  margin: 0;*/
+/*}*/
+/*.bg {*/
+/*  !* The image used *!*/
+/*  background-image: url(../../images/back.jpg);*/
+
+
+/*  !* Full height *!*/
+/*  height: 100%;*/
+
+/*  !* Center and scale the image nicely *!*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+
+
+
+/*}*/
+
+/*body {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  box-sizing: border-box;*/
+/*  -webkit-box-sizing: border-box;*/
+/*  -moz-box-sizing: border-box;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-font-smoothing: antialiased;*/
+/*  -o-font-smoothing: antialiased;*/
+/*  font-smoothing: antialiased;*/
+/*  text-rendering: optimizeLegibility;*/
+/*}*/
+
+/*.row {*/
+/*  display: block;*/
+/*  mid-height: 1px;*/
+/*}*/
+/*row:after {*/
+/*  content:"";*/
+/*  display: table;*/
+/*  clear:  both;*/
+/*}*/
+
+/*.column {*/
+/*  display: block;*/
+/*  float: left;*/
+/*  width: 40%;*/
+/*  padding: 0 5%;*/
+/*  background:  whitesmoke;*/
+/*  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+
+/*  margin-top: 100px;*/
+/*  margin-bottom: 350px;*/
+/*  border-radius: 15px 50px 30px;*/
+/*}*/
+
+/*#sessionManagement h1,p{*/
+/*  display: block;*/
+/*  font-size: 30px;*/
+/*  font-weight: 300;*/
+/*  margin-bottom: 10px;*/
+/*  position: center;*/
+/*}*/
+/*#antworten {*/
+/*  display: block;*/
+/*  font-size: 30px;*/
+/*  font-weight: 300;*/
+/*  margin-bottom: 10px;*/
+/*  margin-top: 100px;*/
+/*  margin-left: 150px;*/
+
+/*}*/
+/*::-webkit-input-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*:-moz-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*::-moz-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*:-ms-input-placeholder {*/
+/*  color: #888;*/
+/*}*/
+
+/*.button {*/
+/*  background:  rgb(133,0,61);*/
+/*  border-color: rgb(133,0,61);*/
+/*  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);*/
+
+/*}*/
+
+/*.button[type="submit"] {*/
+/*  cursor: pointer;*/
+/*  width: 100%;*/
+/*  border: none;*/
+/*  background:  rgb(133,0,61);*/
+/*  color:white;*/
+/*  margin: 0 0 5px;*/
+/*  padding: 10px;*/
+/*  font-size: 15px;*/
+/*}*/
+
+/*.button[type="submit"]:hover {*/
+/*  background: black;*/
+/*  -webkit-transition: background 0.3s ease-in-out;*/
+/*  -moz-transition: background 0.3s ease-in-out;*/
+/*  transition: background-color 0.3s ease-in-out;*/
+/*}*/
+
+/*.button[type="submit"]:active {*/
+/*  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+/*.button:hover{*/
+/*  background-color: black;*/
+/*  border-color: black;*/
+/*}*/
+
+
+
+
+
+

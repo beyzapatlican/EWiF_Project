@@ -125,4 +125,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   done() {
     this.timeOutCheckSubscription.unsubscribe();
   }
+  goBack(): void {
+    window.history.back();
+  }
 }
