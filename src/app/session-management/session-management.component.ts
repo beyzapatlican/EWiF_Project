@@ -23,6 +23,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   answer: string[];
   everyQuestion: string[];
   change: boolean;
+  deneme: string[];
 
   constructor( private sessionService: OpenSessionService) { }
 
@@ -95,6 +96,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += question.MultipleChoice.ans4 + '\n';
       this.question += question.MultipleChoice.ans5 + '\n';
       this.allQuestions.push(question);
+      this.deneme.push(question.MultipleChoice.question);
       this.everyQuestion.push(question.MultipleChoice.question);
 
     } else if (question.TrueFalse != null) {
@@ -149,6 +151,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     console.log(this.allQuestions);
     console.log(this.answerQuestions);
     console.log(this.everyQuestion);
+    console.log(this.deneme);
     this.test(this.answerQuestions, this.everyQuestion);
   }
 
