@@ -61,6 +61,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
         // TODO: Fix end of questions
         if (error.error.message === 'Session has closed') {
           this.endSession();
+          this.sessionEndet = true;
           // TODO: Handle Session has closed
         } else {
           // TODO: Handle error
@@ -113,7 +114,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
     } else {
       console.log('Keine Frage');
-      this.sessionEndet = true;
     }
   }
 

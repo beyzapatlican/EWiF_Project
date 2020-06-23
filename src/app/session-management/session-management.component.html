@@ -36,7 +36,7 @@
   <div class="container" *ngIf="!end">
     <div class="row" id="sessionM" style="position: center; margin-top: 200px">
 
-      <div class="col-md-8" id="firstCol" style="height: 600px">
+      <div class="col-md-8" id="firstCol" >
         <div >
           <button class="btn btn-info my-3" id="back" (click)="goBack()"> < </button>
         </div>
@@ -56,7 +56,8 @@
         <div *ngIf= "sessionEndet">
 
           <div >
-            <h1 style="font-size: 25px" >Es gibt keine Frage mehr</h1>
+            <h1 style="font-size: 40px" >Es gibt keine Frage mehr</h1>
+            <h1 style="font-size: 40px" >Bitte beenden Sie die Sitzung um Ergebnissen zu sehen</h1>
           </div>
         </div>
 
@@ -79,7 +80,7 @@
 
       </div>
 
-      <div class="col-md-4" id="secondCol" style="height: 600px">
+      <div class="col-md-4" id="secondCol" >
         <div style="visibility: hidden">
           <button class="btn btn-info my-3" (click)="goBack()"> < </button>
         </div>
@@ -89,7 +90,7 @@
 
 
         </header>
-        
+
         <hr style="border-color:dimgray" >
 
         <h1>Anzahl der Teilnehmer: {{userCount}}</h1>
@@ -106,6 +107,7 @@
         <br>
         <button class="btn btn-primary btn-lg btn-block" id="btn4" type="submit" (click)="endSessionRequest()" (click)="onEnd()" >Beenden</button>
 
+        <br>
 
 
       </div>
@@ -118,7 +120,7 @@
   <div class="container" *ngIf="end">
     <div class="row" id="sessionM1" style="position: center; margin-top: 200px">
 
-      <div class="col-md-12" id="firstCol1" style="height: 600px">
+      <div class="col-md-12" id="firstCol1">
         <div >
           <button class="btn btn-info my-3" id="backk1" (click)="goBack()"> < </button>
         </div>
