@@ -19,10 +19,14 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   question = 'Hier werden Fragen angezeigt';
   correctAnswer: string;
   allQuestions: GetQuestionResponse[] = [];
-  answerQuestions: string[];
+  answerQuestions: string[] = [];
   answer: string[];
-  everyQuestion: string[];
+  everyQuestion: string[] =  [];
   change: boolean;
+  end: boolean; true;
+  trueAnswers: string[] = [];
+  sessionEndet = false;
+
 
   constructor( private sessionService: OpenSessionService) { }
 
@@ -53,7 +57,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.sessionService.skip(this.pinOpen).subscribe(value => {
       this.sessionService.getQuestion(this.pinOpen).subscribe(value1 => {
         this.showQuestion(value1);
-        this.change = false;
       }, error => {
         // TODO: Fix end of questions
         if (error.error.message === 'Session has closed') {
@@ -78,7 +81,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   getAnswerRequest() {
     this.sessionService.getAnswer(this.pinOpen).subscribe(value => {
       this.showAnswer(value.answer);
-      this.change = true;
     });
   }
 
@@ -110,15 +112,18 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.everyQuestion.push(question.Free.question);
 
     } else {
-      console.log('No Question to Show');
+      console.log('Keine Frage');
+      this.sessionEndet = true;
     }
   }
 
   private showAnswer(answer: string) {
     console.log(answer);
     this.correctAnswer = answer;
+    if ( !(this.trueAnswers.includes(this.correctAnswer))) {
+      this.trueAnswers.push(this.correctAnswer);
+    }
   }
-
   private showAnswers(question: QuestionResultsResponse) {
     // TODO: Show answer in meaningful way
     this.correctAnswer = '';
@@ -145,19 +150,22 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   private endSession(): void {
     // TODO: End Session
     // TODO: Fix unsubscribe not working
-    this.userCountSubscription.unsubscribe();
-    console.log(this.allQuestions);
-    console.log(this.answerQuestions);
-    console.log(this.everyQuestion);
-    this.test(this.answerQuestions, this.everyQuestion);
+    // this.userCountSubscription.unsubscribe();
+    // console.log(this.allQuestions);
+    // console.log(this.answerQuestions);
+    // console.log(this.everyQuestion);
+    // this.test(this.answerQuestions, this.everyQuestion);
   }
 
-   test(a: string[], b: string[]): void {
-    this.answerQuestions = a;
-    this.everyQuestion = b;
-  }
+  //  test(a: string[], b: string[]): void {
+  //   this.answerQuestions = a;
+  //   this.everyQuestion = b;
+  // }
 
   goBack(): void {
     window.history.back();
+  }
+  onEnd() {
+    this.end = true;
   }
 }

@@ -33,35 +33,64 @@
 
 
 <div class="bg">
-  <div class="container">
+  <div class="container" *ngIf="!end">
     <div class="row" id="sessionM" style="position: center; margin-top: 200px">
 
       <div class="col-md-8" id="firstCol" style="height: 600px">
         <div >
-          <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
+          <button class="btn btn-info my-3" id="back" (click)="goBack()"> < </button>
         </div>
-        <div class="row" style="padding: 10px">
+
+        <header style="padding: 10px">
           <h3 >Sitzung</h3>
-          <h3 style="margin-left: 50px"> Pin: {{pinOpen}}</h3>
-        </div>
+
+        </header>
 
         <hr style="border-color:dimgray; " >
+        <div *ngIf= "!sessionEndet">
 
-        <div *ngFor="let q of question.split('\n')">
-          <h1 style="font-size: 25px"> *{{q}}</h1>
+        <div *ngFor="let q of question.split('\n')" >
+          <h1 style="font-size: 25px" *ngIf=" !(q=='undefined')"> {{q}} </h1>
+        </div>
+      </div>
+        <div *ngIf= "sessionEndet">
+
+          <div >
+            <h1 style="font-size: 25px" >Es gibt keine Frage mehr</h1>
+          </div>
         </div>
 
         <p>
           {{answerQuestions}}
           {{everyQuestion}}
         </p>
-        <div *ngIf="change==true">
-          {{correctAnswer}}
+
+        <div *ngIf="change">
+          <h3 style="font-size: 30px; color: green">
+            <b *ngIf="correctAnswer=='true'">Richtig</b> <b *ngIf="correctAnswer=='false'">Falsch</b> <b *ngIf="correctAnswer== '1'"> A </b>
+            <b *ngIf="correctAnswer== '2'"> B </b>   <b *ngIf="correctAnswer== '3'"> C </b>
+            <b *ngIf="correctAnswer== '4'"> D </b>   <b *ngIf="correctAnswer== '5'"> E </b>
+            <b *ngIf="correctAnswer.length > 5"> {{correctAnswer}} </b>
+
+          </h3>
+
+
         </div>
 
       </div>
 
       <div class="col-md-4" id="secondCol" style="height: 600px">
+        <div style="visibility: hidden">
+          <button class="btn btn-info my-3" (click)="goBack()"> < </button>
+        </div>
+        <header style="padding: 10px">
+
+          <h3 > Pin: {{pinOpen}}</h3>
+
+
+        </header>
+        
+        <hr style="border-color:dimgray" >
 
         <h1>Anzahl der Teilnehmer: {{userCount}}</h1>
         <hr style="border-color:white" >
@@ -69,13 +98,13 @@
         <br>
 
 
-        <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="change=false" (click)="skipRequest()">Nächste Frage</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="change=false" (click)="skipRequest()" (click)="getAnswerRequest()" >Nächste Frage</button>
         <br>
-        <button class="btn btn-primary btn-lg btn-block" id="btn2" type="submit" (click)="change=true" (click)="getAnswersRequest()" >Zeige Studenten Antwort</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn2" type="submit"  (click)="getAnswersRequest()" >Zeige Studenten Antwort</button>
         <br>
-        <button class="btn btn-primary btn-lg btn-block" id="btn3" type="submit" (click)="getAnswerRequest()" >Zeige Antwort</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn3" type="submit" (click)="change=true" (click)="getAnswerRequest()" >Zeige Antwort</button>
         <br>
-        <button class="btn btn-primary btn-lg btn-block" id="btn4" type="submit" (click)="test(answerQuestions, everyQuestion)" (click)="endSessionRequest()" >Beenden</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn4" type="submit" (click)="endSessionRequest()" (click)="onEnd()" >Beenden</button>
 
 
 
@@ -83,6 +112,47 @@
 
     </div>
   </div>
+
+
+
+  <div class="container" *ngIf="end">
+    <div class="row" id="sessionM1" style="position: center; margin-top: 200px">
+
+      <div class="col-md-12" id="firstCol1" style="height: 600px">
+        <div >
+          <button class="btn btn-info my-3" id="backk1" (click)="goBack()"> < </button>
+        </div>
+        <div class="row" style="padding: 10px">
+          <h3 >Sitzung Ergebnissen</h3>
+        </div>
+
+        <hr style="border-color:dimgray; " >
+
+        <div class="col-md-6">
+          <div *ngFor="let q of everyQuestion">
+            <h1 style="font-size: 25px"> <b>Frage:</b> {{q}} </h1>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div *ngFor="let q of trueAnswers">
+            <h1 style="font-size: 25px" *ngIf="q=='true'"> <b>Antwort:</b> Richtig </h1>
+            <h1 style="font-size: 25px" *ngIf="q=='false'"> <b>Antwort:</b>  Falsch</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='1'"> <b>Antwort:</b>  A</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='2'"> <b>Antwort:</b>  B</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='3'"> <b>Antwort:</b>  C</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='4'"> <b>Antwort:</b>  D</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='5'"> <b>Antwort:</b>  E</h1>
+            <h1 style="font-size: 25px" *ngIf="q.length > 5"> <b>Antwort:</b> {{q}} </h1>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
 </div>
 
 
