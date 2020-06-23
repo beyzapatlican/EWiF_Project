@@ -5,6 +5,27 @@ body, html {
   height: 100%;
 }
 .bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  max-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+.bg {
   /* The image used */
   background-image: url(../../images/back.jpg);
 
@@ -20,32 +41,32 @@ body, html {
   width: 100%;
   margin: 0 auto;
   position: center;
+  height: 400px;
   max-width: 1000px;
+  margin-bottom: 100px;
 }
 #teacher {
   padding: 0;
-  margin: 580px 0;
+  margin: 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
   height: 400px;
-
 }
 
 #teacher h3 {
-  display: block;
   font-size: 30px;
   font-weight: 300;
   margin-top:50px;
   color: white;
 }
 #teacher h5{
-  display: block;
   font-weight: 300;
   font-size: 25px;
 
 }
 #teacher p{
   font-weight:300;
+  display: flex;
 }
 
 #btn1, #btn2, #btn3, #btn4{
@@ -71,4 +92,5 @@ body, html {
 #secondCol{
   background: #FDFEFE;
   align-items: center;
+
 }

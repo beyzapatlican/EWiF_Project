@@ -19,11 +19,14 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   question = 'Hier werden Fragen angezeigt';
   correctAnswer: string;
   allQuestions: GetQuestionResponse[] = [];
-  answerQuestions: string[];
+  answerQuestions: string[] = [];
   answer: string[];
-  everyQuestion: string[];
+  everyQuestion: string[] =  [];
   change: boolean;
-  deneme: string[];
+  end: boolean; true;
+  trueAnswers: string[] = [];
+  sessionEndet = false;
+
 
   constructor( private sessionService: OpenSessionService) { }
 
@@ -54,11 +57,11 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.sessionService.skip(this.pinOpen).subscribe(value => {
       this.sessionService.getQuestion(this.pinOpen).subscribe(value1 => {
         this.showQuestion(value1);
-        this.change = false;
       }, error => {
         // TODO: Fix end of questions
         if (error.error.message === 'Session has closed') {
           this.endSession();
+          this.sessionEndet = true;
           // TODO: Handle Session has closed
         } else {
           // TODO: Handle error
@@ -79,7 +82,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   getAnswerRequest() {
     this.sessionService.getAnswer(this.pinOpen).subscribe(value => {
       this.showAnswer(value.answer);
-      this.change = true;
     });
   }
 
@@ -96,7 +98,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += question.MultipleChoice.ans4 + '\n';
       this.question += question.MultipleChoice.ans5 + '\n';
       this.allQuestions.push(question);
-      this.deneme.push(question.MultipleChoice.question);
       this.everyQuestion.push(question.MultipleChoice.question);
 
     } else if (question.TrueFalse != null) {
@@ -112,13 +113,16 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.everyQuestion.push(question.Free.question);
 
     } else {
-      console.log('No Question to Show');
+      console.log('Keine Frage');
     }
   }
 
   private showAnswer(answer: string) {
     console.log(answer);
     this.correctAnswer = answer;
+    if ( !(this.trueAnswers.includes(this.correctAnswer))) {
+      this.trueAnswers.push(this.correctAnswer);
+    }
   }
 
   private showAnswers(question: QuestionResultsResponse) {
@@ -147,20 +151,22 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   private endSession(): void {
     // TODO: End Session
     // TODO: Fix unsubscribe not working
-    this.userCountSubscription.unsubscribe();
-    console.log(this.allQuestions);
-    console.log(this.answerQuestions);
-    console.log(this.everyQuestion);
-    console.log(this.deneme);
-    this.test(this.answerQuestions, this.everyQuestion);
+    // this.userCountSubscription.unsubscribe();
+    // console.log(this.allQuestions);
+    // console.log(this.answerQuestions);
+    // console.log(this.everyQuestion);
+    // this.test(this.answerQuestions, this.everyQuestion);
   }
 
-   test(a: string[], b: string[]): void {
-    this.answerQuestions = a;
-    this.everyQuestion = b;
-  }
+  //  test(a: string[], b: string[]): void {
+  //   this.answerQuestions = a;
+  //   this.everyQuestion = b;
+  // }
 
   goBack(): void {
     window.history.back();
+  }
+  onEnd() {
+    this.end = true;
   }
 }

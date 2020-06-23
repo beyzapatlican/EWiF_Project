@@ -148,27 +148,28 @@ body, html {
   margin: 0 auto;
   position: center;
 }
-#sessionM {
+#sessionM, #sessionM1{
   padding: 0;
   margin: 580px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
-  height: 400px;
+  height: 800px;
+  background-color: white;
 
 }
 
-#sessionM h3,h1 {
+#sessionM h3,h1, #sessionM1 h3,h1 {
   font-size: 50px;
   font-weight: 300;
   margin-top:50px;
 }
-#sessionM h5{
+#sessionM h5 #sessionM1 h5{
   display: block;
   font-weight: 300;
   font-size: 25px;
 
 }
-#sessionM p{
+#sessionM p, #sessionM1 p{
   font-weight:300;
 }
 
@@ -184,22 +185,22 @@ body, html {
   color:white;
 }
 
-#firstCol{
+#firstCol, #firstCol1{
   background-color: white;
 }
-#secondCol{
+#secondCol, #secondCol1{
   background: #FDFEFE;
   align-items: center;
 }
 
-#backk {
+#back, #backk1{
   border-radius: 50%;
   background-color: transparent;
   border-color: rgb(133,0,61);
   color: rgb(133,0,61);
   margin-bottom: 30px;
 }
-#backk:hover{
+#back:hover, #backk1:hover{
   background-color: rgb(133,0,61);
   border-color: rgb(133,0,61);
   color: white;
