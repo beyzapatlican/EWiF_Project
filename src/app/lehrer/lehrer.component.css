@@ -28,24 +28,22 @@ body, html {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
   height: 400px;
-
 }
 
 #teacher h3 {
-  display: block;
   font-size: 30px;
   font-weight: 300;
   margin-top:50px;
   color: white;
 }
 #teacher h5{
-  display: block;
   font-weight: 300;
   font-size: 25px;
 
 }
 #teacher p{
   font-weight:300;
+  display: flex;
 }
 
 #btn1, #btn2, #btn3, #btn4{
