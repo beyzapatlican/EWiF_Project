@@ -1,83 +1,28 @@
-/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);*/
-
-/*body, html {*/
-/*  height: 100%;*/
-/*}*/
-/*.bg {*/
-/*  !* The image used *!*/
-/*  background-image: url("https://wallpapercave.com/wp/tZt1Zhm.jpg");*/
-
-/*  !* Full height *!*/
-/*  height: 100%;*/
-
-/*  !* Center and scale the image nicely *!*/
-/*  background-position: center;*/
-/*  background-repeat: no-repeat;*/
-/*  background-size: cover;*/
-/*}*/
-
-/*body{*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  box-sizing: border-box;*/
-/*  -webkit-box-sizing: border-box;*/
-/*  -moz-box-sizing: border-box;*/
-/*  -webkit-font-smoothing: antialiased;*/
-/*  -moz-font-smoothing: antialiased;*/
-/*  -o-font-smoothing: antialiased;*/
-/*  font-smoothing: antialiased;*/
-/*  text-rendering: optimizeLegibility;*/
-/*}*/
-
-/*#text{*/
-/*  font-family: 'Roboto';*/
-/*  font-style: normal;*/
-/*  font-weight: 400;*/
-/*}*/
-
-/*.container {*/
-/*  max-width: 400px;*/
-/*  width: 100%;*/
-/*  margin: 0 auto;*/
-/*  position: center;*/
-/*}*/
-/*#student {*/
-/*  background:  #C7DBDA;*/
-/*  padding: 25px;*/
-/*  margin: 150px 0;*/
-/*  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
-/*  border-radius: 15px 50px 30px;*/
-/*}*/
-
-
-/*#student h3 {*/
-/*  display: block;*/
-/*  font-size: 30px;*/
-/*  font-weight: 300;*/
-/*  margin-bottom: 10px;*/
-/*}*/
-
-/*fieldset {*/
-/*  border: medium none !important;*/
-/*  margin: 0 0 10px;*/
-/*  min-width: 100%;*/
-/*  padding: 0;*/
-/*  width: 100%;*/
-/*}*/
-
-/*#userpage input:focus,*/
-
-/*#userpage textarea:focus {*/
-/*  outline: 0;*/
-/*  border: 1px solid #aaa;*/
-/*}*/
-
-
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 body, html {
   height: 100%;
+}
+.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
 }
 .bg {
   /* The image used */
@@ -95,40 +40,40 @@ body, html {
   width: 100%;
   margin: 0 auto;
   position: center;
+  height: 400px;
   max-width: 1000px;
 }
 #student {
   padding: 0;
-  margin: 450px 0;
+  margin: 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
-  height: 400px;
+  height: 25vh;
 }
 
 #student h3 {
-  display: block;
   font-size: 30px;
   font-weight: 300;
-  margin-top:350px;
-  color: black;
+  margin-top:50px;
+  color: white;
 }
 #student h5{
-  display: block;
   font-weight: 300;
   font-size: 25px;
 
 }
 #student p{
   font-weight:300;
+  display: flex;
 }
 
- #btn1, #btn2, #pass{
+#btn1, #btn2, #pass, #submit:hover{
   background: transparent;
   border-color: rgb(133,0,61);
   color: black;
 }
 
- #btn1:hover, #pass:hover, #btn2:hover {
+#btn1:hover , #btn2:hover, #pass:hover, #submit{
   background: rgb(133,0,61);
   border-color: rgb(133,0,61);
   color:white;
@@ -136,7 +81,6 @@ body, html {
 
 #firstCol{
   background-image: url(../../images/student.jpeg);
-  height: 100%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -145,43 +89,8 @@ body, html {
 #secondCol{
   background: #FDFEFE;
   align-items: center;
-  padding: 25px;
-}
-#session{
-  place-content: center;
-}
 
-::-webkit-input-placeholder {
-  color: #888;
 }
-
-:-moz-placeholder {
-  color: #888;
-}
-
-::-moz-placeholder {
-  color: #888;
-}
-
-:-ms-input-placeholder {
-  color: #888;
-}
-
-#submit{
-  background: rgb(133,0,61);
-  border-color: rgb(133,0,61);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-#submit:hover {
-  background: black;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-  border-color: black;
-  color:white;
-}
-
-
 #back {
   border-radius: 50%;
   background-color: transparent;
@@ -196,6 +105,4 @@ body, html {
   color: white;
 }
 
-.responsive-width {
-  font-size: 2vw;
-}
+

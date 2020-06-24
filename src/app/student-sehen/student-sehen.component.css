@@ -4,6 +4,19 @@ body, html {
   height: 100%;
 }
 .bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  top: 0;
+  left: 0;
+}
+
+.bg {
   /* The image used */
   background-image: url(../../images/back.jpg);
 
@@ -22,10 +35,10 @@ body, html {
 }
 #sessionS {
   padding: 0;
-  margin: 580px 0;
+  margin: 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
-  height: 400px;
+  height: 80vh;
 
 }
 
