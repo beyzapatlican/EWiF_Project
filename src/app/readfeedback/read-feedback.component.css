@@ -105,16 +105,6 @@
 /*}*/
 
 
-
-
-
-
-
-
-
-
-
-
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 body, html {
@@ -123,22 +113,12 @@ body, html {
 .bg {
   /* Set rules to fill background */
   min-height: 100%;
-
   /* Set up proportionate scaling */
   width: 100%;
   height: auto;
-
   /* Set up positioning */
-  position: -ms-device-fixed;
   top: 0;
   left: 0;
-}
-
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
 }
 .bg {
   /* The image used */
@@ -156,14 +136,13 @@ body, html {
   width: 100%;
   margin: 0 auto;
   position: center;
-  max-width: 1000px;
 }
 #readFeedback {
   padding: 40px;
-  margin: 0;
+  margin: 300px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   position: center;
-  height: 400px;
+  height: 200vh;
   background-color: white;
 }
 
