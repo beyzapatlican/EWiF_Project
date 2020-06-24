@@ -26,6 +26,11 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   end: boolean; true;
   trueAnswers: string[] = [];
   sessionEndet = false;
+  deneme: string[] = [];
+  denemee: string[] = [];
+  denemeee: string[] = [];
+  denemeeee: string[] = [];
+  soru;
 
 
   constructor( private sessionService: OpenSessionService) { }
@@ -52,6 +57,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.endSession();
   }
+
 
   skipRequest() {
     this.sessionService.skip(this.pinOpen).subscribe(value => {
@@ -89,6 +95,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.endSession();
   }
 
+
   private showQuestion(question: GetQuestionResponse) {
     if (question.MultipleChoice != null) {
       this.question = question.MultipleChoice.question + '\n';
@@ -98,7 +105,13 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += question.MultipleChoice.ans4 + '\n';
       this.question += question.MultipleChoice.ans5 + '\n';
       this.allQuestions.push(question);
+      this.deneme.push(question.MultipleChoice.ans1);
+      this.denemee.push(question.MultipleChoice.ans2);
+      this.denemeee.push(question.MultipleChoice.ans3);
+      this.denemeeee.push(question.MultipleChoice.ans4);
       this.everyQuestion.push(question.MultipleChoice.question);
+      this.soru = question.MultipleChoice.question;
+
 
     } else if (question.TrueFalse != null) {
       this.question = question.TrueFalse.question + '\n';
@@ -106,11 +119,13 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += 'False\n';
       this.allQuestions.push(question);
       this.everyQuestion.push(question.TrueFalse.question);
+      this.soru = question.TrueFalse.question;
 
     } else if (question.Free != null) {
       this.question = question.Free.question;
       this.allQuestions.push(question);
       this.everyQuestion.push(question.Free.question);
+      this.soru = question.Free.question;
 
     } else {
       console.log('Keine Frage');
