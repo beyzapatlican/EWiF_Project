@@ -5,11 +5,32 @@ body, html {
   margin: 0;
 }
 .bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+.bg {
   /* The image used */
-  background-image: url(../../images/about.jpg);
+  background-image: url(../../images/back.jpg);
 
   /* Full height */
   height: 100%;
+
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -17,8 +38,8 @@ body, html {
 }
 
 .col-sm-6{
-  background: transparent;
-  padding: 100px;
+  background: white;
+  padding: 25px;
 
 }
 #about h3 {
