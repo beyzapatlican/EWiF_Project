@@ -53,6 +53,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       });
     });
   }
+
   ngOnDestroy(): void {
     this.endSession();
   }
@@ -161,24 +162,15 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
 
   private endSession(): void {
-    // TODO: End Session
-    // TODO: Fix unsubscribe not working
-    // this.userCountSubscription.unsubscribe();
-    // console.log(this.allQuestions);
-    // console.log(this.answerQuestions);
-    // console.log(this.everyQuestion);
-    // this.test(this.answerQuestions, this.everyQuestion);
+    this.userCountSubscription.unsubscribe();
   }
-
-  //  test(a: string[], b: string[]): void {
-  //   this.answerQuestions = a;
-  //   this.everyQuestion = b;
-  // }
 
   goBack(): void {
     window.history.back();
   }
   onEnd() {
+    // TODO: Send End Session Request
+    this.endSession();
     this.end = true;
   }
 }
