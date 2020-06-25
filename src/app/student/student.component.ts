@@ -11,10 +11,9 @@ import {AvailableSessionsComponent} from '../available-sessions/available-sessio
 export class StudentComponent implements OnInit {
   static nick: string;
   static pinOpen: string;
-  a: string;
-  b: string;
-  c: string;
-  d: string;
+  a: '';
+  b: '';
+
 
   constructor(private http: HttpClient,
               private openSession: OpenSessionService) { }
@@ -38,8 +37,8 @@ export class StudentComponent implements OnInit {
   }
 
   submit(nickk: string, pinOpenn: string) {
-    this.a = nickk;
-    this.b = pinOpenn;
+    StudentComponent.nick = nickk;
+    StudentComponent.pinOpen = pinOpenn;
     this.openSession.baslama(nickk, pinOpenn).subscribe(resp => {
       console.log(nickk, pinOpenn);
       this.openSession.startt();

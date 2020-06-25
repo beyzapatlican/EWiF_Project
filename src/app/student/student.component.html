@@ -58,9 +58,9 @@
           <br>
           <br>
           <h5>Geben Sie Ihren Nick ein, um auf eine Sitzung zuzugreifen </h5>
-          <input type="form" class="form-control" placeholder="Nick" id="a" [ngModel]="a">
+          <input type="form" class="form-control" placeholder="Nick" id="a" [(ngModel)]="a" >
           <h5>Geben Sie Ihren PIN-Code ein, um auf eine Sitzung zuzugreifen </h5>
-          <input type="form" class="form-control" placeholder="PIN-Code" id="b" [ngModel]="b">
+          <input type="form" class="form-control" placeholder="PIN-Code" id="b" [(ngModel)]="b" >
           <button class="btn btn-info my-4 btn-block" type="submit" id="submit" (click)="submit(a,b)">Submit</button>
 
           <a href="studentSession"> Student Sitzung</a>
