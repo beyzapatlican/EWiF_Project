@@ -47,7 +47,7 @@
 
         <hr style="border-color:dimgray; " >
         <div *ngIf= "!sessionEndet">
-        <div *ngFor="let q of question.split('\n',1)" >
+        <div *ngFor="let q of question.split('\n')" >
           <h1 style="font-size: 25px" *ngIf=" !(q=='undefined')"> {{q}} </h1>
         </div>
       </div>

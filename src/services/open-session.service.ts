@@ -16,6 +16,8 @@ import {QuestionResultsResponse} from '../models/responses/question-results-resp
 import {GetAnswerResponse} from '../models/responses/get-answer-response.model';
 import {StartExamRequest} from '../models/requests/startExamRequest.model';
 import {AllOpenSessionsResponse} from '../models/responses/all-open-sessions-response.model';
+import {CheckNickRequestModel} from '../models/requests/checkNick-request.model';
+import {CheckNickResponseModel} from '../models/responses/checkNick-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +28,10 @@ export class OpenSessionService {
               private router: Router) {
   }
 
+  baslama(nick: string, pinOpen: string) {
+    const request = new CheckNickRequestModel(nick, pinOpen);
+    return this.http.post(`${this.urlService.getURL()}/student/studentSession`, request);
+  }
 
   delete(pin: string) {
     const request = new DeleteSessionRequest(pin);

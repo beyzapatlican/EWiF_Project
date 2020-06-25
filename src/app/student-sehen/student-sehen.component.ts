@@ -6,6 +6,8 @@ import {TrueFalse} from '../../models/question-types/true-false.model';
 import {Free} from '../../models/question-types/free.model';
 import {QuestionType} from '../../models/question-types/question-type.enum';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {CreateSessionComponent} from '../create-session/create-session.component';
+import {StudentComponent} from '../student/student.component';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   questionFr: Free;
   questionType: string;
   questionNum = 0;
+  pinOpen;
 
   nick: string;
   timeOutCheckSubscriptionFrequency = interval(6000);
@@ -32,6 +35,9 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   constructor(public studentOpenSessionService: StudentOpenSessionService) { }
 
   ngOnInit(): void {
+    this.pinOpen = StudentComponent.pinOpen;
+    this.nick = StudentComponent.nick;
+
     this.getQuestion();
     this.timeOutCheckSubscription = this.timeOutCheckSubscriptionFrequency.subscribe(_ => {
       this.studentOpenSessionService.checkTimeout(this.getPinOpen(), this.questionNum).subscribe(value => {}, error => {
@@ -42,6 +48,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         }
       });
     });
+
   }
 
   ngOnDestroy() {
@@ -112,11 +119,13 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
 
   getPinOpen() {
     // TODO: Get Actual pinOpen
-    return 'MAAAAAA';
+    this.pinOpen = StudentComponent.pinOpen;
+    return this.pinOpen;
   }
   getNick() {
     // TODO: Get Actual nick
-    return 'alp2';
+    this.nick = StudentComponent.nick;
+    return this.nick;
   }
   onSessionDone() {
     // TODO: Implement onSessionDone

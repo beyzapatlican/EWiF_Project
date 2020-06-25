@@ -30,7 +30,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   denemee: string[] = [];
   denemeee: string[] = [];
   denemeeee: string[] = [];
-  soru;
+  soru: string[] = [];
 
 
   constructor( private sessionService: OpenSessionService) { }
@@ -98,10 +98,10 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   private showQuestion(question: GetQuestionResponse) {
     if (question.MultipleChoice != null) {
-      this.question = question.MultipleChoice.question + '\n';
-      this.question += question.MultipleChoice.ans1 + '\n';
-      this.question += question.MultipleChoice.ans2 + '\n';
-      this.question += question.MultipleChoice.ans3 + '\n';
+      this.question = question.MultipleChoice.question + '\n' + 'A)';
+      this.question += question.MultipleChoice.ans1 + '\n' + 'B)';
+      this.question += question.MultipleChoice.ans2 + '\n' + 'C)';
+      this.question += question.MultipleChoice.ans3 + '\n' + 'D)';
       this.question += question.MultipleChoice.ans4 + '\n';
       this.question += question.MultipleChoice.ans5 + '\n';
       this.allQuestions.push(question);
@@ -110,7 +110,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.denemeee.push(question.MultipleChoice.ans3);
       this.denemeeee.push(question.MultipleChoice.ans4);
       this.everyQuestion.push(question.MultipleChoice.question);
-      this.soru = question.MultipleChoice.question;
+      this.soru = this.question.split('\n');
 
 
     } else if (question.TrueFalse != null) {
@@ -119,13 +119,11 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += 'False\n';
       this.allQuestions.push(question);
       this.everyQuestion.push(question.TrueFalse.question);
-      this.soru = question.TrueFalse.question;
 
     } else if (question.Free != null) {
       this.question = question.Free.question;
       this.allQuestions.push(question);
       this.everyQuestion.push(question.Free.question);
-      this.soru = question.Free.question;
 
     } else {
       console.log('Keine Frage');
@@ -162,6 +160,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     }
 
   }
+
 
   private endSession(): void {
     // TODO: End Session
