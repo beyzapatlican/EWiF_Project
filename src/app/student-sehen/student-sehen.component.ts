@@ -86,6 +86,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
 
   close() {
     // TODO: Implement close
+    this.done();
   }
 
   getQuestion() {
