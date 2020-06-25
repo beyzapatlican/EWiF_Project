@@ -30,7 +30,7 @@ export class OpenSessionService {
 
   baslama(nick: string, pinOpen: string) {
     const request = new CheckNickRequestModel(nick, pinOpen);
-    return this.http.post(`${this.urlService.getURL()}/student/studentSession`, request);
+    return this.http.post(`${this.urlService.getURL()}/nick`, request);
   }
 
   delete(pin: string) {
@@ -58,6 +58,10 @@ export class OpenSessionService {
 
   start() {
     this.router.navigate(['/session-management']);
+  }
+
+  startt() {
+    this.router.navigate(['/studentSession']);
   }
 
   skip(pinOpen: string) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {OpenSessionService} from '../../services/open-session.service';
+import {AvailableSessionsComponent} from '../available-sessions/available-sessions.component';
 
 @Component({
   selector: 'app-student',
@@ -8,10 +9,12 @@ import {OpenSessionService} from '../../services/open-session.service';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  static pinOpen: string;
   static nick: string;
+  static pinOpen: string;
   a: string;
   b: string;
+  c: string;
+  d: string;
 
   constructor(private http: HttpClient,
               private openSession: OpenSessionService) { }
@@ -19,6 +22,7 @@ export class StudentComponent implements OnInit {
   selected1 = true;
   selected2 = false;
   ngOnInit() {
+
   }
   onUpdate1() {
     this.selected1 = false;
@@ -34,13 +38,14 @@ export class StudentComponent implements OnInit {
   }
 
   submit(nickk: string, pinOpenn: string) {
-    StudentComponent.nick = nickk;
-    StudentComponent.pinOpen = pinOpenn;
+    this.a = nickk;
+    this.b = pinOpenn;
     this.openSession.baslama(nickk, pinOpenn).subscribe(resp => {
       console.log(nickk, pinOpenn);
-      this.openSession.baslama(nickk, pinOpenn);
+      this.openSession.startt();
     }, error => {
       console.log(error);
+      console.log('hi');
     });
   }
 }
