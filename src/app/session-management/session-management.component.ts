@@ -30,7 +30,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   denemee: string[] = [];
   denemeee: string[] = [];
   denemeeee: string[] = [];
-  soru: string[] = [];
 
 
   constructor( private sessionService: OpenSessionService) { }
@@ -110,7 +109,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.denemeee.push(question.MultipleChoice.ans3);
       this.denemeeee.push(question.MultipleChoice.ans4);
       this.everyQuestion.push(question.MultipleChoice.question);
-      this.soru = this.question.split('\n');
 
 
     } else if (question.TrueFalse != null) {

@@ -47,8 +47,9 @@
 
         <hr style="border-color:dimgray; " >
         <div *ngIf= "!sessionEndet">
-        <div *ngFor="let q of question.split('\n')" >
-          <h1 style="font-size: 25px" *ngIf=" !(q=='undefined')"> {{q}} </h1>
+        <div *ngFor="let q of question.split('\n'); let i = index" >
+          <h1 style="font-size: 25px" *ngIf=" !(q=='undefined') && i==0"> <strong>{{q}}</strong> </h1>
+          <h1 style="font-size: 25px" *ngIf=" !(q=='undefined') && i!=0"> {{q}} </h1>
         </div>
       </div>
         <div *ngIf= "sessionEndet">
@@ -140,11 +141,11 @@
           <div *ngFor="let q of trueAnswers">
             <h1 style="font-size: 25px" *ngIf="q=='true'"> <b>Antwort:</b> Richtig </h1>
             <h1 style="font-size: 25px" *ngIf="q=='false'"> <b>Antwort:</b>  Falsch</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='1'"> <b>Antwort:</b>  A</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='2'"> <b>Antwort:</b>  B</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='3'"> <b>Antwort:</b>  C</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='4'"> <b>Antwort:</b>  D</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='5'"> <b>Antwort:</b>  E</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='0'"> <b>Antwort:</b>  A){{deneme}}</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='1'"> <b>Antwort:</b>  B){{denemee}}</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='2'"> <b>Antwort:</b>  C){{denemeee}}</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='3'"> <b>Antwort:</b>  D){{denemeeee}}</h1>
+            <h1 style="font-size: 25px" *ngIf="q=='4'"> <b>Antwort:</b>  E</h1>
             <h1 style="font-size: 25px" *ngIf="q.length > 5"> <b>Antwort:</b> {{q}} </h1>
           </div>
         </div>
