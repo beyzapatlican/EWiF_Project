@@ -8,6 +8,7 @@ import {QuestionType} from '../../models/question-types/question-type.enum';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {CreateSessionComponent} from '../create-session/create-session.component';
 import {StudentComponent} from '../student/student.component';
+import {delay} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,11 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   questionType: string;
   questionNum = 0;
   pinOpen;
-
+  hasInitialQuestion = false;
   nick: string;
-  timeOutCheckSubscriptionFrequency = interval(6000);
+  sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
+  checkQuestionSubscription: Subscription;
 
   constructor(public studentOpenSessionService: StudentOpenSessionService) { }
 
@@ -38,17 +40,26 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.pinOpen = StudentComponent.pinOpen;
     this.nick = StudentComponent.nick;
 
-    this.getQuestion();
-    this.timeOutCheckSubscription = this.timeOutCheckSubscriptionFrequency.subscribe(_ => {
-      this.studentOpenSessionService.checkTimeout(this.getPinOpen(), this.questionNum).subscribe(value => {}, error => {
-        if (error.error.message === 'Wrong question') {
-          this.getQuestion();
-        } else if (error.error.message === 'Session has closed') {
-          this.onSessionDone();
-        }
-      });
-    });
+    this.getInitialQuestion();
+  }
 
+  getInitialQuestion() {
+    this.checkQuestionSubscription = this.sixSecondInterval.subscribe( _ => {
+      if (this.hasInitialQuestion) {
+        this.checkQuestionSubscription.unsubscribe();
+        this.timeOutCheckSubscription = this.sixSecondInterval.subscribe(_ => {
+          this.studentOpenSessionService.checkTimeout(this.getPinOpen(), this.questionNum).subscribe(value => {}, error => {
+            if (error.error.message === 'Wrong question') {
+              this.getQuestion();
+            } else if (error.error.message === 'Session has closed') {
+              this.close();
+            }
+          });
+        });
+        return;
+      }
+      this.getQuestion();
+    });
   }
 
   ngOnDestroy() {
@@ -104,6 +115,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionType = QuestionType.FREE_TEXT.valueOf();
         this.questionNum = value.Free.questionNum;
       }
+      this.hasInitialQuestion = true;
     }, error => {
       switch (error.error.message) {
         // TODO: Handle Errors
@@ -133,7 +145,12 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.done();
   }
   done() {
+    if (!this.hasInitialQuestion) {
+      return;
+    }
     this.timeOutCheckSubscription.unsubscribe();
+    this.checkQuestionSubscription.unsubscribe();
+
   }
   goBack(): void {
     window.history.back();
