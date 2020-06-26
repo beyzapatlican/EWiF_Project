@@ -26,7 +26,7 @@ body, html {
 }
 .bg {
   /* The image used */
-  background-image: url(../../images/back.jpg);
+  background-image: url(../../images/homepage.jpg);
 
   /* Full height */
   height: 100%;
@@ -36,23 +36,19 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .col-sm-6{
-  background: white;
-  padding: 25px;
-
+  margin-top: 30px;
+  margin-bottom: 50px;
+  background: transparent;
 }
+#none{
+  visibility: hidden;
+}
+
 #about h3 {
   display: block;
   font-size: 30px;
   font-weight: 300;
   place-content: end;
 }
-#about p, li{
-  font-family: Roboto, sans-serif;
-  display: block;
-  font-weight: 300;
-}
-#about {
-  margin-top: 90px;
-}
+
