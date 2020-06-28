@@ -56,6 +56,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.endSession();
+    this.endOpenSession();
   }
 
 
@@ -172,5 +173,9 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     // TODO: Send End Session Request
     this.endSession();
     this.end = true;
+  }
+
+  endOpenSession() {
+    this.sessionService.endOpenSession(this.pinOpen()).subscribe(value => {}, error => console.log('error'));
   }
 }

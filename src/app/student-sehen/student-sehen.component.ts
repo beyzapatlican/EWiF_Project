@@ -66,7 +66,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.done();
-    this.endSession();
   }
 
   submit() {
@@ -138,9 +137,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
   }
 
-  endSession() {
-    this.openSession.endOpenSession(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
-  }
 
 
   getPinOpen() {
