@@ -7,6 +7,7 @@ import {GetQuestionResponse} from '../models/responses/get-question-response.mod
 import {Injectable} from '@angular/core';
 import {AnswerQuestionRequest} from '../models/requests/answer-question-request.model';
 import {AnswerQuestionResponse} from '../models/responses/answer-question-response.model';
+import {StudentSehenComponent} from '../app/student-sehen/student-sehen.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class StudentOpenSessionService {
   checkTimeout(pinOpen: string, questionNum: number) {
     const request = new TimeoutRequest(pinOpen, questionNum);
     return this.http.post<TimeoutResponse>(`${this.urlService.getURL()}/timeout`, request);
+    StudentSehenComponent.control2 = false;
   }
 
   getQuestion(pinOpen: string) {

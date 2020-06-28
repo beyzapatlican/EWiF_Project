@@ -23,6 +23,9 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   static answerBool: boolean;
   static answerStr: string;
   static answerInt: number;
+  static control2 = true;
+  control = true;
+  studentAnswers: string[] = [];
   questionMC: MultipleChoice;
   questionTF: TrueFalse;
   questionFr: Free;
@@ -34,8 +37,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
-  cevaplar: string;
-
   constructor(public studentOpenSessionService: StudentOpenSessionService,
               public openSession: OpenSessionService) { }
 
@@ -69,6 +70,10 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.done();
   }
+  update() {
+    StudentSehenComponent.control2;
+
+  }
 
   submit() {
     this.studentOpenSessionService.submitAnswer(
@@ -77,7 +82,12 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
       this.getNick(),
       StudentSehenComponent.answerBool, StudentSehenComponent.answerInt, StudentSehenComponent.answerStr)
       .subscribe(value => {}, error => {
-      // TODO: Handle Errors
+        if (StudentSehenComponent.answerBool === true) { this.studentAnswers.push('richtig'); }
+        if (StudentSehenComponent.answerBool === false) { this.studentAnswers.push('falsch'); }
+        if (StudentSehenComponent.answerInt) { this.studentAnswers.push(StudentSehenComponent.answerInt.toString()); }
+        if (StudentSehenComponent.answerStr) { this.studentAnswers.push(StudentSehenComponent.answerStr.toString()); }
+        console.log(this.studentAnswers);
+        // TODO: Handle Errors
       // Student has already answered
       // Invalid answer
         switch (error.error.message) {

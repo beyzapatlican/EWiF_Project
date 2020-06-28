@@ -19,7 +19,7 @@
           <app-student-true-false *ngIf="questionType === 'TrueFalse'"></app-student-true-false>
         </div>
 
-        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" style=" width: 300px;">Sende Antwort</button>
+        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" [disabled]="!control" (click)="update()">Sende Antwort</button>
       </div>
 
     </div>
