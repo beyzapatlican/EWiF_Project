@@ -139,12 +139,10 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
 
   getPinOpen() {
-    // TODO: Get Actual pinOpen
     this.pinOpen = StudentComponent.pinOpen;
     return this.pinOpen;
   }
   getNick() {
-    // TODO: Get Actual nick
     this.nick = StudentComponent.nick;
     return this.nick;
   }

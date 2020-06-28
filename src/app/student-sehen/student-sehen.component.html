@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row" id="sessionS" style="position: center;  margin-top: 15vh; margin-bottom: 15vh">
 
-      <div class="col-md-8" id="firstCol" >
+      <div class="col-md-12" id="firstCol" >
         <div >
           <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
         </div>
@@ -11,24 +11,18 @@
 
           <h3>Fragen</h3>
 
-          <app-student-multiple-choice *ngIf="questionType === 'MultipleChoice'"></app-student-multiple-choice>
-          <app-student-free-text *ngIf="questionType === 'Free'"></app-student-free-text>
-          <app-student-true-false *ngIf="questionType === 'TrueFalse'"></app-student-true-false>
+
 
         </div>
 
         <hr style="border-color:dimgray; " >
-
-
-      </div>
-
-
-      <div class="col-md-4" id="secondCol">
-        <div class="vertical-center">
-        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" style=" width: 300px;">Sende Antwort</button>
-        <button class="btn btn-info my-4 btn-block" type="submit" (click)="close()" id="btn2">Beenden</button>
-          <br>
+        <div>
+          <app-student-multiple-choice *ngIf="questionType === 'MultipleChoice'"></app-student-multiple-choice>
+          <app-student-free-text *ngIf="questionType === 'Free'"></app-student-free-text>
+          <app-student-true-false *ngIf="questionType === 'TrueFalse'"></app-student-true-false>
         </div>
+
+        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" style=" width: 300px;">Sende Antwort</button>
       </div>
 
     </div>
