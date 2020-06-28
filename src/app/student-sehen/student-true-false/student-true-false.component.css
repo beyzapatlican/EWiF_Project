@@ -1,0 +1,9 @@
+#btn1, #btn2{
+  border-color: rgb(133,0,61);
+  background-color: transparent;
+  color: black;
+}
+#btn1:focus, #btn2:focus{
+  background-color: rgb(133,0,61);
+  color: white;
+}

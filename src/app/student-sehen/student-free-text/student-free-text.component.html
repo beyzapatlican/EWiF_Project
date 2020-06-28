@@ -1,4 +1,7 @@
+
+<p style="font-size: 25px"><b>{{this.studentSehenComponent.questionFr.question}}</b></p>
+
 <form>
-  <label for="mainInput">Answer</label>
-  <input (click)="bob()" type="text" id="mainInput" [(ngModel)]="answerField" (ngModelChange)="updateAnswer()" name="mainInput"><br><br>
+  <label for="mainInput">Antwort: </label>
+  <input  class="form-control"  (click)="bob()" type="text" id="mainInput" [(ngModel)]="answerField" (ngModelChange)="updateAnswer()" name="mainInput"><br><br>
 </form>

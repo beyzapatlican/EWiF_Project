@@ -1,5 +1,7 @@
-{{this.studentSehenComponent.questionTF.question}}
+
+<p style="font-size: 25px"><b>{{this.studentSehenComponent.questionTF.question}}</b></p>
+
 <br>
-<div (click)="selectAnswer(true)">True</div>
+<button id="btn1" class="btn btn-info my-4 btn-block" (click)="selectAnswer(true)">A) Richtig</button>
 <br>
-<div (click)="selectAnswer(false)">False</div>
+<button id="btn2" class="btn btn-info my-4 btn-block" (click)="selectAnswer(false)">B) Falsch</button>
