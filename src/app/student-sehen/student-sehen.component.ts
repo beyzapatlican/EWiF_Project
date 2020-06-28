@@ -34,7 +34,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
-  cevaplar: string;
 
   constructor(public studentOpenSessionService: StudentOpenSessionService,
               public openSession: OpenSessionService) { }
@@ -44,7 +43,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.nick = StudentComponent.nick;
 
     this.getInitialQuestion();
-    this.getResults();
   }
 
   getInitialQuestion() {
@@ -68,6 +66,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.done();
+    this.endSession();
   }
 
   submit() {
@@ -102,6 +101,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   close() {
     // TODO: Implement close
     this.done();
+    this.getResults();
   }
 
   getQuestion() {
@@ -138,6 +138,11 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
   }
 
+  endSession() {
+    this.openSession.endOpenSession(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
+  }
+
+
   getPinOpen() {
     this.pinOpen = StudentComponent.pinOpen;
     return this.pinOpen;
@@ -156,7 +161,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     }
     this.timeOutCheckSubscription.unsubscribe();
     this.checkQuestionSubscription.unsubscribe();
-
   }
   goBack(): void {
     window.history.back();
