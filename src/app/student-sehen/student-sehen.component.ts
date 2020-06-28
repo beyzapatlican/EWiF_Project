@@ -9,6 +9,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {CreateSessionComponent} from '../create-session/create-session.component';
 import {StudentComponent} from '../student/student.component';
 import {delay} from 'rxjs/operators';
+import {OpenSessionService} from '../../services/open-session.service';
 
 @Injectable({
   providedIn: 'root'
@@ -33,14 +34,17 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
+  cevaplar: string;
 
-  constructor(public studentOpenSessionService: StudentOpenSessionService) { }
+  constructor(public studentOpenSessionService: StudentOpenSessionService,
+              public openSession: OpenSessionService) { }
 
   ngOnInit(): void {
     this.pinOpen = StudentComponent.pinOpen;
     this.nick = StudentComponent.nick;
 
     this.getInitialQuestion();
+    this.getResults();
   }
 
   getInitialQuestion() {
@@ -128,6 +132,10 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     StudentSehenComponent.answerInt = null;
     StudentSehenComponent.answerBool = null;
     StudentSehenComponent.answerStr = null;
+  }
+
+  getResults() {
+    this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
   }
 
   getPinOpen() {

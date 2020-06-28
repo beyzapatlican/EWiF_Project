@@ -33,6 +33,15 @@ export class OpenSessionService {
     return this.http.post(`${this.urlService.getURL()}/nick`, request);
   }
 
+  getAllAnswers(pinOpen: string) {
+    return this.http.get<StatusResponse>(`${this.urlService.getURL()}/allAnswers`, {params: {pinOpen}});
+  }
+
+  endOpenSession(pinOpen: string) {
+    const request = new StatusResponse(pinOpen);
+    return this.http.post<StatusResponse>(`${this.urlService.getURL()}/teacher/endOpenSession`, request);
+  }
+
   delete(pin: string) {
     const request = new DeleteSessionRequest(pin);
     return this.http.request<DeleteSessionResponse>('delete', `${this.urlService.getURL()}/teacher/session`, {body: request});
@@ -89,5 +98,4 @@ export class OpenSessionService {
   getAllOpenSessions() {
     return this.http.get<AllOpenSessionsResponse>(`${this.urlService.getURL()}/teacher/allOpenSessions`);
   }
-
 }
