@@ -163,6 +163,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   private endSession(): void {
     this.userCountSubscription.unsubscribe();
+    this.endOpenSession();
   }
 
   goBack(): void {
@@ -172,5 +173,9 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     // TODO: Send End Session Request
     this.endSession();
     this.end = true;
+  }
+
+  endOpenSession() {
+    this.sessionService.endOpenSession(this.pinOpen).subscribe(value => {}, error => console.log('error'));
   }
 }

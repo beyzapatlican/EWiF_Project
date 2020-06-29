@@ -10,7 +10,6 @@ import {CreateSessionComponent} from '../create-session/create-session.component
 import {StudentComponent} from '../student/student.component';
 import {delay} from 'rxjs/operators';
 import {OpenSessionService} from '../../services/open-session.service';
-import {SessionManagementComponent} from '../session-management/session-management.component';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +38,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
+
   constructor(public studentOpenSessionService: StudentOpenSessionService,
               public openSession: OpenSessionService) { }
 
@@ -114,6 +114,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   close() {
     // TODO: Implement close
     this.done();
+    this.getResults();
   }
 
   getQuestion() {
@@ -151,6 +152,8 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
   }
 
+
+
   getPinOpen() {
     this.pinOpen = StudentComponent.pinOpen;
     return this.pinOpen;
@@ -169,7 +172,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     }
     this.timeOutCheckSubscription.unsubscribe();
     this.checkQuestionSubscription.unsubscribe();
-
   }
   goBack(): void {
     window.history.back();

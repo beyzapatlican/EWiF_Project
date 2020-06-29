@@ -38,8 +38,7 @@ export class OpenSessionService {
   }
 
   endOpenSession(pinOpen: string) {
-    const request = new StatusResponse(pinOpen);
-    return this.http.post<StatusResponse>(`${this.urlService.getURL()}/teacher/endOpenSession`, request);
+    return this.http.post<StatusResponse>(`${this.urlService.getURL()}/teacher/endOpenSession`, null, {params: {pinOpen}});
   }
 
   delete(pin: string) {
