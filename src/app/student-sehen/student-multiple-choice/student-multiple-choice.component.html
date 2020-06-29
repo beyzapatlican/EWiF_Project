@@ -1,12 +1,22 @@
 
 <p style="font-size: 25px"><b>Frage: {{this.studentSehenComponent.questionMC.question}}</b></p>
 <br>
-<button id="btn1" class="btn btn-info my-4 btn-block" (click)="selectAnswer(0)" *ngIf="!(this.studentSehenComponent.questionMC.ans1==undefined)">A) {{this.studentSehenComponent.questionMC.ans1}}</button>
+<button id="btn1" class="btn btn-info my-4 btn-block"
+        (click)="selectAnswer(0)" (click)="studentSehenComponent.control2 = true"
+        *ngIf="!(this.studentSehenComponent.questionMC.ans1==undefined)">A) {{this.studentSehenComponent.questionMC.ans1}}</button>
 <br>
-<button id="btn2" class="btn btn-info my-4 btn-block" (click)="selectAnswer(1)" *ngIf="!(this.studentSehenComponent.questionMC.ans2==undefined)">B) {{this.studentSehenComponent.questionMC.ans2}}</button>
+<button id="btn2" class="btn btn-info my-4 btn-block"
+        (click)="selectAnswer(1)" (click)="studentSehenComponent.control2 = true"
+        *ngIf="!(this.studentSehenComponent.questionMC.ans2==undefined)">B) {{this.studentSehenComponent.questionMC.ans2}}</button>
 <br>
-<button id="btn3" class="btn btn-info my-4 btn-block" (click)="selectAnswer(2)" *ngIf="!(this.studentSehenComponent.questionMC.ans3==undefined)">C){{this.studentSehenComponent.questionMC.ans3}}</button>
+<button id="btn3" class="btn btn-info my-4 btn-block"
+        (click)="selectAnswer(2)" (click)="studentSehenComponent.control2 = true"
+        *ngIf="!(this.studentSehenComponent.questionMC.ans3==undefined)">C){{this.studentSehenComponent.questionMC.ans3}}</button>
 <br>
-<button id="btn4" class="btn btn-info my-4 btn-block" (click)="selectAnswer(3)" *ngIf="!(this.studentSehenComponent.questionMC.ans4==undefined)">D) {{this.studentSehenComponent.questionMC.ans4}}</button>
+<button id="btn4" class="btn btn-info my-4 btn-block"
+        (click)="selectAnswer(3)" (click)="studentSehenComponent.control2 = true"
+        *ngIf="!(this.studentSehenComponent.questionMC.ans4==undefined)">D) {{this.studentSehenComponent.questionMC.ans4}}</button>
 <br>
-<button id="btn5" class="btn btn-info my-4 btn-block" (click)="selectAnswer(4)" *ngIf="!(this.studentSehenComponent.questionMC.ans5==undefined)">E) {{this.studentSehenComponent.questionMC.ans5}}</button>
+<button id="btn5" class="btn btn-info my-4 btn-block"
+        (click)="selectAnswer(4)"(click)="studentSehenComponent.control2 = true"
+        *ngIf="!(this.studentSehenComponent.questionMC.ans5==undefined)">E) {{this.studentSehenComponent.questionMC.ans5}}</button>

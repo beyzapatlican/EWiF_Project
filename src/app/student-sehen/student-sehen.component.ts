@@ -10,6 +10,7 @@ import {CreateSessionComponent} from '../create-session/create-session.component
 import {StudentComponent} from '../student/student.component';
 import {delay} from 'rxjs/operators';
 import {OpenSessionService} from '../../services/open-session.service';
+import {SessionManagementComponent} from '../session-management/session-management.component';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   static answerBool: boolean;
   static answerStr: string;
   static answerInt: number;
-  static control2 = true;
-  control = true;
   studentAnswers: string[] = [];
   questionMC: MultipleChoice;
   questionTF: TrueFalse;
@@ -34,6 +33,9 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   pinOpen;
   hasInitialQuestion = false;
   nick: string;
+  control = true;
+  control2 = false;
+  end = false;
   sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
@@ -71,8 +73,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.done();
   }
   update() {
-    StudentSehenComponent.control2;
-
+    this.control = false;
   }
 
   submit() {
@@ -93,6 +94,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         switch (error.error.message) {
           case 'Session has closed': {
             // TODO: Inform User that session is over
+
             this.close();
             break;
           }
@@ -129,6 +131,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionType = QuestionType.FREE_TEXT.valueOf();
         this.questionNum = value.Free.questionNum;
       }
+      this.control = true;
       this.hasInitialQuestion = true;
     }, error => {
       switch (error.error.message) {

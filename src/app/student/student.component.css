@@ -67,10 +67,15 @@ body, html {
   display: flex;
 }
 
-#btn1, #btn2, #pass, #submit:hover{
+#btn1, #btn2, #pass{
   background: transparent;
   border-color: rgb(133,0,61);
   color: black;
+}
+#submit:hover{
+  background-color: black;
+  border-color: black;
+  color: white;
 }
 
 #btn1:hover , #btn2:hover, #pass:hover, #submit{

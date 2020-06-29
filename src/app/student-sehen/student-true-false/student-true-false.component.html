@@ -2,6 +2,8 @@
 <p style="font-size: 25px"><b>Frage: {{this.studentSehenComponent.questionTF.question}}</b></p>
 
 <br>
-<button id="btn1" class="btn btn-info my-4 btn-block" (click)="selectAnswer(true)">A) Richtig</button>
+<button id="btn1" class="btn btn-info my-4 btn-block"
+        (click)="selectAnswer(true)" (click)="studentSehenComponent.control2 = true" >A) Richtig</button>
 <br>
-<button id="btn2" class="btn btn-info my-4 btn-block" (click)="selectAnswer(false)">B) Falsch</button>
+<button id="btn2" class="btn btn-info my-4 btn-block"
+        (click)="selectAnswer(false)" (click)="studentSehenComponent.control2 = true" >B) Falsch</button>

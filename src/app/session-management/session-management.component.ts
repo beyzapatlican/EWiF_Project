@@ -4,6 +4,8 @@ import {interval, Subscription} from 'rxjs';
 import {GetQuestionResponse} from '../../models/responses/get-question-response.model';
 import {QuestionResultsResponse} from '../../models/responses/question-results-response.model';
 import {CreateSessionComponent} from '../create-session/create-session.component';
+import {StudentSehenComponent} from '../student-sehen/student-sehen.component';
+import {StudentOpenSessionService} from '../../services/student-open-session.service';
 
 @Component({
   selector: 'app-session-management',
@@ -32,7 +34,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   denemeeee: string[] = [];
 
 
-  constructor( private sessionService: OpenSessionService) { }
+  constructor( private sessionService: OpenSessionService, public studentOpenSessionService: StudentOpenSessionService) { }
 
   ngOnInit(): void {
     this.pinOpen = CreateSessionComponent.pinOpen;
@@ -64,11 +66,9 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.sessionService.getQuestion(this.pinOpen).subscribe(value1 => {
         this.showQuestion(value1);
       }, error => {
-        // TODO: Fix end of questions
         if (error.error.message === 'Session has closed') {
           this.endSession();
           this.sessionEndet = true;
-          // TODO: Handle Session has closed
         } else {
           // TODO: Handle error
           console.log('bob' + error);

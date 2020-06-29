@@ -13,15 +13,12 @@ import {StudentSehenComponent} from '../app/student-sehen/student-sehen.componen
   providedIn: 'root'
 })
 export class StudentOpenSessionService {
-
-
   constructor(private http: HttpClient,
               private urlService: UrlService) {}
 
   checkTimeout(pinOpen: string, questionNum: number) {
     const request = new TimeoutRequest(pinOpen, questionNum);
     return this.http.post<TimeoutResponse>(`${this.urlService.getURL()}/timeout`, request);
-    StudentSehenComponent.control2 = false;
   }
 
   getQuestion(pinOpen: string) {

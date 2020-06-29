@@ -9,17 +9,19 @@
 
         <div class="row" style="padding: 10px">
 
-          <h3>Fragen</h3>
+          <h3>Sitzung</h3>
         </div>
 
         <hr style="border-color:dimgray; " >
+
         <div>
           <app-student-multiple-choice *ngIf="questionType === 'MultipleChoice'"></app-student-multiple-choice>
           <app-student-free-text *ngIf="questionType === 'Free'"></app-student-free-text>
           <app-student-true-false *ngIf="questionType === 'TrueFalse'"></app-student-true-false>
+
         </div>
 
-        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" [disabled]="!control" (click)="update()">Sende Antwort</button>
+        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" [disabled]="!control" [disabled]="!control2" (click)="update()">Sende Antwort</button>
       </div>
 
     </div>
