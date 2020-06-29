@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   public loggedIn = false;
   public isRole = '';
 
-  constructor(public logoutService: LogoutService, private tokenService: TokenService) { }
+  constructor(public logoutService: LogoutService, public tokenService: TokenService) { }
 
   ngOnInit() {
     this.tokenService.isLoggedInObservable().subscribe(value => {
