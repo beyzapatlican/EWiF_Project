@@ -1,112 +1,61 @@
+
+
+
+
 <div class="bg">
   <div class="container">
-    <div class="col-md-12" id="questionType" style="position: center; margin-top: 15vh; margin-bottom: 10vh">
-      <div *ngIf="type">
-        <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
+    <div class="row" #mainCard id="mainCard">
+      <div class="col-2" *ngIf="!mobileChecker.isMobile">
+        gfghdfkjghfdghfdjhgfkdhgkdfjg
       </div>
-      <h3 style="font-size: 50px">Fragensatz Vorbereiten</h3>
+      <div #questionType id="questionType">
+        <div id="backDiv" *ngIf="type">
+          <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
+        </div>
+        <h3 style="font-size: 50px">Fragensatz Vorbereiten</h3>
 
-      <hr style="border-color: dimgray">
+        <hr style="border-color: dimgray">
 
-      <div *ngIf="!type">
-        <button class="btn btn-info my-3" id="back" (click)="onUpdate4()"> < </button>
-      </div>
+        <div *ngIf="!type">
+          <button class="btn btn-info my-3" id="back" (click)="onUpdate4()"> < </button>
+        </div>
 
-      <div id="type">
-        <div *ngIf="type">
-          <h5> Bitte wählen Sie Type und geben die Title</h5>
-          <br>
+        <div id="type">
+          <div *ngIf="type">
+            <h5> Bitte wählen Sie Type und geben die Title</h5>
+            <br>
             <input style="margin-right: 30px" id="title" type="text" placeholder="Geben Sie einen Title ein" class="form-control" rows="3" [(ngModel)]="title" ng-minlength="5" required="">
-          <br>
+            <br>
 
-          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1" (click)="onUpdate1()">
-            <h5>Richtig Falsch</h5>
-          </button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1" (click)="onUpdate1()">
+              <h5>Richtig Falsch</h5>
+            </button>
 
-          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn2" (click)="onUpdate2()">
-            <h5>Multiple Choice</h5>
-          </button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn2" (click)="onUpdate2()">
+              <h5>Multiple Choice</h5>
+            </button>
 
-          <button type="button" class="btn btn-primary btn-lg btn-block" id="btn3" (click)="onUpdate3()">
-            <h5>Freitext</h5>
-          </button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn3" (click)="onUpdate3()">
+              <h5>Freitext</h5>
+            </button>
 
-          <button id="save" class="btn btn-primary btn-lg btn-block" (click)="saveSession()" (click)="refresh()"
-          [disabled]="!title"> Save Sitzung</button>
+            <button id="save" class="btn btn-primary btn-lg btn-block" (click)="saveSession()" (click)="refresh()"
+                    [disabled]="!title">Save Sitzung</button>
+
+          </div>
+
+          <div *ngIf="selected1">
+            <app-truefalse></app-truefalse>
+          </div>
+          <div *ngIf="selected2">
+            <app-multiplechoice></app-multiplechoice>
+          </div>
+          <div *ngIf="selected3">
+            <app-freetext></app-freetext>
+          </div>
 
         </div>
-
-        <div *ngIf="selected1">
-          <app-truefalse></app-truefalse>
-        </div>
-        <div *ngIf="selected2">
-          <app-multiplechoice></app-multiplechoice>
-        </div>
-        <div *ngIf="selected3">
-          <app-freetext></app-freetext>
-        </div>
-
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<!--<hr>-->
-<!--<div class="bg">-->
-<!--  <div class="container container-fluid">-->
-
-<!--    <div class="row">-->
-
-<!--      <div id = "question" class="col-sm-12">-->
-
-<!--        <h3 style="font-size: 50px">Fragensatz Vorbereiten</h3>-->
-
-<!--        <hr style="border-color: dimgray">-->
-
-<!--        <br>-->
-
-<!--        <div class="text">-->
-<!--          <label style=" margin-right: 10px; font-family: 'Roboto';-->
-<!--                                              font-style: normal;-->
-<!--                                              font-weight: 400;"> Wähle ein Type :</label>-->
-
-<!--          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"-->
-<!--                  (click) = "onUpdate1()">Richtig Falsch</button>-->
-
-<!--          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61) ;border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"-->
-<!--                  (click) = "onUpdate2()">Multiple Choise</button>-->
-
-<!--          <button class="btn btn-primary" style="margin-right: 15px; background-color: rgb(133,0,61); border-color: rgb(133,0,61); font-family: 'Roboto'; font-style: normal; font-weight: 400;"-->
-<!--                  (click) = "onUpdate3()">Freitext</button>-->
-
-<!--          <br>-->
-
-<!--          <hr style="border-color: dimgray">-->
-
-<!--          <p *ngIf="selected1">-->
-<!--            <app-truefalse></app-truefalse>-->
-<!--          </p>-->
-
-<!--          <p *ngIf="selected2">-->
-<!--            <app-multiplechoice></app-multiplechoice>-->
-<!--          </p>-->
-<!--          <p *ngIf="selected3">-->
-<!--            <app-freetext></app-freetext>-->
-<!--          </p>-->
-<!--          <button style="color: white; background-color: rgb(133,0,61); border-color: rgb(133,0,61)" class="btn btn-info my-2" (click)="saveSession()">Save Me!</button>-->
-<!--        </div>-->
-
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-

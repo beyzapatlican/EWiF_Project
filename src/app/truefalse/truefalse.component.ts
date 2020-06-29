@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {QuestionTypeComponent} from '../question-type/question-type.component';
 import {PrepareSessionService} from '../../services/prepare-session.service';
 import {TrueFalse} from '../../models/question-types/true-false.model';
+import {MobileChecker} from '../../services/mobile-checker.service';
 
 @Component({
     selector: 'app-truefalse',
@@ -13,8 +14,9 @@ export class TruefalseComponent extends QuestionTypeComponent implements OnInit 
     formGroup: FormGroup;
 
 
-    constructor(prepareSessionService: PrepareSessionService) {
-        super(prepareSessionService);
+    constructor(prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
+                protected renderer: Renderer2) {
+        super(prepareSessionService, mobileChecker, renderer);
         this.ngOnInit();
     }
 
@@ -37,7 +39,7 @@ export class TruefalseComponent extends QuestionTypeComponent implements OnInit 
         const question = new TrueFalse(
                 this.formGroup.get('question').value,
                 this.formGroup.get('solution').value
-        )
+        );
         super.saveQuestion(question, undefined, undefined);
         this.resetForm(this.formGroup);
     }

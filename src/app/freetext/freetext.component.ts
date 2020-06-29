@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {QuestionTypeComponent} from '../question-type/question-type.component';
 import {Free} from '../../models/question-types/free.model';
 import {PrepareSessionService} from '../../services/prepare-session.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {MobileChecker} from '../../services/mobile-checker.service';
 
 
 @Component({
@@ -15,8 +16,9 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class FreetextComponent extends QuestionTypeComponent implements OnInit {
     formGroup: FormGroup;
 
-    constructor(prepareSessionService: PrepareSessionService) {
-        super(prepareSessionService);
+    constructor(prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
+                protected renderer: Renderer2) {
+        super(prepareSessionService, mobileChecker, renderer);
         this.ngOnInit();
     }
 

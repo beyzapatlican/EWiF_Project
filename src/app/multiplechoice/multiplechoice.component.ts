@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 import {QuestionTypeComponent} from '../question-type/question-type.component';
 import {PrepareSessionService} from '../../services/prepare-session.service';
 import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
+import {MobileChecker} from '../../services/mobile-checker.service';
 
 @Component({
     selector: 'app-multiplechoice',
@@ -13,8 +14,9 @@ export class MultiplechoiceComponent extends QuestionTypeComponent implements On
     formGroup: FormGroup;
 
 
-    constructor(prepareSessionService: PrepareSessionService) {
-        super(prepareSessionService);
+    constructor(prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
+                protected renderer: Renderer2) {
+        super(prepareSessionService, mobileChecker, renderer);
         this.ngOnInit();
     }
 
