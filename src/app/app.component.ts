@@ -1,6 +1,5 @@
-import {Component, Injector} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {LoginService} from '../services/login.service';
+import {Component, Injector, OnInit} from '@angular/core';
+import {MobileChecker} from '../services/mobile-checker.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,13 @@ import {LoginService} from '../services/login.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'EWiF-Project';
 
+  constructor(private mobileChecker: MobileChecker) {}
+
+  ngOnInit() {
+    this.mobileChecker.checkIsMobile();
+  }
 
 }
