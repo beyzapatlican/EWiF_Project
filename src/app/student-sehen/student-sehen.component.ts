@@ -34,6 +34,8 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
+  no = false;
+  deger: string[] = [];
 
   constructor(public studentOpenSessionService: StudentOpenSessionService,
               public openSession: OpenSessionService) { }
@@ -135,6 +137,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
 
   getResults() {
     this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
+    this.no = true;
   }
 
 

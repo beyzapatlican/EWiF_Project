@@ -19,6 +19,10 @@
           <app-student-true-false *ngIf="questionType === 'TrueFalse'"></app-student-true-false>
         </div>
 
+        <div *ngIf="no == true">
+          {{getResults}}
+        </div>
+
         <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" style=" width: 300px;">Sende Antwort</button>
       </div>
 
