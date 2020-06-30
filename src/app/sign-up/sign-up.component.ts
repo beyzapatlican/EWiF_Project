@@ -11,7 +11,7 @@ export class SignUpComponent implements OnInit {
   form: FormGroup;
   private formSubmitAttempt: boolean;
   constructor(private authService: AuthService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder) {}
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -38,8 +38,11 @@ export class SignUpComponent implements OnInit {
         this.form.get('username').value,
         this.form.get('role').value).subscribe(resp => {
           this.authService.done(resp.headers.get('Authorization'), resp.body.role);
-        }, error => {
+          console.log(resp);
+          alert('Sie sind angemeldet');
+      }, error => {
           console.log(error);
+          alert('Etwas ist schief gelaufen. Bitte versuchen Sie es neu');
         });
     }
     this.formSubmitAttempt = true;

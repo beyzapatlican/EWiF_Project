@@ -48,13 +48,13 @@
         <br>
         <input id="oldPass" type="form" class="form-control"
                placeholder="Derzeitiges Passwort" #oldPassword  [(ngModel)]="a" formControlName="a" required>
-          <div style="width: 200px" *ngIf="isFieldInvalid('a')">
+          <div *ngIf="isFieldInvalid('a')">
             <p>Bitte geben Sie dein Derzeitiges Passwort</p>
           </div>
         <br>
         <input id="newPass" type="form" class="form-control" [(ngModel)]="b" formControlName="b" required
                placeholder="Neu Passwort" #newPassword>
-          <div style="width: 200px" *ngIf="isFieldInvalid('b')">
+          <div *ngIf="isFieldInvalid('b')">
             <p>Bitte geben Sie dein neues Passwort</p>
           </div>
         </form>

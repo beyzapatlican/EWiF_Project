@@ -56,11 +56,11 @@ export class UserpageComponent implements OnInit {
     this.changePasswordService.changePass(passObj)
       .subscribe(resp => {
         console.log(resp);
-        alert('SUCCESS !!');
+        alert('Ihr Passwort wurde erfolgreich geändert');
         this.resetForm(this.form);
       }, error => {
         console.log('bob');
-        alert('NOT SUCCESS !!');
+        alert('Etwas ist schief gelaufen. Bitte versuchen Sie es neu.');
         this.resetForm(this.form);
       });
   }

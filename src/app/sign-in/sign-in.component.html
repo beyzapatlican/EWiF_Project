@@ -10,7 +10,8 @@
       <hr style="border-color:dimgray; ">
 
       <!-- Username -->
-      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername" #username [(ngModel)]="usernameData" formControlName="username" required>
+      <input type="form" id="defaultRegisterFormUsername" class="form-control" placeholder="Benutzername"
+             [(ngModel)]="usernameData" formControlName="username" required>
       <div *ngIf="isFieldInvalid('username')">
         Bitte geben Sie dein Bentutzername ein
       </div>
@@ -18,7 +19,8 @@
 
 
       <!-- Password -->
-      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" #password [(ngModel)]="passwordData" formControlName="password" required>
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock"
+             [(ngModel)]="passwordData"  formControlName="password" required>
       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
       <div *ngIf="isFieldInvalid('password')">
         Bitte geben Sie dein Passwort ein

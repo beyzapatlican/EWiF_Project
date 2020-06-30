@@ -29,8 +29,9 @@ export class ResetPasswordComponent implements OnInit {
     this.resetPasswordService.resetPass(passObj)
       .subscribe(resp => {
         console.log(resp);
+        alert('Ihr Passwort wurde erfolgreich geändert');
       }, error => {
-      console.log('bob');
+        alert('Etwas ist schief gelaufen. Bitte versuchen Sie es neu.');
     });
   }
 

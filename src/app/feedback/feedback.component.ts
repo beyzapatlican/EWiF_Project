@@ -66,12 +66,12 @@ constructor( private feedbackService: FeedbackService,
        this.feedbackService.Give(answer)
         .subscribe(resp => {
           console.log(resp);
-          alert('SUCCESS !!');
+          alert('Ihr Feedback wurde erfolgreich gesendet');
           this.resetForm(this.form);
           // tslint:disable-next-line:no-shadowed-variable
         }, error => {
           console.log('bob');
-          alert('NOT SUCCESS !!');
+          alert('Etwas ist schief gelaufen. Bitte versuchen Sie es neu.');
           this.resetForm(this.form);
         });
     }
