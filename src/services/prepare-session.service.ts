@@ -17,13 +17,9 @@ export class PrepareSessionService {
     constructor(private http: HttpClient) {}
 
     sendRequest(requestBody: PrepareSessionRequest) {
-        const headers = {
-            Authorization: this.getToken(),
-            'Content-Type': 'application/json'
-        };
         const body = requestBody;
         const url = this.getUrl() + '/teacher/prepareSession';
-        this.http.post(url, body, {headers}).subscribe(resp => {
+        this.http.post(url, body).subscribe(resp => {
             console.log(resp);
         });
     }
