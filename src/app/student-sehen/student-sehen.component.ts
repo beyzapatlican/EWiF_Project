@@ -96,12 +96,12 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
               answer: '' + StudentSehenComponent.answerBool,
               questionNum: this.questionNum});
           }
-          if (StudentSehenComponent.answerInt) {
+          if (StudentSehenComponent.answerInt !== undefined) {
             this.studentAnswers.push({
-            answer: StudentSehenComponent.answerInt.toString(),
+            answer: '' + StudentSehenComponent.answerInt,
             questionNum: this.questionNum});
           }
-          if (StudentSehenComponent.answerStr) {
+          if (StudentSehenComponent.answerStr !== undefined) {
             this.studentAnswers.push({
               answer: StudentSehenComponent.answerStr.toString(),
               questionNum: this.questionNum});
