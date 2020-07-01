@@ -5,12 +5,8 @@ import {MultipleChoice} from '../../models/question-types/multiple-choice.model'
 import {TrueFalse} from '../../models/question-types/true-false.model';
 import {Free} from '../../models/question-types/free.model';
 import {QuestionType} from '../../models/question-types/question-type.enum';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {CreateSessionComponent} from '../create-session/create-session.component';
 import {StudentComponent} from '../student/student.component';
-import {delay} from 'rxjs/operators';
 import {OpenSessionService} from '../../services/open-session.service';
-import {StatusResponse} from '../../models/responses/status-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,10 +38,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   no = false;
   deger: string[] = [];
   question: string[] = [];
-  ans: string[] = [];
-  anss: string[] = [];
-  ansss: string[] = [];
-  anssss: string[] = [];
 
   constructor(public studentOpenSessionService: StudentOpenSessionService,
               public openSession: OpenSessionService) { }
@@ -96,12 +88,12 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
               answer: '' + StudentSehenComponent.answerBool,
               questionNum: this.questionNum});
           }
-          if (StudentSehenComponent.answerInt !== undefined) {
+          if (StudentSehenComponent.answerInt != undefined) {
             this.studentAnswers.push({
             answer: '' + StudentSehenComponent.answerInt,
             questionNum: this.questionNum});
           }
-          if (StudentSehenComponent.answerStr !== undefined) {
+          if (StudentSehenComponent.answerStr != undefined) {
             this.studentAnswers.push({
               answer: StudentSehenComponent.answerStr.toString(),
               questionNum: this.questionNum});
@@ -145,20 +137,21 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionType = QuestionType.MULTIPLE_CHOICE.valueOf();
         this.questionNum = value.MultipleChoice.questionNum;
         this.question.push(value.MultipleChoice.question);
-        this.ans.push(value.MultipleChoice.ans1);
-        this.anss.push(value.MultipleChoice.ans2);
-        this.ansss.push(value.MultipleChoice.ans3);
-        this.anssss.push(value.MultipleChoice.ans4);
+        this.clearAnswer(QuestionType.MULTIPLE_CHOICE);
+
       } else if (value.TrueFalse != null) {
         this.questionTF = value.TrueFalse;
         this.questionType = QuestionType.TRUE_FALSE.valueOf();
         this.questionNum = value.TrueFalse.questionNum;
         this.question.push(value.TrueFalse.question);
+        this.clearAnswer(QuestionType.TRUE_FALSE);
+
       } else if (value.Free != null) {
         this.questionFr = value.Free;
         this.questionType = QuestionType.FREE_TEXT.valueOf();
         this.questionNum = value.Free.questionNum;
         this.question.push(value.Free.question);
+        this.clearAnswer(QuestionType.FREE_TEXT);
       }
       this.control = true;
       this.hasInitialQuestion = true;
@@ -174,6 +167,25 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     StudentSehenComponent.answerInt = null;
     StudentSehenComponent.answerBool = null;
     StudentSehenComponent.answerStr = null;
+  }
+
+  clearAnswer(questionType: QuestionType) {
+    switch (questionType) {
+      case QuestionType.FREE_TEXT: {
+        StudentSehenComponent.answerInt = undefined;
+        StudentSehenComponent.answerBool = undefined;
+        break;
+      } case QuestionType.MULTIPLE_CHOICE: {
+        StudentSehenComponent.answerBool = undefined;
+        StudentSehenComponent.answerStr = undefined;
+        break;
+      } case QuestionType.TRUE_FALSE: {
+        StudentSehenComponent.answerInt = undefined;
+        StudentSehenComponent.answerStr = undefined;
+        break;
+      }
+
+    }
   }
 
   getResults() {
