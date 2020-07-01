@@ -24,7 +24,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   static answerBool: boolean;
   static answerStr: string;
   static answerInt: number;
-  studentAnswers: string[] = [];
+  studentAnswers: { answer: string, questionNum: number }[] = [];
   questionMC: MultipleChoice;
   questionTF: TrueFalse;
   questionFr: Free;
@@ -36,7 +36,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   control = true;
   control2 = false;
   end = false;
-  sixSecondInterval = interval(6000);
+  sixSecondInterval = interval(1000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
   no = false;
@@ -55,13 +55,13 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.nick = StudentComponent.nick;
 
     this.getInitialQuestion();
-    this.getResults();
   }
 
   getInitialQuestion() {
     this.checkQuestionSubscription = this.sixSecondInterval.subscribe( _ => {
       if (this.hasInitialQuestion) {
         this.checkQuestionSubscription.unsubscribe();
+        // tslint:disable-next-line:no-shadowed-variable
         this.timeOutCheckSubscription = this.sixSecondInterval.subscribe(_ => {
           this.studentOpenSessionService.checkTimeout(this.getPinOpen(), this.questionNum).subscribe(value => {}, error => {
             if (error.error.message === 'Wrong question') {
@@ -91,13 +91,21 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
       this.getNick(),
       StudentSehenComponent.answerBool, StudentSehenComponent.answerInt, StudentSehenComponent.answerStr)
       .subscribe(value => {
-        if (StudentSehenComponent.answerBool === true) { this.studentAnswers.push('true'); }
-        if (StudentSehenComponent.answerBool === false) { this.studentAnswers.push('false'); } else { this.studentAnswers.push('Keine'); }
-        // tslint:disable-next-line:max-line-length
-        if (StudentSehenComponent.answerInt) { this.studentAnswers.push(StudentSehenComponent.answerInt.toString()); } else { this.studentAnswers.push('Keine'); }
-        // tslint:disable-next-line:max-line-length
-        if (StudentSehenComponent.answerStr) { this.studentAnswers.push(StudentSehenComponent.answerStr.toString()); } else { this.studentAnswers.push('Keine'); }
-        console.log(this.studentAnswers);
+          if (StudentSehenComponent.answerBool === true) {
+            this.studentAnswers.push({
+              answer: '' + StudentSehenComponent.answerBool,
+              questionNum: this.questionNum});
+          }
+          if (StudentSehenComponent.answerInt) {
+            this.studentAnswers.push({
+            answer: StudentSehenComponent.answerInt.toString(),
+            questionNum: this.questionNum});
+          }
+          if (StudentSehenComponent.answerStr) {
+            this.studentAnswers.push({
+              answer: StudentSehenComponent.answerStr.toString(),
+              questionNum: this.questionNum});
+          }
         }, error => {
 
         // TODO: Handle Errors
@@ -171,7 +179,8 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   getResults() {
     this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {
       this.deger = value.answers;
-      console.log(this.deger);
+      this.addMissingStudentAnswers();
+      console.log(`deger2: ${this.deger}`);
     }, error => console.log('error'));
   }
 
@@ -188,6 +197,38 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     // TODO: Implement onSessionDone
     this.done();
   }
+
+  addMissingStudentAnswers() {
+    console.log('deger' + this.deger);
+    console.log(this.deger);
+
+
+    for (let i = 0; i < this.deger.length; i++) {
+      if (i >= this.studentAnswers.length) {
+        this.studentAnswers.push({answer: '-', questionNum: i});
+        continue;
+      }
+
+      while (this.studentAnswers[i].questionNum !== i) {
+        this.studentAnswers.push({answer: '-', questionNum: i});
+        i++;
+      }
+    }
+    this.studentAnswers.sort((a, b) => {
+      if (a.questionNum < b.questionNum) {
+        return -1;
+      } else if (a.questionNum === b.questionNum) {
+        return 0;
+      } else {
+        return 1;
+      }
+    });
+
+    console.log(`deger: ${this.deger}`);
+    console.log(this.studentAnswers);
+
+  }
+
   done() {
     if (!this.hasInitialQuestion) {
       return;

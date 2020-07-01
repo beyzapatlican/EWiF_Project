@@ -44,8 +44,8 @@
             <header>
               <h1 style="font-size: 25px; color: darkcyan"> <strong> Your answer: </strong> </h1>
             </header>
-            <div *ngFor="let row of studentAnswers; let i = index">
-              <h1 style="font-size: 25px" *ngIf="studentAnswers[i]"> {{row}} </h1>
+            <div *ngFor="let row of deger; let i = index">
+              <h1 style="font-size: 25px" *ngIf="studentAnswers[i]"> {{studentAnswers[i].answer}} </h1>
             </div>
           </div>
 
@@ -54,8 +54,8 @@
             <h1 style="font-size: 25px; color: darkcyan"> <strong> Check: </strong> </h1>
           </header>
           <div *ngFor="let row of deger; let i = index">
-            <h1 style="font-size: 25px" *ngIf="deger[i] == studentAnswers[i]"> <strong> &#x2714;</strong> </h1>
-            <h1 style="font-size: 25px" *ngIf="deger[i] != studentAnswers[i]"> <strong>&#10060;</strong> </h1>
+            <h1 style="font-size: 25px" *ngIf="deger[i] == studentAnswers[i].answer"> <strong> &#x2714;</strong> </h1>
+            <h1 style="font-size: 25px" *ngIf="deger[i] != studentAnswers[i].answer"> <strong>&#10060;</strong> </h1>
           </div>
         </div>
 
