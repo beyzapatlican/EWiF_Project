@@ -274,7 +274,7 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   refresh(): void {
-    // window.location.reload();
+    window.location.reload();
 
   }
 
