@@ -192,7 +192,7 @@
           <label for="questionId" class="col-form-label"style="margin-left: 30px">PIN: </label>
           <div class="col-sm-2">
             <input style="width: 100px" type="string" class="form-control" id="questionId" placeholder="PIN" [(ngModel)]="pin" formControlName="pin" required>
-            <div style="width: 200px" *ngIf="isFieldInvalid('pin')">
+            <div *ngIf="isFieldInvalid('pin')">
               <p>Bitte geben Sie dein Pin</p>
             </div>
           </div>

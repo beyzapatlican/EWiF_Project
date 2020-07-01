@@ -43,11 +43,11 @@ export class ForgotPasswordComponent implements OnInit {
     this.forgotPasswordService.forgotPassword(emailobj)
       .subscribe(resp => {
         console.log(resp);
-        alert('SUCCESS !!, Bitte überprüfen Sie Ihre E-Mails');
+        alert('Bitte überprüfen Sie Ihre E-Mails');
         this.resetForm(this.form);
       }, error => {
         console.log('bob');
-        alert('NOT SUCCESS !!');
+        alert('Etwas ist schief gelaufen. Bitte versuchen Sie es neu.');
         this.resetForm(this.form);
       });
   }

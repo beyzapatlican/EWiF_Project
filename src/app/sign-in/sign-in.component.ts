@@ -43,6 +43,7 @@ export class SignInComponent implements OnInit {
         this.role = this.tokenService.getRole();
       }, error => {
         console.log(error);
+        alert('Etwas ist schief gelaufen. Bitte versuchen Sie es neu');
       });
     }
     this.formSubmitAttempt = true;

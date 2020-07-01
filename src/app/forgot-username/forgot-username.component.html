@@ -12,8 +12,8 @@
 
       <!-- E-mail -->
       <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required #email
-             [(ngModel)]="a" formControlName="a" required>
-      <div style="width: 200px" *ngIf="isFieldInvalid('a')">
+             [(ngModel)]="a" ng-minlength="5" formControlName="a" required>
+      <div *ngIf="isFieldInvalid('a')">
         <p>Bitte geben Sie dein Derzeitiges Email</p>
       </div>
 
@@ -22,7 +22,7 @@
 
       <!-- Send button -->
       <button class="btn btn-info my-4 btn-block" type="submit"
-              (click)="forgotUsername(email)">Senden</button>
+              [disabled]="!a" (click)="forgotUsername(email)">Senden</button>
 
       <hr style="border-color: dimgray">
 
