@@ -180,7 +180,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {
       this.deger = value.answers;
       this.addMissingStudentAnswers();
-      console.log(`deger2: ${this.deger}`);
     }, error => console.log('error'));
   }
 
@@ -199,10 +198,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
 
   addMissingStudentAnswers() {
-    console.log('deger' + this.deger);
-    console.log(this.deger);
-
-
     for (let i = 0; i < this.deger.length; i++) {
       if (i >= this.studentAnswers.length) {
         this.studentAnswers.push({answer: '-', questionNum: i});
@@ -223,10 +218,6 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         return 1;
       }
     });
-
-    console.log(`deger: ${this.deger}`);
-    console.log(this.studentAnswers);
-
   }
 
   done() {
