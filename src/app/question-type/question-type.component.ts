@@ -4,6 +4,9 @@ import {Free} from '../../models/question-types/free.model';
 import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
 import {PrepareSessionService} from '../../services/prepare-session.service';
 import {MobileChecker} from '../../services/mobile-checker.service';
+import {Session} from '../../models/session';
+import {QuestionType} from '../../models/question-types/question-type.enum';
+import {FormControl, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -17,108 +20,248 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit {
   static questionsFree = new Array<Free>();
   static questionsMC = new Array<MultipleChoice>();
 
-  @ViewChild('questionType') questionType: ElementRef;
+  @ViewChild('newQuestion') questionType: ElementRef;
+  private newSession: boolean;
+
+  selectedTF = false;
+  selectedMC = false;
+  selectedFree = false;
+  selectedNew = true;
+
+  title: string;
+  selectedRowNumber = -1;
+  selectedSessionIndex: any;
+  sessionPickerOptions: Array<string> = [];
+
+  questionTypeInited = false;
 
 
-  constructor(prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
+  constructor(public prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
               protected renderer: Renderer2) {
     this.prepareSessionService = prepareSessionService;
   }
 
-  selected1 = false;
-  selected2 = false;
-  selected3 = false;
-  type = true;
-
-  prepareSessionService: PrepareSessionService;
-  title: string;
 
 
   ngOnInit(): void {
     QuestionTypeComponent.questionsTF = new Array<TrueFalse>();
     QuestionTypeComponent.questionsFree = new Array<Free>();
     QuestionTypeComponent.questionsMC = new Array<MultipleChoice>();
-
+    this.getSessions();
   }
 
   ngAfterViewInit() {
-    this.initQuestionType();
+    this.initDeviceType();
   }
 
 
-  initQuestionType() {
-    if (this.mobileChecker.isMobile) {
+  initDeviceType() {
+
+    this.renderer.addClass(this.questionType.nativeElement, 'col-10');
+
+    /*if (this.mobileChecker.isMobile) {
       this.renderer.addClass(this.questionType.nativeElement, 'col-12');
     } else {
       this.renderer.addClass(this.questionType.nativeElement, 'col-10');
+    }*/
+    this.questionTypeInited = true;
+  }
+
+  onQuestionSelect(i: number) {
+    this.saveClickedRow(i);
+    if (i > this.prepareSessionService.questionStrings.length) {
+      return;
     }
+    if (i === this.prepareSessionService.questionStrings.length) {
+      this.openNew();
+      return;
+    }
+
+    const questionNum = this.prepareSessionService.questionStrings[i].questionNum;
+
+    let found = false;
+    this.prepareSessionService.questionsMC.forEach(question => {
+      if (question.questionNum === questionNum) {
+        found = true;
+
+        this.prepareSessionService.questionFormGroup = new FormGroup({
+          question: new FormControl(question.question),
+          solution: new FormControl(question.solution),
+          ans1: new FormControl(question.ans1),
+          ans2: new FormControl(question.ans2),
+          ans3: new FormControl(question.ans3),
+          ans4: new FormControl(question.ans4),
+          ans5: new FormControl(question.ans5)
+        });
+        this.openMC();
+        return;
+      }
+    });
+    if (!found) {
+      this.prepareSessionService.questionsTF.forEach(question => {
+        if (question.questionNum === questionNum) {
+          found = true;
+
+          this.prepareSessionService.questionFormGroup = new FormGroup({
+            question: new FormControl(question.question),
+            solution: new FormControl(question.solution),
+          });
+          this.openTF();
+          return;
+        }
+      });
+    }
+    if (!found) {
+      this.prepareSessionService.questionsFree.forEach(question => {
+        if (question.questionNum === questionNum) {
+          found = true;
+
+          this.prepareSessionService.questionFormGroup = new FormGroup({
+            question: new FormControl(question.question),
+            solution: new FormControl(question.solution),
+          });
+          this.openFree();
+          return;
+        }
+      });
+    }
+
+    // this.prepareSessionService.questionFormGroup = new FormGroup()
+    if (!this.questionTypeInited) {
+      this.initDeviceType();
+    }
+  }
+
+  saveClickedRow(i: number) {
+    this.selectedRowNumber = i;
+  }
+
+
+  openTF() {
+    this.selectedTF = true;
+    this.selectedMC = false;
+    this.selectedFree = false;
+    this.selectedNew = false;
+  }
+
+  openMC() {
+    this.selectedMC = true;
+    this.selectedTF = false;
+    this.selectedFree = false;
+    this.selectedNew = false;
+  }
+
+  openFree() {
+    this.selectedFree = true;
+    this.selectedTF = false;
+    this.selectedMC = false;
+    this.selectedNew = false;
+  }
+
+  openNew() {
+    this.selectedFree = false;
+    this.selectedTF = false;
+    this.selectedMC = false;
+    this.selectedNew = true;
   }
 
   onUpdate1() {
-    this.selected1 = true;
-    this.selected2 = false;
-    this.selected3 = false;
-    this.type = false;
+    this.prepareSessionService.prepareNewFormGroup(QuestionType.TRUE_FALSE);
+    this.openTF();
   }
 
   onUpdate2() {
-    this.selected2 = true;
-    this.selected1 = false;
-    this.selected3 = false;
-    this.type = false;
-
+    this.prepareSessionService.prepareNewFormGroup(QuestionType.MULTIPLE_CHOICE);
+    this.openMC();
   }
 
   onUpdate3() {
-    this.selected3 = true;
-    this.selected1 = false;
-    this.selected2 = false;
-    this.type = false;
-
+    this.prepareSessionService.prepareNewFormGroup(QuestionType.FREE_TEXT);
+    this.openFree();
   }
 
   onUpdate4() {
-    this.selected3 = false;
-    this.selected1 = false;
-    this.selected2 = false;
-    this.type = true;
+    this.openNew();
+    this.clearQuestionSelection();
   }
 
-  saveQuestion(questionTF?: TrueFalse, questionFree?: Free, questionMC?: MultipleChoice) {
-    if (questionTF !== undefined) {
-      // tslint:disable-next-line:max-line-length
-      questionTF.questionNum = QuestionTypeComponent.questionsTF.length + QuestionTypeComponent.questionsFree.length + QuestionTypeComponent.questionsMC.length;
-      QuestionTypeComponent.questionsTF.push(questionTF);
-    } else if (questionFree !== undefined) {
-      // tslint:disable-next-line:max-line-length
-      questionFree.questionNum = QuestionTypeComponent.questionsTF.length + QuestionTypeComponent.questionsFree.length + QuestionTypeComponent.questionsMC.length;
-      QuestionTypeComponent.questionsFree.push(questionFree);
-    } else if (questionMC !== undefined) {
-      // tslint:disable-next-line:max-line-length
-      questionMC.questionNum = QuestionTypeComponent.questionsTF.length + QuestionTypeComponent.questionsFree.length + QuestionTypeComponent.questionsMC.length;
-      QuestionTypeComponent.questionsMC.push(questionMC);
+  clearQuestionSelection() {
+    this.selectedRowNumber = -1;
+  }
+
+  onNewSessionSelection() {
+    this.clearQuestionSelection();
+    this.newSession = true;
+    this.prepareSessionService.sessions.push(new Session('Neu', 'new'));
+    this.selectedSessionIndex = this.prepareSessionService.sessions.length - 1;
+    this.saveClickedRow(0);
+  }
+
+  clearSessionSelection() {
+    this.selectedSessionIndex = undefined;
+    this.prepareSessionService.questionsMC = [];
+    this.prepareSessionService.questionsTF = [];
+    this.prepareSessionService.questionsFree = [];
+  }
+
+  getSessions() {
+    this.prepareSessionService.getAllSessions().subscribe(response => {
+      response.sessions.forEach(session => {
+        this.prepareSessionService.sessions.push(session);
+        this.sessionPickerOptions = [...this.sessionPickerOptions, session.name];
+      });
+    });
+  }
+
+  onSessionSelect() {
+    if (this.newSession) {
+      this.newSession = false;
+    } else {
+      const session = this.prepareSessionService.sessions[this.selectedSessionIndex];
+      this.getQuestions(session.sessionID);
+      this.title = session.name;
     }
-    console.log(QuestionTypeComponent.questionsTF);
-    console.log(QuestionTypeComponent.questionsFree);
-    console.log(QuestionTypeComponent.questionsMC);
+  }
+
+  getQuestions(pin: string) {
+    this.prepareSessionService.getAllQuestions(pin).subscribe(questions => {
+      this.prepareSessionService.clearQuestions();
+      if (questions.Free != null) {
+        this.prepareSessionService.questionsFree = questions.Free;
+        this.prepareSessionService.questionsFree.forEach(question => this.prepareSessionService.questionStrings.push({
+            questionNum: question.questionNum, questionString: question.question
+          }));
+      }
+      if (questions.MultipleChoice != null) {
+        this.prepareSessionService.questionsMC = questions.MultipleChoice;
+        this.prepareSessionService.questionsMC.forEach(question => this.prepareSessionService.questionStrings.push({
+            questionNum: question.questionNum, questionString: question.question
+          }));
+      }
+      if (questions.TrueFalse != null) {
+        this.prepareSessionService.questionsTF = questions.TrueFalse;
+        this.prepareSessionService.questionsTF.forEach(question => this.prepareSessionService.questionStrings.push({
+            questionNum: question.questionNum, questionString: question.question
+          }));
+      }
+    });
   }
 
   saveSession() {
-
     const request = this.prepareSessionService.prepareRequest(
-      QuestionTypeComponent.questionsTF,
-      QuestionTypeComponent.questionsFree,
-      QuestionTypeComponent.questionsMC,
+      this.prepareSessionService.questionsTF,
+      this.prepareSessionService.questionsFree,
+      this.prepareSessionService.questionsMC,
       this.title);
     this.prepareSessionService.sendRequest(request);
   }
 
   refresh(): void {
-    window.location.reload();
+    // window.location.reload();
+
   }
 
   goBack(): void {
     window.history.back();
   }
-
 }

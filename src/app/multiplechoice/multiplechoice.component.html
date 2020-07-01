@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <form [formGroup]="prepareSessionService.questionFormGroup" (ngSubmit)="onSubmit()">
 
         <div class="form-group row">
           <label for="inputQuestion" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;
@@ -16,28 +16,28 @@
         <br>
 
         <div>
-          <input type="radio" id="question-1-answers-A" value=0 formControlName="solution"/>&nbsp;
+          <input type="radio" id="question-1-answers-A" [value]="0" formControlName="solution"/>&nbsp;
           <label for="question-1-answers-A">
             <input type="text" class="form-control" placeholder="Antwort 1" formControlName="ans1">
           </label>
         </div>
 
         <div>
-          <input type="radio" id="question-1-answers-B" value=1 formControlName="solution"/>&nbsp;
+          <input type="radio" id="question-1-answers-B" [value]="1" formControlName="solution"/>&nbsp;
           <label for="question-1-answers-B">
             <input type="text" class="form-control" placeholder="Antwort 2" formControlName="ans2">
           </label>
         </div>
 
         <div>
-          <input type="radio" id="question-1-answers-C" value=2 formControlName="solution"/>&nbsp;
+          <input type="radio" id="question-1-answers-C" [value]="2" formControlName="solution"/>&nbsp;
           <label for="question-1-answers-C">
             <input type="text" class="form-control" placeholder="Antwort 3" formControlName="ans3">
           </label>
         </div>
 
         <div>
-          <input type="radio" id="question-1-answers-D" value=3 formControlName="solution"/>&nbsp;
+          <input type="radio" id="question-1-answers-D" [value]="3" formControlName="solution"/>&nbsp;
           <label for="question-1-answers-D">
             <input type="text" class="form-control" placeholder="Antwort 4" formControlName="ans4">
           </label>

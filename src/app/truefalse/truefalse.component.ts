@@ -10,22 +10,11 @@ import {MobileChecker} from '../../services/mobile-checker.service';
     templateUrl: './truefalse.component.html',
     styleUrls: ['./truefalse.component.css']
 })
-export class TruefalseComponent extends QuestionTypeComponent implements OnInit {
-    formGroup: FormGroup;
+export class TruefalseComponent implements OnInit {
 
+    constructor(public prepareSessionService: PrepareSessionService) {}
 
-    constructor(prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
-                protected renderer: Renderer2) {
-        super(prepareSessionService, mobileChecker, renderer);
-        this.ngOnInit();
-    }
-
-    ngOnInit(): void {
-        this.formGroup = new FormGroup({
-            question: new FormControl(''),
-            solution: new FormControl('')
-        });
-    }
+    ngOnInit(): void {}
 
 
     reset() {
@@ -33,15 +22,15 @@ export class TruefalseComponent extends QuestionTypeComponent implements OnInit 
     }
 
     onSubmit() {
-        if (!this.formGroup.valid) {
+        if (!this.prepareSessionService.questionFormGroup.valid) {
             console.log('Invalid Form');
         }
         const question = new TrueFalse(
-                this.formGroup.get('question').value,
-                this.formGroup.get('solution').value
+                this.prepareSessionService.questionFormGroup.get('question').value,
+                this.prepareSessionService.questionFormGroup.get('solution').value
         );
-        super.saveQuestion(question, undefined, undefined);
-        this.resetForm(this.formGroup);
+        this.prepareSessionService.saveQuestion(question, undefined, undefined);
+        this.resetForm(this.prepareSessionService.questionFormGroup);
     }
 
   resetForm(formGroup: FormGroup) {

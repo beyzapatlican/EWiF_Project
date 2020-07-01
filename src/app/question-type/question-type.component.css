@@ -26,6 +26,7 @@ body, html {
   position: center;
   max-width: 1000px;
 }
+
 #mainCard {
   background-color: white;
   margin-top: 15vh;
@@ -36,24 +37,45 @@ body, html {
   background-size: cover;
 }
 
-#questionType {
+#sessionAndQuestionPickerCol {
+  margin-top: 14vh;
+  padding-right: 0;
+  padding-left: 1vh;
+}
+
+#newSession {
+  width: 100%;
+  margin: 0 0 5px;
+}
+
+.table tr.hoverable:hover {
+  background-color: #cccccc;
+}
+
+.table tr.active {
+  background-color: #999999;
+  color: black;
+}
+
+#newQuestion {
   padding: 40px;
   position: center;
 }
 
-#questionType h3 {
+#newQuestion h3 {
   display: block;
   font-size: 30px;
   font-weight: 300;
   margin-top:50px;
 }
-#questionType h5{
+
+#newQuestion h5{
   display: block;
   font-weight: 300;
   font-size: 25px;
 
 }
-#questionType p{
+#newQuestion p{
   font-weight:300;
 }
 
@@ -104,10 +126,9 @@ body, html {
 
 /* For hand held devices */
 @media (pointer: none), (pointer: coarse) {
-  #questionType {
+  #newQuestion {
     margin-top: 10vh !important;
     margin-bottom: 5vh !important;
-    max-height: 85vh;
   }
 
   #backDiv {

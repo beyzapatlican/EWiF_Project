@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <form [formGroup]="prepareSessionService.questionFormGroup" (ngSubmit)="onSubmit()">
 
         <div class="form-group row">
           <label for="inputQuestion" class="col-form-label" style="font-size: 15px; font-family: 'Roboto';font-style: normal;

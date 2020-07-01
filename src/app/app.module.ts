@@ -39,6 +39,8 @@ import { CreateSessionComponent } from './create-session/create-session.componen
 import { StudentTrueFalseComponent } from './student-sehen/student-true-false/student-true-false.component';
 import { StudentFreeTextComponent } from './student-sehen/student-free-text/student-free-text.component';
 import {StudentMultipleChoiceComponent} from './student-sehen/student-multiple-choice/student-multiple-choice.component';
+import {NgSelectModule} from '@ng-select/ng-select';
+import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 
 @NgModule({
     declarations: [
@@ -81,7 +83,9 @@ import {StudentMultipleChoiceComponent} from './student-sehen/student-multiple-c
     RatingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule,
+    PerfectScrollbarModule
   ],
 
   providers: [ReadFeedbackService, SessionFeedbackService, SessionListService, UserService,

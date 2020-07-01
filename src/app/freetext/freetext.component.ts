@@ -13,27 +13,19 @@ import {MobileChecker} from '../../services/mobile-checker.service';
 })
 
 
-export class FreetextComponent extends QuestionTypeComponent implements OnInit {
-    formGroup: FormGroup;
+export class FreetextComponent implements OnInit {
 
-    constructor(prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
-                protected renderer: Renderer2) {
-        super(prepareSessionService, mobileChecker, renderer);
-        this.ngOnInit();
-    }
+    constructor(public prepareSessionService: PrepareSessionService) {}
 
     ngOnInit(): void {
-        this.formGroup = new FormGroup({
-            question: new FormControl(''),
-            solution: new FormControl(''),
-        });
+
     }
     onSubmit() {
         const newQuestion = new Free(
-                this.formGroup.get('question').value,
-                this.formGroup.get('solution').value);
-        super.saveQuestion(undefined, newQuestion, undefined);
-        this.resetForm(this.formGroup);
+                this.prepareSessionService.questionFormGroup.get('question').value,
+                this.prepareSessionService.questionFormGroup.get('solution').value);
+        this.prepareSessionService.saveQuestion(undefined, newQuestion, undefined);
+        this.resetForm(this.prepareSessionService.questionFormGroup);
     }
 
   resetForm(formGroup: FormGroup) {

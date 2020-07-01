@@ -1,61 +1,128 @@
-
-
-
-
 <div class="bg">
   <div class="container">
     <div class="row" #mainCard id="mainCard">
-      <div class="col-2" *ngIf="!mobileChecker.isMobile">
-        gfghdfkjghfdghfdjhgfkdhgkdfjg
+<!--      <div id="sessionAndQuestionPickerCol" class="col-2" *ngIf="!mobileChecker.isMobile">-->
+      <div id="sessionAndQuestionPickerCol" class="col-2">
+        <button class="btn btn-info" id="newSession" (click)="onNewSessionSelection()">Neuer Fragensatz</button>
+        <ng-select #sessionPicker id="sessionPicker"
+                   [bindValue]="selectedSessionIndex"
+                   (change)="onSessionSelect()"
+                   [(ngModel)]="selectedSessionIndex"
+                   [clearable]="false">
+
+          <ng-option *ngFor="let item of prepareSessionService.sessions; let index = index"
+                     [value]="index">{{item.name}}</ng-option>
+        </ng-select>
+        <perfect-scrollbar>
+          <table class="table table-sm" style="width: 100%">
+            <tr class="hoverable" style="width: 100%"
+                *ngFor="let question of prepareSessionService.questionStrings; let i = index"
+                (click)="onQuestionSelect(i)"
+                [class.active]="i == selectedRowNumber">
+
+              <td>{{question.questionString}}</td>
+            </tr>
+            <tr class="hoverable" style="width: 100%"
+                (click)="onQuestionSelect(prepareSessionService.questionsMC.length +
+                prepareSessionService.questionsTF.length +
+                prepareSessionService.questionsFree.length)"
+                [class.active]="selectedRowNumber == prepareSessionService.questionsMC.length +
+                prepareSessionService.questionsTF.length +
+                prepareSessionService.questionsFree.length">
+              <td>Neue Frage</td>
+            </tr>
+          </table>
+        </perfect-scrollbar>
       </div>
-      <div #questionType id="questionType">
-        <div id="backDiv" *ngIf="type">
-          <button class="btn btn-info my-3" id="backk" (click)="goBack()"> < </button>
+
+      <div #newQuestion id="newQuestion">
+        <div id="backDiv" *ngIf="selectedNew">
+          <button class="btn btn-info my-3" id="backk" (click)="goBack()"> <</button>
         </div>
         <h3 style="font-size: 50px">Fragensatz Vorbereiten</h3>
 
         <hr style="border-color: dimgray">
+        <div id="titleDiv" *ngIf="!(selectedSessionIndex == undefined ||
+             !(selectedSessionIndex > -1 && selectedSessionIndex < this.prepareSessionService.sessions.length))">
 
-        <div *ngIf="!type">
-          <button class="btn btn-info my-3" id="back" (click)="onUpdate4()"> < </button>
+          <h5 *ngIf="title == undefined || title == ''"> Bitte geben Sie die Title ein</h5>
+          <h5 *ngIf="title != undefined && title != ''"> Title </h5>
+          <input style="margin-right: 30px" id="title" type="text" placeholder="Geben Sie einen Title ein"
+                 class="form-control" rows="3" [(ngModel)]="title" ng-minlength="5" required="">
+          <br>
         </div>
 
-        <div id="type">
-          <div *ngIf="type">
-            <h5> Bitte wählen Sie Type und geben die Title</h5>
-            <br>
-            <input style="margin-right: 30px" id="title" type="text" placeholder="Geben Sie einen Title ein" class="form-control" rows="3" [(ngModel)]="title" ng-minlength="5" required="">
-            <br>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1" (click)="onUpdate1()">
-              <h5>Richtig Falsch</h5>
-            </button>
+        <div *ngIf="!selectedNew">
+          <button class="btn btn-info my-3" id="back" (click)="onUpdate4()"> <</button>
+        </div>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn2" (click)="onUpdate2()">
-              <h5>Multiple Choice</h5>
-            </button>
+        <div *ngIf="selectedRowNumber == prepareSessionService.questionsMC.length +
+                prepareSessionService.questionsTF.length +
+                prepareSessionService.questionsFree.length">
+          <div id="type">
+            <div *ngIf="selectedNew">
 
-            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn3" (click)="onUpdate3()">
-              <h5>Freitext</h5>
-            </button>
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="btn1" (click)="onUpdate1()">
+                <h5>Richtig Falsch</h5>
+              </button>
 
-            <button id="save" class="btn btn-primary btn-lg btn-block" (click)="saveSession()" (click)="refresh()"
-                    [disabled]="!title">Save Sitzung</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="btn2" (click)="onUpdate2()">
+                <h5>Multiple Choice</h5>
+              </button>
+
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="btn3" (click)="onUpdate3()">
+                <h5>Freitext</h5>
+              </button>
+
+            </div>
+
+            <div *ngIf="selectedTF">
+              <app-truefalse></app-truefalse>
+            </div>
+            <div *ngIf="selectedMC">
+              <app-multiplechoice></app-multiplechoice>
+            </div>
+            <div *ngIf="selectedFree">
+              <app-freetext></app-freetext>
+            </div>
 
           </div>
+        </div>
 
-          <div *ngIf="selected1">
+        <div *ngIf="selectedRowNumber < prepareSessionService.questionsMC.length +
+                prepareSessionService.questionsTF.length +
+                prepareSessionService.questionsFree.length && selectedRowNumber >= 0">
+          <div *ngIf="selectedTF">
             <app-truefalse></app-truefalse>
           </div>
-          <div *ngIf="selected2">
+          <div *ngIf="selectedMC">
             <app-multiplechoice></app-multiplechoice>
           </div>
-          <div *ngIf="selected3">
+          <div *ngIf="selectedFree">
             <app-freetext></app-freetext>
           </div>
-
         </div>
+
+        <div *ngIf="selectedSessionIndex == undefined ||
+             !(selectedSessionIndex > -1 && selectedSessionIndex < this.prepareSessionService.sessions.length)">
+          <h2> Bitte wählen Sie einen Fragensatz</h2>
+        </div>
+
+        <div *ngIf="selectedRowNumber == undefined || selectedRowNumber == -1 &&
+        !(selectedSessionIndex == undefined ||
+             !(selectedSessionIndex > -1 && selectedSessionIndex < this.prepareSessionService.sessions.length))">
+          <h2> Bitte Wählen Sie eine Frage </h2>
+        </div>
+
+        <button id="save" class="btn btn-primary btn-lg btn-block" (click)="saveSession(); refresh()"
+                [disabled]="!title">Save Sitzung
+        </button>
+
       </div>
+
+
+
     </div>
   </div>
 </div>
