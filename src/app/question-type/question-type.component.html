@@ -3,7 +3,7 @@
     <div class="row" #mainCard id="mainCard">
 <!--      <div id="sessionAndQuestionPickerCol" class="col-2" *ngIf="!mobileChecker.isMobile">-->
       <div id="sessionAndQuestionPickerCol" class="col-2">
-        <button class="btn btn-info" id="newSession" (click)="onNewSessionSelection()">Neuer Fragensatz</button>
+        <button class="btn btn-info" id="newSession" *ngIf="selectedSessionIndex >= 0" (click)="onNewSessionSelection()">Neuer Fragensatz</button>
         <ng-select #sessionPicker id="sessionPicker"
                    [bindValue]="selectedSessionIndex"
                    (change)="onSessionSelect()"
