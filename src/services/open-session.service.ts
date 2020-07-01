@@ -18,6 +18,7 @@ import {StartExamRequest} from '../models/requests/startExamRequest.model';
 import {AllOpenSessionsResponse} from '../models/responses/all-open-sessions-response.model';
 import {CheckNickRequestModel} from '../models/requests/checkNick-request.model';
 import {CheckNickResponseModel} from '../models/responses/checkNick-response.model';
+import {AllAnswersResponseModel} from '../models/responses/all-answers-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class OpenSessionService {
   }
 
   getAllAnswers(pinOpen: string) {
-    return this.http.get<StatusResponse>(`${this.urlService.getURL()}/allAnswers`, {params: {pinOpen}});
+    return this.http.get<AllAnswersResponseModel>(`${this.urlService.getURL()}/allAnswers`, {params: {pinOpen}});
   }
 
   endOpenSession(pinOpen: string) {

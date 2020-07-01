@@ -9,21 +9,58 @@
 
         <div class="row" style="padding: 10px">
 
-          <h3>Fragen</h3>
+          <h3>Sitzung</h3>
         </div>
 
         <hr style="border-color:dimgray; " >
-        <div>
+
+        <div *ngIf="no == false">
           <app-student-multiple-choice *ngIf="questionType === 'MultipleChoice'"></app-student-multiple-choice>
           <app-student-free-text *ngIf="questionType === 'Free'"></app-student-free-text>
           <app-student-true-false *ngIf="questionType === 'TrueFalse'"></app-student-true-false>
+
         </div>
 
         <div *ngIf="no == true">
-          {{getResults}}
+          <div class="col-md-3">
+            <header>
+              <h1 style="font-size: 25px; color: darkcyan"> <strong> Fragen: </strong> </h1>
+            </header>
+            <div  *ngFor="let row of question; let i = index">
+              <h1 style="font-size: 25px" *ngIf="question[i]">  {{row}} </h1>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <header>
+              <h1 style="font-size: 25px; color: darkcyan"> <strong> True Answer: </strong> </h1>
+            </header>
+            <div *ngFor="let row of deger; let i = index">
+              <h1 style="font-size: 25px" *ngIf="deger[i]"> {{row}} </h1>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <header>
+              <h1 style="font-size: 25px; color: darkcyan"> <strong> Your answer: </strong> </h1>
+            </header>
+            <div *ngFor="let row of studentAnswers; let i = index">
+              <h1 style="font-size: 25px" *ngIf="studentAnswers[i]"> {{row}} </h1>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+          <header>
+            <h1 style="font-size: 25px; color: darkcyan"> <strong> Check: </strong> </h1>
+          </header>
+          <div *ngFor="let row of deger; let i = index">
+            <h1 style="font-size: 25px" *ngIf="deger[i] == studentAnswers[i]"> <strong> &#x2714;</strong> </h1>
+            <h1 style="font-size: 25px" *ngIf="deger[i] != studentAnswers[i]"> <strong>&#10060;</strong> </h1>
+          </div>
         </div>
 
-        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" style=" width: 300px;">Sende Antwort</button>
+        </div >
+        <button class="btn btn-info my-4 btn-block" type="submit" (click)="submit()" id="btn1" [disabled]="!control" [disabled]="!control2" (click)="update()">Sende Antwort</button>
       </div>
 
     </div>

@@ -4,6 +4,8 @@ import {interval, Subscription} from 'rxjs';
 import {GetQuestionResponse} from '../../models/responses/get-question-response.model';
 import {QuestionResultsResponse} from '../../models/responses/question-results-response.model';
 import {CreateSessionComponent} from '../create-session/create-session.component';
+import {StudentSehenComponent} from '../student-sehen/student-sehen.component';
+import {StudentOpenSessionService} from '../../services/student-open-session.service';
 
 @Component({
   selector: 'app-session-management',
@@ -18,6 +20,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   questionNum: number;
   question = 'Hier werden Fragen angezeigt';
   correctAnswer: string;
+  correctAnswerFree: string;
   allQuestions: GetQuestionResponse[] = [];
   answerQuestions: string[] = [];
   answer: string[];
@@ -30,9 +33,10 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   denemee: string[] = [];
   denemeee: string[] = [];
   denemeeee: string[] = [];
+  deger: string[] = [];
 
 
-  constructor( private sessionService: OpenSessionService) { }
+  constructor( private sessionService: OpenSessionService, public studentOpenSessionService: StudentOpenSessionService) { }
 
   ngOnInit(): void {
     this.pinOpen = CreateSessionComponent.pinOpen;
@@ -64,11 +68,9 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.sessionService.getQuestion(this.pinOpen).subscribe(value1 => {
         this.showQuestion(value1);
       }, error => {
-        // TODO: Fix end of questions
         if (error.error.message === 'Session has closed') {
           this.endSession();
           this.sessionEndet = true;
-          // TODO: Handle Session has closed
         } else {
           // TODO: Handle error
           console.log('bob' + error);
@@ -92,6 +94,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   }
 
   endSessionRequest() {
+    this.getResults();
     this.endSession();
   }
 
@@ -177,5 +180,12 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   endOpenSession() {
     this.sessionService.endOpenSession(this.pinOpen).subscribe(value => {}, error => console.log('error'));
+  }
+
+  getResults() {
+    this.sessionService.getAllAnswers(this.pinOpen).subscribe(value => {
+      this.deger = value.answers;
+      console.log(this.deger);
+    }, error => console.log('error'));
   }
 }

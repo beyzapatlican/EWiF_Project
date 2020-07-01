@@ -31,7 +31,7 @@
 <!--  &lt;!&ndash; END .row &ndash;&gt;-->
 <!--</body>-->
 
-<div class="bg" style="height: 100vh">
+<div class="bg">
   <div class="container" *ngIf="!end">
     <div class="row" id="sessionM" style="position: center; margin-top: 15vh; margin-bottom: 15vh">
 
@@ -78,7 +78,7 @@
             <b *ngIf="correctAnswer== '2'"> C){{denemeee}}</b>
             <b *ngIf="correctAnswer== '3'"> D){{denemeeee}} </b>
             <b *ngIf="correctAnswer== '4'"> E </b>
-            <b *ngIf="correctAnswer.length > 5"> {{correctAnswer}} </b>
+            <b *ngIf="(correctAnswer.length > 5)"> {{correctAnswer}} </b>
 
           </h3>
 
@@ -106,7 +106,7 @@
         <br>
 
 
-        <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="change=false"(click)="skipRequest()" (click)="getAnswerRequest()" >Nächste Frage</button>
+        <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="change=false"(click)="skipRequest()" (click)="getAnswerRequest()">Nächste Frage</button>
         <br>
         <button class="btn btn-primary btn-lg btn-block" id="btn2" type="submit" (click)="change=true" (click)="getAnswersRequest()" >Zeige Studenten Antwort</button>
         <br>
@@ -143,15 +143,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div *ngFor="let q of trueAnswers">
-            <h1 style="font-size: 25px" *ngIf="q=='true'"> <b>Antwort:</b> Richtig </h1>
-            <h1 style="font-size: 25px" *ngIf="q=='false'"> <b>Antwort:</b>  Falsch</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='0'"> <b>Antwort:</b>  A){{deneme}}</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='1'"> <b>Antwort:</b>  B){{denemee}}</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='2'"> <b>Antwort:</b>  C){{denemeee}}</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='3'"> <b>Antwort:</b>  D){{denemeeee}}</h1>
-            <h1 style="font-size: 25px" *ngIf="q=='4'"> <b>Antwort:</b>  E</h1>
-            <h1 style="font-size: 25px" *ngIf="q.length > 5"> <b>Antwort:</b> {{q}} </h1>
+          <div *ngFor="let row of deger; let i = index">
+            <h1 style="font-size: 25px" *ngIf="deger[i]"> {{row}} </h1>
           </div>
         </div>
 
@@ -160,8 +153,16 @@
     </div>
   </div>
 
-
-
 </div>
 
-
+<!--        -->
+<!-- <div *ngFor="let q of trueAnswers">-->
+<!-- <h1 style="font-size: 25px" *ngIf="q=='true'"> <b>Antwort:</b> True </h1> -->
+<!-- <h1 style="font-size: 25px" *ngIf="q=='false'"> <b>Antwort:</b> False</h1> -->
+<!-- <h1 style="font-size: 25px" *ngIf="q=='0'"> <b>Antwort:</b>  A){{deneme}}</h1> -->
+<!-- <h1 style="font-size: 25px" *ngIf="q=='1'"> <b>Antwort:</b>  B){{denemee}}</h1>-->
+<!-- <h1 style="font-size: 25px" *ngIf="q=='2'"> <b>Antwort:</b>  C){{denemeee}}</h1>-->
+<!-- <h1 style="font-size: 25px" *ngIf="q=='3'"> <b>Antwort:</b>  D){{denemeeee}}</h1>-->
+<!--<h1 style="font-size: 25px" *ngIf="q=='4'"> <b>Antwort:</b>  E</h1>-->
+<!-- <h1 style="font-size: 25px" *ngIf="(q.length > 1) "> <b>Antwort:</b> {{q}} </h1>-->
+<!-- </div>-->

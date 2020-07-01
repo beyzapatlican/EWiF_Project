@@ -7,13 +7,12 @@ import {GetQuestionResponse} from '../models/responses/get-question-response.mod
 import {Injectable} from '@angular/core';
 import {AnswerQuestionRequest} from '../models/requests/answer-question-request.model';
 import {AnswerQuestionResponse} from '../models/responses/answer-question-response.model';
+import {StudentSehenComponent} from '../app/student-sehen/student-sehen.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentOpenSessionService {
-
-
   constructor(private http: HttpClient,
               private urlService: UrlService) {}
 

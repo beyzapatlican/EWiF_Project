@@ -10,6 +10,7 @@ import {CreateSessionComponent} from '../create-session/create-session.component
 import {StudentComponent} from '../student/student.component';
 import {delay} from 'rxjs/operators';
 import {OpenSessionService} from '../../services/open-session.service';
+import {StatusResponse} from '../../models/responses/status-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   static answerBool: boolean;
   static answerStr: string;
   static answerInt: number;
+  studentAnswers: string[] = [];
   questionMC: MultipleChoice;
   questionTF: TrueFalse;
   questionFr: Free;
@@ -31,11 +33,19 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   pinOpen;
   hasInitialQuestion = false;
   nick: string;
+  control = true;
+  control2 = false;
+  end = false;
   sixSecondInterval = interval(6000);
   timeOutCheckSubscription: Subscription;
   checkQuestionSubscription: Subscription;
   no = false;
   deger: string[] = [];
+  question: string[] = [];
+  ans: string[] = [];
+  anss: string[] = [];
+  ansss: string[] = [];
+  anssss: string[] = [];
 
   constructor(public studentOpenSessionService: StudentOpenSessionService,
               public openSession: OpenSessionService) { }
@@ -45,6 +55,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     this.nick = StudentComponent.nick;
 
     this.getInitialQuestion();
+    this.getResults();
   }
 
   getInitialQuestion() {
@@ -69,6 +80,9 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.done();
   }
+  update() {
+    this.control = false;
+  }
 
   submit() {
     this.studentOpenSessionService.submitAnswer(
@@ -76,13 +90,21 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
       this.getPinOpen(),
       this.getNick(),
       StudentSehenComponent.answerBool, StudentSehenComponent.answerInt, StudentSehenComponent.answerStr)
-      .subscribe(value => {}, error => {
-      // TODO: Handle Errors
+      .subscribe(value => {
+        if (StudentSehenComponent.answerBool === true) { this.studentAnswers.push('true'); }
+        if (StudentSehenComponent.answerBool === false) { this.studentAnswers.push('false'); }
+        if (StudentSehenComponent.answerInt) { this.studentAnswers.push(StudentSehenComponent.answerInt.toString()); }
+        if (StudentSehenComponent.answerStr) { this.studentAnswers.push(StudentSehenComponent.answerStr.toString()); }
+        console.log(this.studentAnswers);
+        }, error => {
+
+        // TODO: Handle Errors
       // Student has already answered
       // Invalid answer
         switch (error.error.message) {
           case 'Session has closed': {
             // TODO: Inform User that session is over
+
             this.close();
             break;
           }
@@ -103,6 +125,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
     // TODO: Implement close
     this.done();
     this.getResults();
+    this.no = true;
   }
 
   getQuestion() {
@@ -111,15 +134,23 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionMC = value.MultipleChoice;
         this.questionType = QuestionType.MULTIPLE_CHOICE.valueOf();
         this.questionNum = value.MultipleChoice.questionNum;
+        this.question.push(value.MultipleChoice.question);
+        this.ans.push(value.MultipleChoice.ans1);
+        this.anss.push(value.MultipleChoice.ans2);
+        this.ansss.push(value.MultipleChoice.ans3);
+        this.anssss.push(value.MultipleChoice.ans4);
       } else if (value.TrueFalse != null) {
         this.questionTF = value.TrueFalse;
         this.questionType = QuestionType.TRUE_FALSE.valueOf();
         this.questionNum = value.TrueFalse.questionNum;
+        this.question.push(value.TrueFalse.question);
       } else if (value.Free != null) {
         this.questionFr = value.Free;
         this.questionType = QuestionType.FREE_TEXT.valueOf();
         this.questionNum = value.Free.questionNum;
+        this.question.push(value.Free.question);
       }
+      this.control = true;
       this.hasInitialQuestion = true;
     }, error => {
       switch (error.error.message) {
@@ -136,10 +167,11 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
 
   getResults() {
-    this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {}, error => console.log('error'));
-    this.no = true;
+    this.openSession.getAllAnswers(this.getPinOpen()).subscribe(value => {
+      this.deger = value.answers;
+      console.log(this.deger);
+    }, error => console.log('error'));
   }
-
 
 
   getPinOpen() {
