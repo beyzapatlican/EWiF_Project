@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {TrueFalse} from '../../models/question-types/true-false.model';
 import {Free} from '../../models/question-types/free.model';
 import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
@@ -15,7 +15,7 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./question-type.component.css']
 })
 
-export class QuestionTypeComponent implements OnInit, AfterViewInit {
+export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   static questionsTF = new Array<TrueFalse>();
   static questionsFree = new Array<Free>();
   static questionsMC = new Array<MultipleChoice>();
@@ -39,6 +39,7 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit {
   constructor(public prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
               protected renderer: Renderer2) {
     this.prepareSessionService = prepareSessionService;
+    this.reset();
   }
 
 
@@ -52,6 +53,19 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.initDeviceType();
+  }
+
+  ngOnDestroy() {
+    this.reset();
+  }
+
+  reset() {
+    this.prepareSessionService.sessions = [];
+    this.prepareSessionService.questionsTF = [];
+    this.prepareSessionService.questionsMC = [];
+    this.prepareSessionService.questionsFree = [];
+    this.prepareSessionService.questionStrings = [];
+    this.prepareSessionService.questionFormGroup = undefined;
   }
 
 
