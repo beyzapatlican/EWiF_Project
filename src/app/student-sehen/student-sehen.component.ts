@@ -92,9 +92,11 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
       StudentSehenComponent.answerBool, StudentSehenComponent.answerInt, StudentSehenComponent.answerStr)
       .subscribe(value => {
         if (StudentSehenComponent.answerBool === true) { this.studentAnswers.push('true'); }
-        if (StudentSehenComponent.answerBool === false) { this.studentAnswers.push('false'); }
-        if (StudentSehenComponent.answerInt) { this.studentAnswers.push(StudentSehenComponent.answerInt.toString()); }
-        if (StudentSehenComponent.answerStr) { this.studentAnswers.push(StudentSehenComponent.answerStr.toString()); }
+        if (StudentSehenComponent.answerBool === false) { this.studentAnswers.push('false'); } else { this.studentAnswers.push('Keine'); }
+        // tslint:disable-next-line:max-line-length
+        if (StudentSehenComponent.answerInt) { this.studentAnswers.push(StudentSehenComponent.answerInt.toString()); } else { this.studentAnswers.push('Keine'); }
+        // tslint:disable-next-line:max-line-length
+        if (StudentSehenComponent.answerStr) { this.studentAnswers.push(StudentSehenComponent.answerStr.toString()); } else { this.studentAnswers.push('Keine'); }
         console.log(this.studentAnswers);
         }, error => {
 
