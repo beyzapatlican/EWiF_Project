@@ -190,8 +190,10 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit {
   }
 
   onNewSessionSelection() {
-    this.clearQuestionSelection();
+    this.prepareSessionService.clearQuestions();
+    this.onUpdate4();
     this.newSession = true;
+    this.title = '';
     this.prepareSessionService.sessions.push(new Session('Neu', 'new'));
     this.selectedSessionIndex = this.prepareSessionService.sessions.length - 1;
     this.saveClickedRow(0);
@@ -216,11 +218,12 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit {
   onSessionSelect() {
     if (this.newSession) {
       this.newSession = false;
-    } else {
-      const session = this.prepareSessionService.sessions[this.selectedSessionIndex];
-      this.getQuestions(session.sessionID);
-      this.title = session.name;
     }
+    this.saveClickedRow(-1);
+    const session = this.prepareSessionService.sessions[this.selectedSessionIndex];
+    this.getQuestions(session.sessionID);
+    this.title = session.name;
+
   }
 
   getQuestions(pin: string) {
