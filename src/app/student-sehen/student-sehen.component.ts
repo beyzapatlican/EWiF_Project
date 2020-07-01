@@ -24,6 +24,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   questionMC: MultipleChoice;
   questionTF: TrueFalse;
   questionFr: Free;
+  questions: any[] = [];
   questionType: string;
   questionNum = 0;
   pinOpen;
@@ -88,11 +89,13 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
               answer: '' + StudentSehenComponent.answerBool,
               questionNum: this.questionNum});
           }
+        // tslint:disable-next-line:triple-equals
           if (StudentSehenComponent.answerInt != undefined) {
             this.studentAnswers.push({
             answer: '' + StudentSehenComponent.answerInt,
             questionNum: this.questionNum});
           }
+        // tslint:disable-next-line:triple-equals
           if (StudentSehenComponent.answerStr != undefined) {
             this.studentAnswers.push({
               answer: StudentSehenComponent.answerStr.toString(),
@@ -137,6 +140,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionType = QuestionType.MULTIPLE_CHOICE.valueOf();
         this.questionNum = value.MultipleChoice.questionNum;
         this.question.push(value.MultipleChoice.question);
+        this.questions.push(value.MultipleChoice);
         this.clearAnswer(QuestionType.MULTIPLE_CHOICE);
 
       } else if (value.TrueFalse != null) {
@@ -144,6 +148,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionType = QuestionType.TRUE_FALSE.valueOf();
         this.questionNum = value.TrueFalse.questionNum;
         this.question.push(value.TrueFalse.question);
+        this.questions.push(value.TrueFalse);
         this.clearAnswer(QuestionType.TRUE_FALSE);
 
       } else if (value.Free != null) {
@@ -151,6 +156,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         this.questionType = QuestionType.FREE_TEXT.valueOf();
         this.questionNum = value.Free.questionNum;
         this.question.push(value.Free.question);
+        this.questions.push(value.Free);
         this.clearAnswer(QuestionType.FREE_TEXT);
       }
       this.control = true;
@@ -210,14 +216,17 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
 
   addMissingStudentAnswers() {
+    console.log(this.studentAnswers);
     for (let i = 0; i < this.deger.length; i++) {
       if (i >= this.studentAnswers.length) {
         this.studentAnswers.push({answer: '-', questionNum: i});
+        this.questions.push({solution: '-', questionNum: i});
         continue;
       }
 
       while (this.studentAnswers[i].questionNum !== i) {
         this.studentAnswers.push({answer: '-', questionNum: i});
+        this.questions.push({solution: '-', questionNum: i});
         i++;
       }
     }
@@ -230,6 +239,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         return 1;
       }
     });
+    console.log(this.studentAnswers);
   }
 
   done() {
@@ -241,5 +251,47 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   }
   goBack(): void {
     window.history.back();
+  }
+
+  getAnswer(questionIndex, ansIndex) {
+    console.log(questionIndex);
+    console.log(ansIndex);
+    ansIndex = parseInt(ansIndex, 10);
+    switch (ansIndex) {
+      case 0: {
+        if (this.questions[questionIndex].ans1 == null) {
+          return '-';
+        }
+        return this.questions[questionIndex].ans1;
+      }
+      case 1: {
+        if (this.questions[questionIndex].ans2 == null) {
+          return '-';
+        }
+        return this.questions[questionIndex].ans2;
+
+      }
+      case 2: {
+        if (this.questions[questionIndex].ans3 == null) {
+          return '-';
+        }
+        return this.questions[questionIndex].ans3;
+      }
+      case 3: {
+        if (this.questions[questionIndex].ans4 == null) {
+          return '-';
+        }
+        return this.questions[questionIndex].ans4;
+      }
+      case 4: {
+        if (this.questions[questionIndex].ans5 == null) {
+          return '-';
+        }
+        return this.questions[questionIndex].ans5;
+      }
+      default: {
+        return '-';
+      }
+    }
   }
 }

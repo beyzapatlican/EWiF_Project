@@ -36,7 +36,8 @@
               <h1 style="font-size: 25px; color: darkcyan"> <strong> True Answer: </strong> </h1>
             </header>
             <div *ngFor="let row of deger; let i = index">
-              <h1 style="font-size: 25px" *ngIf="deger[i]"> {{row}} </h1>
+              <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') == -1"> {{row}} </h1>
+              <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') != -1"> {{row.split('5142merve8579')[1]}} </h1>
             </div>
           </div>
 
@@ -45,7 +46,8 @@
               <h1 style="font-size: 25px; color: darkcyan"> <strong> Your answer: </strong> </h1>
             </header>
             <div *ngFor="let row of deger; let i = index">
-              <h1 style="font-size: 25px" *ngIf="studentAnswers[i]"> {{studentAnswers[i].answer}} </h1>
+              <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') == -1"> {{studentAnswers[i].answer}} </h1>
+              <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') != -1"> {{getAnswer(i, studentAnswers[i].answer)}} </h1>
             </div>
           </div>
 
