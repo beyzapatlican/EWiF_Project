@@ -107,7 +107,11 @@
 
         <div *ngIf="selectedSessionIndex == undefined ||
              !(selectedSessionIndex > -1 && selectedSessionIndex < this.prepareSessionService.sessions.length)">
-          <h2> Bitte wählen Sie einen Fragensatz</h2>
+          <br>
+          <br>
+          <h2> Bitte wählen Sie einen Fragensatz zu Bearbeiten oder oder erstellen Sie ein neues Fragensatz </h2>
+          <br>
+          <br>
         </div>
 
         <div *ngIf="selectedRowNumber == undefined || selectedRowNumber == -1 &&
@@ -121,8 +125,6 @@
         </button>
 
       </div>
-
-
 
     </div>
   </div>
