@@ -3,7 +3,7 @@
     <div class="row" #mainCard id="mainCard">
 <!--      <div id="sessionAndQuestionPickerCol" class="col-2" *ngIf="!mobileChecker.isMobile">-->
       <div id="sessionAndQuestionPickerCol" class="col-2">
-        <button class="btn btn-info" id="newSession" (click)="onNewSessionSelection()">Neuer Fragensatz</button>
+        <button class="btn btn-primary btn-sm btn-block" id="newSession" (click)="onNewSessionSelection()">Neuer Fragensatz</button>
         <ng-select #sessionPicker id="sessionPicker"
                    [bindValue]="selectedSessionIndex"
                    (change)="onSessionSelect()"
@@ -33,6 +33,9 @@
               <td>Neue Frage</td>
             </tr>
           </table>
+          <button id="save" class="btn btn-primary btn-sm btn-block" (click)="saveSession(); refresh()"
+                  [disabled]="!title">Save Sitzung
+          </button>
         </perfect-scrollbar>
       </div>
 
@@ -120,9 +123,9 @@
           <h2> Bitte Wählen Sie eine Frage </h2>
         </div>
 
-        <button id="save" class="btn btn-primary btn-lg btn-block" (click)="saveSession(); refresh()"
-                [disabled]="!title">Save Sitzung
-        </button>
+        <br>
+
+
 
       </div>
 

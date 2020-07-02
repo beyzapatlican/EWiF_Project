@@ -1,23 +1,14 @@
 <div >
-  <label *ngIf=" (select1Params.length > 0 && select2Params.length > 0  )" >
-    <select id="dropdown" class="browser-default custom-select custom-select-lg mb-3" (change)="onSelect($event)" *ngIf="selectedType == 1">
-      <option selected>Wählen Sie bitte Vorlesung</option>
-      <option *ngFor="let lecture of select1Params" [value]="lecture.name + ' ' + lecture.pin">{{lecture.name}}</option>
-    </select>
+  <label *ngIf=" (select2Params.length > 0  )" >
     <select id="dropdown2" class="browser-default custom-select custom-select-lg mb-3" (change)="onSelect($event)" *ngIf="selectedType == 2">
       <option selected>Wählen Sie bitte Sitzung</option>
       <option *ngFor="let openSession of select2Params" [value]="openSession.name + ' ' + openSession.pin">{{openSession.name}}: {{openSession.pin}}</option>
     </select>
   </label>
 
-  <div  *ngIf=" (select1Params.length === 0)" id="feedback" >
-    <h3>Sie haben <em style="color: rgb(133,0,61);">kein</em> Feedback</h3>
-    <h3>Teilen Sie ihre Pin für deine Session oder Vorlesung, um Feedback erhälten zu können</h3>
-  </div>
-
   <div  *ngIf=" (select2Params.length === 0)" id="feedback1" >
     <h3>Sie haben <em style="color: rgb(133,0,61);">kein</em> Feedback</h3>
-    <h3>Teilen Sie ihre Pin für deine Session oder Vorlesung, um Feedback erhälten zu können</h3>
+    <h3>Teilen Sie ihre Pin für deine Session, um Feedback erhälten zu können</h3>
   </div>
 
 
@@ -33,11 +24,8 @@
         <p>{{average}} / 2</p>
       </div>
 
-
       <p></p>
     </div>
-
-
   </div>
 </div>
 
