@@ -11,6 +11,7 @@ import {ReadFeedbackComponent} from '../readfeedback/read-feedback.component';
   styleUrls: ['./average-feedback.component.css']
 })
 export class AverageFeedbackComponent implements OnInit, OnDestroy {
+  show: string[] = [];
 
   public select1Params: {
     name: string

@@ -75,8 +75,6 @@
 
         <button class="btn btn-primary btn-lg btn-block" id="btn1" type="submit" (click)="change=false"(click)="skipRequest()" (click)="getAnswerRequest()">Nächste Frage</button>
         <br>
-        <button class="btn btn-primary btn-lg btn-block" id="btn2" type="submit" (click)="change=true" (click)="getAnswersRequest()" >Zeige Studenten Antwort</button>
-        <br>
         <button class="btn btn-primary btn-lg btn-block" id="btn3" type="submit" (click)="change=true" (click)="getAnswerRequest()" >Zeige Antwort</button>
         <br>
         <button class="btn btn-primary btn-lg btn-block" id="btn4" type="submit" (click)="endSessionRequest()" (click)="onEnd()" >Beenden</button>
@@ -109,13 +107,16 @@
             <h1 style="font-size: 25px"> <b>Frage:</b> {{q}} </h1>
           </div>
         </div>
+
         <div class="col-md-6">
           <div *ngFor="let row of deger; let i = index">
-            <h1 style="font-size: 25px" *ngIf="deger[i]"> {{row}} </h1>
+            <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') == -1">  {{row}} </h1>
+            <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') != -1">  {{row.split('5142merve8579')[1]}} </h1>
           </div>
         </div>
 
       </div>
+
 
     </div>
   </div>
