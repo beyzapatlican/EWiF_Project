@@ -1,36 +1,3 @@
-<!--<hr>-->
-<!--<body>-->
-<!--<div class="bg">-->
-<!--  <div class="container container-fluid">-->
-
-<!--    <div class="column" id="sessionManagement">-->
-<!--      <h3 style="font-size: 50px">Fragen</h3>-->
-<!--      <div *ngFor="let q of question.split('\n')">-->
-<!--        <h1 style="font-size: 50px"> {{q}}</h1>-->
-<!--        <hr style="border-color:dimgray; " >-->
-<!--      </div>-->
-<!--      <p>-->
-<!--        {{correctAnswer}}-->
-<!--      </p>-->
-
-<!--    </div>-->
-<!--    &lt;!&ndash; END .colum 1 &ndash;&gt;-->
-
-<!--    <div id="antworten" class="column">-->
-
-<!--      <h1 style="font-size: 50px">Anzahl der Teilnehmer: {{userCount}}</h1>-->
-
-<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="skipRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Nächste Frage</button>-->
-<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswersRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Studenten Antwort</button>-->
-<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="getAnswerRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Zeige Antwort</button>-->
-<!--      <button class="btn btn-info my-4 btn-block" type="submit" (click)="endSessionRequest()" style="background: rgb(133,0,61); border-color: rgb(133,0,61)">Beenden</button>-->
-<!--    </div>-->
-<!--    &lt;!&ndash; END .colum 2&ndash;&gt;-->
-<!--  </div>-->
-<!--  </div>-->
-<!--  &lt;!&ndash; END .row &ndash;&gt;-->
-<!--</body>-->
-
 <div class="bg">
   <div class="container" *ngIf="!end">
     <div class="row" id="sessionM" style="position: center; margin-top: 15vh; margin-bottom: 15vh">
