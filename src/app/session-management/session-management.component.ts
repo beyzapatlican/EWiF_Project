@@ -34,7 +34,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   denemeee: string[] = [];
   denemeeee: string[] = [];
   deger: string[] = [];
-
+  satir: string[] = [];
 
   constructor( private sessionService: OpenSessionService, public studentOpenSessionService: StudentOpenSessionService) { }
 
@@ -94,6 +94,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   }
 
   endSessionRequest() {
+    this.a();
     this.getResults();
     this.endSession();
   }
@@ -112,7 +113,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.denemee.push(question.MultipleChoice.ans2);
       this.denemeee.push(question.MultipleChoice.ans3);
       this.denemeeee.push(question.MultipleChoice.ans4);
-      this.everyQuestion.push(question.MultipleChoice.question);
+      this.everyQuestion.push(question.MultipleChoice.question + '\n');
 
 
     } else if (question.TrueFalse != null) {
@@ -120,12 +121,12 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += 'True\n' + 'B)';
       this.question += 'False\n';
       this.allQuestions.push(question);
-      this.everyQuestion.push(question.TrueFalse.question);
+      this.everyQuestion.push(question.TrueFalse.question + '\n');
 
     } else if (question.Free != null) {
       this.question = question.Free.question;
       this.allQuestions.push(question);
-      this.everyQuestion.push(question.Free.question);
+      this.everyQuestion.push(question.Free.question + '\n');
 
     } else {
       console.log('Keine Frage');
@@ -185,7 +186,15 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   getResults() {
     this.sessionService.getAllAnswers(this.pinOpen).subscribe(value => {
       this.deger = value.answers;
+      this.a();
       console.log(this.deger);
     }, error => console.log('error'));
+  }
+
+  a() {
+    for (let i = 0; i < this.deger.length; i++) {
+      this.satir.push(this.question[i], this.deger[i] + '\n');
+      console.log('yass');
+    }
   }
 }

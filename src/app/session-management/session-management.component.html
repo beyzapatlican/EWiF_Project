@@ -142,13 +142,19 @@
             <h1 style="font-size: 25px"> <b>Frage:</b> {{q}} </h1>
           </div>
         </div>
+
         <div class="col-md-6">
-          <div *ngFor="let row of deger; let i = index">
-            <h1 style="font-size: 25px" *ngIf="deger[i]"> {{row}} </h1>
+          <div *ngFor="let q of everyQuestion">
+            <h1 style="font-size: 25px"> <b>Frage:</b> {{q}} </h1>
+          </div>
+          <div *ngFor="let row of deger; let i = index; let q of everyQuestion">
+            <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') == -1"> {{q}} {{row}} </h1>
+            <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') != -1"> {{q}} {{row.split('5142merve8579')[1]}} </h1>
           </div>
         </div>
 
       </div>
+
 
     </div>
   </div>

@@ -20,6 +20,7 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
   static answerBool: boolean;
   static answerStr: string;
   static answerInt: number;
+  satir: {question: string, deger: string, studentAnswers: string}[] = [];
   studentAnswers: { answer: string, questionNum: number }[] = [];
   questionMC: MultipleChoice;
   questionTF: TrueFalse;
@@ -294,4 +295,5 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
       }
     }
   }
+
 }
