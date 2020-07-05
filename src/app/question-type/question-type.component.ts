@@ -1,7 +1,4 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {TrueFalse} from '../../models/question-types/true-false.model';
-import {Free} from '../../models/question-types/free.model';
-import {MultipleChoice} from '../../models/question-types/multiple-choice.model';
 import {PrepareSessionService} from '../../services/prepare-session.service';
 import {MobileChecker} from '../../services/mobile-checker.service';
 import {Session} from '../../models/session';
@@ -16,12 +13,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 
 export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
-  static questionsTF = new Array<TrueFalse>();
-  static questionsFree = new Array<Free>();
-  static questionsMC = new Array<MultipleChoice>();
 
   @ViewChild('newQuestion') questionType: ElementRef;
-  private newSession: boolean;
 
   selectedTF = false;
   selectedMC = false;
@@ -29,8 +22,7 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   selectedNew = true;
 
   title: string;
-  selectedRowNumber = -1;
-  selectedSessionIndex: any;
+
   sessionPickerOptions: Array<string> = [];
 
   questionTypeInited = false;
@@ -39,15 +31,11 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(public prepareSessionService: PrepareSessionService, public mobileChecker: MobileChecker,
               protected renderer: Renderer2) {
     this.prepareSessionService = prepareSessionService;
-    this.reset();
   }
 
 
-
   ngOnInit(): void {
-    QuestionTypeComponent.questionsTF = new Array<TrueFalse>();
-    QuestionTypeComponent.questionsFree = new Array<Free>();
-    QuestionTypeComponent.questionsMC = new Array<MultipleChoice>();
+    this.reset();
     this.getSessions();
   }
 
@@ -60,11 +48,23 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   reset() {
+    this.selectedTF = false;
+    this.selectedMC = false;
+    this.selectedFree = false;
+    this.selectedNew = false;
+    this.title = undefined;
+    this.sessionPickerOptions = [];
+    this.questionTypeInited = false;
     this.prepareSessionService.sessions = [];
     this.prepareSessionService.questionsTF = [];
     this.prepareSessionService.questionsMC = [];
     this.prepareSessionService.questionsFree = [];
     this.prepareSessionService.questionStrings = [];
+    this.prepareSessionService.questionFormGroup = undefined;
+    this.prepareSessionService.editQuestion = false;
+    this.prepareSessionService.newSession = false;
+    this.prepareSessionService.selectedRowNumber = -1;
+    this.prepareSessionService.selectedSessionIndex = undefined;
     this.prepareSessionService.questionFormGroup = undefined;
   }
 
@@ -147,7 +147,11 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   saveClickedRow(i: number) {
-    this.selectedRowNumber = i;
+    this.prepareSessionService.selectedRowNumber = i;
+    this.prepareSessionService.editQuestion = i < this.prepareSessionService.questionsMC.length +
+      this.prepareSessionService.questionsTF.length +
+      this.prepareSessionService.questionsFree.length
+      && i >= 0;
   }
 
 
@@ -200,24 +204,17 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   clearQuestionSelection() {
-    this.selectedRowNumber = -1;
+    this.saveClickedRow(-1);
   }
 
   onNewSessionSelection() {
     this.prepareSessionService.clearQuestions();
     this.onUpdate4();
-    this.newSession = true;
+    this.prepareSessionService.newSession = true;
     this.title = '';
     this.prepareSessionService.sessions.push(new Session('Neu', 'new'));
-    this.selectedSessionIndex = this.prepareSessionService.sessions.length - 1;
+    this.prepareSessionService.selectedSessionIndex = this.prepareSessionService.sessions.length - 1;
     this.saveClickedRow(0);
-  }
-
-  clearSessionSelection() {
-    this.selectedSessionIndex = undefined;
-    this.prepareSessionService.questionsMC = [];
-    this.prepareSessionService.questionsTF = [];
-    this.prepareSessionService.questionsFree = [];
   }
 
   getSessions() {
@@ -230,14 +227,14 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onSessionSelect() {
-    if (this.newSession) {
-      this.newSession = false;
+    if (this.prepareSessionService.newSession) {
+      this.prepareSessionService.newSession = false;
+      this.prepareSessionService.sessions = this.prepareSessionService.sessions.filter(session => session.sessionID !== 'new');
     }
     this.saveClickedRow(-1);
-    const session = this.prepareSessionService.sessions[this.selectedSessionIndex];
+    const session = this.prepareSessionService.sessions[this.prepareSessionService.selectedSessionIndex];
     this.getQuestions(session.sessionID);
     this.title = session.name;
-
   }
 
   getQuestions(pin: string) {
@@ -246,21 +243,57 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
       if (questions.Free != null) {
         this.prepareSessionService.questionsFree = questions.Free;
         this.prepareSessionService.questionsFree.forEach(question => this.prepareSessionService.questionStrings.push({
-            questionNum: question.questionNum, questionString: question.question
-          }));
+          questionNum: question.questionNum, questionString: question.question
+        }));
       }
       if (questions.MultipleChoice != null) {
         this.prepareSessionService.questionsMC = questions.MultipleChoice;
         this.prepareSessionService.questionsMC.forEach(question => this.prepareSessionService.questionStrings.push({
-            questionNum: question.questionNum, questionString: question.question
-          }));
+          questionNum: question.questionNum, questionString: question.question
+        }));
       }
       if (questions.TrueFalse != null) {
         this.prepareSessionService.questionsTF = questions.TrueFalse;
         this.prepareSessionService.questionsTF.forEach(question => this.prepareSessionService.questionStrings.push({
-            questionNum: question.questionNum, questionString: question.question
-          }));
+          questionNum: question.questionNum, questionString: question.question
+        }));
       }
+      questions.TrueFalse.sort((q1, q2) => {
+        if (q1.questionNum > q2.questionNum) {
+          return 1;
+        } else if (q1.questionNum === q2.questionNum) {
+          return 0;
+        } else {
+          return -1;
+        }
+      });
+      questions.Free.sort((q1, q2) => {
+        if (q1.questionNum > q2.questionNum) {
+          return 1;
+        } else if (q1.questionNum === q2.questionNum) {
+          return 0;
+        } else {
+          return -1;
+        }
+      });
+      questions.MultipleChoice.sort((q1, q2) => {
+        if (q1.questionNum > q2.questionNum) {
+          return 1;
+        } else if (q1.questionNum === q2.questionNum) {
+          return 0;
+        } else {
+          return -1;
+        }
+      });
+      this.prepareSessionService.questionStrings.sort((q1, q2) => {
+        if (q1.questionNum > q2.questionNum) {
+          return 1;
+        } else if (q1.questionNum === q2.questionNum) {
+          return 0;
+        } else {
+          return -1;
+        }
+      });
     });
   }
 
@@ -270,7 +303,16 @@ export class QuestionTypeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.prepareSessionService.questionsFree,
       this.prepareSessionService.questionsMC,
       this.title);
-    this.prepareSessionService.sendRequest(request);
+
+    this.prepareSessionService.sendRequest(request).subscribe(response => {
+      if (!this.prepareSessionService.newSession) {
+        this.prepareSessionService.postDeleteSession(this.prepareSessionService.sessions[this.prepareSessionService.selectedSessionIndex].sessionID).subscribe(value => {
+          this.refresh();
+        }, error => 'look idc anymore');
+      } else {
+        this.refresh();
+      }
+    });
   }
 
   refresh(): void {

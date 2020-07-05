@@ -19,6 +19,7 @@ import {AllOpenSessionsResponse} from '../models/responses/all-open-sessions-res
 import {CheckNickRequestModel} from '../models/requests/checkNick-request.model';
 import {CheckNickResponseModel} from '../models/responses/checkNick-response.model';
 import {AllAnswersResponseModel} from '../models/responses/all-answers-response.model';
+import {PrepareSessionService} from './prepare-session.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,8 @@ import {AllAnswersResponseModel} from '../models/responses/all-answers-response.
 export class OpenSessionService {
   constructor(private http: HttpClient,
               private urlService: UrlService,
-              private router: Router) {
+              private router: Router,
+              private prepareSessionService: PrepareSessionService) {
   }
 
   baslama(nick: string, pinOpen: string) {
@@ -43,8 +45,7 @@ export class OpenSessionService {
   }
 
   delete(pin: string) {
-    const request = new DeleteSessionRequest(pin);
-    return this.http.request<DeleteSessionResponse>('delete', `${this.urlService.getURL()}/teacher/session`, {body: request});
+    return this.prepareSessionService.postDeleteSession(pin);
   }
 
   userCount(pinOpen: string) {

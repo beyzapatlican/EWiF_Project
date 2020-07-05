@@ -11,6 +11,9 @@ import {AllQuestionsResponse} from '../models/responses/all-questions-response.m
 import {Session} from '../models/session';
 import {FormControl, FormGroup} from '@angular/forms';
 import {QuestionType} from '../models/question-types/question-type.enum';
+import {UrlService} from './url.service';
+import {DeleteSessionRequest} from '../models/requests/deleteSessionRequest.model';
+import {DeleteSessionResponse} from '../models/responses/deleteSessionResponse.model';
 
 
 @Injectable({
@@ -18,13 +21,19 @@ import {QuestionType} from '../models/question-types/question-type.enum';
 })
 export class PrepareSessionService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private urlService: UrlService) {}
 
   sessions: Array<Session> = [];
   questionsTF: Array<TrueFalse> = [];
   questionsFree: Array<Free> = [];
   questionsMC: Array<MultipleChoice> = [];
   questionStrings: {questionNum: number, questionString: string}[] = [];
+  editQuestion = false;
+  newSession = false;
+
+
+  selectedRowNumber = -1;
+  selectedSessionIndex: any;
 
   questionFormGroup: FormGroup;
 
@@ -56,6 +65,16 @@ export class PrepareSessionService {
     }
   }
 
+  getQuestionNum(): number {
+    if (this.selectedRowNumber >= this.questionsTF.length +
+      this.questionsFree.length +
+      this.questionsMC.length || !this.editQuestion) {
+      return this.getNextQuestionNum();
+    } else {
+        return this.selectedRowNumber;
+    }
+  }
+
 
   getNextQuestionNum(): number {
     const questionCount = this.questionsTF.length +
@@ -78,23 +97,44 @@ export class PrepareSessionService {
     return questionNum;
   }
 
+  editQuestionInArray(question, array, questionNum) {
+    question.questionNum = questionNum;
+    const index = array.findIndex( value => value.questionNum === this.questionStrings[this.selectedRowNumber].questionNum);
+    array[index] = question;
+    this.questionStrings[this.selectedRowNumber].questionString = question.question;
+  }
+
+  postDeleteSession(pin: string) {
+    const request = new DeleteSessionRequest(pin);
+    return this.http.request<DeleteSessionResponse>('delete', `${this.urlService.getURL()}/teacher/session`, {body: request});
+  }
+
   saveQuestion(questionTF?: TrueFalse, questionFree?: Free, questionMC?: MultipleChoice) {
-    const questionNum = this.getNextQuestionNum();
+    const questionNum = this.getQuestionNum();
+    if (this.editQuestion) {
+      if (questionTF !== undefined) {
+        this.editQuestionInArray(questionTF, this.questionsTF, questionNum);
+      } else if (questionFree !== undefined) {
+        this.editQuestionInArray(questionFree, this.questionsFree, questionNum);
+      } else if (questionMC !== undefined) {
+        this.editQuestionInArray(questionMC, this.questionsMC, questionNum);
+      }
+    } else {
+      if (questionTF !== undefined) {
+        questionTF.questionNum = questionNum;
+        this.questionsTF.push(questionTF);
+        this.questionStrings.push({questionNum, questionString: questionTF.question});
 
-    if (questionTF !== undefined) {
-      questionTF.questionNum = questionNum;
-      this.questionsTF.push(questionTF);
-      this.questionStrings.push({questionNum, questionString: questionTF.question});
+      } else if (questionFree !== undefined) {
+        questionFree.questionNum = questionNum;
+        this.questionsFree.push(questionFree);
+        this.questionStrings.push({questionNum, questionString: questionFree.question});
 
-    } else if (questionFree !== undefined) {
-      questionFree.questionNum = questionNum;
-      this.questionsFree.push(questionFree);
-      this.questionStrings.push({questionNum, questionString: questionFree.question});
-
-    } else if (questionMC !== undefined) {
-      questionMC.questionNum = questionNum;
-      this.questionsMC.push(questionMC);
-      this.questionStrings.push({questionNum, questionString: questionMC.question});
+      } else if (questionMC !== undefined) {
+        questionMC.questionNum = questionNum;
+        this.questionsMC.push(questionMC);
+        this.questionStrings.push({questionNum, questionString: questionMC.question});
+      }
     }
   }
 
@@ -109,9 +149,7 @@ export class PrepareSessionService {
   sendRequest(requestBody: PrepareSessionRequest) {
     const body = requestBody;
     const url = this.getUrl() + '/teacher/prepareSession';
-    this.http.post(url, body).subscribe(resp => {
-      console.log(resp);
-    });
+    return this.http.post(url, body);
   }
 
   prepareRequest(questionsTF: Array<TrueFalse>,

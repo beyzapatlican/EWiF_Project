@@ -27,7 +27,6 @@ export class MultiplechoiceComponent implements OnInit {
                 this.prepareSessionService.questionFormGroup.get('ans4').value,
                 this.prepareSessionService.questionFormGroup.get('ans5').value
         );
-        console.log(question);
         this.prepareSessionService.saveQuestion(undefined, undefined, question);
         this.resetForm(this.prepareSessionService.questionFormGroup);
     }

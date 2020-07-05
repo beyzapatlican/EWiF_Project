@@ -5,9 +5,9 @@
       <div id="sessionAndQuestionPickerCol" class="col-2">
         <button class="btn btn-primary btn-sm btn-block" id="newSession" (click)="onNewSessionSelection()">Neuer Fragensatz</button>
         <ng-select #sessionPicker id="sessionPicker"
-                   [bindValue]="selectedSessionIndex"
+                   [bindValue]="prepareSessionService.selectedSessionIndex"
                    (change)="onSessionSelect()"
-                   [(ngModel)]="selectedSessionIndex"
+                   [(ngModel)]="prepareSessionService.selectedSessionIndex"
                    [clearable]="false">
 
           <ng-option *ngFor="let item of prepareSessionService.sessions; let index = index"
@@ -18,22 +18,22 @@
             <tr class="hoverable" style="width: 100%"
                 *ngFor="let question of prepareSessionService.questionStrings; let i = index"
                 (click)="onQuestionSelect(i)"
-                [class.active]="i == selectedRowNumber">
+                [class.active]="i == prepareSessionService.selectedRowNumber">
 
               <td>{{question.questionString}}</td>
             </tr>
             <tr class="hoverable" style="width: 100%"
-                *ngIf="selectedSessionIndex >= 0"
+                *ngIf="prepareSessionService.selectedSessionIndex >= 0"
                 (click)="onQuestionSelect(prepareSessionService.questionsMC.length +
                 prepareSessionService.questionsTF.length +
                 prepareSessionService.questionsFree.length)"
-                [class.active]="selectedRowNumber == prepareSessionService.questionsMC.length +
+                [class.active]="prepareSessionService.selectedRowNumber == prepareSessionService.questionsMC.length +
                 prepareSessionService.questionsTF.length +
                 prepareSessionService.questionsFree.length">
               <td>Neue Frage</td>
             </tr>
           </table>
-          <button id="save" class="btn btn-primary btn-sm btn-block" (click)="saveSession(); refresh()"
+          <button id="save" class="btn btn-primary btn-sm btn-block" (click)="saveSession()"
                   [disabled]="!title">Save Sitzung
           </button>
         </perfect-scrollbar>
@@ -46,8 +46,8 @@
         <h3 style="font-size: 50px">Fragensatz Vorbereiten</h3>
 
         <hr style="border-color: dimgray">
-        <div id="titleDiv" *ngIf="!(selectedSessionIndex == undefined ||
-             !(selectedSessionIndex > -1 && selectedSessionIndex < this.prepareSessionService.sessions.length))">
+        <div id="titleDiv" *ngIf="!(prepareSessionService.selectedSessionIndex == undefined ||
+             !(prepareSessionService.selectedSessionIndex > -1 && prepareSessionService.selectedSessionIndex < this.prepareSessionService.sessions.length))">
 
           <h5 *ngIf="title == undefined || title == ''"> Bitte geben Sie die Title ein</h5>
           <h5 *ngIf="title != undefined && title != ''"> Title </h5>
@@ -61,7 +61,7 @@
           <button class="btn btn-info my-3" id="back" (click)="onUpdate4()"> <</button>
         </div>
 
-        <div *ngIf="selectedRowNumber == prepareSessionService.questionsMC.length +
+        <div *ngIf="prepareSessionService.selectedRowNumber == prepareSessionService.questionsMC.length +
                 prepareSessionService.questionsTF.length +
                 prepareSessionService.questionsFree.length">
           <div id="type">
@@ -94,9 +94,9 @@
           </div>
         </div>
 
-        <div *ngIf="selectedRowNumber < prepareSessionService.questionsMC.length +
+        <div *ngIf="prepareSessionService.selectedRowNumber < prepareSessionService.questionsMC.length +
                 prepareSessionService.questionsTF.length +
-                prepareSessionService.questionsFree.length && selectedRowNumber >= 0">
+                prepareSessionService.questionsFree.length && prepareSessionService.selectedRowNumber >= 0">
           <div *ngIf="selectedTF">
             <app-truefalse></app-truefalse>
           </div>
@@ -108,8 +108,8 @@
           </div>
         </div>
 
-        <div *ngIf="selectedSessionIndex == undefined ||
-             !(selectedSessionIndex > -1 && selectedSessionIndex < this.prepareSessionService.sessions.length)">
+        <div *ngIf="prepareSessionService.selectedSessionIndex == undefined ||
+             !(prepareSessionService.selectedSessionIndex > -1 && prepareSessionService.selectedSessionIndex < this.prepareSessionService.sessions.length)">
           <br>
           <br>
           <h2> Bitte wählen Sie einen Fragensatz zu Bearbeiten oder oder erstellen Sie ein neues Fragensatz </h2>
@@ -117,9 +117,9 @@
           <br>
         </div>
 
-        <div *ngIf="selectedRowNumber == undefined || selectedRowNumber == -1 &&
-        !(selectedSessionIndex == undefined ||
-             !(selectedSessionIndex > -1 && selectedSessionIndex < this.prepareSessionService.sessions.length))">
+        <div *ngIf="prepareSessionService.selectedRowNumber == undefined || prepareSessionService.selectedRowNumber == -1 &&
+        !(prepareSessionService.selectedSessionIndex == undefined ||
+             !(prepareSessionService.selectedSessionIndex > -1 && prepareSessionService.selectedSessionIndex < this.prepareSessionService.sessions.length))">
           <h2> Bitte Wählen Sie eine Frage </h2>
         </div>
 
