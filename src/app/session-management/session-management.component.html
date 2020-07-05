@@ -103,12 +103,16 @@
         <hr style="border-color:dimgray; " >
 
         <div class="col-md-6">
+          <header>
+            <h1 style="font-size: 25px; color: darkcyan"> <strong> Frage: </strong> </h1>
+          </header>
           <div *ngFor="let q of everyQuestion">
-            <h1 style="font-size: 25px"> <b>Frage:</b> {{q}} </h1>
+            <h1 style="font-size: 25px">  {{q}} </h1>
           </div>
         </div>
 
         <div class="col-md-6">
+          <h1 style="font-size: 25px; color: darkcyan"> <strong> Answer: </strong> </h1>
           <div *ngFor="let row of deger; let i = index">
             <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') == -1">  {{row}} </h1>
             <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') != -1">  {{row.split('5142merve8579')[1]}} </h1>
