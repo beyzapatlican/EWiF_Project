@@ -90,7 +90,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   getAnswerRequest() {
     this.sessionService.getAnswer(this.pinOpen).subscribe(value => {
-      this.resetAnswer();
       this.showAnswer(value.answer);
     });
   }
@@ -99,14 +98,6 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.a();
     this.getResults();
     this.endSession();
-  }
-
-  private resetAnswer() {
-    this.deneme = null;
-    this.denemee = null;
-    this.denemeee = null;
-    this.denemeeee = null;
-    this.denemeeeee = null;
   }
 
   private showQuestion(question: GetQuestionResponse) {
