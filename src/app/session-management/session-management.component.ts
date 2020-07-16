@@ -107,7 +107,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += question.MultipleChoice.ans1 + '\n' + 'B)';
       this.question += question.MultipleChoice.ans2 + '\n' + 'C)';
       this.question += question.MultipleChoice.ans3 + '\n' + 'D)';
-      this.question += question.MultipleChoice.ans4 + '\n';
+      this.question += question.MultipleChoice.ans4 + '\n' + 'E)';
       this.question += question.MultipleChoice.ans5 + '\n';
       this.allQuestions.push(question);
       this.deneme.push(question.MultipleChoice.ans1);
