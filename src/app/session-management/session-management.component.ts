@@ -120,8 +120,8 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
     } else if (question.TrueFalse != null) {
       this.question = question.TrueFalse.question + '\n' + 'A)';
-      this.question += 'True\n' + 'B)';
-      this.question += 'False\n';
+      this.question += 'Richtig\n' + 'B)';
+      this.question += 'Falsch\n';
       this.allQuestions.push(question);
       this.everyQuestion.push(question.TrueFalse.question + '\n');
 
