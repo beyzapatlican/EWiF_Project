@@ -29,11 +29,11 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   end: boolean; true;
   trueAnswers: string[] = [];
   sessionEndet = false;
-  deneme: string[] = [];
-  denemee: string[] = [];
-  denemeee: string[] = [];
-  denemeeee: string[] = [];
-  denemeeeee: string[] = [];
+  deneme: string;
+  denemee: string;
+  denemeee: string;
+  denemeeee: string;
+  denemeeeee: string;
   deger: string[] = [];
   satir: string[] = [];
 
@@ -90,6 +90,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
 
   getAnswerRequest() {
     this.sessionService.getAnswer(this.pinOpen).subscribe(value => {
+      this.resetAnswer();
       this.showAnswer(value.answer);
     });
   }
@@ -100,6 +101,13 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
     this.endSession();
   }
 
+  private resetAnswer() {
+    this.deneme = null;
+    this.denemee = null;
+    this.denemeee = null;
+    this.denemeeee = null;
+    this.denemeeeee = null;
+  }
 
   private showQuestion(question: GetQuestionResponse) {
     if (question.MultipleChoice != null) {
@@ -110,11 +118,11 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.question += question.MultipleChoice.ans4 + '\n' + 'E)';
       this.question += question.MultipleChoice.ans5 + '\n';
       this.allQuestions.push(question);
-      this.deneme.push(question.MultipleChoice.ans1);
-      this.denemee.push(question.MultipleChoice.ans2);
-      this.denemeee.push(question.MultipleChoice.ans3);
-      this.denemeeee.push(question.MultipleChoice.ans4);
-      this.denemeeeee.push(question.MultipleChoice.ans5);
+      this.deneme = (question.MultipleChoice.ans1);
+      this.denemee = (question.MultipleChoice.ans2);
+      this.denemeee = (question.MultipleChoice.ans3);
+      this.denemeeee = (question.MultipleChoice.ans4);
+      this.denemeeeee = (question.MultipleChoice.ans5);
       this.everyQuestion.push(question.MultipleChoice.question + '\n');
 
 
