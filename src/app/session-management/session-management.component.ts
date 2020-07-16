@@ -33,6 +33,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
   denemee: string[] = [];
   denemeee: string[] = [];
   denemeeee: string[] = [];
+  denemeeeee: string[] = [];
   deger: string[] = [];
   satir: string[] = [];
 
@@ -113,6 +114,7 @@ export class SessionManagementComponent implements OnInit, OnDestroy {
       this.denemee.push(question.MultipleChoice.ans2);
       this.denemeee.push(question.MultipleChoice.ans3);
       this.denemeeee.push(question.MultipleChoice.ans4);
+      this.denemeeeee.push(question.MultipleChoice.ans5);
       this.everyQuestion.push(question.MultipleChoice.question + '\n');
 
 
