@@ -15,7 +15,6 @@ export class TokenGuard implements CanActivate {
   canActivate(): boolean {
     if (!this.tokenService.isLoggedIn()) {
       this.router.navigate(['/signIn']);
-      return false;
     }
     return true;
   }

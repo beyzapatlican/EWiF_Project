@@ -7,17 +7,14 @@ import {TokenService} from '../services/token.service';
   providedIn: 'root'
 })
 export class RouterGuard implements CanActivate {
-  role: string;
-  constructor(public tokenService: TokenService, public router: Router) {
-    this.role = this.tokenService.getRole();
+  constructor(public tokenService: TokenService, public router: Router) {}
 
-  }
   canActivate(): boolean {
     if (this.tokenService.isLoggedIn()) {
-      if (this.role === 'TEACHER') {
+      if (this.tokenService.getRole() === 'TEACHER') {
         this.router.navigate(['/teacher']);
       }
-      if (this.role === 'STUDENT') {
+      if (this.tokenService.getRole() === 'STUDENT') {
         this.router.navigate(['/student']);
       }
     }

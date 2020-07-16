@@ -63,15 +63,18 @@ const routes: Routes = [
   },
   {
     path: 'student',
-    component: StudentComponent
+    component: StudentComponent,
+    canActivate: [TokenGuard]
   },
   {
     path: 'session-management',
-    component: SessionManagementComponent
+    component: SessionManagementComponent,
+    canActivate: [TokenGuard]
   },
   {
     path: 'teacher/available-sessions',
-    component: AvailableSessionsComponent
+    component: AvailableSessionsComponent,
+    canActivate: [TokenGuard]
   },
   {
     path: 'student/give-feedback',
@@ -95,16 +98,19 @@ const routes: Routes = [
   },
   {
     path: 'teacher/question-type',
-    component: QuestionTypeComponent
+    component: QuestionTypeComponent,
+    canActivate: [TokenGuard]
   },
   {
     path: 'multiplechoice',
-    component: MultiplechoiceComponent
+    component: MultiplechoiceComponent,
+    canActivate: [TokenGuard]
   },
 
   {
     path: 'truefalse',
-    component: TruefalseComponent
+    component: TruefalseComponent,
+    canActivate: [TokenGuard]
   },
   {
     path: 'resetPassword',
