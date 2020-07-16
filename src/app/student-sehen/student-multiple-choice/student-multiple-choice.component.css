@@ -2,6 +2,7 @@
   border-color: rgb(133,0,61);
   background-color: transparent;
   color: black;
+  word-break-wrap: display;
 }
 #btn1:focus, #btn2:focus, #btn3:focus, #btn4:focus, #btn5:focus{
   background-color: rgb(133,0,61);

@@ -39,12 +39,12 @@
 
         <div *ngIf="change == true">
           <h3 style="font-size: 30px; color: green">
-            <b *ngIf="correctAnswer=='true'">A)True</b> <b *ngIf="correctAnswer=='false'">B)False</b>
+            <b *ngIf="correctAnswer=='true'">A)Richtig</b> <b *ngIf="correctAnswer=='false'">B)Falsch</b>
             <b *ngIf="correctAnswer== '0'"> A){{deneme}} </b>
             <b *ngIf="correctAnswer== '1'"> B){{denemee}} </b>
             <b *ngIf="correctAnswer== '2'"> C){{denemeee}}</b>
             <b *ngIf="correctAnswer== '3'"> D){{denemeeee}} </b>
-            <b *ngIf="correctAnswer== '4'"> E </b>
+            <b *ngIf="correctAnswer== '4'"> E) </b>
             <b *ngIf="(correctAnswer.length > 5)"> {{correctAnswer}} </b>
 
           </h3>

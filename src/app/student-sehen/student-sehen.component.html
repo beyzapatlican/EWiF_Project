@@ -33,7 +33,7 @@
 
           <div class="col-md-3">
             <header>
-              <h1 style="font-size: 25px; color: darkcyan"> <strong> True Answer: </strong> </h1>
+              <h1 style="font-size: 25px; color: darkcyan"> <strong> Richtige Antwort: </strong> </h1>
             </header>
             <div *ngFor="let row of deger; let i = index">
               <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') == -1"> {{row}} </h1>
@@ -43,7 +43,7 @@
 
           <div class="col-md-3">
             <header>
-              <h1 style="font-size: 25px; color: darkcyan"> <strong> Your answer: </strong> </h1>
+              <h1 style="font-size: 25px; color: darkcyan"> <strong> Deine Antwort: </strong> </h1>
             </header>
             <div *ngFor="let row of deger; let i = index">
               <h1 style="font-size: 25px" *ngIf="row.indexOf('5142merve8579') == -1"> {{studentAnswers[i].answer}} </h1>
@@ -53,7 +53,7 @@
 
           <div class="col-md-3">
           <header>
-            <h1 style="font-size: 25px; color: darkcyan"> <strong> Check: </strong> </h1>
+            <h1 style="font-size: 25px; color: darkcyan"> <strong> Prüfen: </strong> </h1>
           </header>
           <div *ngFor="let row of deger; let i = index">
             <h1 style="font-size: 25px" *ngIf="deger[i] == studentAnswers[i].answer"> <strong> &#x2714;</strong> </h1>

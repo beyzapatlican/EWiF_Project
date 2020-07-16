@@ -63,6 +63,9 @@
         <div class="div" *ngIf="!selected">
         <button type="button" class="btn btn-primary btn-lg btn-block" id="btn2"
                 (click) = "onUpdate2()">Session</button>
+          <br>
+          <p style="font-size: 30px">Wenn Sie kein Feedback haben, wäre die Werte -1 erscheinen</p>
+          <p style="font-size: 30px">Teilen Sie ihre Pin für deine Session, um Feedback erhälten zu können</p>
         </div>
         <p *ngIf="selected">
           <app-average-feedback></app-average-feedback>
