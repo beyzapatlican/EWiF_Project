@@ -225,21 +225,22 @@ export class StudentSehenComponent implements OnInit, OnDestroy {
         continue;
       }
 
-      while (this.studentAnswers[i].questionNum !== i) {
+      if (this.studentAnswers[i].questionNum !== i) {
         this.studentAnswers.push({answer: '-', questionNum: i});
         this.questions.push({solution: '-', questionNum: i});
-        i++;
       }
+
+      this.studentAnswers.sort((a, b) => {
+        if (a.questionNum < b.questionNum) {
+          return -1;
+        } else if (a.questionNum === b.questionNum) {
+          return 0;
+        } else {
+          return 1;
+        }
+      });
     }
-    this.studentAnswers.sort((a, b) => {
-      if (a.questionNum < b.questionNum) {
-        return -1;
-      } else if (a.questionNum === b.questionNum) {
-        return 0;
-      } else {
-        return 1;
-      }
-    });
+
     console.log(this.studentAnswers);
   }
 
