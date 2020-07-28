@@ -20,10 +20,11 @@ export class ResetPasswordComponent implements OnInit {
 
 
   // tslint:disable-next-line:max-line-length
-  resetPass(newpass: HTMLInputElement) {
+  resetPass(code: HTMLInputElement, newpass: HTMLInputElement) {
 
     const passObj = {
-      newpass: newpass.value,
+      forgotPasswordToken: code.value,
+      newPassword: newpass.value
     };
 
     this.resetPasswordService.resetPass(passObj)

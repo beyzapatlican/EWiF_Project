@@ -115,7 +115,6 @@ const routes: Routes = [
   {
     path: 'resetPassword',
     component: ResetPasswordComponent,
-    canActivate: [TokenGuard]
   },
   {
     path: 'openSessionUserCount',
